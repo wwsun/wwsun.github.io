@@ -60,3 +60,5 @@ typings/
 # custom
 .idea/
 db.json
+.deploy_git/
+public/
