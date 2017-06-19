@@ -3,14 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>景庄</title>
+  <title>深入解读 JavaScript 中的面向对象编程 | 景庄</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="景庄">
-<meta property="og:url" content="http://wwsun.github.com/index.html">
+  <meta name="description" content="面向对象编程是用抽象方式创建基于现实世界模型的一种编程模式，主要包括模块化、多态、和封装几种技术。对 JavaScript 而言，其核心是支持面向对象的，同时它也提供了强大灵活的基于原型的面向对象编程能力。本文将会深入的探讨有关使用 JavaScript 进行面向对象编程的一些核心基础知识，包括对象的创建，继承机制，最后还会简要的介绍如何借助 ES6 提供的新的类机制重写传统的JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入解读 JavaScript 中的面向对象编程">
+<meta property="og:url" content="http://wwsun.github.com/2017/06/19/javascript-oop/index.html">
 <meta property="og:site_name" content="景庄">
+<meta property="og:description" content="面向对象编程是用抽象方式创建基于现实世界模型的一种编程模式，主要包括模块化、多态、和封装几种技术。对 JavaScript 而言，其核心是支持面向对象的，同时它也提供了强大灵活的基于原型的面向对象编程能力。本文将会深入的探讨有关使用 JavaScript 进行面向对象编程的一些核心基础知识，包括对象的创建，继承机制，最后还会简要的介绍如何借助 ES6 提供的新的类机制重写传统的JavaScript">
+<meta property="og:image" content="http://7xpv9g.com1.z0.glb.clouddn.com/imgprototype-graph-1.jpg">
+<meta property="og:image" content="http://7xpv9g.com1.z0.glb.clouddn.com/imgprototype-chain-inheritance.jpg">
+<meta property="og:updated_time" content="2017-06-19T11:32:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="景庄">
+<meta name="twitter:title" content="深入解读 JavaScript 中的面向对象编程">
+<meta name="twitter:description" content="面向对象编程是用抽象方式创建基于现实世界模型的一种编程模式，主要包括模块化、多态、和封装几种技术。对 JavaScript 而言，其核心是支持面向对象的，同时它也提供了强大灵活的基于原型的面向对象编程能力。本文将会深入的探讨有关使用 JavaScript 进行面向对象编程的一些核心基础知识，包括对象的创建，继承机制，最后还会简要的介绍如何借助 ES6 提供的新的类机制重写传统的JavaScript">
+<meta name="twitter:image" content="http://7xpv9g.com1.z0.glb.clouddn.com/imgprototype-graph-1.jpg">
   
     <link rel="alternate" href="/atom.xml" title="景庄" type="application/atom+xml">
   
@@ -61,9 +68,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-javascript-oop" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-javascript-oop" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/06/19/javascript-oop/" class="article-date">
   <time datetime="2017-06-19T11:28:33.000Z" itemprop="datePublished">2017-06-19</time>
@@ -76,8 +81,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/19/javascript-oop/">深入解读 JavaScript 中的面向对象编程</a>
+    <h1 class="article-title" itemprop="name">
+      深入解读 JavaScript 中的面向对象编程
     </h1>
   
 
@@ -229,79 +234,19 @@ Object.getPrototypeOf(person1) === Person.prototype; // true
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-node-stream" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/06/18/node-stream/" class="article-date">
-  <time datetime="2017-06-18T07:59:48.000Z" itemprop="datePublished">2017-06-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/18/node-stream/">Node.js Stream</a>
-    </h1>
+    <a href="/2017/06/18/node-stream/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Node.js Stream</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>流是Node.js中一个非常重要的概念，也是Node.js之所以<a href="http://www.infoq.com/cn/articles/nodejs-weakness-cpu-intensive-tasks" target="_blank" rel="external">适用于I/O密集型</a>场景的重要原因之一。<br>流是Node.js移动数据的方式，流可以是可读的和／或可写的。在Node.js中很多模块都使用到了流，包括HTTP和fs模块，本文将用尽可能简单的方式为你介绍Node中流的概念。</p>
-<h2 id="流-Stream"><a href="#流-Stream" class="headerlink" title="流 Stream"></a>流 Stream</h2><blockquote>
-<p>事实上，流通常用于将程序连接在一起。流可以被读和写。被流连接在一起的程序通常很小，并且只专注于做一件事。</p>
-</blockquote>
-<p>你可能经常在项目中使用Gulp来做项目的代码构建，那么在使用过程中，你很可能碰到过类似下面的错误。<br>错误大概是这样个的：</p>
-<pre><code>stream.js:94
-    throw er; // Unhandled stream error in pipe.
-</code></pre><p>当初次碰到这种错误的时候，你可能和我一样对流的概念毫无头绪，好在我们可以借助Google来寻找答案。<br>一个最佳的开始是用Google搜索“node stream”之类的关键字，<br>从而我们可以获得<a href="https://github.com/substack/stream-adventure" target="_blank" rel="external">stream-adventure</a>这类的课程学习。</p>
-<p>在Node.js的文档中，流（Stream）的官方定义如下：</p>
-<blockquote>
-<p>流是一个抽象接口，在Node.js中它借助于多种对象实现。例如，一个对HTTP服务器的请求是一个流，可以是stdout。流是可读的，可写的，或两者兼备。所有的流都是<code>EventEmitter</code>的实例。</p>
-</blockquote>
-<p>也就是说，Node.js中的很多模块都是用到了流，例如<code>http</code>和<code>fs</code>模块。例如在文件系统模块（<code>fs</code>）中，<br>我们可以通过流来读写文件数据的实例。由于数据是流，这就意味着在完成文件读取之前，<br>从收到最初几个字节开始，就可以对数据动作。这是Node.js中的一个常见模式：</p>
-<h2 id="可读流"><a href="#可读流" class="headerlink" title="可读流"></a>可读流</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">const</span> stream = fs.ReadStream(<span class="string">'name.txt'</span>);</div><div class="line">stream.setEncoding(<span class="string">'utf-8'</span>);</div><div class="line">stream.on(<span class="string">'data'</span>, chunk =&gt; &#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'read some data'</span>);</div><div class="line">&#125;);</div><div class="line">stream.on(<span class="string">'close'</span>, () =&gt; &#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'all the data is read'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>在上面的例子中，我们创建了一个可读流，并在流读取文件的过程中监听事件，在收到新数据时触发事件数据。<br>当文件读取完成后触发关闭事件。</p>
-<p>此外，在流中，我们要负责按自己想要的方式使用数据，所以我们必须在数据事件接收到数据的时候处理它。<br>如果想要读区所有数据，就必须将其拼接到一个变量中：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> data = <span class="string">''</span>;</div><div class="line"></div><div class="line">stream.on(<span class="string">'data'</span>, chunk =&gt; &#123;</div><div class="line">	data += chunk;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'read some data'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>如果读取的文件很大，这就会触发多个data事件，这就需要开发者可以在以接收到数据的时候就做一些事情，<br>而不是等到整个文件都读取完成。</p>
-<h2 id="可写流"><a href="#可写流" class="headerlink" title="可写流"></a>可写流</h2><p>显然，我们也可以创建可写流以便写数据。这意味着，只要一段简单的脚本，就可以使用流读入文件然后写入另一文件：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">let</span> readStream = fs.ReadStream(<span class="string">'name.txt'</span>);</div><div class="line"><span class="keyword">let</span> writeStream = fs.WriteStream(<span class="string">'out.txt'</span>);</div><div class="line">readStream.setEncoding(<span class="string">'utf-8'</span>);</div><div class="line">readStream.on(<span class="string">'data'</span>, chunk =&gt; &#123;</div><div class="line">	writeStream.write(chunk);</div><div class="line">&#125;);</div><div class="line">readStream.on(<span class="string">'close'</span>, () =&gt; &#123;</div><div class="line">	writeStream.end();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>在上面的例子中，当接收到data事件的时候，我们便将数据写入到可写流writeStream中，这非常的高效，<br>因为只要从可读文件接收到数据事件，数据就会被写入文件。尤其是对大文件而言，不会被阻塞。因此，<br>对于网络和文件系统中移动数据而言，流的方式非常的高效。</p>
-<h3 id="通过管道连接流"><a href="#通过管道连接流" class="headerlink" title="通过管道连接流"></a>通过管道连接流</h3><p>本质上，流允许你讲其他对象或程序连接在一起。你将某些输入，然后让它经过流，<br>将它传递到另一个程序中。我比较喜欢拿水管来做类比。将一组小型的管道（程序）连接在一起，<br>用于完成一些特定的任务。</p>
-<p>管道（pipe）的概念很早就存在于Unix系统中，你可以通过这篇文章了解更多：<a href="https://en.wikipedia.org/wiki/Pipeline_(Unix" target="_blank" rel="external">Unix Pipelines</a>)</p>
-<p>由于在输入和输出之间通过管道传输数据在Node.js中很常见，所以它也提供了连接两个可读和可写流并在它们之间通过管道传输数据的方法。<br>例如：<code>readStream.pipe(writeStream)</code>。</p>
-<p><code>pipe()</code>方法会仔细处理事件，在需要的时候会暂停流并恢复流操作，所以除非需要对事件的发生有完全的控制权，<br>否则应该使用<code>pipe()</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 指定读取流，指向目标文件，编码格式为utf-8</span></div><div class="line"><span class="keyword">const</span> file = fs.createReadStream(<span class="string">'hello.txt'</span>, &#123;<span class="attr">encoding</span>: <span class="string">'utf-8'</span>&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 流是EventEmitter的实例，我们可以为其添加事件</span></div><div class="line"><span class="comment">// 当打开文件时触发open事件</span></div><div class="line">file.on(<span class="string">'open'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">	<span class="comment">// 使用管道，将文件内容输出到屏幕上</span></div><div class="line">	<span class="comment">// process对象也是一个EventEmitter实例</span></div><div class="line">	<span class="keyword">this</span>.pipe(process.stdout);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
-<li><a href="http://www.sitepoint.com/introduction-to-streams/" target="_blank" rel="external">Introduction to streams</a></li>
-<li><a href="https://www.youtube.com/watch?v=OeqnIuTMod4" target="_blank" rel="external">Hack Reactor’s Video About Node Streams</a></li>
-<li><a href="https://nodejs.org/api/stream.html" target="_blank" rel="external">Stream (Node.js)</a></li>
-<li><a href="https://nodejs.org/api/fs.html" target="_blank" rel="external">File System (Node.js)</a></li>
-<li><a href="http://maxogden.com/node-streams.html" target="_blank" rel="external">Node Streams Article by Max Ogden</a></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wwsun.github.com/2017/06/18/node-stream/" data-id="cj442bhu30001m472fwh1t7h8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
 
 </section>
       </div>
