@@ -79,13 +79,15 @@ source/
 
 ## 🎨 Theme
 
-Currently using Hexo's default Landscape theme, which supports:
+Currently using the **Cactus** theme, optimized for Chinese content, which supports:
 
 - Responsive design
-- Code highlighting
+- Chinese font optimization
+- Code highlighting with Chinese comments support
 - Social media links
-- Comment system
+- RSS feed
 - Search functionality
+- Optimized typography for Chinese text
 
 ## 🛠️ Tech Stack
 
