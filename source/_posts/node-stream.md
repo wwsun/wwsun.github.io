@@ -1,5 +1,6 @@
 ---
 title: Node.js Stream
+date: 2017-06-18
 ---
 
 流是Node.js中一个非常重要的概念，也是Node.js之所以[适用于I/O密集型](http://www.infoq.com/cn/articles/nodejs-weakness-cpu-intensive-tasks)场景的重要原因之一。
