@@ -62,3 +62,16 @@ typings/
 db.json
 .deploy_git/
 public/
+
+# Hexo
+.deploy*/
+.deploy_git*/
+public/
+db.json
+.hexo/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
