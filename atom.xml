@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>景庄</title>
+  <icon>https://wwsun.github.io/icon.png</icon>
+  
+  <link href="https://wwsun.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://wwsun.github.io/"/>
+  <updated>2025-05-30T15:10:17.991Z</updated>
+  <id>https://wwsun.github.io/</id>
+  
+  <author>
+    <name>wwsun</name>
+    <email>ww.sun@outlook.com</email>
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深入解读 JavaScript 中的面向对象编程</title>
+    <link href="https://wwsun.github.io/2017/06/19/javascript-oop/"/>
+    <id>https://wwsun.github.io/2017/06/19/javascript-oop/</id>
+    <published>2017-06-18T16:00:00.000Z</published>
+    <updated>2025-05-30T15:10:17.991Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;面向对象编程是用抽象方式创建基于现实世界模型的一种编程模式，主要包括模块化、多态、和封装几种技术。&lt;br&gt;对 JavaScript 而言，其核心是支持面向对象的，同时它也提供了强大灵活的基于原型的面向对象编程能力。&lt;br&gt;本文将会深入的探讨有关使用 JavaScript</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Node.js Stream</title>
+    <link href="https://wwsun.github.io/2017/06/18/node-stream/"/>
+    <id>https://wwsun.github.io/2017/06/18/node-stream/</id>
+    <published>2017-06-17T16:00:00.000Z</published>
+    <updated>2025-05-30T15:10:58.805Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;流是Node.js中一个非常重要的概念，也是Node.js之所以&lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
