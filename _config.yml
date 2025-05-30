@@ -5,7 +5,10 @@
 # Site
 title: 景庄
 subtitle:
-description:
+description: |
+  你好 👋 我是 **景庄（Weiwei SUN）**，目前主要从事低代码平台、AI Code 工具、后端服务编排等工作。此前在阿里巴巴负责中后台设计系统、设计工程化、前端工程化等领域。
+  
+  欢迎来到我的个人博客！
 author: wwsun
 email: ww.sun@outlook.com
 language: zh-CN

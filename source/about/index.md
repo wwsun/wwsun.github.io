@@ -5,7 +5,7 @@ date: 2025-05-30 16:12:23
 
 # 关于我
 
-你好 👋 我是 **景庄（Weiwei SUN）**，目前主要工作的领域是低代码([Tango](https://github.com/NetEase/tango)，包括中后台低码，RN跨端低码)、AI Code 工具，后端服务编排([TangoFlow](https://juejin.cn/post/7325337414444433448))，此前相关的工作领域还包括中后台设计系统（[Alibaba FusionDesign](https://github.com/alibaba-fusion), [REX Design](https://github.com/alibaba/rex-design)），设计工程化([Alibaba FusionCool](https://github.com/alibaba-fusion/cool))，前端工程化等。
+你好 👋 我是 **景庄**，目前主要工作的领域是低代码([Tango](https://github.com/NetEase/tango)，包括中后台低码，RN跨端低码)、AI Code 工具，后端服务编排([TangoFlow](https://juejin.cn/post/7325337414444433448))，此前相关的工作领域还包括中后台设计系统（[Alibaba FusionDesign](https://github.com/alibaba-fusion), [REX Design](https://github.com/alibaba/rex-design)），设计工程化([Alibaba FusionCool](https://github.com/alibaba-fusion/cool))，前端工程化等。
 
 ## 📘 最近的分享
 
