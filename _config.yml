@@ -6,13 +6,22 @@
 title: 景庄
 subtitle:
 description: |
-  你好 👋 我是 **景庄（Weiwei SUN）**，目前主要从事低代码平台、AI Code 工具、后端服务编排等工作。此前在阿里巴巴负责中后台设计系统、设计工程化、前端工程化等领域。
-  
-  欢迎来到我的个人博客！
+  你好 👋 我是 **景庄**，主要从事的领域包括 AI Code + 大前端工程化、低代码引擎与平台、前端工程化 + 大前端DevOps平台、企业级中后台设计系统、前端动态表单等。
 author: wwsun
 email: ww.sun@outlook.com
 language: zh-CN
 timezone: Asia/Shanghai
+social_links:
+  -
+    icon: github
+    link: https://github.com/wwsun
+  -
+    icon: x
+    link: https://x.com/welles_sun
+  -
+    icon: wechat
+    label: "微信"
+    link: welles_sun
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -96,7 +105,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: cactus-cn
+theme: cactus
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
