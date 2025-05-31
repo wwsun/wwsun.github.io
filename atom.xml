@@ -6,7 +6,7 @@
   <link href="https://wwsun.github.io/atom.xml" rel="self"/>
   
   <link href="https://wwsun.github.io/"/>
-  <updated>2025-05-30T15:10:17.991Z</updated>
+  <updated>2025-05-31T04:40:44.041Z</updated>
   <id>https://wwsun.github.io/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>编程模型选择最佳实践</title>
+    <link href="https://wwsun.github.io/2025/04/21/ai-code-model/"/>
+    <id>https://wwsun.github.io/2025/04/21/ai-code-model/</id>
+    <published>2025-04-20T16:00:00.000Z</published>
+    <updated>2025-05-31T04:40:44.041Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;目前，开发者利用大模型和 AI 辅助编程工具来加速编码过程的选择越来越多。随着大模型技术的快速发展，模型的更新和发布速度也在不断加快，例如今年发布的 Claude Sonnet 3.7 和</summary>
+        
+      
+    
+    
+    
+    
+    <category term="AI Code" scheme="https://wwsun.github.io/tags/AI-Code/"/>
+    
+  </entry>
+  
+  <entry>
     <title>深入解读 JavaScript 中的面向对象编程</title>
     <link href="https://wwsun.github.io/2017/06/19/javascript-oop/"/>
     <id>https://wwsun.github.io/2017/06/19/javascript-oop/</id>
     <published>2017-06-18T16:00:00.000Z</published>
-    <updated>2025-05-30T15:10:17.991Z</updated>
+    <updated>2025-05-31T03:23:14.900Z</updated>
     
     
       
@@ -42,7 +65,7 @@
     <link href="https://wwsun.github.io/2017/06/18/node-stream/"/>
     <id>https://wwsun.github.io/2017/06/18/node-stream/</id>
     <published>2017-06-17T16:00:00.000Z</published>
-    <updated>2025-05-30T15:10:58.805Z</updated>
+    <updated>2025-05-31T03:23:14.901Z</updated>
     
     
       
