@@ -1,5 +1,5 @@
 ---
-title: "2025 年 macOS Web 开发环境配置指南"
+title: "macOS Web 开发环境配置指南"
 date: 2026-02-02 00:00:00
 tags:
   - macos
@@ -7,11 +7,11 @@ tags:
   - setup
   - tools
 draft: false
-description: "2025 年 macOS Web 开发环境配置综合指南，涵盖 Homebrew, Node.js, Zsh 及核心开发工具。"
+description: "2026 年 macOS Web 开发环境配置综合指南，涵盖 Homebrew, Node.js, Zsh 及核心开发工具。"
 url: https://www.robinwieruch.de/mac-setup-web-development/
 ---
 
-# macOS for web dev
+## macOS for web dev
 
 如何快速初始化 macos 开发环境
 
@@ -27,7 +27,7 @@ url: https://www.robinwieruch.de/mac-setup-web-development/
 
 [mov to mp4](https://www.notion.so/mov-to-mp4-231b6615b1a28006ad12d11e1eab3540?pvs=21)
 
-# 系统设置
+## 系统设置
 
 ```python
 # take screenshots as jpg (usually smaller size) and not png
@@ -66,26 +66,26 @@ sudo pmset -a powernap 0
 
 这样会让 Mac 用较浅的睡眠模式，避免深度睡眠 bug。
 
-# 必备软件
+## 必备软件
 
 - chrome
 - xcode
 - homebrew
-- nodejs == 使用 nvm 安装
+- nodejs == 使用 fnm 安装管理
 - vscode
 - iterm2
 - [Pearcleaner](https://github.com/alienator88/Pearcleaner) 快捷卸载 App 必备
 - Obsidian -- 免费的个人知识库工具
 - charles
-- ❌~~postman~~ — 不推荐了，收费了
-- [https://github.com/usebruno/bruno](https://github.com/usebruno/bruno) — 作为 postman 的替代品
+- [Bruno](https://github.com/usebruno/bruno) — 开源、轻量级的 API Client，替代 Postman
 - paw 收费 [https://paw.cloud/](https://paw.cloud/)
-- ~~sketch 收费 —~~ 使用 Figma 代替
+- Figma -- 替代 Sketch
 - switchhost [https://github.com/oldj/SwitchHosts](https://github.com/oldj/SwitchHosts)
 - ImageOptim [https://imageoptim.com/mac](https://imageoptim.com/mac)
 - MongoDB GUI: MongoDB Compass
 - [Azure Data Studio](https://learn.microsoft.com/en-us/azure-data-studio/download-azure-data-studio) -- 免费的 MySQL GUI
 - [Maccy](https://maccy.app/) 剪贴板工具
+- [OrbStack](https://orbstack.dev/) -- 轻量级 Docker/Linux 环境（推荐）
 - OpenVPN Connect
 - TunnelBlick
 - ClashPro -- 爬墙必备
@@ -96,7 +96,7 @@ sudo pmset -a powernap 0
 - GIPHY CAPTURE -- 免费的 gif 截屏工具
 - Telegram
 
-# 环境搭建
+## 环境搭建
 
 ### 安装 xcode
 
@@ -229,15 +229,14 @@ brew update
 install terminal applications
 
 ```bash
-brew install \\\\
-  wget \\\\
-  exa \\\\
-  git \\\\
-  nvm \\\\
-  pnpm \\\\
-  graphicsmagick \\\\
-  commitzen \\\\
-  cmatrix \\\\
+  wget \\
+  eza \\
+  git \\
+  fnm \\
+  pnpm \\
+  graphicsmagick \\
+  commitzen \\
+  cmatrix \\
   vips
 
 ```
@@ -268,13 +267,12 @@ brew services stop mysql
 
 ### 安装 python
 
-- 安装 python3: `brew install pyhton`
-- 安装 python2: [https://www.python.org/downloads/release/python-2718/](https://www.python.org/downloads/release/python-2718/)
+- 安装 python3: `brew install python`
 
 npm 指定 python 版本
 
 ```bash
-npm config set python $(which python2)
+npm config set python $(which python3)
 
 ```
 
@@ -353,11 +351,13 @@ brew install --cask iterm2
 
 [https://docs.warp.dev/getting-started/getting-started-with-warp](https://docs.warp.dev/getting-started/getting-started-with-warp)
 
-### [可选]安装 fnm
+### 安装 fnm (Node.js 管理工具)
+
+推荐使用 fnm 代替 nvm，性能更好，跨平台支持更佳。
 
 ```bash
 # install fnm
-brew intall fnm
+brew install fnm
 
 # 切换到指定版本（当前 shell）
 fnm use 20
@@ -373,84 +373,16 @@ fnm default 20
 fnm use system
 ```
 
+配置 Shell (如果是 Zsh)：
+
+```bash
+# 在 .zshrc 中添加
+eval "$(fnm env --use-on-cd)"
+```
+
 ### [可选]安装 nvm
 
-安装 nvm
-
-[https://formulae.brew.sh/formula/nvm#default](https://formulae.brew.sh/formula/nvm#default)
-
-<aside>
-💡
-
-活使用 fnm 代替 nvm，性能会好很多
-
-</aside>
-
-**推荐直接使用 zsh-nvm**
-
-[https://github.com/lukechilds/zsh-nvm](https://github.com/lukechilds/zsh-nvm)
-
-在 .zshrc 插件列表中加入 zsh-nvm 即可
-
-```bash
-# nvm setting
-export NVM_DIR="$HOME/.nvm"
-export NVM_LAZY_LOAD=true
-
-# Which plugins would you like to load?
-plugins=(git node docker zsh-autosuggestions zsh-syntax-highlighting zsh-nvm)
-```
-
-**或者你可以手动安装**
-
-[https://github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm)
-
-```bash
-# install nvm
-brew install nvm
-
-```
-
-此时 nvm 命令可能没生效，可以使用下面的命令查看 nvm 的说明
-
-```bash
-brew info nvm
-```
-
-通常返回下面的内容，按照指令说明做即可
-
-```
-You should create NVM's working directory if it doesn't exist:
-  mkdir ~/.nvm
-
-Add the following to your shell profile e.g. ~/.profile or ~/.zshrc:
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \\\\. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \\\\. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-You can set $NVM_DIR to any location, but leaving it unchanged from
-/usr/local/Cellar/nvm/0.39.7 will destroy any nvm-installed Node installations
-upon upgrade/reinstall.
-
-```
-
-然后重启 terminal 即可。
-
-一些配置参考 [https://tecadmin.net/install-nvm-macos-with-homebrew/](https://tecadmin.net/install-nvm-macos-with-homebrew/)
-
-```bash
-# 安装 lts 版本 node
-nvm install --lts
-
-# install node18
-nvm install 18
-
-# install node16
-nvm install 16
-
-```
-
-也直接安装 [https://nodejs.org/en/](https://nodejs.org/en/)
+如果你习惯使用 nvm，也可以继续使用。
 
 ### 安装 yarn
 
@@ -634,24 +566,23 @@ if (cwd.indexOf("github.com") > -1) {
 
 ## Docker
 
-因为版权问题 macos 上可以用 colima 代替官方的 docker desktop（商用需要授权）
+### [推荐] OrbStack
 
-也可以参考 [[Docker]] 一文
+[OrbStack](https://orbstack.dev/) 是 macOS 上快速、轻量且简单的 Docker Desktop 替代品。
 
-[Docker Desktop: The #1 Containerization Tool for Developers | Docker](https://www.docker.com/products/docker-desktop/)
+```bash
+brew install orbstack
+```
 
-[https://github.com/abiosoft/colima](https://github.com/abiosoft/colima)
+### Colima
 
-如果是个人学习使用，直接使用 docker desktop 即可。
-
-Colima - container runtimes on macOS (and Linux) with minimal setup
+也是一个很好的开源替代方案。
 
 ```bash
 brew install colima
-
 ```
 
-使用
+使用:
 
 ```bash
 # start
@@ -669,20 +600,24 @@ brew services start colima
 
 ```
 
-安装 docker
+安装 docker client:
 
 ```bash
 brew install docker
-
 ```
 
 [Use Colima to Run Docker Containers on macOS - Small Sharp Software Tools](https://smallsharpsoftwaretools.com/tutorials/use-colima-to-run-docker-containers-on-macos/)
 
-# 编程字体 Jetbrain Mono
+### Docker Desktop
+
+如果是个人学习使用，直接使用 Docker Desktop 也可以，但它是重型应用。
+[Docker Desktop: The #1 Containerization Tool for Developers | Docker](https://www.docker.com/products/docker-desktop/)
+
+## 编程字体 Jetbrain Mono
 
 [JetBrains Mono: A free and open source typeface for developers](https://www.jetbrains.com/lp/mono/)
 
-# Hosts 配置
+## Hosts 配置
 
 可以使用 SwitchHosts 配置 [https://github.com/oldj/SwitchHosts](https://github.com/oldj/SwitchHosts)
 
@@ -691,8 +626,32 @@ brew install docker
 
 ```
 
-# Chrome 插件
+## Chrome 插件
 
-- 去广告：uBlock origin [https://github.com/fang5566/uBlock/wiki](https://github.com/fang5566/uBlock/wiki)
-- 截屏：Awesome Screenshot
-- React Developer tools
+以下是经过验证的、开发人员常备的高效 Chrome 插件推荐：
+
+### 开发调试
+
+- **[React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)**: React 开发调试必备，官方出品。
+- **[Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)**: Redux 状态管理可视化调试工具。
+- **[Wappalyzer](https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg)**: 技术栈嗅探神器，一键查看当前网站使用的框架、库、服务器等技术信息。
+- **[FeHelper (前端助手)](https://chrome.google.com/webstore/detail/fehelper%E5%89%8D%E7%AB%AF%E5%8A%A9%E6%89%8B/pkgccpejnmalmdinmhkkfafefagiiiad)**: 功能强大的前端工具箱，包含 JSON 格式化、代码压缩、二维码生成、正则测试等 20+ 实用功能。
+- **[Network Sniffer](https://chrome.google.com/webstore/detail/network-sniffer/coblekblkacfilmgdghecpekhadldjfj)**: 抓包工具，有时候比 DevTools 更直观。
+
+### 效率工具
+
+- **[uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm)**: 高效、低内存占用的广告拦截器。
+- **[Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgglfemhongngoojbaMjjeolgmg)**: 轻松管理和切换代理设置，开发环境与网络调试必备。
+- **[Octotree](https://chrome.google.com/webstore/detail/octotree-github-code-tree/bkhaagjahzinnekelkfhfhdtsophbgolc)**: 在 GitHub 左侧显示代码树，像 IDE 一样浏览项目代码。
+- **[Awesome Screenshot](https://chrome.google.com/webstore/detail/awesome-screenshot-and-sc/nlipoenfbbikpbjkfpfillcgkoblgpmj)**: 网页截屏与录屏工具，支持滚动截屏。
+- **[Session Buddy](https://chrome.google.com/webstore/detail/session-buddy/edacconmaakjimmfgnblocblbcdcpbko)**: 会话管理器，一键保存所有打开的标签页，防止浏览器崩溃丢失工作区。
+
+### UI/UX 设计
+
+- **[ColorPick Eyedropper](https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg)**: 网页取色器，支持精确选取像素颜色。
+- **[WhatFont](https://chrome.google.com/webstore/detail/whatfont/jabopobgcpjmedljpbcaablpmlmfcogm)**: 鼠标悬停即可查看网页元素对于的字体属性。
+- **[VisBug](https://chrome.google.com/webstore/detail/visbug/cdjbcdkjlonfbmdjnpnddbhlciliceeo)**: 开源的网页设计调试工具，可以直接在页面上调整布局和样式，像 Sketch/Figma 一样操作网页。
+
+### AI 辅助
+
+- **[沉浸式翻译 (Immersive Translate)](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)**: 双语对照网页翻译，阅读英文技术文档的神器。
