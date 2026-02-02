@@ -18,6 +18,11 @@ AI Agent / Web Engineering / Low-code / Open Source
 - **设计工程化**: [Alibaba FusionCool](https://github.com/alibaba-fusion/cool)
 - **前端工程化**
 
+## Job Experience
+
+- **2021.8 - Now**: Web FrontEnd Expert @ NetEase (AI Agent, Low-code)
+- **2016.3 - 2021.8**: Frontend Engineer @ Alibaba (Design System, Design Engineering)
+
 ## Recent Shares
 
 - [2024, AI Code 在团队开发工作流中的融合思考](https://juejin.cn/post/7395040271493595136)

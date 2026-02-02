@@ -1,8 +1,6 @@
 ---
 description: "This article provides senior engineer Eyad's practical guide to using Claude Code, emphasizing planning, context management, prompt engineering, and systematic use of AI tools to improve software development efficiency."
 source: "https://www.bestblogs.dev/en/article/bb756d4b"
-author:
-  - "[[AI寒武纪]]"
 created: 2026-01-14
 tags:
   - "clippings"

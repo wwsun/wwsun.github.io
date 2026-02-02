@@ -1,7 +1,6 @@
 ---
 description: GPT-5.2 is our newest flagship model for enterprise and agentic workloads, designed to deliver higher accuracy, stronger instruction foll...
 source: https://cookbook.openai.com/examples/gpt-5/gpt-5-2_prompting_guide
-author:
 created: 2026-01-09
 tags:
   - clippings

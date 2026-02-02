@@ -1,8 +1,6 @@
 ---
 title: 浅谈LLM-based Agent(二)：你最想知道的工程那些事-网易KM
 source: https://km.netease.com/v4/detail/blog/243921
-author: 
-published: 
 created: 2025-07-11
 description: 
 tags:

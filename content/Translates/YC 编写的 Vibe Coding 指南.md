@@ -1,7 +1,6 @@
 ---
 title: YC 编写的 Vibe Coding 指南
 source: https://baoyu.io/blog/yc-vibe-coding-guide
-author:
 published: 2025-09-16
 created: 2025-10-17
 description: 与 AI 结对编程，就像是拥有了一位虽然才华横溢、但偶尔会“走神”的实习生。它能在一小时内帮你完成过去需要一周才能搞定的工作，但有时也会在你项目的核心代码里悄悄埋下一个“惊喜”。那么，如何才能驾驭好这位强大的编程伙伴呢？我们采访了多位利用 AI 编码的创始人，总结出了这套实用的“AI 协作编程指南”。

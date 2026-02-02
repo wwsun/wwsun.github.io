@@ -1,5 +1,5 @@
 ---
-title: Translate
+title: Translates
 ---
 
 这里存放我的翻译作品、双语阅读笔记以及对外文技术文档的理解。

@@ -1,7 +1,6 @@
 ---
 description: 大家都很喜欢 NotebookLM 生成的 Audio Overview，它最近生成的 Slide Deck（幻灯片）风格也很棒。但有一个大问题：生成的 Slides 是死图，文字不能改，内容不能动。
 source: https://baoyu.io/blog/most-valuable-prompts-for-high-quality-editable-ppts
-author:
 created: 2026-01-26
 tags:
   - clippings

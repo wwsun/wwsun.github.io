@@ -1,8 +1,6 @@
 ---
 title: AI驱动的测试用例和应用开发平台_申报详情_荣誉
 source: https://e.netease.com/honor/application/153637
-author:
-published:
 created: 2025-09-18
 description: 易网是网易内网信息门户，包含易方天地、易彩纷呈、易点建议、KM、OA、服务导航等多个服务，从政策制度、业务动态、公司文化、公司风采、管理建议、生活建议等多个方面给员工提供全方位的信息传播与交流平台。
 tags:

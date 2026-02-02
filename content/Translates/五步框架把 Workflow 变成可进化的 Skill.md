@@ -1,7 +1,6 @@
 ---
 description: 80 多个节点的 workflow，稳定性和可调整性真的不是 subagent 能比拟的吗？本文通过五步框架，展示如何用 Agent + Skills 架构实现复杂工作流，并正面回应稳定性、成本和门槛三大质疑。
 source: https://baoyu.io/blog/2026/01/10/agent-skills-replace-workflow
-author:
 created: 2026-01-14
 tags:
   - clippings

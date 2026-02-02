@@ -3,7 +3,6 @@ title: Devin 教你做 Agent：把 AI 当做需要指导的初级开发者
 source: https://mp.weixin.qq.com/s?__biz=Mzg5NTc0MjgwMw==&mid=2247517496&idx=2&sn=beb8be3509ee3045dc7563d5469cdaed
 author:
   - "[[Founder Park]]"
-published: 
 created: 2025-07-09
 description: Cognition 团队发布了一份编程智能体实践指南。
 tags:
