@@ -1,13 +1,16 @@
 ---
-title: mov to mp4 in macos
+title: "在 macOS 上使用 ffmpeg 将 MOV 转换为 MP4"
 date: 2026-02-02 18:30:15
 tags:
-  - mov
-  - mp4
+  - macos
+  - ffmpeg
+  - video
+  - conversion
 draft: false
-description: mov to mp4 in macos
+description: "使用 ffmpeg 命令行工具在 macOS 上将 MOV 视频文件转换为 MP4 格式的快速指南。"
 url: https://ffmpeg.org/documentation.html
 ---
+
 ## 安装 `ffmpeg`
 
 ```bash
@@ -66,10 +69,8 @@ ffmpeg -i input.mov -vcodec h264 -acodec aac output.mp4
 ## 扩展说明
 
 - **为什么要指定 `vcodec h264` 和 `acodec aac`？**
-    - MOV 文件内部可能用的是其它编码格式（比如 ProRes、PCM 等），而 MP4 最广泛支持的就是 H.264 + AAC 组合，兼容性最好。
+  - MOV 文件内部可能用的是其它编码格式（比如 ProRes、PCM 等），而 MP4 最广泛支持的就是 H.264 + AAC 组合，兼容性最好。
 - **如果你的 MOV 已经是 H.264/AAC 了，也可以用 `c copy` 直接封装，不重新编码，更快更无损：** 但如果编码格式不兼容 MP4，还是需要重新编码。
-    
-    ```
-    ffmpeg -i input.mov -c copy output.mp4
-    ```
-    
+  ```
+  ffmpeg -i input.mov -c copy output.mp4
+  ```

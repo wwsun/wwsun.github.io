@@ -1,11 +1,19 @@
 ---
-created: 2025-12-15 15:51
-url:
+title: "Vibe Engineering"
+date: 2025-12-15 15:51:00
 tags:
+  - vibe-engineering
+  - ai
+  - software-engineering
+draft: false
+description: "探索 Vibe Engineering，以及大模型如何奖励优秀的软件工程实践（如测试、规划和文档）。"
+url:
 ---
+
 ## 包含哪些要素
 
 大语言模型会积极奖励现有顶级软件工程实践：
+
 - 自动化测试
 - 提前规划
 - 全面的文档
@@ -28,6 +36,6 @@ https://simonwillison.net/2025/Oct/7/vibe-engineering/
 - 判断力（discernment）
 - 清晰的沟通
 
-还有一个：  **产出让人类愿意读的东西**
+还有一个： **产出让人类愿意读的东西**
 
 ![[vibe-engineering-important-case.png]]

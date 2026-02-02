@@ -1,9 +1,15 @@
 ---
-created: 2025-12-10 20:33
-url: https://github.com/humanlayer/12-factor-agents
+title: "12 Factor Agents"
+date: 2025-12-10 20:33:00
 tags:
   - agent
+  - engineering
+  - best-practices
+draft: false
+description: "构建可靠、可扩展且易于维护的 LLM 驱动软件的核心工程技术，涵盖 Prompt 工程、上下文管理和控制流。"
+url: https://github.com/humanlayer/12-factor-agents
 ---
+
 Even if LLMs [continue to get exponentially more powerful](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md#what-if-llms-get-smarter), there will be core engineering techniques that make LLM-powered software more reliable, more scalable, and easier to maintain.
 
 - [How We Got Here: A Brief History of Software](https://github.com/humanlayer/12-factor-agents/blob/main/content/brief-history-of-software.md)
@@ -28,37 +34,38 @@ Even if LLMs [continue to get exponentially more powerful](https://github.com/hu
 function DetermineNextStep(thread: string) -> DoneForNow | ListGitTags | DeployBackend | DeployFrontend | RequestMoreInformation {
   prompt #"
     {{ _.role("system") }}
-    
+
     You are a helpful assistant that manages deployments for frontend and backend systems.
     You work diligently to ensure safe and successful deployments by following best practices
     and proper deployment procedures.
-    
+
     Before deploying any system, you should check:
     - The deployment environment (staging vs production)
     - The correct tag/version to deploy
     - The current system status
-    
+
     You can use tools like deploy_backend, deploy_frontend, and check_deployment_status
     to manage deployments. For sensitive deployments, use request_approval to get
     human verification.
-    
+
     Always think about what to do first, like:
     - Check current deployment status
     - Verify the deployment tag exists
     - Request approval if needed
     - Deploy to staging before production
     - Monitor deployment progress
-    
+
     {{ _.role("user") }}
 
     {{ thread }}
-    
+
     What should the next step be?
   "#
 }
 ```
 
 ## own your context window
+
 Creating great context means:
 
 - The prompt and instructions you give to the model
@@ -83,17 +90,17 @@ Here's an example of putting the whole context window into a single user message
     "role": "user",
     "content": |
             Here's everything that happened so far:
-        
+
         <slack_message>
             From: @alex
             Channel: #deployments
             Text: Can you deploy the backend?
         </slack_message>
-        
+
         <list_git_tags>
             intent: "list_git_tags"
         </list_git_tags>
-        
+
         <list_git_tags_result>
             tags:
               - name: "v1.2.3"
@@ -106,11 +113,10 @@ Here's an example of putting the whole context window into a single user message
                 commit: "ghi789"
                 date: "2024-03-13T09:15:00Z"
         </list_git_tags_result>
-        
+
         what's the next step?
     }
 ]
 ```
 
 ## tools are just structured outputs
-

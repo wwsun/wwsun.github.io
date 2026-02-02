@@ -1,12 +1,16 @@
 ---
-title: macOS for web dev
-date: 2026-02-02
+title: "2025 年 macOS Web 开发环境配置指南"
+date: 2026-02-02 00:00:00
 tags:
   - macos
-draft: true
-description: macOS for web dev
+  - web-development
+  - setup
+  - tools
+draft: false
+description: "2025 年 macOS Web 开发环境配置综合指南，涵盖 Homebrew, Node.js, Zsh 及核心开发工具。"
 url: https://www.robinwieruch.de/mac-setup-web-development/
 ---
+
 # macOS for web dev
 
 如何快速初始化 macos 开发环境
@@ -152,20 +156,19 @@ config 文件编写示例，没有的话，自己 touch 一个 `touch ~/.ssh/con
 
 ```yaml
 Host *
-  AddKeysToAgent yes
-  UseKeychain yes
+AddKeysToAgent yes
+UseKeychain yes
 
 Host github
-  HostName github.com
-  IdentityFile ~/.ssh/id_ed25519
+HostName github.com
+IdentityFile ~/.ssh/id_ed25519
 
 Host netease
-  HostName g.hz.netease.com
-  Port 22222
-  User YOUR_USERNAME
-  PreferredAuthentications publickey
-  IdentityFile ~/.ssh/netease
-
+HostName g.hz.netease.com
+Port 22222
+User YOUR_USERNAME
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/netease
 ```
 
 将ssh私钥存储到ssh-agent中
@@ -285,7 +288,7 @@ npm config set python $(which python2)
 omz update
 ```
 
-Important: If you change something in your Zsh configuration (*.zshrc*), force a reload:``
+Important: If you change something in your Zsh configuration (_.zshrc_), force a reload:``
 
 ```bash
 source ~/.zshrc
@@ -333,14 +336,14 @@ plugins=( [plugins…] zsh-syntax-highlighting)
 [https://iterm2.com/](https://iterm2.com/)
 
 - **Profiles/General/Working Directory/Reuse previous session's directory**
-- *Preferences/Advance/Mouse/**Scroll wheels sends arrow keys when in alternate screen mode -- yes
+- \*Preferences/Advance/Mouse/\*\*Scroll wheels sends arrow keys when in alternate screen mode -- yes
 
 ```bash
 brew install --cask iterm2
 
 ```
 
-- *色彩风格配置：**Profiles > Colors > Color Presets
+- \*色彩风格配置：\*\*Profiles > Colors > Color Presets
 
 [Iterm Themes - Color Schemes and Themes for Iterm2](https://iterm2colorschemes.com/)
 
@@ -547,10 +550,9 @@ config.json
 {
   "base": "/Users/wwsun/projj",
   "hooks": {
-       "postadd": "git_config_user"
-   }
+    "postadd": "git_config_user"
+  }
 }
-
 ```
 
 创建插件文件 `touch hooks/git_config_user`
@@ -560,24 +562,26 @@ config.json
 ```tsx
 #!/usr/bin/env node
 
-'use strict';
+"use strict"
 
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs")
+const path = require("path")
 
-const cwd = process.cwd();
-const gitConfig = path.join(cwd, '.git/config');
+const cwd = process.cwd()
+const gitConfig = path.join(cwd, ".git/config")
 
 if (!fs.existsSync(gitConfig)) {
-  return;
+  return
 }
 
-if (cwd.indexOf('github.com') > -1) {
-  fs.appendFileSync(gitConfig, '[user]\\\\n  name = Wells\\\\n  email = ww.sww@outlook.com\\\\n');
-} else if (cwd.indexOf('netease.com') > -1) {
-  fs.appendFileSync(gitConfig, '[user]\\\\n  name = sunweiwei\\\\n  email = sunweiwei01@corp.netease.com\\\\n');
+if (cwd.indexOf("github.com") > -1) {
+  fs.appendFileSync(gitConfig, "[user]\\\\n  name = Wells\\\\n  email = ww.sww@outlook.com\\\\n")
+} else if (cwd.indexOf("netease.com") > -1) {
+  fs.appendFileSync(
+    gitConfig,
+    "[user]\\\\n  name = sunweiwei\\\\n  email = sunweiwei01@corp.netease.com\\\\n",
+  )
 }
-
 ```
 
 执行 `projj add` 后可以通过 `git config -l` 测试
@@ -600,7 +604,6 @@ if (cwd.indexOf('github.com') > -1) {
     }
   }
 }
-
 ```
 
 [projj-hooks](https://github.com/popomore/projj-hooks) 是一个 hooks 集，全局安装后就可以直接使用了。

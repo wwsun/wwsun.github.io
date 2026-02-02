@@ -1,9 +1,16 @@
 ---
-created: 2025-12-26 09:50
-url: https://github.com/angular/angular/blob/main/CONTRIBUTING.md#type
+title: "Angular Commit Spec"
+date: 2025-12-26 09:50:00
 tags:
   - git
+  - angular
+  - commit-message
+  - convention
+draft: false
+description: "Angular 提交信息规范参考，定义了 feat、fix、docs、style 和 refactor 等类型。"
+url: https://github.com/angular/angular/blob/main/CONTRIBUTING.md#type
 ---
+
 规范支持的类型
 
 - feat: 新功能
@@ -16,11 +23,7 @@ tags:
 - build: 构建系统或外部依赖项的更改
 - ci: CI 配置更改
 
-  
-
 ==不推荐使用 chore==，因为 chore 的语义比较含糊。优先考虑使用 build，ci 等。
-
-  
 
 ==如果是发布新版本，可以使用 build== 
 

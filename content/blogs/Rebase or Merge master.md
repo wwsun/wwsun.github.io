@@ -1,11 +1,17 @@
 ---
-created: 2025-12-11 16:14
-url:
+title: "Git Rebase 与 Merge 详解"
+date: 2025-12-11 16:14:00
 tags:
+  - git
+  - version-control
+  - best-practices
+draft: false
+description: "Git Rebase 对比 Merge 的使用指南，强调‘公共历史神圣不可侵犯，私有历史由你主宰’的原则。"
+url:
 ---
 
->[!tip] 口诀
-"公共历史要保护（用 merge），私有历史可整理（用 rebase）。"
+> [!tip] 口诀
+> "公共历史要保护（用 merge），私有历史可整理（用 rebase）。"
 
 ## 何时使用？
 
@@ -24,6 +30,7 @@ tags:
 > ⚠️ **重要原则**：**不要对已经推送到共享仓库的分支执行 rebase**，除非你确定团队其他成员不会受影响。
 
 ---
+
 ## 总结口诀：
 
 > **“Public history is sacred, private history is yours.”**  

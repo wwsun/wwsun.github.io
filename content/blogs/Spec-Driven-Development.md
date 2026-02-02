@@ -1,9 +1,16 @@
 ---
-created: 2025-12-10 20:21
-url:
+title: "Spec-Driven Development"
+date: 2025-12-10 20:21:00
 tags:
   - AI-Code
+  - SDD
+  - methodology
+  - workflow
+draft: false
+description: "规范驱动开发 (SDD) 的最佳实践，定义输入/输出规范和 AI 辅助工作流。"
+url:
 ---
+
 ## 参考
 
 [[我是如何让我的团队转向规范驱动开发]]
@@ -11,14 +18,14 @@ tags:
 ## 最佳实践
 
 - - 输入规范：产品简介、技术简介、用户故事、任务需求。
-	- `prd.md` 功能目标、用户流程、基本需求
-	- `tech_brief.md` 高层架构、约束条件、技术栈、定义
-	- `requirements.md` 需求内容，验收标准，依赖关系
-	- `instructions.md` 任务说明
+  - `prd.md` 功能目标、用户流程、基本需求
+  - `tech_brief.md` 高层架构、约束条件、技术栈、定义
+  - `requirements.md` 需求内容，验收标准，依赖关系
+  - `instructions.md` 任务说明
 - - 工作流程：调研 → 规划 → 编码 → 评审 → 修订。
-	- 让 AI 生成
-		- `research.md` 对代码库、现有模式、坑点的了解
-		- `code.md` 具体的变更计划
-		- `review.md` 反馈、改进
-		- `findings.md` 反思、注意事项、下一步行动
+  - 让 AI 生成
+    - `research.md` 对代码库、现有模式、坑点的了解
+    - `code.md` 具体的变更计划
+    - `review.md` 反馈、改进
+    - `findings.md` 反思、注意事项、下一步行动
 - - 输出规范：调研日志、编码计划、代码备注、评审结果、发现内容。

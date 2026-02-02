@@ -1,27 +1,33 @@
 ---
-created: 2025-12-11 16:21
-url: https://help.obsidian.md/obsidian-flavored-markdown
+title: "Obsidian Markdown 语法"
+date: 2025-12-11 16:21:00
 tags:
   - markdown
   - obsidian
+  - syntax
+  - guide
+draft: false
+description: "Obsidian Markdown 语法综合指南，包括链接、嵌入、Callouts、表格和脚注。"
+url: https://help.obsidian.md/obsidian-flavored-markdown
 ---
+
 ## Basic Format
 
-|Syntax|Description|
-|---|---|
-|`[[Link]]`|[Internal links](https://help.obsidian.md/links)|
-|`![[Link]]`|[Embed files](https://help.obsidian.md/embeds)|
-|`![[Link#^id]]`|[Block references](https://help.obsidian.md/links#Link%20to%20a%20block%20in%20a%20note)|
-|`^id`|[Defining a block](https://help.obsidian.md/links#Link%20to%20a%20block%20in%20a%20note)|
-|`[^id]`|[Footnotes](https://help.obsidian.md/syntax#Footnotes)|
-|`%%Text%%`|[Comments](https://help.obsidian.md/syntax#Comments)|
-|`~~Text~~`|[Strikethroughs](https://help.obsidian.md/syntax#Bold,%20italics,%20highlights)|
-|`==Text==`|[Highlights](https://help.obsidian.md/syntax#Bold,%20italics,%20highlights)|
-|` ``` `|[Code blocks](https://help.obsidian.md/syntax#Code%20blocks)|
-|`- [ ]`|[Incomplete task](https://help.obsidian.md/syntax#Task%20lists)|
-|`- [x]`|[Completed task](https://help.obsidian.md/syntax#Task%20lists)|
-|`> [!note]`|[Callouts](https://help.obsidian.md/callouts)|
-|(see link)|[Tables](https://help.obsidian.md/advanced-syntax#Tables)|
+| Syntax          | Description                                                                              |
+| --------------- | ---------------------------------------------------------------------------------------- |
+| `[[Link]]`      | [Internal links](https://help.obsidian.md/links)                                         |
+| `![[Link]]`     | [Embed files](https://help.obsidian.md/embeds)                                           |
+| `![[Link#^id]]` | [Block references](https://help.obsidian.md/links#Link%20to%20a%20block%20in%20a%20note) |
+| `^id`           | [Defining a block](https://help.obsidian.md/links#Link%20to%20a%20block%20in%20a%20note) |
+| `[^id]`         | [Footnotes](https://help.obsidian.md/syntax#Footnotes)                                   |
+| `%%Text%%`      | [Comments](https://help.obsidian.md/syntax#Comments)                                     |
+| `~~Text~~`      | [Strikethroughs](https://help.obsidian.md/syntax#Bold,%20italics,%20highlights)          |
+| `==Text==`      | [Highlights](https://help.obsidian.md/syntax#Bold,%20italics,%20highlights)              |
+| ` ``` `         | [Code blocks](https://help.obsidian.md/syntax#Code%20blocks)                             |
+| `- [ ]`         | [Incomplete task](https://help.obsidian.md/syntax#Task%20lists)                          |
+| `- [x]`         | [Completed task](https://help.obsidian.md/syntax#Task%20lists)                           |
+| `> [!note]`     | [Callouts](https://help.obsidian.md/callouts)                                            |
+| (see link)      | [Tables](https://help.obsidian.md/advanced-syntax#Tables)                                |
 
 ## Callouts
 
@@ -52,21 +58,26 @@ You can make a callout foldable by adding a plus (`+`) or a minus (`-`) directly
 > Advises about risks or negative outcomes of certain actions.
 ```
 
-
 ## Footnotes
 
 ```markdown
 This is a simple footnote[^1].
 
 [^1]: This is the referenced text.
-[^2]: Add 2 spaces at the start of each new line.
-  This lets you write footnotes that span multiple lines.
+
+[^2]:
+    Add 2 spaces at the start of each new line.
+    This lets you write footnotes that span multiple lines.
+
 [^note]: Named footnotes still appear as numbers, but can make it easier to identify and link references.
 ```
 
 This is a simple footnote[^1].
 
 [^1]: This is the referenced text.
-[^2]: Add 2 spaces at the start of each new line.
-  This lets you write footnotes that span multiple lines.
+
+[^2]:
+    Add 2 spaces at the start of each new line.
+    This lets you write footnotes that span multiple lines.
+
 [^note]: Named footnotes still appear as numbers, but can make it easier to identify and link references.
