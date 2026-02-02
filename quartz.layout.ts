@@ -5,7 +5,19 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.ConditionalRender({
+      component: Component.RecentPosts({
+        title: "最新文章",
+        limit: 10,
+        filter: (f) =>
+          !f.slug?.endsWith("index") &&
+          !f.frontmatter?.noindex &&
+          !f.slug?.startsWith("templates/"),
+      }),
+      condition: (page) => page.fileData.slug === "index",
+    }),
+  ],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/wwsun",

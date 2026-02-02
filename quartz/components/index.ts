@@ -20,6 +20,7 @@ import DesktopOnly from "./DesktopOnly"
 import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import SimpleRecentNotes from "./SimpleRecentNotes"
+import RecentPosts from "./RecentPosts"
 import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
 import Flex from "./Flex"
@@ -47,6 +48,7 @@ export {
   MobileOnly,
   RecentNotes,
   SimpleRecentNotes,
+  RecentPosts,
   NotFound,
   Breadcrumbs,
   Comments,
