@@ -1,9 +1,9 @@
 views:
-  - type: list
+  - type: table
     name: 表格
     filters:
       and:
-        - file.folder == "Clippings"
+        - file.folder == "content/blogs"
     order:
       - file.name
       - file.ctime

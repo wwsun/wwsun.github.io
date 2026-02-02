@@ -1,4 +1,4 @@
-# wwsun.github.io
+# Blog
 
 My personal blog powered by [Quartz](https://quartz.jzhao.xyz/).
 

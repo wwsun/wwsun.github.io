@@ -3,7 +3,7 @@ views:
     name: 表格
     filters:
       and:
-        - file.folder == "Clippings"
+        - file.folder == "content/translates"
     order:
       - file.name
       - description
