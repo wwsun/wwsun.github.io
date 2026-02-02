@@ -1,0 +1,16 @@
+views:
+  - type: list
+    name: 表格
+    filters:
+      and:
+        - file.folder == "Clippings"
+    order:
+      - file.name
+      - file.ctime
+      - tags
+    sort:
+      - property: file.mtime
+        direction: DESC
+    indentProperties: false
+    separator: " "
+    markers: number

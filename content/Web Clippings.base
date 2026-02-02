@@ -1,0 +1,17 @@
+views:
+  - type: table
+    name: 表格
+    filters:
+      and:
+        - file.folder == "Clippings"
+    order:
+      - file.name
+      - description
+      - file.ctime
+    sort:
+      - property: file.ctime
+        direction: DESC
+    columnSize:
+      file.name: 376
+      note.description: 432
+      file.ctime: 228

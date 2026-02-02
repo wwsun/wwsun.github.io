@@ -1,0 +1,19 @@
+formulas:
+  文件尺寸: |
+    if(file.size < 1024, file.size.toString()+'B', if(file.size<1024*1024, (file.size/1024).toFixed(2).toString()+'KB', (file.size/(1024*1024)).toFixed(2).toString()+'MB'))
+views:
+  - type: cards
+    name: 卡片
+    filters:
+      and:
+        - file.inFolder("Files")
+        - file.ext.containsAny("png", "jpg")
+    order:
+      - file.name
+      - file.ctime
+      - formula.文件尺寸
+    sort:
+      - property: file.ctime
+        direction: DESC
+    image: file.file
+    imageFit: contain
