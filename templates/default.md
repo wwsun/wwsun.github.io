@@ -1,13 +1,11 @@
 ---
-title: "default"
-date: 2026-02-02
+title: 
+date: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 tags:
-  - status/seed
-  - type/post
 draft: true
-description: "简短的文章描述，用于 SEO 和预览"
+description: 
+url: 
 ---
-
 # default
 
 在此输入内容...

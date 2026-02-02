@@ -3,7 +3,6 @@ import { QuartzPluginData } from "../plugins/vfile"
 import { byDateAndAlphabetical } from "./PageList"
 import { PageList } from "./PageList"
 import { GlobalConfiguration } from "../cfg"
-import { i18n } from "../i18n"
 
 interface Options {
   title?: string

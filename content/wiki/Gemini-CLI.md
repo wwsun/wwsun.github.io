@@ -4,6 +4,7 @@ url: https://github.com/google-gemini/gemini-cli
 tags:
   - google
   - gemini
+  - npm
 ---
 https://geminicli.com/
 

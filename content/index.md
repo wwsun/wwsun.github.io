@@ -2,19 +2,22 @@
 title: Welcome to My Garden
 ---
 
-欢迎来到我的数字花园。这里是由 **Quartz + Obsidian** 驱动的知识库，记录了我在 AI Agent、前端工程化及低代码领域的思考与实践。
+欢迎来到我的数字花园。这里是我的个人知识库，记录了我在 AI Agent、前端工程化及低代码方面的思考与实践。
 
-## 🗺️ 知识地图
+## Site Map
 
-### 🚀 核心板块
+### Experience
+
 - 📝 **[[content/blogs/index|Blogs]]** - 长篇技术博客、职业生涯复盘及日常工作中的 **Memos**。
-- 🌍 **[[content/translates/index|Translates]]** - 深度阅读后的翻译作品、外文技术追踪及 **Clippings** 剪藏。
-- 🧠 **[[content/wiki/index|Wiki]]** - 个人知识库，包含工具链使用、技术原理及碎片化知识点。
+- 🤖 **[[content/prompts/index|Prompts]]** - 日常使用的 AI 提示词库，助力自动化工作流。
+- 🧠 **[[content/wiki/index|Wiki]]** - 知识库，包含工具链使用、技术原理及碎片化知识点。
 
-### 🛠️ 工具与关于
-- 🤖 **[[content/prompts/index|Prompts]]** - 精心调优的 AI 提示词库，助力自动化工作流。
-- 👤 **[[About Me]]** - 关于我的技术背景、演讲经历与联系方式。
+### Translation & Clippings
+
+- 🌍 **[[content/translates/index|Translates]]** - 深度阅读后的翻译作品、外文技术追踪及 **Clippings** 剪藏。
+
+## About
+
+- 👤 **[[About Me]]** - 我的技术背景、演讲经历与联系方式。
 
 ---
-
-
