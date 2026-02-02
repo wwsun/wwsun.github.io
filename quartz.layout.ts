@@ -8,8 +8,8 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      GitHub: "https://github.com/wwsun",
+      RSS: "/index.xml",
     },
   }),
 }
@@ -43,6 +43,15 @@ export const defaultContentPageLayout: PageLayout = {
   right: [
     Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
+    Component.SimpleRecentNotes({
+      title: "最近更新",
+      limit: 5,
+      filter: (f) =>
+        !f.slug?.endsWith("index") &&
+        !f.frontmatter?.noindex &&
+        !f.slug?.startsWith("templates/"),
+      linkToMore: "tags/" as any,
+    }),
     Component.Backlinks(),
   ],
 }
