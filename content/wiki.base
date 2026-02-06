@@ -1,0 +1,20 @@
+views:
+  - type: table
+    name: 表格
+    filters:
+      and:
+        - file.folder == "content/wiki"
+    order:
+      - file.name
+      - title
+      - description
+      - tags
+      - file.ctime
+    cardSize: 310
+    rowHeight: medium
+    columnSize:
+      file.name: 160
+      note.title: 181
+      note.description: 200
+      note.tags: 339
+      file.ctime: 173

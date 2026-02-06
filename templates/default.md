@@ -1,9 +1,9 @@
 ---
-title: 
+title: <% tp.file.title %>
 date: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 tags:
 draft: true
-description: 
+description: <% tp.file.title %>
 url: 
 ---
 # default
