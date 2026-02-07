@@ -1,10 +1,11 @@
 ---
-title: "AI 模型比较 - GitHub 文档"
-source: "https://docs.github.com/zh/copilot/reference/ai-models/model-comparison"
+title: AI 模型比较 - GitHub 文档
+source: https://docs.github.com/zh/copilot/reference/ai-models/model-comparison
 created: 2025-10-23
-description: "比较 Copilot 对话助手 中的可用 AI 模型，并选择任务的最佳模型。"
+description: 比较 Copilot 对话助手 中的可用 AI 模型，并选择任务的最佳模型。
 tags:
-  - "clippings"
+  - clippings
+  - llm
 ---
 ## AI 模型比较
 

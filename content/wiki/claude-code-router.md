@@ -29,3 +29,13 @@ ccr ui
 
 `~/.claude-code-router/config.json`
 
+## Unable to connect to Anthropic services
+
+在 `~/.claude.json` 中加入
+
+```json
+{
+	"hasCompletedOnboarding": true
+}
+```
+
