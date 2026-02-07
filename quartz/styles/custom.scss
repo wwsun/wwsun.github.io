@@ -2225,51 +2225,71 @@ body {
     margin-inline-start: 0px;
   }
 
-  a.internal.tag-link,
-  .search
-    > .search-container
-    > .search-space
-    > .search-layout
-    > .results-container
-    .result-card
-    > ul
-    > li
-    > .match-tag {
-    align-items: center;
-    background-color: light-dark(
-      rgba(9, 108, 220, 0.1),
-      rgba(87, 165, 255, 0.1)
-    );
-    display: flex;
-    font-family:
-      ui-sans-serif,
-      -apple-system,
-      BlinkMacSystemFont,
-      system-ui,
-      "Segoe UI",
-      Roboto,
-      Inter,
-      "Apple Color Emoji",
-      "Segoe UI Emoji",
-      "Segoe UI Symbol",
-      sans-serif;
-    font-weight: 400;
-    margin-inline-start: 0px;
-    border: 0px solid
-      light-dark(rgba(9, 108, 220, 0.15), rgba(87, 165, 255, 0.15));
-    border-top-left-radius: 28px;
-    border-top-right-radius: 28px;
-    border-bottom-left-radius: 28px;
-    border-bottom-right-radius: 28px;
-    border-start-start-radius: 28px;
-    border-start-end-radius: 28px;
-    border-end-start-radius: 28px;
-    border-end-end-radius: 28px;
-  }
+    a.internal.tag-link,
 
-  a.internal.tag-link::before {
-    color: light-dark(rgb(9, 108, 220), rgb(67, 155, 255));
-  }
+    .search
+
+      > .search-container
+
+      > .search-space
+
+      > .search-layout
+
+      > .results-container
+
+      .result-card
+
+      > ul
+
+      > li
+
+      > .match-tag {
+
+      display: inline-block;
+
+      padding: 0 7px;
+
+      font-size: 12px;
+
+      font-weight: 500;
+
+      line-height: 18px;
+
+      white-space: nowrap;
+
+      background-color: light-dark(#ddf4ff, rgba(56, 139, 253, 0.15));
+
+      color: light-dark(#0969da, #58a6ff);
+
+      border: 1px solid transparent;
+
+      border-radius: 2em;
+
+      text-decoration: none;
+
+      margin-inline-start: 0px;
+
+  
+
+      &:hover {
+
+        background-color: light-dark(#0969da, #58a6ff);
+
+        color: light-dark(#ffffff, #ffffff);
+
+        text-decoration: none;
+
+      }
+
+    }
+
+  
+
+    a.internal.tag-link::before {
+
+      display: none;
+
+    }
 
   ul > li {
     color: light-dark(rgb(36, 41, 47), rgb(201, 209, 217));
