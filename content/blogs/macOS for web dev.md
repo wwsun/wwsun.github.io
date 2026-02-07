@@ -15,17 +15,7 @@ url: https://www.robinwieruch.de/mac-setup-web-development/
 
 如何快速初始化 macos 开发环境
 
-[Mac Setup for Web Development 2025](https://www.robinwieruch.de/mac-setup-web-development/)
-
-[macOS + nginx](https://www.notion.so/macOS-nginx-1ffb6615b1a280c19652ddf024be6997?pvs=21)
-
-[zsh config](https://www.notion.so/zsh-config-21fb6615b1a280e8a77ff421e0e87201?pvs=21)
-
-[nvm 使用指南](https://www.notion.so/nvm-21fb6615b1a280cb99dad88b9e7cc99f?pvs=21)
-
-[fd 快速文件搜索](https://www.notion.so/fd-222b6615b1a280be8a09f308e9417c45?pvs=21)
-
-[mov to mp4](https://www.notion.so/mov-to-mp4-231b6615b1a28006ad12d11e1eab3540?pvs=21)
+部分参考了 [Mac Setup for Web Development 2025](https://www.robinwieruch.de/mac-setup-web-development/)
 
 ## 系统设置
 
@@ -50,7 +40,7 @@ defaults write com.apple.finder ShowStatusBar -bool true
 
 ```
 
-## intel cpu，关闭深度睡眠 / 电能小憩
+### intel cpu，关闭深度睡眠 / 电能小憩
 
 对于 intel cpu，某些情况下可能会存在睡眠唤醒崩溃（Sleep/Wake Kernel Panic）问题，可以尝试关闭深度睡眠。
 
@@ -91,10 +81,16 @@ sudo pmset -a powernap 0
 - ClashPro -- 爬墙必备
 - [Raindrop.io](http://raindrop.io/) -- 网页收藏
 - [draw.io](http://draw.io/) -- 免费画图
-- Follow -- 免费的RSS阅读器
+- Folo -- 免费的RSS阅读器
 - SourceTree -- 免费的仓库管理
 - GIPHY CAPTURE -- 免费的 gif 截屏工具
 - Telegram
+
+## Coding Agents
+
+- [Claude Code](https://code.claude.com/docs/zh-CN/overview)
+- [Gemini-CLI](https://github.com/google-gemini/gemini-cli)
+- [Open Code](https://opencode.ai/)
 
 ## 环境搭建
 
@@ -216,14 +212,12 @@ debug 文档：[https://docs.github.com/en/github/authenticating-to-github/troub
 
 ```bash
 /bin/bash -c "$(curl -fsSL <https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh>)"
-
 ```
 
-升级
+升级到最新版
 
 ```bash
 brew update
-
 ```
 
 install terminal applications
@@ -276,7 +270,7 @@ npm config set python $(which python3)
 
 ```
 
-### 安装 oh-my-zsh
+### 安装 oh-my-zsh (可选)
 
 [https://ohmyz.sh/#install](https://ohmyz.sh/#install)
 
@@ -292,24 +286,7 @@ Important: If you change something in your Zsh configuration (_.zshrc_), force a
 source ~/.zshrc
 ```
 
-### omz theme+fonts（可选）
-
-[Starship: Cross-Shell Prompt](https://starship.rs/)
-
-部分zsh主题依赖nerd-fonts
-
-推荐主题，可以显示 node 版本号：[https://github.com/romkatv/powerlevel10k](https://github.com/romkatv/powerlevel10k)
-
-### 安装 nerd-fonts
-
-[https://github.com/ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
-
-```bash
-brew install font-hack-nerd-font
-
-```
-
-### 安装 zsh 语法高亮插件
+#### 安装 zsh 语法高亮插件
 
 [oh-my-zsh syntax highlighting plugin](https://nevercodealone.medium.com/oh-my-zsh-syntax-highlighting-plugin-c166f1400c4b)
 
@@ -329,7 +306,33 @@ plugins=( [plugins…] zsh-syntax-highlighting)
 
 其他插件 [https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins)
 
-### [可选]安装 iterm2
+
+### 安装 nerd-fonts
+
+**Nerd Fonts** 是一个非常流行的开源项目，它通过为现有的编程字体“打补丁”（Patching）的方式，往字体里塞入了成千上万个图标（Glyphs）。
+
+它的核心作用是让你的终端（Terminal）和代码编辑器能够显示各种图标，比如 Git 的分支图标、文件夹图标、编程语言的 Logo 等。
+
+[https://github.com/ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
+
+```bash
+
+# 推荐安装 JetBrains Mono Nerd Font (目前最受欢迎的编程字体) 
+brew install --cask font-jetbrains-mono-nerd-font
+```
+
+或者访问官网选择安装
+https://www.nerdfonts.com/#home
+
+然后设置字体为 `JetBrainsMono Nerd Font`
+
+### 安装 ghostty 
+
+推荐使用 ghostty 作为终端，比较简单，没有复杂的配置
+
+[[ghostty]]
+
+### 安装 iterm2（可选）
 
 [https://iterm2.com/](https://iterm2.com/)
 
@@ -345,11 +348,35 @@ brew install --cask iterm2
 
 [Iterm Themes - Color Schemes and Themes for Iterm2](https://iterm2colorschemes.com/)
 
-### [可选]安装wrap
+### 安装wrap（可选）
 
 一个体验更好的命令行工具
 
 [https://docs.warp.dev/getting-started/getting-started-with-warp](https://docs.warp.dev/getting-started/getting-started-with-warp)
+
+### 安装 starship
+
+轻量、迅速、客制化的高颜值终端！
+可以让你终端显示 “node 版本”、 “Git 分支” 等信息。
+
+> [!note] 依赖 nerd-fonts
+
+https://starship.rs/zh-CN/
+
+安装
+
+```zsh
+brew install starship
+```
+
+在 `~/.zshrc` 的最后，添加以下内容：
+
+```shell
+eval "$(starship init zsh)"
+```
+
+配置 https://starship.rs/zh-CN/config/
+预设配置 https://starship.rs/zh-CN/presets/
 
 ### 安装 fnm (Node.js 管理工具)
 
@@ -380,11 +407,11 @@ fnm use system
 eval "$(fnm env --use-on-cd)"
 ```
 
-### [可选]安装 nvm
+### 安装 nvm（可选）
 
 如果你习惯使用 nvm，也可以继续使用。
 
-### 安装 yarn
+### 安装 yarn（可选）
 
 ```bash
 npm install -g yarn
@@ -398,7 +425,17 @@ yarn config set registry <https://registry.npmmirror.com>
 
 ```
 
-### [可选] private scope
+### 安装 pnpm
+
+节省时间，节省磁盘空间，让你的 monorepo 焕然一新。
+
+```bash
+brew install pnpm
+```
+
+https://pnpm.io/zh/motivation
+
+### private scope（可选）
 
 如果是私有的 scope 可以单独设置
 
@@ -407,7 +444,7 @@ npm config set @your-scope:registry <http://your-register.com>
 
 ```
 
-### [可选，外网]安装 cnpm
+### 安装 cnpm
 
 阿里巴巴 npm 国内镜像服务 [https://npmmirror.com/](https://npmmirror.com/)
 
@@ -566,7 +603,7 @@ if (cwd.indexOf("github.com") > -1) {
 
 ## Docker
 
-### [推荐] OrbStack
+### OrbStack
 
 [OrbStack](https://orbstack.dev/) 是 macOS 上快速、轻量且简单的 Docker Desktop 替代品。
 
