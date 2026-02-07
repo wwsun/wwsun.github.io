@@ -33,6 +33,16 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
         segments.push(<Date date={getDate(cfg, fileData)!} locale={cfg.locale} />)
       }
 
+      // Display source if enabled
+      if (fileData.frontmatter?.source) {
+        const source = fileData.frontmatter.source as string
+        segments.push(
+          <a href={source} target="_blank" rel="noopener noreferrer">
+            {i18n(cfg.locale).components.contentMeta.source || "Source"}
+          </a>,
+        )
+      }
+
       // Display reading time if enabled
       if (options.showReadingTime) {
         const { minutes, words: _words } = readingTime(text)
