@@ -1,6 +1,6 @@
 ---
 created: 2026-01-12 19:46
-url: https://github.com/anomalyco/opencode
+source: https://github.com/anomalyco/opencode
 tags:
   - agent
 ---

@@ -5,7 +5,7 @@ tags:
   - npm
 draft: false
 description: Automate versioning and package publishing
-url: https://github.com/release-it/release-it
+source: https://github.com/release-it/release-it
 ---
 ```bash
 npm init release-it

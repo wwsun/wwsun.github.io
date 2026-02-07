@@ -1,6 +1,6 @@
 ---
 created: 2026-01-13 15:10
-url: https://dev.to/googleai/nano-banana-pro-prompting-guide-strategies-1h9n
+source: https://dev.to/googleai/nano-banana-pro-prompting-guide-strategies-1h9n
 tags:
 ---
 Nano-Banana Pro 是一个“思考型”模型。它不仅仅是匹配关键词；它能够理解意图、物理规律和构图。

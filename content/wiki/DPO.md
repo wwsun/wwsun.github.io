@@ -3,7 +3,7 @@ title: Direct Preference Optimization, 直接偏好优化
 tags:
 draft: false
 description: DPO
-url:
+source:
 ---
 如果说传统的 RLHF (PPO) 是“绕远路”，那么 DPO 就是通过数学上的巧妙转换，直接“抄了近路”。
 

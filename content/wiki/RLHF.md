@@ -3,7 +3,7 @@ title: RLHF 基于人类反馈的强化学习
 tags:
 draft: false
 description: 基于人类反馈的强化学习
-url:
+source:
 ---
 可以将 **RLHF (Reinforcement Learning from Human Feedback，基于人类反馈的强化学习)** 理解为一个**将人类的主观偏好“数学化”并注入模型**的过程。
 

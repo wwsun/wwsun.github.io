@@ -1,6 +1,6 @@
 ---
 created: 2025-12-17 21:10
-url: https://github.com/Schniz/fnm
+source: https://github.com/Schniz/fnm
 tags:
   - nodejs
 ---

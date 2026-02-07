@@ -5,7 +5,7 @@ tags:
   - agent
 draft: false
 description: AGENTS
-url: https://agents.md/
+source: https://agents.md/
 ---
 README.md 面向人类开发者
 AGENTS.md 面向智能体

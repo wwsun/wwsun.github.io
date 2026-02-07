@@ -5,7 +5,7 @@ tags:
   - llm
 draft: false
 description: Large Language Model
-url:
+source:
 ---
 ## 核心架构（Transformer）
 

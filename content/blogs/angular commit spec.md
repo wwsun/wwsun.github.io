@@ -8,7 +8,7 @@ tags:
   - convention
 draft: false
 description: "Angular 提交信息规范参考，定义了 feat、fix、docs、style 和 refactor 等类型。"
-url: https://github.com/angular/angular/blob/main/CONTRIBUTING.md#type
+source: https://github.com/angular/angular/blob/main/CONTRIBUTING.md#type
 ---
 
 规范支持的类型

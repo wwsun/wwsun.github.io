@@ -7,7 +7,7 @@ tags:
   - software-engineering
 draft: false
 description: "探索 Vibe Engineering，以及大模型如何奖励优秀的软件工程实践（如测试、规划和文档）。"
-url:
+source:
 ---
 
 ## 包含哪些要素

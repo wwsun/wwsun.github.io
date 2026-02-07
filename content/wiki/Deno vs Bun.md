@@ -4,7 +4,7 @@ date: 2026-02-06 14:38:41
 tags:
 draft: false
 description: Deno vs Bun
-url:
+source:
 ---
 | **特性**       | **Deno**            | **Bun**                       |
 | ------------ | ------------------- | ----------------------------- |

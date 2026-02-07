@@ -1,6 +1,6 @@
 ---
 created: 2025-12-15 09:49
-url: https://pnpm.io/zh/feature-comparison
+source: https://pnpm.io/zh/feature-comparison
 tags:
   - pnpm
   - monorepo

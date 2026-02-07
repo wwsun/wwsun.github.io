@@ -1,6 +1,6 @@
 ---
 created: 2025-12-26 10:01
-url:
+source:
 tags:
   - prompt
 ---

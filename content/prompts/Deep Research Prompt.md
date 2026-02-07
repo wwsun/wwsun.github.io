@@ -1,6 +1,6 @@
 ---
 created: 2025-12-26 09:42
-url: https://www.reddit.com/r/ChatGPTPro/comments/1in87ic/mastering_aipowered_research_my_guide_to_deep/
+source: https://www.reddit.com/r/ChatGPTPro/comments/1in87ic/mastering_aipowered_research_my_guide_to_deep/
 tags:
   - prompt
 ---

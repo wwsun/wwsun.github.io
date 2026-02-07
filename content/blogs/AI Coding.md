@@ -8,7 +8,7 @@ tags:
   - copilot
 draft: false
 description: "涉及使用 Claude Code 进行规划和 Copilot 执行子任务的 AI 编程简要工作流。"
-url:
+source:
 ---
 
 ## workflow

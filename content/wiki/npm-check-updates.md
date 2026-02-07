@@ -1,6 +1,6 @@
 ---
 created: 2026-01-06 10:21
-url: https://github.com/raineorshine/npm-check-updates
+source: https://github.com/raineorshine/npm-check-updates
 tags:
 ---
 ncu 用于升级 package.json 依赖，兼容 npm、yarn、pnpm、deno 和 bun

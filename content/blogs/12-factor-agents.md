@@ -7,7 +7,7 @@ tags:
   - best-practices
 draft: false
 description: "构建可靠、可扩展且易于维护的 LLM 驱动软件的核心工程技术，涵盖 Prompt 工程、上下文管理和控制流。"
-url: https://github.com/humanlayer/12-factor-agents
+source: https://github.com/humanlayer/12-factor-agents
 ---
 
 Even if LLMs [continue to get exponentially more powerful](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md#what-if-llms-get-smarter), there will be core engineering techniques that make LLM-powered software more reliable, more scalable, and easier to maintain.

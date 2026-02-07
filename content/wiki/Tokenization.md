@@ -4,7 +4,7 @@ tags:
   - llm
 draft: false
 description: Tokenization
-url:
+source:
 ---
 可以将 **Tokenization（分词/标记化）** 理解为自然语言处理（NLP）流水线中的**数据预处理逻辑（Preprocessing Layer）**。
 

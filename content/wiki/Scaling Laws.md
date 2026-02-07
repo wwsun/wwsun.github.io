@@ -3,7 +3,7 @@ title: Scaling Laws
 tags:
 draft: false
 description: Scaling Laws
-url:
+source:
 ---
 如果把 [[Pre-training]]看作是“炼丹”，那么 Scaling Laws 就是那本告诉你要放多少料、烧多久火的“炼丹准则”。
 

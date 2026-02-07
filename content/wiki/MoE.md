@@ -3,7 +3,7 @@ title: Mixture of Experts，混合专家模型
 tags:
 draft: false
 description: Mixture of Experts，混合专家模型
-url:
+source:
 ---
 
 如果说 Transformer 的“多头”是让模型在**特征空间**上进行并行关注，那么 MoE 则是让模型在**模型参数**上实现“条件计算”（Conditional Computing）。简单来说，MoE 允许我们构建参数量极巨化（如万亿级）的模型，但每次处理任务时只激活其中很小一部分参数。

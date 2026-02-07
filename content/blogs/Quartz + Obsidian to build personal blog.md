@@ -8,7 +8,7 @@ tags:
   - tutorial
 draft: false
 description: "使用 Quartz 和 Obsidian 构建个人博客的分步指南，包括 GitHub Pages 部署和工作流优化。"
-url: https://notes.nicolevanderhoeven.com/How+to+publish+Obsidian+notes+with+Quartz+on+GitHub+Pages#Step%205.%20Host%20your%20vault%20online
+source: https://notes.nicolevanderhoeven.com/How+to+publish+Obsidian+notes+with+Quartz+on+GitHub+Pages#Step%205.%20Host%20your%20vault%20online
 ---
 
 ## 第一阶段：本地初始化 Quartz

@@ -1,6 +1,6 @@
 ---
 created: 2025-12-18 09:31
-url: https://github.com/musistudio/claude-code-router
+source: https://github.com/musistudio/claude-code-router
 tags:
   - claude-code
 ---

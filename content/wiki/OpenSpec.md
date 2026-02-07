@@ -1,6 +1,6 @@
 ---
 created: 2026-01-26 17:45
-url: https://github.com/Fission-AI/OpenSpec
+source: https://github.com/Fission-AI/OpenSpec
 tags:
   - SDD
   - AI-Code

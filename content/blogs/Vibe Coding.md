@@ -7,7 +7,7 @@ tags:
   - workflow
 draft: false
 description: "Vibe Coding 工作流简易指南：收集上下文、分析结构并生成计划。"
-url: https://www.claudecode101.com/zh/tutorial/workflows/explore-plan-code
+source: https://www.claudecode101.com/zh/tutorial/workflows/explore-plan-code
 ---
 
 ## 规划

@@ -4,7 +4,7 @@ date: 2026-02-05 15:25:53
 tags:
 draft: false
 description:
-url: https://dzone.com/articles/nginx-reverse-proxy-and-load-balancing
+source: https://dzone.com/articles/nginx-reverse-proxy-and-load-balancing
 ---
 ## 流量路径
 

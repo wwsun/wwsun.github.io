@@ -8,7 +8,7 @@ tags:
   - design
 draft: false
 description: "可视化顶级 AI Agent 工作流模式，用于构建有效的 Agent 系统。"
-url: https://blog.bytebytego.com/p/top-ai-agentic-workflow-patterns
+source: https://blog.bytebytego.com/p/top-ai-agentic-workflow-patterns
 ---
 
 ![[ai-agentic-workflow-design-patterns.png]]

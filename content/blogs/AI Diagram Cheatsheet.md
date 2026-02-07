@@ -8,7 +8,7 @@ tags:
   - visualization
 draft: false
 description: "常见图表类型和工具（包括 Mermaid、Graphviz、PlantUML 等）的速查表，适用于文档和项目管理。"
-url: https://kroki.io/
+source: https://kroki.io/
 ---
 
 - Common Graphs

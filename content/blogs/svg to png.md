@@ -9,7 +9,7 @@ tags:
   - librsvg
 draft: false
 description: "如何在 macOS 上使用 ImageMagick 或 rsvg-convert 将 SVG 图像转换为 PNG。"
-url: https://imagemagick.org/
+source: https://imagemagick.org/
 ---
 
 ## imagemagick

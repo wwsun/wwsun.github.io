@@ -8,7 +8,7 @@ tags:
   - guide
 draft: false
 description: "Obsidian Markdown 语法综合指南，包括链接、嵌入、Callouts、表格和脚注。"
-url: https://help.obsidian.md/obsidian-flavored-markdown
+source: https://help.obsidian.md/obsidian-flavored-markdown
 ---
 
 ## Basic Format

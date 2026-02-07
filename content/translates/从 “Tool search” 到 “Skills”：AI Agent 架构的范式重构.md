@@ -6,7 +6,7 @@ tags:
   - skills
 draft: false
 description: "分析 AI Agent 架构从工具搜索到技能模式的转变，强调企业级应用的模块化和可靠性。"
-url: https://nicolaygerold.com/posts/tool-search-is-dead-long-live-skills
+source: https://nicolaygerold.com/posts/tool-search-is-dead-long-live-skills
 ---
 
 Claude 发布了 Skills 规则、Codex 也开始支持 Skills，它正在成为 AI Agent 标配能力。将所有工具一股脑扔给 LLM 让其自行选择（即“Tool search”）是一条死胡同；未来的方向是将能力封装为独立、可靠的“Skills”，并通过更精准的分类机制来调用。

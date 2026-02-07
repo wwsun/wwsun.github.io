@@ -7,7 +7,7 @@ tags:
   - tools
 draft: false
 description: "Google One 套餐和定价信息的链接。"
-url:
+source:
 ---
 
 https://one.google.com/about/plans?g1_landing_page=0

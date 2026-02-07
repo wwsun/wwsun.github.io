@@ -1,6 +1,6 @@
 ---
 created: 2026-01-26 10:09
-url: https://clawd.bot/
+source: https://clawd.bot/
 tags:
 ---
 **clawd.bot = 一个“长期在线的 AI 消息网关 + Agent 宿主”**

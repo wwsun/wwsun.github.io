@@ -8,7 +8,7 @@ tags:
   - comparison
 draft: false
 description: "GPT-5 (推理型) 与 GPT-4.1 (速度型) 的详细对比，帮助用户选择适合其应用需求的模型。"
-url: https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/how-to/model-choice-guide?view=foundry-classic
+source: https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/how-to/model-choice-guide?view=foundry-classic
 ---
 
 GPT-5 是 OpenAI 推出的首个引入**四个可调节思考层级**的模型，可以控制模型在响应提示时所用的时间和 tokens 数量。在选择使用哪种模型，或是否使用推理模型时，考虑你的应用优先级非常重要。

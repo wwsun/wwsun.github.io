@@ -3,7 +3,7 @@ title: Pre-training
 tags:
 draft: false
 description: Pre-training
-url:
+source:
 ---
 可以将 **预训练（Pre-training）** 理解为大型语言模型（LLM）的“通识教育”阶段。
 

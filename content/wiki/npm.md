@@ -1,6 +1,6 @@
 ---
 created: 2025-12-15 21:14
-url: https://docs.npmjs.com/cli/v11/commands
+source: https://docs.npmjs.com/cli/v11/commands
 tags:
   - npm
 ---

@@ -6,7 +6,7 @@ tags:
   - AIGC
 draft: false
 description: 从信息简史到 AI 时代的个人学习
-url:
+source:
 ---
 **LLM 本质上是基于概率的“预测机”，它们通过处理海量数据来降低文本的“熵”（不确定性）。**
 

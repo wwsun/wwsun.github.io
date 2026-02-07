@@ -1,6 +1,6 @@
 ---
 created: 2025-12-19 16:27
-url: https://code.claude.com/docs/zh-CN/skills
+source: https://code.claude.com/docs/zh-CN/skills
 tags:
   - agent
 ---

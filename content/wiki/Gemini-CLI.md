@@ -1,6 +1,6 @@
 ---
 created: 2026-01-28 16:06
-url: https://github.com/google-gemini/gemini-cli
+source: https://github.com/google-gemini/gemini-cli
 tags:
   - google
   - gemini

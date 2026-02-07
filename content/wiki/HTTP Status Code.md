@@ -1,6 +1,6 @@
 ---
 created: 2025-12-19 16:56
-url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
+source: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
 tags:
   - http
 ---

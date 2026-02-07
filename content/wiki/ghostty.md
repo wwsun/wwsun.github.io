@@ -3,7 +3,7 @@ title: ghostty 默认快捷键
 tags:
 draft: false
 description: 未命名
-url: https://ghostty.org/docs/config/keybind
+source: https://ghostty.org/docs/config/keybind
 ---
 ## 主题选择
 

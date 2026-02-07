@@ -8,7 +8,7 @@ tags:
   - conversion
 draft: false
 description: "使用 ffmpeg 命令行工具在 macOS 上将 MOV 视频文件转换为 MP4 格式的快速指南。"
-url: https://ffmpeg.org/documentation.html
+source: https://ffmpeg.org/documentation.html
 ---
 
 ## 安装 `ffmpeg`

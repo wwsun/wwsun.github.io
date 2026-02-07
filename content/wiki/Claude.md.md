@@ -1,6 +1,6 @@
 ---
 created: 2025-12-11 14:38
-url: https://www.anthropic.com/engineering/claude-code-best-practices
+source: https://www.anthropic.com/engineering/claude-code-best-practices
 tags:
   - claude-code
 ---

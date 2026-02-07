@@ -1,6 +1,6 @@
 ---
 created: 2025-12-15 21:15
-url: https://github.com/sharkdp/fd
+source: https://github.com/sharkdp/fd
 tags:
   - linux
 ---

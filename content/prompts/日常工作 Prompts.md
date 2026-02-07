@@ -1,6 +1,6 @@
 ---
 created: 2025-12-17 16:19
-url: https://www.latepost.com/news/dj_detail?id=3278
+source: https://www.latepost.com/news/dj_detail?id=3278
 tags:
 ---
 基本结构：将指令拆分为「角色」「目标」「输入」「输出」「约束」「示例」6 个模块，结构更清晰。

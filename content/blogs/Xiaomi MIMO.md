@@ -8,7 +8,7 @@ tags:
   - claude-code
 draft: false
 description: "用于集成小米 MIMO 平台的 API 文档和 Claude Code 配置。"
-url: https://platform.xiaomimimo.com/#/docs/integration/claude-code
+source: https://platform.xiaomimimo.com/#/docs/integration/claude-code
 ---
 
 ## API

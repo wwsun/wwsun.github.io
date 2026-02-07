@@ -8,7 +8,7 @@ tags:
   - configuration
 draft: false
 description: "使用 Claude Code 配合 GLM 模型的配置指南，包括 API 密钥设置和环境变量。"
-url: https://docs.bigmodel.cn/cn/coding-plan/overview
+source: https://docs.bigmodel.cn/cn/coding-plan/overview
 ---
 
 ## Claude Code

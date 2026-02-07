@@ -8,7 +8,7 @@ tags:
   - productivity
 draft: false
 description: "高级 Google 搜索技巧合集，包括文件类型过滤、特定站点搜索和日期范围，以提高搜索效率。"
-url: https://www.freecodecamp.org/news/how-to-google-like-a-pro-10-tips-for-effective-googling/
+source: https://www.freecodecamp.org/news/how-to-google-like-a-pro-10-tips-for-effective-googling/
 ---
 
 ## 搜索技巧

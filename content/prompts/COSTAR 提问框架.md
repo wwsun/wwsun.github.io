@@ -1,6 +1,6 @@
 ---
 created: 2025-12-26 09:47
-url: https://towardsdatascience.com/how-i-won-singapores-gpt-4-prompt-engineering-competition-34c195a93d41/
+source: https://towardsdatascience.com/how-i-won-singapores-gpt-4-prompt-engineering-competition-34c195a93d41/
 tags:
 ---
   

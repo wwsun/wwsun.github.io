@@ -7,7 +7,7 @@ tags:
   - best-practices
 draft: false
 description: "Git Rebase 对比 Merge 的使用指南，强调‘公共历史神圣不可侵犯，私有历史由你主宰’的原则。"
-url:
+source:
 ---
 
 > [!tip] 口诀
