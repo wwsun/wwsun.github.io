@@ -1,52 +1,53 @@
-# Project Context: Quartz v4
+# Project Context: wwsun's Digital Garden (Quartz v4)
 
 ## Overview
-Quartz is a static site generator (SSG) designed to publish digital gardens and notes as a website. It transforms Markdown content into a fully functional, fast, and customizable website. It is built with Node.js and TypeScript, utilizing the Unified ecosystem (Remark/Rehype) for content processing and Preact for rendering.
+
+This is a personal digital garden and knowledge base for **wwsun**, built using **Quartz v4** and integrated with **Obsidian**. It serves as a centralized hub for notes, blog posts, book summaries, and web clippings, automatically published to [wwsun.github.io](https://wwsun.github.io).
 
 ## Architecture & Structure
 
-### Key Configuration Files
-*   **`quartz.config.ts`**: The main configuration file. It controls site metadata (title, baseUrl), theme (colors, fonts), plugins (transformers, filters, emitters), and other core settings.
-*   **`quartz.layout.ts`**: Defines the structure of pages. It exports `sharedPageComponents` (header/footer), `defaultContentPageLayout` (single note), and `defaultListPageLayout` (tags/folders). It allows composing pages using components from `quartz/components`.
+### Core Technologies
 
-### Directory Structure
-*   **`content/`**: The directory where user content (Markdown files) resides. This is the "input" for the site.
-*   **`quartz/`**: The source code for Quartz itself.
-    *   **`components/`**: Preact components used to render the site (e.g., `ArticleTitle.tsx`, `Darkmode.tsx`, `TableOfContents.tsx`).
-    *   **`plugins/`**: Logic for transforming content (transformers), filtering content (filters), and generating output files (emitters).
-    *   **`styles/`**: Global styles and SCSS files.
-    *   **`cli/`**: Implementation of the CLI commands (`build`, `sync`, `update`, etc.).
-*   **`docs/`**: Documentation for Quartz itself (likely served as the official docs site).
-*   **`public/`**: Output directory for static assets (managed by build process).
+- **Static Site Generator:** Quartz v4 (TypeScript, Preact, Esbuild)
+- **Markdown Processing:** Unified (Remark/Rehype) with Obsidian-flavored Markdown support.
+- **Local Editor:** Obsidian (configuration stored in `.obsidian/`).
+- **Hosting:** GitHub Pages.
+- **Intelligence:** Gemini CLI with custom skills (e.g., `clipping-post-optimizer`).
 
-## Development Workflow
+### Key Files
 
-### Key Commands
-*   **Start Local Server:** `npx quartz build --serve`
-    *   Builds the site and starts a local server (default port 8080).
-    *   Watches for changes in content and code.
-*   **Build for Production:** `npx quartz build`
-    *   Generates the static site in the output directory (default `public`).
-*   **Sync with GitHub:** `npx quartz sync`
-    *   Automates the git workflow: commits changes, pulls updates from the remote, and pushes changes.
-    *   Useful for backing up the digital garden and deploying.
-*   **Update Quartz:** `npx quartz update`
-    *   Pulls the latest changes from the upstream Quartz repository and updates dependencies.
-*   **Typecheck & Lint:** `npm run check`
-    *   Runs TypeScript type checking and Prettier check.
-*   **Format Code:** `npm run format`
-    *   Formats code using Prettier.
+- **`quartz.config.ts`**: Main configuration (Title: "wwsun", Locale: "zh-CN", SPA enabled).
+- **`quartz.layout.ts`**: Defines the custom layout, including Recent Posts on the homepage, Explorer, Graph, and Backlinks.
+- **`.gemini/skills/`**: Contains project-specific Gemini CLI skills for automation.
 
-### Technology Stack
-*   **Runtime:** Node.js
-*   **Language:** TypeScript
-*   **Frontend Library:** Preact (rendered to static HTML/components)
-*   **Bundler:** Esbuild
-*   **Styling:** Sass/SCSS
-*   **Markdown Processing:** Unified, Remark, Rehype
+### Content Organization (`content/`)
 
-## Customization
-*   **Content:** Edit files in `content/`.
-*   **Styling:** Modify `quartz/styles/custom.scss` or theme colors in `quartz.config.ts`.
-*   **Layout:** Edit `quartz.layout.ts` to add/remove/rearrange components.
-*   **Components:** Create new components in `quartz/components/` and register them in `quartz.layout.ts`.
+- **`blogs/`**: Original articles and blog posts.
+- **`books/`**: Notes and summaries of books read.
+- **`clippings/`**: Curated web content and articles (optimized via Gemini skills).
+- **`wiki/`**: Structured knowledge base and permanent notes.
+- **`projects/`**: open source projects analysis and notes.
+- **`prompts/`**: prompts collection.
+- **`assets/`**: Images and other media files used within notes.
+
+## Development & Publishing Workflow
+
+### Workflow
+
+1.  **Edit Locally:** Use Obsidian to create and edit Markdown files in the `content/` directory.
+2.  **Optimize (Optional):** Use Gemini CLI skills (like `clipping-post-optimizer`) to refine clippings or other content.
+3.  **Preview:** Run `npx quartz build --serve` to view changes locally.
+4.  **Sync/Deploy:** Run `npx quartz sync` to commit changes, pull from remote, and push to GitHub, triggering the GitHub Actions deployment.
+
+### Useful Commands
+
+- `npx quartz build --serve`: Local development server.
+- `npx quartz sync`: Sync content with GitHub and deploy.
+- `npm run format`: Format code and Markdown files.
+- `npm run check`: Typecheck and lint the project.
+
+## Project-Specific Conventions
+
+- **Markdown Flavor:** Strictly follows Obsidian-flavored Markdown (shortest path link resolution, `[[Internal Links]]`, Callouts).
+- **Language:** Primarily Chinese (`zh-CN`).
+- **Automation:** Leverages Gemini CLI skills for repetitive content processing tasks.
