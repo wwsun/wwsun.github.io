@@ -131,7 +131,11 @@ description: "简短的文章描述，用于 SEO 和预览"
 在此输入内容...
 ```
 
----
+## 自定义主题
+
+https://github.com/saberzero1/quartz-themes
+
+
 
 ## 避坑小贴士
 

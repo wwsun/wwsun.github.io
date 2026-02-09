@@ -1,10 +1,22 @@
 ---
-title: ghostty 默认快捷键
+title: ghostty 常用设置
 tags:
 draft: false
 description: 未命名
 source: https://ghostty.org/docs/config/keybind
 ---
+```
+font-family = "JetBrainsMono Nerd Font"
+font-size = 14
+
+# 主题
+# theme = Github Dark
+theme = TokyoNight
+
+# 自动注入 Shell 集成，支持 Cmd+Shift+Up/Down 在 Prompt 间跳转
+shell-integration = zsh
+```
+
 ## 主题选择
 
 查看所有主题列表，终端执行
