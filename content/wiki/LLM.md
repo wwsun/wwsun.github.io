@@ -64,6 +64,6 @@ LLM 的基石是 Transformer 架构。对于开发者来说，理解其如何实
 
 ## 学习路径
 
-1. **精读论文**： _《[[Attention is All You Need]]》_ 、 _《Llama 3 Technical Report》_。
+1. **精读论文**： _《[[Attention Is All You Need]]》_ 、 _《Llama 3 Technical Report》_。
     
 2. **代码**：参考 Andrej Karpathy 的 **`minGPT`** 或 **`llm.c`** 仓库。

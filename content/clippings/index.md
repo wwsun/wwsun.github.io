@@ -1,6 +1,6 @@
 ---
-title: Translates
+title: Clippings
 ---
 这里存放我精选/翻译的互联网内容。
 
-![[Clippings.base]]
+![[public/Clippings.base]]
