@@ -19,3 +19,6 @@ source:
 
 Always respond in Chinese-simplified
 
+## 技巧
+
+![[Pasted image 20260209105016.png]]
