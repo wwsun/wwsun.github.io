@@ -1,5 +1,5 @@
 .content-meta {
-  margin-top: 0;
+  margin: 0;
   color: var(--darkgray);
 
   &[show-comma="true"] {
@@ -9,6 +9,19 @@
       &::after {
         content: ",";
       }
+    }
+  }
+
+  &.source {
+    margin-top: 0.2rem;
+  }
+
+  .source-link {
+    color: var(--secondary);
+    text-decoration: none;
+    word-break: break-all;
+    &:hover {
+      text-decoration: underline;
     }
   }
 }

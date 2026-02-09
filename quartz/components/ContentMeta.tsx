@@ -33,16 +33,6 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
         segments.push(<Date date={getDate(cfg, fileData)!} locale={cfg.locale} />)
       }
 
-      // Display source if enabled
-      if (fileData.frontmatter?.source) {
-        const source = fileData.frontmatter.source as string
-        segments.push(
-          <a href={source} target="_blank" rel="noopener noreferrer">
-            {i18n(cfg.locale).components.contentMeta.source || "Source"}
-          </a>,
-        )
-      }
-
       // Display reading time if enabled
       if (options.showReadingTime) {
         const { minutes, words: _words } = readingTime(text)
@@ -52,10 +42,27 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
         segments.push(<span>{displayedTime}</span>)
       }
 
+      const source = fileData.frontmatter?.source as string | undefined
+      const isUrl = source?.startsWith("http")
+
       return (
-        <p show-comma={options.showComma} class={classNames(displayClass, "content-meta")}>
-          {segments}
-        </p>
+        <div class={classNames(displayClass, "content-meta-container")}>
+          <p show-comma={options.showComma} class="content-meta">
+            {segments}
+          </p>
+          {source && (
+            <p class="content-meta source">
+              {i18n(cfg.locale).components.contentMeta.source || "Source"}:{" "}
+              {isUrl ? (
+                <a href={source} target="_blank" rel="noopener noreferrer" class="source-link">
+                  {source}
+                </a>
+              ) : (
+                source
+              )}
+            </p>
+          )}
+        </div>
       )
     } else {
       return null
