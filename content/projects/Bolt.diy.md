@@ -69,6 +69,40 @@ graph TB
     TerminalStore --> UI
 ```
 
+## 目录结构
+
+```text
+bolt.diy/
+├── app/                        # 应用核心 (Remix/React)
+│   ├── components/             # UI 组件库
+│   │   ├── @settings/          # 设置面板 (API Keys, 主题)
+│   │   ├── chat/               # 聊天界面 (对话列表、输入框)
+│   │   ├── editor/             # 代码编辑器 (CodeMirror 封装)
+│   │   ├── workbench/          # 工作台 (Artifact 渲染、预览、终端)
+│   │   └── ui/                 # 基础原子组件
+│   ├── lib/                    # 业务逻辑与工具
+│   │   ├── .server/            # 服务端逻辑 (LLM 供应商集成)
+│   │   ├── common/             # 通用逻辑
+│   │   │   └── prompts/        # 【核心】系统提示词 (Prompts)
+│   │   ├── runtime/            # 【核心】执行层 (解析器、Action 运行器)
+│   │   ├── stores/             # 【核心】全局状态管理 (Nano Stores)
+│   │   └── webcontainer/       # WebContainer 初始化与监控
+│   ├── routes/                 # 路由与 API 端点
+│   │   ├── api.chat.ts         # 【核心】对话流 API
+│   │   └── _index.tsx          # 首页入口
+│   └── styles/                 # 全局样式 (Sass/UnoCSS)
+├── electron/                   # 桌面端主进程逻辑
+├── public/                     # 静态资源与注入脚本 (如 inspector-script.js)
+├── docs/                       # 项目文档 (Markdown)
+├── scripts/                    # 开发与构建辅助脚本
+├── docker-compose.yaml         # Docker 编排配置
+├── Dockerfile                  # 容器构建定义
+├── package.json                # 依赖与脚本定义
+├── vite.config.ts              # Vite 构建配置
+└── wrangler.toml               # Cloudflare Pages 部署配置
+```
+
+
 ## 核心流程
 
 项目实现的核心逻辑可以概括为：**流式指令生成 -> 实时标签解析 -> 沙箱任务执行**。
@@ -151,4 +185,11 @@ graph TD
 - **Sandpack (CodeSandbox)**：一种轻量级的浏览器打包方案。
 - **原理**：不在浏览器中运行 Node.js，而是重写了打包逻辑（如 Webpack/Vite 的部分功能）使其在浏览器运行。
 - **场景**：非常适合 React/Vue 组件库文档演示，但不适合全栈应用开发。
+
+
+## Remix
+
+  - 从 app/root.tsx、app/routes/_index.tsx 看“路由与布局”是如何落地的。
+  - 看 app/routes/api.chat.ts 这种 route module，理解 action/loader 与服务端逻辑如何写在同一个文件里。
+  - 看 app/entry.client.tsx 和 app/entry.server.tsx，对应 Remix 的客户端/服务端入口文件约定。
 

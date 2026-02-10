@@ -734,6 +734,8 @@ export const CONTINUE_PROMPT = stripIndents`
     - **Web Server**：强制要求使用 `Vite` 等 Node.js 方案，而不是尝试启动 Nginx 或 Apache。
 - **工具链**：列出了可用的 Shell 命令白名单（`cat`, `ls`, `node`, `python3` 等），让 AI 知道它的工具箱里有什么。
 
+>[!tip] 不要让 LLM 输出纯文本，要让它输出“数据结构”（XML, JSON, YAML）
+
 ### Artifact 协议和规则 (`<artifact_instructions>`)
 
 为了将非结构化的对话转化为结构化的执行指令，Bolt 定义了一套严格的 XML 协议。
