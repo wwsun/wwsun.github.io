@@ -189,6 +189,9 @@ graph TD
 
 ## Remix
 
+Remix 是一个全栈 React 框架，强调使用 Web 标准并提供极佳的用户体验。它允许前后端代码共存于同一架构中，通过 Loader 和 Action 机制简化了数据流。
+
+
   - 从 app/root.tsx、app/routes/_index.tsx 看“路由与布局”是如何落地的。
   - 看 app/routes/api.chat.ts 这种 route module，理解 action/loader 与服务端逻辑如何写在同一个文件里。
   - 看 app/entry.client.tsx 和 app/entry.server.tsx，对应 Remix 的客户端/服务端入口文件约定。
