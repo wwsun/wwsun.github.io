@@ -1,4 +1,5 @@
 ---
+name: critical-thinking-skill
 description: Critical Thinking Audit - A logic audit expert based on "Asking the Right Questions" methodology.
 ---
 

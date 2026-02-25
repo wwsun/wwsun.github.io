@@ -1,4 +1,5 @@
 ---
+name: create-agent-skill
 description: Create a new agent skill
 ---
 
