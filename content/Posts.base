@@ -5,6 +5,7 @@ views:
       and:
         - file.folder == "content/blogs"
     order:
+      - title
       - file.name
       - file.ctime
       - tags
@@ -14,3 +15,5 @@ views:
     indentProperties: false
     separator: " "
     markers: number
+    columnSize:
+      file.name: 175
