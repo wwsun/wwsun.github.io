@@ -74,7 +74,7 @@ Creating great context means:
 - Any past messages or events from related but separate histories/conversations (Memory)
 - Instructions about what sorts of structured data to output
 
-![[context-engineering.png]]
+![[context-engineering.png|647]]
 
 As an alternative to the standard message-based format, you can build your own context format that's optimized for your use case. For example, you can use custom objects and pack/spread them into one or more user, system, assistant, or tool messages as makes sense.
 
