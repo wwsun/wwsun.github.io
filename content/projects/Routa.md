@@ -146,7 +146,70 @@ interface BackgroundTask {
 
 ---
 
-## 三、领域模型协作流程
+## 三、数据存储架构
+
+### 多后端驱动选择
+
+Routa 支持三种数据库后端，通过环境变量自动切换，选择优先级如下：
+
+```
+ROUTA_DB_DRIVER 环境变量（显式覆盖）
+  ↓ 否则检测 DATABASE_URL
+  ├── Neon URL  → PostgreSQL Serverless（@neondatabase/serverless，HTTP/WebSocket）
+  ├── 标准 URL  → PostgreSQL 标准（postgres-js，TCP 连接池 max=10）
+  ├── 无 URL + 非 Serverless → SQLite（better-sqlite3，WAL 模式）
+  └── 兜底     → 纯内存 Map（不持久化）
+```
+
+驱动选择逻辑位于 `src/core/db/index.ts`，Drizzle Kit 配置位于 `drizzle.config.ts`。
+
+### Store 抽象层（三套实现）
+
+每个实体都有统一接口和三套实现，由 `RoutaSystem` 工厂在启动时注入：
+
+```
+接口（TypeScript）           PG 实现                   SQLite 实现              内存实现
+WorkspaceStore      ←→  PgWorkspaceStore      / SqliteWorkspaceStore  / InMemoryWorkspaceStore
+AgentStore          ←→  PgAgentStore          / SqliteAgentStore      / InMemoryAgentStore
+TaskStore           ←→  PgTaskStore           / SqliteTaskStore       / InMemoryTaskStore
+NoteStore           ←→  PgNoteStore           / SqliteNoteStore       / CRDTNoteStore（Yjs）
+ConversationStore   ←→  PgConversationStore   / SqliteConversationStore / InMemoryConversationStore
+AcpSessionStore     ←→  PgAcpSessionStore     / SqliteAcpSessionStore / InMemoryAcpSessionStore
+BackgroundTaskStore ←→  PgBackgroundTaskStore / SqliteBackgroundTaskStore / InMemoryBackgroundTaskStore
+```
+
+### API 到数据库的完整链路
+
+```
+HTTP POST /api/workspaces
+  → src/app/api/workspaces/route.ts（Next.js Route Handler）
+  → getRoutaSystem()                  // 全局单例（globalThis，HMR 存活）
+  → system.workspaceStore.save()
+     ├── PgWorkspaceStore → Drizzle ORM → insert().onConflictDoUpdate() → PostgreSQL
+     ├── SqliteWorkspaceStore → Drizzle ORM → better-sqlite3 → routa.db
+     └── InMemoryWorkspaceStore → Map<string, T>
+```
+
+### 特殊存储机制
+
+| 机制 | 实现 |
+|------|------|
+| **Task 乐观锁** | `UPDATE tasks SET version=version+1 WHERE id=? AND version=?`，rowCount=0 表示冲突 |
+| **Notes CRDT** | 内存模式使用 Yjs 实现无冲突并发编辑，通过 SSE 广播变更给所有客户端 |
+| **SQLite WAL 模式** | TypeScript（better-sqlite3）和 Rust（rusqlite）均开启 WAL + 外键约束 |
+| **ACP Session 恢复** | Serverless 进程重启后从 Postgres 查询 Session 记录，自动重建 ClaudeCodeSdkAdapter |
+| **WorkflowRun（待实现）** | 当前工作流运行状态不持久化（`TODO: Implement PgWorkflowRunStore`） |
+
+### Migration 管理
+
+| 后端       | 方式                                                                               |
+|------------|------------------------------------------------------------------------------------|
+| PostgreSQL | Drizzle Kit 生成 SQL 文件（`/drizzle/0000_*.sql`），`npm run db:migrate` 执行      |
+| SQLite     | 启动时 `CREATE TABLE IF NOT EXISTS` + `ALTER TABLE ... ADD COLUMN`（静默忽略错误） |
+
+---
+
+## 四、领域模型协作流程
 
 ### 第一阶段：意图解析（用户 → Spec Note）
 
@@ -335,7 +398,213 @@ queryOptions.resume = this.sdkSessionId   // 恢复完整历史上下文
 
 ---
 
-## 五、任务间隔离机制
+## 五、Serverless 完整对话流程
+
+> 以下以 Vercel 部署、`provider=claude-code-sdk`、用户发送一条消息为例，完整追踪每个模块的动作。
+
+### 阶段 0：建立 SSE 长连接（客户端主动）
+
+```
+浏览器
+  GET /api/acp?sessionId=xxx
+  → route.ts GET handler
+  → store.attachSse(sessionId, controller)  // 绑定 ReadableStream controller
+  → store.flushPending(sessionId)           // 发送此前已缓冲的通知（若有）
+  → setInterval(30s) → ": heartbeat\n\n"   // 维持连接，检测死连接
+  ← 200 text/event-stream（长连接，持续开放）
+```
+
+### 阶段 1：创建 Session（`session/new`）
+
+```
+浏览器
+  POST /api/acp { method: "session/new", params: { provider: "claude-code-sdk", cwd, role, workspaceId, idempotencyKey? } }
+  → route.ts POST handler
+
+  [1] 幂等性检查（idempotencyCache）
+      → 已有相同 key → 直接返回缓存的 sessionId，终止
+
+  [2] sessionId = uuidv4()
+
+  [3] manager.createClaudeCodeSdkSession(sessionId, cwd, forwardSessionUpdate, instanceConfig)
+        → AgentInstanceFactory.createClaudeCodeSdkAdapter()
+            → 按 role/specialistId 解析模型层级（SMART/BALANCED/FAST → Opus/Sonnet/Haiku）
+            → new ClaudeCodeSdkAdapter(cwd, onNotification, { model, baseUrl, apiKey })
+        → adapter.connect()
+            → 检查 ANTHROPIC_AUTH_TOKEN / ANTHROPIC_API_KEY
+            → process.env.ANTHROPIC_API_KEY = effectiveApiKey  // 注入给 cli.js 子进程
+            → process.env.CLAUDE_CONFIG_DIR = "/tmp/.claude"   // Vercel 只读文件系统规避
+            → this.sessionId = "claude-sdk-{timestamp}"
+            → this._alive = true
+        → adapter.createSession()  // 仅设置内部标识，SDK 无需显式建 Session
+        → claudeCodeSdkAdapters.set(sessionId, { adapter, acpSessionId, ... })
+
+  [4] 若 role === "ROUTA"
+        → initRoutaOrchestrator({ crafterProvider, gateProvider, cwd })
+        → system.tools.createAgent({ role: AgentRole.ROUTA, workspaceId })
+        → orchestrator.registerAgentSession(routaAgentId, sessionId)
+        → 注册 notificationHandler / sessionRegistrationHandler
+
+  [5] 若 specialistId 存在
+        → PostgresSpecialistStore.get(specialistId)  // 查 DB
+        → specialistSystemPrompt = specialist.systemPrompt + roleReminder
+
+  [6] store.upsertSession({ sessionId, cwd, workspaceId, provider, role, ... })
+        → 写入 HttpSessionStore.sessions（内存 Map）
+        → 创建 AgentEventBridge（语义事件转换器）
+        → 触发 maybeCleanup()（每 5 分钟清理过期 Session）
+
+  [7] persistSessionToDb({ id: sessionId, ... })
+        → 写入 Postgres acp_sessions 表（Serverless 重启后恢复用）
+
+  [8] recordTrace(cwd, sessionStartTrace)  // 写 session_start 审计记录
+
+  ← 返回 { sessionId, provider, role, routaAgentId }
+```
+
+### 阶段 2：用户发送消息（`session/prompt`）
+
+```
+浏览器
+  POST /api/acp { method: "session/prompt", params: { sessionId, prompt: "...", skillName? } }
+  → route.ts POST handler
+
+  [1] 提取 promptText（支持 string | Array<{type,text}>）
+
+  [2] 若 skillName 存在 → resolveSkillContent(skillName, cwd)  // 从 ~/.claude/skills/ 读取
+
+  [3] Session 存在性检查（内存 + 异步查 Postgres）
+      → 不存在 → 自动创建（走阶段 1 的 SDK 路径）
+
+  [4] 若 ROUTA 角色且首次 prompt
+      → buildCoordinatorPrompt({ agentId, workspaceId, userRequest: promptText })
+          // 注入协调者系统提示 + 可用工具列表
+      → store.markFirstPromptSent(sessionId)
+
+  [5] 若自定义 Specialist 且首次 prompt
+      → promptText = specialistSystemPrompt + "\n\n---\n\n" + promptText
+      → store.markFirstPromptSent(sessionId)
+
+  [6] store.pushUserMessage(sessionId, promptText)
+      → 写入 messageHistory（内存）
+      → ProviderAdapter.normalize() → TraceRecorder.recordFromUpdate()  // 记录 user_message trace
+
+  [7] manager.isClaudeCodeSdkSessionAsync(sessionId)
+      → 内存有 → 直接返回 true
+      → 内存无（冷启动） → 查 Postgres acp_sessions
+
+  [8] adapter = manager.getOrRecreateClaudeCodeSdkAdapter(sessionId, forwardSessionUpdate)
+      → 内存有 adapter → 直接返回
+      → 内存无（冷启动）：
+          → 查 Postgres → 恢复到 HttpSessionStore
+          → new ClaudeCodeSdkAdapter(cwd, onNotification) → adapter.connect()
+          → claudeCodeSdkAdapters.set(sessionId, ...)
+
+  [9] store.enterStreamingMode(sessionId)
+      → streamingSessionIds.add(sessionId)  // 关键！防止 SSE 重复推送
+
+  [10] ReadableStream + adapter.promptStream(promptText, sessionId, skillContent)
+       ← 立即返回 Response(stream, { Content-Type: text/event-stream })
+       // 接下来进入阶段 3（流式并发）
+```
+
+### 阶段 3：SDK 流式执行（与 HTTP 响应体并发）
+
+```
+adapter.promptStream()（AsyncGenerator）
+
+  [1] this.abortController = new AbortController()
+      this._hasSeenStreamTextDelta = false
+      shouldContinue = !_isFirstPrompt && sdkSessionId !== null
+
+  [2] 构建 queryOptions：
+      {
+        cwd, model, maxTurns: 30,
+        permissionMode: "bypassPermissions",
+        allowDangerouslySkipPermissions: true,
+        pathToClaudeCodeExecutable: "/var/task/node_modules/.../cli.js",
+        settingSources: ["user", "project"],
+        allowedTools: ["Skill","Read","Write","Edit","Bash","Glob","Grep"],
+        env: { CLAUDE_CONFIG_DIR: "/tmp/.claude" },
+        persistSession: true,
+        ...(shouldContinue && { continue: true, resume: sdkSessionId }),
+        ...(skillContent && { systemPrompt: { type:"preset", preset:"claude_code", append: skillContent } }),
+      }
+
+  [3] stream = query({ prompt: text, options: queryOptions })
+      → SDK 内部 spawn cli.js 子进程（JSONL 通信）
+
+  [4] for await (const msg of stream):
+
+      msg.type === "system"
+        → 捕获 sdkSessionId（首次）
+
+      msg.type === "stream_event" (text_delta)
+        → notification = { method:"session/update", params:{ sessionUpdate:"agent_message_chunk", content:{text} } }
+        → onNotification(notification)  // = forwardSessionUpdate
+             → store.pushNotification(notification)
+                  ① 写入 messageHistory
+                  ② ProviderAdapter.normalize() → TraceRecorder  // 追加文本到缓冲区
+                  ③ AgentEventBridge.process() → dispatchAgentEvent()
+                  ④ updateBackgroundTaskProgress()  // 若是后台任务
+                  ⑤ streamingSessionIds.has(sessionId) → true → 跳过 SSE controller push！
+        → yield `data: ${JSON.stringify(notification)}\n\n`
+             → route ReadableStream controller.enqueue() → 写入 HTTP 响应体 → 浏览器实时收到
+
+      msg.type === "stream_event" (thinking_delta)
+        → 同上，sessionUpdate = "agent_thought_chunk"
+
+      msg.type === "stream_event" (content_block_start, tool_use)
+        → sessionUpdate = "tool_call"（工具调用开始）
+
+      msg.type === "assistant" (tool_use block)
+        → detectAgentRenameFromMessage()  // 检测 set_agent_name
+        → sessionUpdate = "tool_call_update"（工具调用完成）
+
+      msg.type === "result"
+        → 记录 stopReason / usage（inputTokens / outputTokens）
+
+  [5] 流结束
+      _isFirstPrompt = false
+      yield turn_complete 事件（含 stopReason + usage）
+
+  [6] route 的 ReadableStream.start() 收到 generator 返回：
+      store.flushAgentBuffer(sessionId)       // 将缓冲的文本写成 trace 记录
+      store.exitStreamingMode(sessionId)      // streamingSessionIds.delete(sessionId)
+      saveHistoryToDb(sessionId, store.getConsolidatedHistory(sessionId))
+          → consolidateMessageHistory()       // 合并数百个 chunk → 单条 agent_message
+          → PgAcpSessionStore.saveHistory()   // 持久化到 Postgres
+      controller.close()                      // HTTP 响应结束
+```
+
+### 双通道数据流对比
+
+| 通道 | 激活条件 | 内容 | 用途 |
+| --- | --- | --- | --- |
+| HTTP 响应体（SSE） | `session/prompt` 期间 | 每条 SDK 事件 | 本次 prompt 的实时流 |
+| SSE GET 长连接 | streaming 模式结束后 | 后续非 streaming 事件 | 后台任务、子 Agent 通知 |
+
+两通道通过 `streamingSessionIds` Set 互斥——streaming 期间 `pushNotification()` 跳过 SSE GET 推送，避免浏览器收到重复事件。
+
+### 冷启动恢复流程（Serverless 重启）
+
+```
+新请求到达，sessionId 对应的 adapter 不在内存
+  → manager.getOrRecreateClaudeCodeSdkAdapter()
+  → getHttpSessionStore().getSession(sessionId) → undefined（内存已清）
+  → getPostgresDatabase() → PgAcpSessionStore.get(sessionId)
+  → 找到记录（provider="claude-code-sdk", cwd=...）
+  → store.upsertSession(dbSession)  // 恢复到内存
+  → new ClaudeCodeSdkAdapter(cwd, onNotification)
+  → adapter.connect()               // 重新验证 API key
+  → adapter._isFirstPrompt = true   // 新实例，下次 prompt 不会 continue
+  → claudeCodeSdkAdapters.set(sessionId, ...)
+  → 继续处理 prompt（历史上下文由 SDK 的 persistSession 机制保持）
+```
+
+---
+
+## 六、任务间隔离机制
 
 隔离发生在五个层次：
 
@@ -442,7 +711,223 @@ ROUTA 收到最终结果 → 告知用户
 
 ---
 
-## 七、关键文件索引
+## 七、部署说明
+
+### 部署形态总览
+
+```
+构建目标
+├── Vercel Serverless   默认 next build，DATABASE_URL → Neon Postgres
+├── Docker 容器         STANDALONE + esbuild，默认 SQLite，可切 Postgres
+└── Tauri 桌面应用      STATIC export + 内嵌 Node.js 服务器 + SQLite
+```
+
+---
+
+### 一、Vercel 部署（推荐）
+
+#### 1. 数据库准备（Neon Serverless Postgres）
+
+在 [neon.tech](https://neon.tech) 创建项目，获取 `DATABASE_URL`，格式为：
+
+```
+postgresql://user:password@ep-xxx.us-east-1.aws.neon.tech/neondb?sslmode=require
+```
+
+执行数据库迁移：
+
+```bash
+DATABASE_URL=<your-url> npm run db:migrate
+```
+
+#### 2. 环境变量配置（Vercel Dashboard → Settings → Environment Variables）
+
+| 变量 | 必须 | 说明 |
+| --- | --- | --- |
+| `DATABASE_URL` | 是 | Neon Postgres 连接串 |
+| `ANTHROPIC_AUTH_TOKEN` | 是 | Claude Code SDK 认证 Token |
+| `ANTHROPIC_BASE_URL` | 否 | 自定义 API 端点（如智谱 GLM） |
+| `ANTHROPIC_MODEL` | 否 | 默认模型（如 `GLM-4.7`） |
+| `API_TIMEOUT_MS` | 否 | 请求超时，默认 55000（低于 Vercel 60s 限制） |
+| `CLAUDE_CONFIG_DIR` | 否 | 自动设为 `/tmp/.claude`，可不填 |
+| `GITHUB_TOKEN` | 否 | GitHub 集成功能 |
+| `GITHUB_WEBHOOK_SECRET` | 否 | Webhook 验签 |
+
+#### 3. 关键构建配置（vercel.json）
+
+```json
+{
+  "buildCommand": "npm install --legacy-peer-deps && npm run build",
+  "crons": [
+    { "path": "/api/schedules/tick", "schedule": "* * * * *" }
+  ]
+}
+```
+
+- `--legacy-peer-deps`：解决 MCP/ACP SDK 间的 peer dependency 冲突
+- Cron Job：每分钟调用 `/api/schedules/tick`，驱动定时任务和 GitHub 轮询
+
+#### 4. cli.js 强制包含（next.config.ts）
+
+Vercel file-tracing 无法自动发现动态加载的 `cli.js`，配置强制包含：
+
+```typescript
+outputFileTracingIncludes: {
+  "/api/**": [
+    "./node_modules/@anthropic-ai/claude-agent-sdk/**/*",
+    "./.claude/skills/**/*",
+    ".agents/skills/**/*",
+  ],
+},
+```
+
+#### 5. 部署流程
+
+```bash
+# 方式 A：连接 GitHub 仓库，Vercel 自动部署
+# 方式 B：手动部署
+npm i -g vercel
+vercel --prod
+```
+
+---
+
+### 二、Docker 部署
+
+#### 1. 默认模式（SQLite，零依赖）
+
+```bash
+docker compose up -d
+# 访问 http://localhost:3000
+# 数据持久化到 ./data/routa.db
+```
+
+容器默认环境变量：
+
+```
+ROUTA_DB_DRIVER=sqlite
+NODE_ENV=production
+PORT=3000
+```
+
+#### 2. Postgres 模式
+
+```bash
+docker compose --profile postgres up -d
+```
+
+会额外启动 PostgreSQL 16 容器（端口 5432），并自动配置 `DATABASE_URL`。
+
+#### 3. 三阶段构建原理
+
+```
+阶段 1 deps:    node:22-alpine + apk add python3/make/g++ + npm ci
+阶段 2 builder: ROUTA_DESKTOP_STANDALONE=1 next build
+                → node scripts/build-docker.mjs
+                   ① esbuild 编译 sqlite.ts / sqlite-stores.ts / sqlite-schema.ts → CJS
+                   ② 复制 better-sqlite3 原生 .node 插件及依赖
+阶段 3 runner:  最小镜像，EXPOSE 3000，健康检查 /api/health
+```
+
+#### 4. 自定义环境变量
+
+```bash
+# docker-compose.yml 或 .env 文件
+ANTHROPIC_AUTH_TOKEN=your-token
+ANTHROPIC_MODEL=claude-sonnet-4-20250514
+DATABASE_URL=postgresql://...   # 可选，不填则用 SQLite
+```
+
+---
+
+### 三、Tauri 桌面应用部署
+
+#### 1. 本地构建
+
+```bash
+# 安装 Rust 工具链
+rustup target add aarch64-apple-darwin   # macOS ARM
+
+# 开发模式（同时启动 Next.js dev server）
+cd apps/desktop && npm run tauri dev
+
+# 生产构建
+npm run tauri build
+```
+
+#### 2. 构建流程
+
+```
+node scripts/prepare-frontend.mjs
+  ① ROUTA_BUILD_STATIC=1  → 临时移走 src/app/api/（纯前端构建）
+  ② next build (output: export) → out/
+  ③ 恢复 src/app/api/
+  ④ 复制 out/ → apps/desktop/src-tauri/frontend/
+        ↓
+ROUTA_DESKTOP_SERVER_BUILD=1 + ROUTA_DESKTOP_STANDALONE=1
+  → 独立 Node.js 服务器构建到 .next-desktop/standalone/
+  → esbuild 编译 SQLite 模块 → chunks/db/
+  → 复制 better-sqlite3 .node 插件
+  → 整体打包到 apps/desktop/src-tauri/bundled/desktop-server/
+        ↓
+Tauri 打包
+  → macOS: .dmg / .app
+  → Linux: .deb / .AppImage
+  → Windows: .msi / .exe
+```
+
+#### 3. CI 自动构建（GitHub Actions）
+
+推送 `v*` 标签触发四平台矩阵构建：
+
+| 平台 | 架构 | 产物 |
+| --- | --- | --- |
+| macOS latest | arm64 | `.dmg` / `.app` |
+| macOS latest | x64 | `.dmg` / `.app` |
+| Ubuntu 22.04 | x64 | `.deb` / `.AppImage` |
+| Windows latest | x64 | `.msi` / `.exe` |
+
+```bash
+git tag v0.3.0 && git push origin v0.3.0
+# → 自动触发 tauri-release.yml → 创建 GitHub Release Draft
+```
+
+---
+
+### 四、Rust 后端模式（可选）
+
+当需要替换 Next.js API Routes 时，可启用 Rust 后端（Axum）：
+
+```bash
+# 启动 Rust 服务器
+cargo run -p routa-cli -- server  # 监听 :3210
+
+# 配置 Next.js 代理到 Rust
+ROUTA_RUST_BACKEND_URL=http://localhost:3210 npm run dev
+```
+
+`next.config.ts` 的 `beforeFiles` 重写规则会将所有 `/api/*` 请求转发到 Rust，完全跳过 Next.js API Routes。
+
+---
+
+### 五、数据库迁移命令速查
+
+```bash
+# Postgres
+npm run db:generate          # 生成迁移文件
+npm run db:migrate           # 执行迁移
+npm run db:push              # 直接推送 schema（跳过迁移文件）
+npm run db:push:ci           # CI 模式（--strict=false）
+npm run db:studio            # 打开 Drizzle Studio 可视化
+
+# SQLite
+npm run db:sqlite:generate   # 生成 SQLite 迁移文件
+npm run db:sqlite:push       # 推送 SQLite schema
+```
+
+---
+
+## 八、关键文件索引
 
 | 文件 | 说明 |
 |------|------|
