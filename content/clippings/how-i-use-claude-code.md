@@ -50,6 +50,8 @@ Notice the language: **“deeply”**, **“in great details”**, **“intricac
 
 > 列表接口应支持基于游标（cursor-based）的分页，而非偏移量（offset）分页。请编写一份详细的 plan.md 说明如何实现这一点。在建议更改前先阅读源文件，并根据实际代码库制定计划。
 
+> Make a plan first.
+
 生成的计划始终包含对方案的详细解释、展示实际更改的代码片段、将被修改的文件路径，以及相关考量和权衡。
 
 ==我使用自己定义的 `.md` 计划文件，而不是 Claude Code 内置的计划模式。内置的计划模式很糟糕。我的 Markdown 文件能让我拥有完全的控制权。==我可以在编辑器中编辑它，添加行内注释，并且它会作为项目中的真实产物持久保存。
@@ -108,6 +110,7 @@ flowchart TD
 ==在开始实施之前，我总是会要求一份细化的任务分解：
 
 > add a detailed todo list to the plan, with all the phases and individual tasks necessary to complete the plan - don’t implement yet  
+> 
 > 在计划中添加一份详细的待办事项列表，包含完成该计划所需的所有阶段和具体任务——先不要执行。
 
 这会创建一个清单，作为实施过程中的进度跟踪器。Claude 会在执行过程中将已完成的项目标记出来，这样我随时扫一眼计划，就能准确了解当前的进度。这在持续数小时的任务执行中尤其有价值。
