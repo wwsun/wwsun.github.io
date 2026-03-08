@@ -306,7 +306,6 @@ plugins=( [plugins…] zsh-syntax-highlighting)
 
 其他插件 [https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins)
 
-
 ### 安装 nerd-fonts
 
 **Nerd Fonts** 是一个非常流行的开源项目，它通过为现有的编程字体“打补丁”（Patching）的方式，往字体里塞入了成千上万个图标（Glyphs）。
@@ -317,7 +316,7 @@ plugins=( [plugins…] zsh-syntax-highlighting)
 
 ```bash
 
-# 推荐安装 JetBrains Mono Nerd Font (目前最受欢迎的编程字体) 
+# 推荐安装 JetBrains Mono Nerd Font (目前最受欢迎的编程字体)
 brew install --cask font-jetbrains-mono-nerd-font
 ```
 
@@ -326,7 +325,7 @@ https://www.nerdfonts.com/#home
 
 然后设置字体为 `JetBrainsMono Nerd Font`
 
-### 安装 ghostty 
+### 安装 ghostty
 
 推荐使用 ghostty 作为终端，比较简单，没有复杂的配置
 

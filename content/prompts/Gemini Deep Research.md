@@ -3,14 +3,15 @@ created: 2026-01-13 19:42
 source:
 tags:
 ---
+
 ## 说明
 
 - 模型用 Pro
 - 描述用英文
 - 目标、实践范围、约束条件、输出格式
 
-
 ## 例子
+
 ```
 2026 First Half Planning and Goal Setting for the Digital Collaboration Technology Team, Technical Department, an Internet Company
 
@@ -39,4 +40,3 @@ Task objectives:
 Output requirements:
 - Results should be in Simplified Chinese
 ```
-

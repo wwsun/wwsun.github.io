@@ -3,6 +3,7 @@ created: 2026-01-26 10:09
 source: https://clawd.bot/
 tags:
 ---
+
 **clawd.bot = 一个“长期在线的 AI 消息网关 + Agent 宿主”**
 
 https://docs.clawd.bot/
@@ -21,6 +22,7 @@ https://docs.clawd.bot/
 **场景：** 你想买火车票，但经常卖光
 
 **ClawdBot 做法：**
+
 ```
 每天早上 8 点 / 晚上 8 点
   → 查询 12306 余票
@@ -30,12 +32,12 @@ https://docs.clawd.bot/
 
 **你要做的：** 0（设置好就不管了）
 
-
 ## 2. 跨平台消息中转
 
 **场景：** Discord 的消息想同步到 Telegram
 
 **ClawdBot 做法：**
+
 ```
 Discord 有人 @ 你
   → ClawdBot 收到
@@ -46,24 +48,24 @@ Discord 有人 @ 你
 
 **效果：** 一个 bot 管所有渠道
 
-
 ## 3. 定时任务 + 真实操作
 
 **场景：** 每天早上想知道天气
 
 **ClawdBot 做法：**
+
 ```python
 # 每天 08:00
 weather = fetch_weather("波士顿")
 send_discord("#general", f"早安！今天 {weather}")
 ```
 
-
 ## 4. 复杂研究任务
 
 **场景：** "帮我分析最近 AI 领域的热点"
 
 **ClawdBot 做法：**
+
 ```
 1. 搜索 Hacker News + Reddit AI 板块
 2. 抓取 top 10 讨论
@@ -74,12 +76,12 @@ send_discord("#general", f"早安！今天 {weather}")
 
 **时间：** 2 分钟（你自己查得半小时）
 
-
 ## 5. 代码执行 + 调试
 
 **场景：** "帮我跑个 Python 脚本看看输出"
 
 **ClawdBot 做法：**
+
 ```bash
 # 收到你的脚本
 write_file("test.py", your_code)
@@ -92,17 +94,17 @@ exec("python test.py")
 
 **对比普通 ChatGPT：** 它只能给你代码，你自己复制粘贴去跑
 
-
 ## 6. 生成子代理干活
 
 **场景：** "帮我写个看板应用"（复杂任务）
 
 **ClawdBot 做法：**
+
 ```
 你：写个看板
 我：好的，spawn 一个子 agent
     ↓
-子 agent: 
+子 agent:
   - 设计架构
   - 写 Next.js 代码
   - 测试运行
@@ -116,13 +118,12 @@ exec("python test.py")
 
 **就像 Alex Finn 的 "Henry" 在他吃炸鸡时帮他写应用**
 
-
-
 ## 7. 文件管理 + 整理
 
 **场景：** "整理我的下载文件夹"
 
 **ClawdBot 做法：**
+
 ```bash
 ls ~/Downloads
 ```
@@ -138,12 +139,12 @@ ls ~/Downloads
 # 完成，给你报告
 ```
 
-
 ## 8. API 集成自动化
 
 **场景：** "GitHub 有新 issue 通知我"
 
 **ClawdBot 做法：**
+
 ```
 每小时检查一次
   → gh api repos/你的仓库/issues
@@ -168,8 +169,8 @@ ls ~/Downloads
   → 生成价格趋势图
 ```
 
-
 ## 10. DevOps 监控 + 响应
+
 ```
 服务器报警
   → ClawdBot 收到 webhook
@@ -180,7 +181,6 @@ ls ~/Downloads
 
 **省下的：** 半夜被叫醒的次数
 
-
 ```
   → 生成合规报表（GDPR / SOC2）
   → 发送给合规团队
@@ -189,8 +189,8 @@ ls ~/Downloads
 
 **省下的：** 人工整理 2 天 → 自动 2 分钟
 
-
 ## 11. 工单系统桥接
+
 ```
 Slack 有人说 "创建工单"
   → ClawdBot 问几个问题
@@ -204,23 +204,22 @@ Slack 有人说 "创建工单"
 
 **效果：** 不用离开聊天工具
 
-
 # 核心区别
 
-| 普通 Chatbot | ClawdBot |
-|-------------|----------|
-| 输出文字 | **真的执行** |
-| 单次对话 | **24/7 运行** |
-| 聊完就忘 | **持久记忆** |
-| 只能回答 | **主动通知** |
-| 一个平台 | **跨平台** |
-
+| 普通 Chatbot | ClawdBot      |
+| ------------ | ------------- |
+| 输出文字     | **真的执行**  |
+| 单次对话     | **24/7 运行** |
+| 聊完就忘     | **持久记忆**  |
+| 只能回答     | **主动通知**  |
+| 一个平台     | **跨平台**    |
 
 **简单说：ClawdBot = 远程员工，不是聊天机器人** 🦀
 
 ## 不适合的场景
 
 **ClawdBot 不擅长：**
+
 - ❌ 需要毫秒级响应的（高频交易）
 - ❌ 严格实时的（医疗监控）
 - ❌ 100% 不能出错的（金融结算）
@@ -234,4 +233,3 @@ Slack 有人说 "创建工单"
 - ✅ 人机协作（AI 初筛 + 人类决策）
 
 # 技术原理
-

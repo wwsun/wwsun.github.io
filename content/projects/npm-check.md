@@ -7,6 +7,7 @@ draft: false
 description: npm-check
 source: https://github.com/dylang/npm-check
 ---
+
 ## 交互式升级
 
 `npm-check -u`
@@ -39,4 +40,3 @@ Examples
   $ npm-check ../foo    # Check another path.
   $ npm-check -gu       # Update globally installed modules by picking which ones to upgrade.
 ```
-

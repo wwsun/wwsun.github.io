@@ -4,26 +4,29 @@ source:
 tags:
   - ssh
 ---
+
 macOS 自带 SSH 客户端（`ssh`、`ssh-keygen` 等），无需额外安装。
+
 ## 密钥生成
 
 ```
-# 推荐使用 ED25519 算法 
-ssh-keygen -t ed25519 -C "<your_email>" 
+# 推荐使用 ED25519 算法
+ssh-keygen -t ed25519 -C "<your_email>"
 
-ssh-keygen -t ed25519 -C "ww.sun@outlook.com" 
+ssh-keygen -t ed25519 -C "ww.sun@outlook.com"
 ssh-keygen -t ed25519 -C "sunweiwei01@corp.xxx.com"
 ```
 
 ### 密钥类型选择
 
-| 场景                 | 推荐命令                                    |
-| ------------------ | --------------------------------------- |
-| **日常使用（首选）**       | `ssh-keygen -t ed25519 -C "your_email"` |
-| **需要最大兼容性**        | `ssh-keygen -t rsa -b 4096`             |
-| **连接云服务/GitHub**   | `ssh-keygen -t ed25519`                 |
+| 场景                     | 推荐命令                                |
+| ------------------------ | --------------------------------------- |
+| **日常使用（首选）**     | `ssh-keygen -t ed25519 -C "your_email"` |
+| **需要最大兼容性**       | `ssh-keygen -t rsa -b 4096`             |
+| **连接云服务/GitHub**    | `ssh-keygen -t ed25519`                 |
 | **企业合规要求 NIST**    | `ssh-keygen -t ecdsa -b 384`            |
 | **硬件安全密钥 (FIDO2)** | `ssh-keygen -t ed25519-sk`              |
+
 [[ssh 密钥类型对比]]
 
 ### 添加私钥到 ssh-agent
@@ -69,20 +72,19 @@ config 文件编写示例，没有的话，自己 touch 一个 `touch ~/.ssh/con
 
 ```yaml
 Host *
-  UseKeychain yes
-  AddKeysToAgent yes
+UseKeychain yes
+AddKeysToAgent yes
 
 Host github.com
-  HostName github.com
-  IdentityFile ~/.ssh/id_ed25519
+HostName github.com
+IdentityFile ~/.ssh/id_ed25519
 
 Host netease.com
-  HostName g.hz.netease.com
-  Port 22222
-  User sunweiwei01
-  PreferredAuthentications publickey
-  IdentityFile ~/.ssh/netease
-
+HostName g.hz.netease.com
+Port 22222
+User sunweiwei01
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/netease
 ```
 
 ## 必备的基础配置

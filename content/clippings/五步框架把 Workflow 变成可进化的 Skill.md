@@ -110,7 +110,6 @@ source.md → analysis.md → outline-a.md → draft-outline-a.md → final.md
 
 这样做还有个好处：可以并行启动多个 subagent。三个 writer-agent 同时跑，各自处理一个提纲方案，互不干扰。
 
-
 ### 第五步，迭代
 
 这是 Agent + Skills 相比传统 workflow **最大的优势** ：可以持续进化。

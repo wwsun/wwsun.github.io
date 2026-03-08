@@ -3,6 +3,7 @@ created: 2026-01-13 15:10
 source: https://dev.to/googleai/nano-banana-pro-prompting-guide-strategies-1h9n
 tags:
 ---
+
 Nano-Banana Pro 是一个“思考型”模型。它不仅仅是匹配关键词；它能够理解意图、物理规律和构图。
 
 1. ==编辑，而不是重新生成。==
@@ -61,8 +62,7 @@ Generate an infographic of the best times to visit the China 5A Parks in 2026 ba
 
 ![[Pasted image 20260113151659.png]]
 
-
 ## 参考
 
 - https://www.reddit.com/r/promptingmagic/comments/1p3mypm/how_to_visualize_anything_with_ai_a_masterclass/
-- 
+-

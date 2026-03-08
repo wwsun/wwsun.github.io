@@ -4,6 +4,7 @@ source: https://github.com/musistudio/claude-code-router
 tags:
   - claude-code
 ---
+
 ## install
 
 ```bash
@@ -18,7 +19,7 @@ npm install -g @musistudio/claude-code-router
 # Start Claude Code using the router:
 ccr code
 
-# Restart Claude Code 
+# Restart Claude Code
 ccr restart
 
 # UI Mode
@@ -35,7 +36,6 @@ ccr ui
 
 ```json
 {
-	"hasCompletedOnboarding": true
+  "hasCompletedOnboarding": true
 }
 ```
-

@@ -4,6 +4,7 @@ source:
 tags:
   - prompt
 ---
+
 # Emojify
 
 Add relevant emojis to enhance {}. Follow these rules:

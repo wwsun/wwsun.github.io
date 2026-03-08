@@ -23,9 +23,9 @@ However, the benefits also come with costs:
 然而，这些优势也伴随着成本：
 
 - Multi-agent systems consume approximately fifteen times more tokens than standard chat interactions, making them best suited for tasks where the value of the outcome outweighs the expense.  
-	多智能体系统消耗的令牌约为标准聊天交互的十五倍，因此最适合用于结果价值超过成本的任务。
+  多智能体系统消耗的令牌约为标准聊天交互的十五倍，因此最适合用于结果价值超过成本的任务。
 - They excel at problems that can be divided into parallel strands of research, but are less effective for tightly interdependent tasks such as coding.  
-	它们擅长处理可以分解为并行研究线索的问题，但对于编程等紧密相互依赖的任务效果较差。
+  它们擅长处理可以分解为并行研究线索的问题，但对于编程等紧密相互依赖的任务效果较差。
 
 Despite these trade-offs, multi-agent systems are proving to be a powerful way to tackle complex, breadth-heavy research challenges. In this article, we will understand the architecture of the multi-agent research system that Anthropic built.  
 尽管存在这些权衡，多智能体系统正被证明是应对复杂、广度密集型研究挑战的强大方法。在本文中，我们将了解 Anthropic 构建的多智能体研究系统的架构。
@@ -41,11 +41,11 @@ In this case, the orchestrator is the Lead Researcher agent, while the supportin
 在这种情况下，编排器是主导研究员代理，而支持单元是处理工作各个部分的子代理。以下是相关详细信息：
 
 - **Lead Researcher agent:** This is the main coordinator. When a user submits a query, the Lead Researcher analyzes it, decides on an overall strategy, and records the plan in memory. Memory management is important here because large research tasks can easily exceed the token limit of the model’s context window. By saving the plan, the system avoids losing track when tokens run out.  
-	主导研究员代理：这是主要的协调器。当用户提交查询时，主导研究员会分析查询，决定总体策略，并将计划记录在内存中。内存管理在这里很重要，因为大型研究任务很容易超出模型上下文窗口的标记限制。通过保存计划，系统可以避免在标记用尽时失去方向。
+  主导研究员代理：这是主要的协调器。当用户提交查询时，主导研究员会分析查询，决定总体策略，并将计划记录在内存中。内存管理在这里很重要，因为大型研究任务很容易超出模型上下文窗口的标记限制。通过保存计划，系统可以避免在标记用尽时失去方向。
 - **Subagents:** These are specialized agents created by the Lead Researcher. Each subagent is given a specific task, such as exploring a certain company, checking a particular time period, or looking into a technical detail. Because subagents operate in parallel and maintain their own context, they can search, evaluate results, and refine queries independently without interfering with one another. This separation of tasks reduces duplication and makes the process more efficient.  
-	子代理：这些是由首席研究员创建的专门代理。每个子代理都被分配特定任务，比如探索某家公司、检查特定时间段或调查技术细节。由于子代理并行运行并维护自己的上下文，它们可以独立搜索、评估结果和完善查询，而不会相互干扰。这种任务分离减少了重复工作，使流程更加高效。
+  子代理：这些是由首席研究员创建的专门代理。每个子代理都被分配特定任务，比如探索某家公司、检查特定时间段或调查技术细节。由于子代理并行运行并维护自己的上下文，它们可以独立搜索、评估结果和完善查询，而不会相互干扰。这种任务分离减少了重复工作，使流程更加高效。
 - **Citation Agent:** Once enough information has been gathered, the results are passed to a Citation Agent. Its job is to check every claim against the sources, match citations correctly, and ensure the final output is traceable. This prevents errors such as making statements without evidence or attributing information to the wrong source.  
-	引用代理：收集到足够信息后，结果会传递给引用代理。它的工作是根据来源检查每个声明，正确匹配引用，并确保最终输出可追溯。这防止了诸如无证据发表声明或将信息归因于错误来源等错误。
+  引用代理：收集到足够信息后，结果会传递给引用代理。它的工作是根据来源检查每个声明，正确匹配引用，并确保最终输出可追溯。这防止了诸如无证据发表声明或将信息归因于错误来源等错误。
 
 See the diagram below that shows the high level architecture of these components:  
 请参见下图，展示了这些组件的高级架构：
@@ -65,17 +65,17 @@ The complete workflow looks like this:
 完整的工作流程如下：
 
 - A user submits a query.  
-	用户提交一个查询。
+  用户提交一个查询。
 - The Lead Researcher creates a plan for performing the investigation.  
-	首席研究员制定执行调查的计划。
+  首席研究员制定执行调查的计划。
 - Subagents are spawned, each carrying out searches or using tools in parallel.  
-	生成子代理，每个子代理并行执行搜索或使用工具。
+  生成子代理，每个子代理并行执行搜索或使用工具。
 - The Lead Researcher gathers their results, synthesizes them, and decides if further work is required. If so, more subagents can be created, or the strategy can be refined.  
-	首席研究员收集他们的结果，综合分析，并决定是否需要进一步工作。如果需要，可以创建更多子代理，或者完善策略。
+  首席研究员收集他们的结果，综合分析，并决定是否需要进一步工作。如果需要，可以创建更多子代理，或者完善策略。
 - Once enough information is collected, everything is handed to the Citation Agent, which ensures the report is properly sourced.  
-	一旦收集到足够的信息，所有内容都会交给引用代理，该代理确保报告得到适当的引用。
+  一旦收集到足够的信息，所有内容都会交给引用代理，该代理确保报告得到适当的引用。
 - The final research report is then returned to the user.  
-	最终的研究报告随后返回给用户。
+  最终的研究报告随后返回给用户。
 
 See the diagram below for more details:  
 详见下图：
@@ -123,11 +123,11 @@ Agents often struggle to judge how much effort a task deserves. To prevent over-
 代理往往难以判断一项任务应该投入多少精力。为了防止在简单问题上过度投资，在提示中编写了调整规则。例如：
 
 - A simple fact check should involve only one agent making 3–10 tool calls.  
-	简单的事实核查应该只涉及一个代理进行 3-10 次工具调用。
+  简单的事实核查应该只涉及一个代理进行 3-10 次工具调用。
 - A direct comparison might need 2–4 subagents, each with 10–15 calls.  
-	直接比较可能需要 2-4 个子代理，每个进行 10-15 次调用。
+  直接比较可能需要 2-4 个子代理，每个进行 10-15 次调用。
 - A complex research problem could require 10 or more subagents, each with clearly divided responsibilities.  
-	复杂的研究问题可能需要 10 个或更多子代理，每个都有明确分工的职责。
+  复杂的研究问题可能需要 10 个或更多子代理，每个都有明确分工的职责。
 
 These built-in guidelines helped the Lead Researcher allocate resources more effectively.  
 这些内置指导原则帮助首席研究员更有效地分配资源。
@@ -149,11 +149,11 @@ To solve this, the team gave agents heuristics such as:
 为了解决这个问题，团队为智能体提供了以下启发式方法：
 
 - Examine all available tools before starting.  
-	在开始之前检查所有可用的工具。
+  在开始之前检查所有可用的工具。
 - Match the tool to the user’s intent.  
-	将工具与用户的意图进行匹配。
+  将工具与用户的意图进行匹配。
 - Use the web for broad searches, but prefer specialized tools when possible.  
-	使用网络进行广泛搜索，但在可能的情况下优先使用专门工具。
+  使用网络进行广泛搜索，但在可能的情况下优先使用专门工具。
 
 Each tool was carefully described with a distinct purpose so that agents could make the right choice.  
 每个工具都经过精心描述，具有明确的用途，以便智能体能够做出正确的选择。
@@ -202,13 +202,13 @@ Anthropic used a mix of approaches to judge outcomes rather than strict processe
 Anthropic 使用多种方法来判断结果，而不是严格的流程。
 
 - **Start small:** In early development, even tiny changes to prompts had big effects. Testing with just 20 representative queries was enough to see improvements instead of waiting for large test sets.  
-	从小处着手：在早期开发中，即使是对提示的微小更改也会产生很大的影响。仅用 20 个代表性查询进行测试就足以看到改进，而不需要等待大型测试集。
+  从小处着手：在早期开发中，即使是对提示的微小更改也会产生很大的影响。仅用 20 个代表性查询进行测试就足以看到改进，而不需要等待大型测试集。
 - **LLM-as-judge:** A separate model graded outputs using a rubric for factual accuracy, citation quality, completeness, source quality, and tool efficiency. Scores ranged from 0.0 to 1.0 with a pass/fail grade. This made the evaluation scalable and consistent with human judgment.  
-	LLM 作为评判者：一个独立的模型使用评分标准对输出进行评分，评估事实准确性、引用质量、完整性、来源质量和工具效率。分数范围从 0.0 到 1.0，并给出通过/不通过的等级。这使得评估具有可扩展性，并与人类判断保持一致。
+  LLM 作为评判者：一个独立的模型使用评分标准对输出进行评分，评估事实准确性、引用质量、完整性、来源质量和工具效率。分数范围从 0.0 到 1.0，并给出通过/不通过的等级。这使得评估具有可扩展性，并与人类判断保持一致。
 - **Human oversight:** People remained essential for spotting edge cases, such as hallucinations or bias toward SEO-heavy sources. Their feedback led to new heuristics for source quality.  
-	人工监督：人类对发现边缘情况仍然至关重要，比如幻觉或对 SEO 密集来源的偏向。他们的反馈促成了新的来源质量启发式方法。
+  人工监督：人类对发现边缘情况仍然至关重要，比如幻觉或对 SEO 密集来源的偏向。他们的反馈促成了新的来源质量启发式方法。
 - **Emergent behavior:** Small prompt changes could shift agent interactions in unpredictable ways. Instead of rigid rules, the best results came from prompt frameworks that guided collaboration, division of labor, and effort allocation.  
-	涌现行为：微小的提示变化可能以不可预测的方式改变智能体交互。与其使用刚性规则，最佳结果来自引导协作、分工和工作量分配的提示框架。
+  涌现行为：微小的提示变化可能以不可预测的方式改变智能体交互。与其使用刚性规则，最佳结果来自引导协作、分工和工作量分配的提示框架。
 
 ## Production Engineering Challenges生产工程挑战
 
@@ -216,13 +216,13 @@ Running multi-agent systems in production introduces reliability issues that go 
 在生产环境中运行多智能体系统引入了超越传统软件的可靠性问题。
 
 - **Stateful agents:** These agents run for long periods, keeping track of their progress across many tool calls. Small errors can build up, so the system needs durable recovery methods (such as checkpoints, retry logic, and letting agents adapt when tools fail) so that work can resume without starting over.  
-	有状态智能体：这些智能体运行很长时间，跨多个工具调用跟踪其进度。小错误可能会累积，因此系统需要持久的恢复方法（如检查点、重试逻辑，以及让智能体在工具失败时进行适应），以便工作可以恢复而不必重新开始。
+  有状态智能体：这些智能体运行很长时间，跨多个工具调用跟踪其进度。小错误可能会累积，因此系统需要持久的恢复方法（如检查点、重试逻辑，以及让智能体在工具失败时进行适应），以便工作可以恢复而不必重新开始。
 - **Debugging:** Because agents make dynamic, non-deterministic choices, the same prompt may lead to different paths. To diagnose failures, Anthropic added production tracing and monitored high-level decision patterns, while avoiding storage of sensitive user content.  
-	调试：由于智能体会做出动态的、非确定性的选择，同一个提示词可能会导致不同的路径。为了诊断故障，Anthropic 添加了生产追踪功能并监控高级决策模式，同时避免存储敏感的用户内容。
+  调试：由于智能体会做出动态的、非确定性的选择，同一个提示词可能会导致不同的路径。为了诊断故障，Anthropic 添加了生产追踪功能并监控高级决策模式，同时避免存储敏感的用户内容。
 - **Deployments:** Updates risk breaking agents already mid-task. To avoid this, Anthropic used rainbow deployments, where traffic is shifted gradually from old to new versions, keeping both active during rollout.  
-	部署：更新存在破坏正在执行任务的智能体的风险。为了避免这种情况，Anthropic 使用了彩虹部署，即逐渐将流量从旧版本转移到新版本，在部署过程中保持两个版本同时运行。
+  部署：更新存在破坏正在执行任务的智能体的风险。为了避免这种情况，Anthropic 使用了彩虹部署，即逐渐将流量从旧版本转移到新版本，在部署过程中保持两个版本同时运行。
 - **Synchronous bottlenecks:** Currently, the LeadResearcher waits for subagents to finish before moving forward. This simplifies coordination but slows down the system. Asynchronous execution could remove these bottlenecks, though it would add complexity in managing state, coordinating results, and handling errors.  
-	同步瓶颈：目前，LeadResearcher 会等待子智能体完成工作后才继续推进。这简化了协调工作，但降低了系统速度。异步执行可以消除这些瓶颈，不过会增加状态管理、结果协调和错误处理的复杂性。
+  同步瓶颈：目前，LeadResearcher 会等待子智能体完成工作后才继续推进。这简化了协调工作，但降低了系统速度。异步执行可以消除这些瓶颈，不过会增加状态管理、结果协调和错误处理的复杂性。
 
 ## Conclusion 结论
 
@@ -241,8 +241,8 @@ Multi-agent research systems have shown they can uncover connections, scale reas
 **References:参考文献：**
 
 - [How we built our multi-agent research system?  
-	我们如何构建多智能体研究系统？](https://www.anthropic.com/engineering/multi-agent-research-system)
+  我们如何构建多智能体研究系统？](https://www.anthropic.com/engineering/multi-agent-research-system)
 - [Introducing the Model Context Protocol  
-	介绍模型上下文协议](https://www.anthropic.com/news/model-context-protocol)
+  介绍模型上下文协议](https://www.anthropic.com/news/model-context-protocol)
 - [Building effective AI Agents  
-	构建有效的 AI 智能体](https://www.anthropic.com/engineering/building-effective-agents)
+  构建有效的 AI 智能体](https://www.anthropic.com/engineering/building-effective-agents)

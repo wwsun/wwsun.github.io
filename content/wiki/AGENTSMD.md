@@ -7,9 +7,9 @@ draft: false
 description: AGENTS
 source: https://agents.md/
 ---
+
 README.md 面向人类开发者
 AGENTS.md 面向智能体
-
 
 添加有助于智能体高效处理项目的章节。常用选项：
 
@@ -48,7 +48,6 @@ Follow these steps:
    - Too vague to be actionable
    - Overly obvious (like "write clean code")
 ```
-
 
 ## 参考
 

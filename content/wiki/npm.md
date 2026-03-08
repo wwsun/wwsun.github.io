@@ -4,6 +4,7 @@ source: https://docs.npmjs.com/cli/v11/commands
 tags:
   - npm
 ---
+
 ## 查看全局包是否需要升级
 
 ```bash
@@ -21,6 +22,7 @@ npm-check -gu
 ```
 
 [https://github.com/dylang/npm-check](https://github.com/dylang/npm-check)
+
 ## 升级项目依赖
 
 使用 `npm-check-updates`
@@ -29,7 +31,6 @@ npm-check -gu
 # workspace 级别
 npx npm-check-updates -w -i
 ```
-
 
 ## 添加/更新 tag 到指定版本
 
@@ -78,14 +79,14 @@ npm login --registry <http://localhost:4873/>
 # 查看当前用户
 npm whoami --registry <http://localhost:4873/>
 
-# log in, linking the scope to the custom registry 
-npm login --scope=@mycorp --registry=https://registry.mycorp.com 
+# log in, linking the scope to the custom registry
+npm login --scope=@mycorp --registry=https://registry.mycorp.com
 
-# netease npm 
-npm login --scope=@music --registry=http://rnpm.hz.netease.com 
+# netease npm
+npm login --scope=@music --registry=http://rnpm.hz.netease.com
 
 
-# log out, removing the link and the auth token 
+# log out, removing the link and the auth token
 npm logout --scope=@mycorp
 ```
 
@@ -107,27 +108,26 @@ npm logout --scope=@mycorp
 ## workspace
 
 ```bash
-# 添加新的子项目 
-npm init -w ./packages/a 
+# 添加新的子项目
+npm init -w ./packages/a
 
-# 根目录安装依赖 
-npm i --save-dev eslint 
+# 根目录安装依赖
+npm i --save-dev eslint
 
-# 向工作区添加依赖 
-npm install abbrev -w a 
+# 向工作区添加依赖
+npm install abbrev -w a
 
-# 在工作区上下文中运行命令 
-npm run test --workspace=a 
+# 在工作区上下文中运行命令
+npm run test --workspace=a
 
-# 为每个工作区运行相同的命令 
-npm run test --workspace=packages 
+# 为每个工作区运行相同的命令
+npm run test --workspace=packages
 
-# 忽略缺失的脚本 
-npm run test --workspaces --if-present 
+# 忽略缺失的脚本
+npm run test --workspaces --if-present
 
-# -w, --workspace : 指定操作的 workspace 
-# -W, --workspace-root: 指向根目录（根 package.json） 
-# 升级依赖 
+# -w, --workspace : 指定操作的 workspace
+# -W, --workspace-root: 指向根目录（根 package.json）
+# 升级依赖
 npm outdated -W
 ```
-

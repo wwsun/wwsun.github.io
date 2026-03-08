@@ -10,6 +10,7 @@ tags:
   - clippings
   - prompt
 ---
+
 ## I. Code Generation & Scaffolding
 
 ### 1\. Generate an Auth System Boilerplate
@@ -51,9 +52,9 @@ tags:
 **Prompt:**
 
 > Here’s a snippet that isn’t working as expected:
-> 
+>
 > `[insert code]`
-> 
+>
 > Identify the bug, explain why it fails, and suggest a corrected version.
 
 ### 7\. Error Message Explanation
@@ -61,9 +62,9 @@ tags:
 **Prompt:**
 
 > I’m getting this error in \[language/framework\]:
-> 
+>
 > `[paste error message]`
-> 
+>
 > Based on this error and my stack, what’s likely causing it? Suggest at least one way to resolve it.
 
 ### 8\. Unexpected Output Diagnosis
@@ -71,9 +72,9 @@ tags:
 **Prompt:**
 
 > This function returns incorrect output:
-> 
+>
 > `[insert function code]`
-> 
+>
 > The expected result for input `[example input]` is `[expected output]`, but I get `[actual output]`. What might be wrong?
 
 ---
@@ -85,7 +86,7 @@ tags:
 **Prompt:**
 
 > Refactor the following code to be more readable, modular, and aligned with \[language\] best practices. Avoid redundant code and suggest naming improvements:
-> 
+>
 > `[insert code]`
 
 ### 10\. Apply Design Patterns
@@ -93,7 +94,7 @@ tags:
 **Prompt:**
 
 > Rewrite this code using the \[pattern name\] design pattern. Explain the benefits of this pattern in this context:
-> 
+>
 > `[insert code]`
 
 ### 11\. Convert Nested Logic into Smaller Functions
@@ -101,7 +102,7 @@ tags:
 **Prompt:**
 
 > Break this deeply nested logic into separate reusable functions, while preserving functionality and reducing cyclomatic complexity:
-> 
+>
 > `[insert code]`
 
 ---
@@ -113,7 +114,7 @@ tags:
 **Prompt:**
 
 > Explain what this code does line-by-line. Include details on edge cases, performance bottlenecks, and suggest any improvements:
-> 
+>
 > `[insert code]`
 
 ### 13\. Create Developer Documentation
@@ -121,7 +122,7 @@ tags:
 **Prompt:**
 
 > Document the following function with clear purpose, parameter details, return types, and usage example in Markdown format:
-> 
+>
 > `[insert function]`
 
 ### 14\. Explain a Concept With Examples
@@ -139,9 +140,9 @@ tags:
 **Prompt:**
 
 > Write unit tests in \[testing framework\] for this function:
-> 
+>
 > `[insert function]`
-> 
+>
 > Cover edge cases, invalid input, and normal operation.
 
 ### 16\. Convert Manual Test to Automated Test
@@ -149,11 +150,11 @@ tags:
 **Prompt:**
 
 > I currently test this manually:
-> 
+>
 > - Step 1: Open the app
 > - Step 2: Enter user input
 > - Step 3: Verify result
-> 
+>
 > Convert this into an automated test in \[framework\].
 
 ---
@@ -171,9 +172,9 @@ tags:
 **Prompt:**
 
 > Here’s the current system design for my application:
-> 
+>
 > `[Describe the architecture]`
-> 
+>
 > Evaluate it for scalability, redundancy, and performance. Suggest improvements.
 
 ---
@@ -185,7 +186,7 @@ tags:
 **Prompt:**
 
 > Generate a GitHub Actions workflow that:
-> 
+>
 > - Runs tests on push
 > - Builds a Docker image
 > - Deploys to \[hosting provider\] on success

@@ -34,7 +34,7 @@ flowchart LR
 
 > 梳理任务调度流程，深入理解并寻找潜在的 Bug。系统中肯定存在 Bug，因为有时它会运行本应被取消的任务。持续研究该流程，直到找到所有 Bug 为止，在找到所有 Bug 之前不要停止。完成后，在 research.md 中编写一份详细的调查报告。
 
-Notice the language: **“deeply”**, **“in great details”**, **“intricacies”**, **“go through everything”**. This isn’t fluff. Without these words, Claude will skim. It’ll read a file, see what a function does at the signature level, and move on. You need to signal that surface-level reading is not acceptable.  
+Notice the language: **“deeply”**, **“in great details”**, **“intricacies”**, **“go through everything”**. This isn’t fluff. Without these words, Claude will skim. It’ll read a file, see what a function does at the signature level, and move on. You need to signal that surface-level reading is not acceptable.
 
 注意这些用词：“深入地”、“非常详细地”、“复杂之处”、“梳理所有内容”。这并非废话。如果没有这些词，Claude 会走马观花。它会读取一个文件，在函数签名层面了解其功能，然后就继续下一步。你需要发出信号，表明浅层阅读是不可接受的。
 
@@ -109,8 +109,8 @@ flowchart TD
 
 ==在开始实施之前，我总是会要求一份细化的任务分解：
 
-> add a detailed todo list to the plan, with all the phases and individual tasks necessary to complete the plan - don’t implement yet  
-> 
+> add a detailed todo list to the plan, with all the phases and individual tasks necessary to complete the plan - don’t implement yet
+>
 > 在计划中添加一份详细的待办事项列表，包含完成该计划所需的所有阶段和具体任务——先不要执行。
 
 这会创建一个清单，作为实施过程中的进度跟踪器。Claude 会在执行过程中将已完成的项目标记出来，这样我随时扫一眼计划，就能准确了解当前的进度。这在持续数小时的任务执行中尤其有价值。
@@ -123,18 +123,18 @@ flowchart TD
 
 这段简单的提示词包含了所有关键点：
 
-- *“implement it all”*: do everything in the plan, don’t cherry-pick  
-	“全部实现”：执行计划中的所有内容，不要挑肥拣瘦
-- *“mark it as completed in the plan document”*: the plan is the source of truth for progress  
-	“在计划文档中将其标记为已完成”：计划是进度追踪的唯一事实来源
-- *“do not stop until all tasks and phases are completed”*: don’t pause for confirmation mid-flow  
-	“在所有任务和阶段完成之前不要停止”：不要在执行过程中停下来请求确认
-- *“do not add unnecessary comments or jsdocs”*: keep the code clean  
-	“不要添加不必要的注释或 JSDoc”：保持代码整洁
-- *“do not use any or unknown types”*: maintain strict typing  
-	“不要使用 any 或 unknown 类型”：保持严格的类型检查
-- *“continuously run typecheck”*: catch problems early, not at the end  
-	“持续运行类型检查”：尽早发现问题，而不是等到最后
+- _“implement it all”_: do everything in the plan, don’t cherry-pick  
+  “全部实现”：执行计划中的所有内容，不要挑肥拣瘦
+- _“mark it as completed in the plan document”_: the plan is the source of truth for progress  
+  “在计划文档中将其标记为已完成”：计划是进度追踪的唯一事实来源
+- _“do not stop until all tasks and phases are completed”_: don’t pause for confirmation mid-flow  
+  “在所有任务和阶段完成之前不要停止”：不要在执行过程中停下来请求确认
+- _“do not add unnecessary comments or jsdocs”_: keep the code clean  
+  “不要添加不必要的注释或 JSDoc”：保持代码整洁
+- _“do not use any or unknown types”_: maintain strict typing  
+  “不要使用 any 或 unknown 类型”：保持严格的类型检查
+- _“continuously run typecheck”_: catch problems early, not at the end  
+  “持续运行类型检查”：尽早发现问题，而不是等到最后
 
 在几乎每一个实施会话中，我都会使用这段完全相同的措辞（略有变化）。当我下令“实施全部”时，每一个决定都已经做出并经过验证。实施过程变得机械化，而非创造性。这是刻意为之的。我希望实施过程是枯燥的。创造性的工作发生在标注循环中。一旦计划正确，执行就应该是水到渠成的。
 
@@ -155,34 +155,32 @@ flowchart LR
 
 如果说规划说明可能是一个段落，那么实现修正通常只需一句话：
 
-- *“You didn’t implement the `deduplicateByTitle` function.”  
-	“你没有实现 `deduplicateByTitle` 函数。”*
-- *“You built the settings page in the main app when it should be in the admin app, move it.”  
-	“你把设置页面建在了主应用里，但它应该在管理应用中，把它挪过去。”*
+- _“You didn’t implement the `deduplicateByTitle` function.”  
+  “你没有实现 `deduplicateByTitle` 函数。”_
+- _“You built the settings page in the main app when it should be in the admin app, move it.”  
+  “你把设置页面建在了主应用里，但它应该在管理应用中，把它挪过去。”_
 
 Claude 拥有计划和当前会话的完整上下文，因此简短的修正就足够了。
 
-
 前端工作是迭代最频繁的部分。我在浏览器中进行测试，并快速发出修正指令：
 
-- *“wider” “再宽一点”*
-- *“still cropped” “还是被裁剪了”*
-- *“there’s a 2px gap” “有 2 像素的间隙”*
-
+- _“wider” “再宽一点”_
+- _“still cropped” “还是被裁剪了”_
+- _“there’s a 2px gap” “有 2 像素的间隙”_
 
 对于视觉问题，我有时会附上截图。一张表格错位的截图比文字描述能更快地传达问题。
 
 我还会不断引用现有的代码：
 
-- *“this table should look exactly like the users table, same header, same pagination, same row density.”  
-	“这个表格应该看起来和用户表格完全一样，相同的表头、相同的分页、相同的行密度。”*
+- _“this table should look exactly like the users table, same header, same pagination, same row density.”  
+  “这个表格应该看起来和用户表格完全一样，相同的表头、相同的分页、相同的行密度。”_
 
 这比从零开始描述设计要精确得多。成熟代码库中的大多数功能都是现有模式的变体。一个新的设置页面应该看起来像现有的设置页面。指向参考代码可以传达所有隐含需求，而无需逐一说明。Claude 通常会在进行修正之前先读取参考文件。
 
 当事情偏离预期方向时，我不会试图去修补。我会通过撤销 git 更改来回滚并重新界定范围：
 
-- *“I reverted everything. Now all I want is to make the list view more minimal — nothing else.”  
-	“我撤销了所有更改。现在我只想让列表视图变得更极简——仅此而已。”*
+- _“I reverted everything. Now all I want is to make the list view more minimal — nothing else.”  
+  “我撤销了所有更改。现在我只想让列表视图变得更极简——仅此而已。”_
 
 在回滚后缩小范围，几乎总是比试图逐步修复错误方案能产生更好的结果。
 
@@ -202,7 +200,7 @@ flowchart TD
     A & M & S & O --> R[Refined implementation scope]
 ```
 
-**Cherry-picking from proposals:** When Claude identifies multiple issues, I go through them one by one: *“for the first one, just use Promise.all, don’t make it overly complicated; for the third one, extract it into a separate function for readability; ignore the fourth and fifth ones, they’re not worth the complexity.”* I’m making item-level decisions based on my knowledge of what matters right now.  
+**Cherry-picking from proposals:** When Claude identifies multiple issues, I go through them one by one: _“for the first one, just use Promise.all, don’t make it overly complicated; for the third one, extract it into a separate function for readability; ignore the fourth and fifth ones, they’re not worth the complexity.”_ I’m making item-level decisions based on my knowledge of what matters right now.  
 ==**从提案中择优挑选：**当 Claude 识别出多个问题时，我会逐一处理：“对于第一个问题，直接用 Promise.all 就好，别搞太复杂；对于第三个，把它提取成一个独立的函数以提高可读性；忽略第四个和第五个，它们带来的复杂性不值得。”我会根据自己对当前重点的把握，在条目层面做出决策。
 
 ==**缩减范围：** 当计划中包含一些“锦上添花”的功能时，我会主动删减。“从计划中移除下载功能，我现在不想实现这个。”这能防止范围蔓延。

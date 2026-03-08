@@ -5,7 +5,6 @@ tags:
   - agent
 ---
 
-
 ## Plan vs Build
 
 Plan mode:
@@ -25,4 +24,3 @@ Build mode:
 ![[open-code-plan-vs-build.png]]
 
 https://learnopencode.com/3-workflow/01-plan-build.html
-

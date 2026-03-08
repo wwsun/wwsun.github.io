@@ -11,7 +11,6 @@ https://marketplace.visualstudio.com/items
 https://marketplace.visualstudio.com/_apis/public/gallery
 ```
 
-
 ## skills
 
 https://antigravity.google/docs/skills

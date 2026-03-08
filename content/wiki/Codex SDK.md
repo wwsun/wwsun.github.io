@@ -6,6 +6,7 @@ draft: false
 description: Codex SDK 官方 TypeScript 开发指南
 source: https://github.com/openai/codex/blob/main/sdk/typescript/README.md
 ---
+
 将 Codex 智能体集成到你的工作流和应用程序中。
 
 TypeScript SDK 封装了绑定的 `codex` 二进制文件。它会启动 CLI 并通过 stdin/stdout 交换 JSONL 事件。
@@ -21,20 +22,20 @@ npm install @openai/codex-sdk
 ## 快速上手
 
 ```typescript
-import { Codex } from "@openai/codex-sdk";
+import { Codex } from "@openai/codex-sdk"
 
-const codex = new Codex();
-const thread = codex.startThread();
-const turn = await thread.run("Diagnose the test failure and propose a fix");
+const codex = new Codex()
+const thread = codex.startThread()
+const turn = await thread.run("Diagnose the test failure and propose a fix")
 
-console.log(turn.finalResponse);
-console.log(turn.items);
+console.log(turn.finalResponse)
+console.log(turn.items)
 ```
 
 在同一个 `Thread` 实例上重复调用 `run()` 即可继续对话。
 
 ```typescript
-const nextTurn = await thread.run("Implement the fix");
+const nextTurn = await thread.run("Implement the fix")
 ```
 
 ## 流式响应
@@ -42,16 +43,16 @@ const nextTurn = await thread.run("Implement the fix");
 `run()` 会缓存事件直到本轮对话结束。如果你需要对中间过程（如工具调用、流式响应和文件更改通知）做出反应，请改用 `runStreamed()`，它会返回一个包含结构化事件的异步生成器。
 
 ```typescript
-const { events } = await thread.runStreamed("Diagnose the test failure and propose a fix");
+const { events } = await thread.runStreamed("Diagnose the test failure and propose a fix")
 
 for await (const event of events) {
   switch (event.type) {
     case "item.completed":
-      console.log("item", event.item);
-      break;
+      console.log("item", event.item)
+      break
     case "turn.completed":
-      console.log("usage", event.usage);
-      break;
+      console.log("usage", event.usage)
+      break
   }
 }
 ```
@@ -69,10 +70,10 @@ const schema = {
   },
   required: ["summary", "status"],
   additionalProperties: false,
-} as const;
+} as const
 
-const turn = await thread.run("Summarize repository status", { outputSchema: schema });
-console.log(turn.finalResponse);
+const turn = await thread.run("Summarize repository status", { outputSchema: schema })
+console.log(turn.finalResponse)
 ```
 
 你也可以使用 [`zod-to-json-schema`](https://www.npmjs.com/package/zod-to-json-schema) 包，从 [Zod schema](https://github.com/colinhacks/zod) 创建 JSON Schema，并将 `target` 设置为 `"openAi"`。
@@ -81,12 +82,12 @@ console.log(turn.finalResponse);
 const schema = z.object({
   summary: z.string(),
   status: z.enum(["ok", "action_required"]),
-});
+})
 
 const turn = await thread.run("Summarize repository status", {
   outputSchema: zodToJsonSchema(schema, { target: "openAi" }),
-});
-console.log(turn.finalResponse);
+})
+console.log(turn.finalResponse)
 ```
 
 ## 附加图像
@@ -98,7 +99,7 @@ const turn = await thread.run([
   { type: "text", text: "Describe these screenshots" },
   { type: "local_image", path: "./ui.png" },
   { type: "local_image", path: "./diagram.jpg" },
-]);
+])
 ```
 
 ## 恢复现有线程
@@ -106,9 +107,9 @@ const turn = await thread.run([
 线程持久化存储在 `~/.codex/sessions` 中。如果你丢失了内存中的 `Thread` 对象，可以使用 `resumeThread()` 重新构建它并继续操作。
 
 ```typescript
-const savedThreadId = process.env.CODEX_THREAD_ID!;
-const thread = codex.resumeThread(savedThreadId);
-await thread.run("Implement the fix");
+const savedThreadId = process.env.CODEX_THREAD_ID!
+const thread = codex.resumeThread(savedThreadId)
+await thread.run("Implement the fix")
 ```
 
 ## 工作目录控制
@@ -119,7 +120,7 @@ await thread.run("Implement the fix");
 const thread = codex.startThread({
   workingDirectory: "/path/to/project",
   skipGitRepoCheck: true,
-});
+})
 ```
 
 ## 控制 Codex CLI 环境
@@ -131,7 +132,7 @@ const codex = new Codex({
   env: {
     PATH: "/usr/local/bin",
   },
-});
+})
 ```
 
 SDK 仍会在你提供的环境之上注入其所需的变量（例如 `OPENAI_BASE_URL` 和 `CODEX_API_KEY`）。
@@ -146,7 +147,7 @@ const codex = new Codex({
     show_raw_agent_reasoning: true,
     sandbox_workspace_write: { network_access: true },
   },
-});
+})
 ```
 
 线程选项在设置重叠时仍具有优先权，因为它们在这些全局覆盖之后才发出。

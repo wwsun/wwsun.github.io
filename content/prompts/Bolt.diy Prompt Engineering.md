@@ -5,20 +5,21 @@ draft: false
 description: 未命名
 source: https://github.com/stackblitz-labs/bolt.diy/blob/main/app/lib/common/prompts/prompts.ts
 ---
+
 ## 完整提示词
 
-````ts
-import type { DesignScheme } from '~/types/design-scheme';
-import { WORK_DIR } from '~/utils/constants';
-import { allowedHTMLElements } from '~/utils/markdown';
-import { stripIndents } from '~/utils/stripIndent';
+```ts
+import type { DesignScheme } from "~/types/design-scheme"
+import { WORK_DIR } from "~/utils/constants"
+import { allowedHTMLElements } from "~/utils/markdown"
+import { stripIndents } from "~/utils/stripIndent"
 
 export const getSystemPrompt = (
   cwd: string = WORK_DIR,
   supabase?: {
-    isConnected: boolean;
-    hasSelectedProject: boolean;
-    credentials?: { anonKey?: string; supabaseUrl?: string };
+    isConnected: boolean
+    hasSelectedProject: boolean
+    credentials?: { anonKey?: string; supabaseUrl?: string }
   },
   designScheme?: DesignScheme,
 ) => `
@@ -93,8 +94,8 @@ You are Bolt, an expert AI assistant and exceptional senior software developer w
         ? 'You are not connected to Supabase. Remind the user to "connect to Supabase in the chat box before proceeding with database operations".'
         : !supabase.hasSelectedProject
           ? 'Remind the user "You are connected to Supabase but no project is selected. Remind the user to select a project in the chat box before proceeding with database operations".'
-          : ''
-      : ''
+          : ""
+      : ""
   } 
     IMPORTANT: Create a .env file if it doesnt exist${
       supabase?.isConnected &&
@@ -104,7 +105,7 @@ You are Bolt, an expert AI assistant and exceptional senior software developer w
         ? ` and include the following variables:
     VITE_SUPABASE_URL=${supabase.credentials.supabaseUrl}
     VITE_SUPABASE_ANON_KEY=${supabase.credentials.anonKey}`
-        : '.'
+        : "."
     }
   NEVER modify any Supabase configuration or \`.env\` files apart from creating the \`.env\`.
 
@@ -286,7 +287,7 @@ You are Bolt, an expert AI assistant and exceptional senior software developer w
 </code_formatting_info>
 
 <message_formatting_info>
-  You can make the output pretty by using only the following available HTML elements: ${allowedHTMLElements.map((tagName) => `<${tagName}>`).join(', ')}
+  You can make the output pretty by using only the following available HTML elements: ${allowedHTMLElements.map((tagName) => `<${tagName}>`).join(", ")}
 </message_formatting_info>
 
 <chain_of_thought_instructions>
@@ -716,25 +717,24 @@ Here are some examples of correct usage of artifacts:
     </assistant_response>
   </example>
 </examples>
-`;
+`
 
 export const CONTINUE_PROMPT = stripIndents`
   Continue your prior response. IMPORTANT: Immediately begin from where you left off without any interruptions.
   Do not repeat any content, including artifact and action tags.
-`;
-
-````
-
+`
+```
 
 ### 核心约束 (`<system_constraints>`)
+
 - **环境定义**：明确告知 AI 它运行在 **WebContainer** 中，而不是真实的 Linux 服务器。
 - **能力边界**：
-    - **Python 限制**：明确指出 Python 环境仅限标准库（`NO pip support`），避免 AI 尝试安装 numpy 或 pandas 导致运行失败。
-    - **C/C++ 禁区**：明确没有 `g++` 编译器，禁止生成 Native Addons。
-    - **Web Server**：强制要求使用 `Vite` 等 Node.js 方案，而不是尝试启动 Nginx 或 Apache。
+  - **Python 限制**：明确指出 Python 环境仅限标准库（`NO pip support`），避免 AI 尝试安装 numpy 或 pandas 导致运行失败。
+  - **C/C++ 禁区**：明确没有 `g++` 编译器，禁止生成 Native Addons。
+  - **Web Server**：强制要求使用 `Vite` 等 Node.js 方案，而不是尝试启动 Nginx 或 Apache。
 - **工具链**：列出了可用的 Shell 命令白名单（`cat`, `ls`, `node`, `python3` 等），让 AI 知道它的工具箱里有什么。
 
->[!tip] 不要让 LLM 输出纯文本，要让它输出“数据结构”（XML, JSON, YAML）
+> [!tip] 不要让 LLM 输出纯文本，要让它输出“数据结构”（XML, JSON, YAML）
 
 ### Artifact 协议和规则 (`<artifact_instructions>`)
 
@@ -745,7 +745,7 @@ export const CONTINUE_PROMPT = stripIndents`
 - **执行顺序**：强制 `package.json` 的更新必须在 `npm install` 之前，`npm run dev` 必须在最后。
 - **类型系统**：严格区分 `file`（写文件）、`shell`（装包）、`start`（启动服务）三种 Action 类型。
 
-### CoT  策略 (`<chain_of_thought_instructions>`)
+### CoT 策略 (`<chain_of_thought_instructions>`)
 
 - **Brief Outline**：要求 AI 在生成 Artifact 标签之前，先用 2-4 行简要列出实现步骤（如：“1. 设置 Vite; 2. 创建组件; 3. 添加样式”）。
 - **效果**：这不仅让用户知道 AI 想干什么，更重要的是利用 LLM 的自回归特性，让后续生成的代码逻辑更连贯。
@@ -754,12 +754,13 @@ export const CONTINUE_PROMPT = stripIndents`
 
 - **默认 Supabase**：强制默认使用 Supabase。
 - **双重操作**：要求每次数据库变更必须同时提供两个 Action：
-    1.  **迁移文件**：`migration.sql` 用于版本控制。
-    2.  **立即执行**：直接在数据库执行同样的 SQL，确保当前环境即时生效。
+  1.  **迁移文件**：`migration.sql` 用于版本控制。
+  2.  **立即执行**：直接在数据库执行同样的 SQL，确保当前环境即时生效。
 - **RLS 强制**：严禁创建没有 **Row Level Security (RLS)** 的表，强制要求编写安全策略。
 - **禁止破坏**：明确禁止 `DROP TABLE` 等可能导致数据丢失的操作。
 
 ### 设计美学指导 (`<design_instructions>`)
+
 - **反模板化**：明确要求 "Avoid generic templates"，追求 "Visually stunning"。
 - **移动优先**：强制响应式设计。
 - **素材来源**：指定使用 Pexels 的库存图片 URL，而不是生成无效的占位符链接。

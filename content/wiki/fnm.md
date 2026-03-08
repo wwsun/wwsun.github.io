@@ -4,23 +4,23 @@ source: https://github.com/Schniz/fnm
 tags:
   - nodejs
 ---
+
 fast node manager
 
 ## 命令速查
 
-| 命令 | 说明 |
-|------|------|
-| `fnm install <version>` | 安装版本 |
-| `fnm use <version>` | 切换版本 |
-| `fnm default <version>` | 设置默认 |
-| `fnm uninstall <version>` | 卸载版本 |
-| `fnm ls` | 列出已安装 |
-| `fnm ls-remote` | 列出可安装 |
-| `fnm current` | 当前版本 |
-| `fnm exec --using=<v>` | 用指定版本执行命令 |
-| `fnm alias <v> <name>` | 创建别名 |
-| `fnm which <version>` | 查看安装路径 |
-
+| 命令                      | 说明               |
+| ------------------------- | ------------------ |
+| `fnm install <version>`   | 安装版本           |
+| `fnm use <version>`       | 切换版本           |
+| `fnm default <version>`   | 设置默认           |
+| `fnm uninstall <version>` | 卸载版本           |
+| `fnm ls`                  | 列出已安装         |
+| `fnm ls-remote`           | 列出可安装         |
+| `fnm current`             | 当前版本           |
+| `fnm exec --using=<v>`    | 用指定版本执行命令 |
+| `fnm alias <v> <name>`    | 创建别名           |
+| `fnm which <version>`     | 查看安装路径       |
 
 如果你想保留 `nvm` 的命令习惯，可以在 `~/.zshrc` 中添加：
 
@@ -129,17 +129,20 @@ fnm install --help
 ## 实用技巧
 
 ### 快速安装并切换
+
 ```bash
 fnm install 20 && fnm use 20
 ```
 
 ### 运行特定版本（不切换）
+
 ```bash
 fnm exec --using=18 node -v
 fnm exec --using=18 npm install
 ```
 
 ### 查看 Node 安装路径
+
 ```bash
 fnm which 20
 # 输出: /Users/you/Library/Application Support/fnm/node-versions/v20.x.x/installation/bin/node
@@ -160,5 +163,3 @@ echo "20" > .node-version
 ```
 
 配置了 `--use-on-cd` 后，进入目录会自动切换版本。
-
-

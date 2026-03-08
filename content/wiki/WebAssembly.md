@@ -6,6 +6,7 @@ draft: false
 description: WebAssembly
 source:
 ---
+
 WebAssembly（Wasm）是一种面向 Web 的二进制指令格式与运行时（更准确说：一种可移植的低层字节码 + 校验/沙箱执行模型）。它被设计成在浏览器里**快速、可预测、接近原生性能**地执行，同时也可以在浏览器外（Node.js、Wasm runtimes）运行。
 
 你可以把它理解为：==Web 里的“可移植、受限沙箱中的高性能模块”。
@@ -17,6 +18,7 @@ WebAssembly（Wasm）是一种面向 Web 的二进制指令格式与运行时（
 - **更小的分发与更快启动（视场景）**：二进制通常比同等 JS 体积更小、解析更快（但也受网络、初始化、内存拷贝等影响）。
 
 不适合/收益不大：
+
 - **DOM 操作与典型 UI 逻辑**：Wasm 不能直接操作 DOM；频繁跨 JS/Wasm 边界会抵消收益。
 - **IO 密集业务**：网络请求、数据库、业务编排等通常 JS/TS 更合适。
 
@@ -30,6 +32,7 @@ WebAssembly（Wasm）是一种面向 Web 的二进制指令格式与运行时（
 ## 3) 典型架构
 
 常见模式是：
+
 - ==JS/TS 负责 UI、事件、DOM、网络==
 - ==Wasm 负责纯计算：`input bytes -> wasm -> output bytes`==
 - 通过 TypedArray 在内存间传递数据（或用 `SharedArrayBuffer` 做共享/多线程）

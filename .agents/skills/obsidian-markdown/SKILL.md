@@ -10,6 +10,7 @@ This skill enables skills-compatible agents to create and edit valid Obsidian Fl
 ## Overview
 
 Obsidian uses a combination of Markdown flavors:
+
 - [CommonMark](https://commonmark.org/)
 - [GitHub Flavored Markdown](https://github.github.com/gfm/)
 - [LaTeX](https://www.latex-project.org/) for math
@@ -32,27 +33,33 @@ or use Shift+Enter.
 
 ```markdown
 # Heading 1
+
 ## Heading 2
+
 ### Heading 3
+
 #### Heading 4
+
 ##### Heading 5
+
 ###### Heading 6
 ```
 
 ### Text Formatting
 
-| Style | Syntax | Example | Output |
-|-------|--------|---------|--------|
-| Bold | `**text**` or `__text__` | `**Bold**` | **Bold** |
-| Italic | `*text*` or `_text_` | `*Italic*` | *Italic* |
-| Bold + Italic | `***text***` | `***Both***` | ***Both*** |
-| Strikethrough | `~~text~~` | `~~Striked~~` | ~~Striked~~ |
-| Highlight | `==text==` | `==Highlighted==` | ==Highlighted== |
-| Inline code | `` `code` `` | `` `code` `` | `code` |
+| Style         | Syntax                   | Example           | Output          |
+| ------------- | ------------------------ | ----------------- | --------------- |
+| Bold          | `**text**` or `__text__` | `**Bold**`        | **Bold**        |
+| Italic        | `*text*` or `_text_`     | `*Italic*`        | _Italic_        |
+| Bold + Italic | `***text***`             | `***Both***`      | **_Both_**      |
+| Strikethrough | `~~text~~`               | `~~Striked~~`     | ~~Striked~~     |
+| Highlight     | `==text==`               | `==Highlighted==` | ==Highlighted== |
+| Inline code   | `` `code` ``             | `` `code` ``      | `code`          |
 
 ### Escaping Formatting
 
 Use backslash to escape special characters:
+
 ```markdown
 \*This won't be italic\*
 \#This won't be a heading
@@ -88,11 +95,13 @@ Common characters to escape: `\*`, `\_`, `\#`, `` \` ``, `\|`, `\~`
 ```
 
 Define a block ID by adding `^block-id` at the end of a paragraph:
+
 ```markdown
 This is a paragraph that can be linked to. ^my-block-id
 ```
 
 For lists and quotes, add the block ID on a separate line:
+
 ```markdown
 > This is a quote
 > With multiple lines
@@ -103,8 +112,8 @@ For lists and quotes, add the block ID on a separate line:
 ### Search Links
 
 ```markdown
-[[##heading]]     Search for headings containing "heading"
-[[^^block]]       Search for blocks containing "block"
+[[##heading]] Search for headings containing "heading"
+[[^^block]] Search for blocks containing "block"
 ```
 
 ## Markdown-Style Links
@@ -132,8 +141,8 @@ Note: Spaces must be URL-encoded as `%20` in Markdown links.
 
 ```markdown
 ![[image.png]]
-![[image.png|640x480]]    Width x Height
-![[image.png|300]]        Width only (maintains aspect ratio)
+![[image.png|640x480]] Width x Height
+![[image.png|300]] Width only (maintains aspect ratio)
 ```
 
 ### External Images
@@ -165,6 +174,7 @@ Note: Spaces must be URL-encoded as `%20` in Markdown links.
 ```
 
 Where the list has been defined with a block ID:
+
 ```markdown
 - Item 1
 - Item 2
@@ -209,27 +219,28 @@ tag:#project status:done
 
 ```markdown
 > [!question] Outer callout
+>
 > > [!note] Inner callout
 > > Nested content
 ```
 
 ### Supported Callout Types
 
-| Type | Aliases | Description |
-|------|---------|-------------|
-| `note` | - | Blue, pencil icon |
-| `abstract` | `summary`, `tldr` | Teal, clipboard icon |
-| `info` | - | Blue, info icon |
-| `todo` | - | Blue, checkbox icon |
-| `tip` | `hint`, `important` | Cyan, flame icon |
-| `success` | `check`, `done` | Green, checkmark icon |
-| `question` | `help`, `faq` | Yellow, question mark |
-| `warning` | `caution`, `attention` | Orange, warning icon |
-| `failure` | `fail`, `missing` | Red, X icon |
-| `danger` | `error` | Red, zap icon |
-| `bug` | - | Red, bug icon |
-| `example` | - | Purple, list icon |
-| `quote` | `cite` | Gray, quote icon |
+| Type       | Aliases                | Description           |
+| ---------- | ---------------------- | --------------------- |
+| `note`     | -                      | Blue, pencil icon     |
+| `abstract` | `summary`, `tldr`      | Teal, clipboard icon  |
+| `info`     | -                      | Blue, info icon       |
+| `todo`     | -                      | Blue, checkbox icon   |
+| `tip`      | `hint`, `important`    | Cyan, flame icon      |
+| `success`  | `check`, `done`        | Green, checkmark icon |
+| `question` | `help`, `faq`          | Yellow, question mark |
+| `warning`  | `caution`, `attention` | Orange, warning icon  |
+| `failure`  | `fail`, `missing`      | Red, X icon           |
+| `danger`   | `error`                | Red, zap icon         |
+| `bug`      | -                      | Red, bug icon         |
+| `example`  | -                      | Purple, list icon     |
+| `quote`    | `cite`                 | Gray, quote icon      |
 
 ### Custom Callouts (CSS)
 
@@ -252,7 +263,8 @@ tag:#project status:done
 - Item 3
 
 * Also works with asterisks
-+ Or plus signs
+
+- Or plus signs
 ```
 
 ### Ordered Lists
@@ -308,7 +320,7 @@ Plain code block
 ```javascript
 // Syntax highlighted code block
 function hello() {
-  console.log("Hello, world!");
+  console.log("Hello, world!")
 }
 ```
 
@@ -326,6 +338,7 @@ Use more backticks or tildes for the outer block:
 `````markdown
 ````markdown
 Here's how to create a code block:
+
 ```js
 console.log("Hello")
 ```
@@ -336,7 +349,7 @@ console.log("Hello")
 
 ```markdown
 | Header 1 | Header 2 | Header 3 |
-|----------|----------|----------|
+| -------- | -------- | -------- |
 | Cell 1   | Cell 2   | Cell 3   |
 | Cell 4   | Cell 5   | Cell 6   |
 ```
@@ -344,17 +357,18 @@ console.log("Hello")
 ### Alignment
 
 ```markdown
-| Left     | Center   | Right    |
-|:---------|:--------:|---------:|
-| Left     | Center   | Right    |
+| Left | Center | Right |
+| :--- | :----: | ----: |
+| Left | Center | Right |
 ```
 
 ### Using Pipes in Tables
 
 Escape pipes with backslash:
+
 ```markdown
-| Column 1 | Column 2 |
-|----------|----------|
+| Column 1          | Column 2        |
+| ----------------- | --------------- |
 | [[Link\|Display]] | ![[Image\|100]] |
 ```
 
@@ -380,13 +394,13 @@ $$
 ### Common Math Syntax
 
 ```markdown
-$x^2$              Superscript
-$x_i$              Subscript
-$\frac{a}{b}$      Fraction
-$\sqrt{x}$         Square root
-$\sum_{i=1}^{n}$   Summation
-$\int_a^b$         Integral
-$\alpha, \beta$    Greek letters
+$x^2$ Superscript
+$x_i$ Subscript
+$\frac{a}{b}$ Fraction
+$\sqrt{x}$ Square root
+$\sum_{i=1}^{n}$ Summation
+$\int_a^b$ Integral
+$\alpha, \beta$ Greek letters
 ```
 
 ## Diagrams (Mermaid)
@@ -453,10 +467,14 @@ It won't appear in reading view.
 
 ```markdown
 ---
-***
-___
-- - -
-* * *
+
+---
+
+---
+
+---
+
+---
 ```
 
 ## Properties (Frontmatter)
@@ -484,15 +502,15 @@ due: 2024-02-01T14:30:00
 
 ### Property Types
 
-| Type | Example |
-|------|---------|
-| Text | `title: My Title` |
-| Number | `rating: 4.5` |
-| Checkbox | `completed: true` |
-| Date | `date: 2024-01-15` |
-| Date & Time | `due: 2024-01-15T14:30:00` |
-| List | `tags: [one, two]` or YAML list |
-| Links | `related: "[[Other Note]]"` |
+| Type        | Example                         |
+| ----------- | ------------------------------- |
+| Text        | `title: My Title`               |
+| Number      | `rating: 4.5`                   |
+| Checkbox    | `completed: true`               |
+| Date        | `date: 2024-01-15`              |
+| Date & Time | `due: 2024-01-15T14:30:00`      |
+| List        | `tags: [one, two]` or YAML list |
+| Links       | `related: "[[Other Note]]"`     |
 
 ### Default Properties
 
@@ -508,15 +526,18 @@ due: 2024-02-01T14:30:00
 #tag-with-dashes
 #tag_with_underscores
 
-In frontmatter:
----
+## In frontmatter:
+
 tags:
-  - tag1
-  - nested/tag2
+
+- tag1
+- nested/tag2
+
 ---
 ```
 
 Tags can contain:
+
 - Letters (any language)
 - Numbers (not as first character)
 - Underscores `_`
@@ -604,9 +625,10 @@ For more details, see the official documentation[^1].
 
 %%
 Internal notes:
+
 - Review with team on Friday
 - Consider alternative approaches
-%%
+  %%
 ````
 
 ## References

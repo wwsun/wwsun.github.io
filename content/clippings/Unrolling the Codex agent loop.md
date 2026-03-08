@@ -18,7 +18,6 @@ tags:
 
 ## 智能体循环
 
-
 每个 AI 智能体的核心都是所谓的“智能体循环”。智能体循环的简化示意图如下所示：
 
 ![[codex-agent-loop.png]]
@@ -239,7 +238,6 @@ data: {"type":"response.completed","response":{...}}
 让我们来看看这种不断增长的提示词对性能意味着什么。
 
 ## 性能考量
-
 
 你可能会问自己：“等等，在对话过程中发送给 Responses API 的 JSON 数量，智能体循环难道不是呈二次方增长吗？”你说得没错。虽然 Responses API 确实支持一个可选的 [`previous_response_id` ⁠](https://platform.openai.com/docs/api-reference/responses/create#responses_create-previous_response_id) 参数来缓解这个问题，但 Codex 目前并未使用它，这主要是为了保持请求完全无状态，并支持零数据保留 (ZDR) 配置。
 

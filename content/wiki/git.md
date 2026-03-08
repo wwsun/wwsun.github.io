@@ -3,6 +3,7 @@ created: 2025-12-18 09:56
 source:
 tags:
 ---
+
 ## Config 初始化
 
 ```bash
@@ -99,22 +100,20 @@ git pull --rebase
 
 git worktree 是 Git 提供的一种功能，允许你在同一个仓库（同一 .git 数据库）下同时检出多个工作副本（working trees），每个工作树可以检出不同的分支，用于并行开发、代码审查、快速切换上下文等。
 
-新建并检出新分支到新的工作树（在父目录创建一个名为 ../feature 的文件夹）： 
+新建并检出新分支到新的工作树（在父目录创建一个名为 ../feature 的文件夹）：
 `git worktree add -b feature/foo ../feature origin/main`
 
-检出已存在的分支到新的工作树： 
+检出已存在的分支到新的工作树：
 `git worktree add ../feature feature/foo`
 
-列出所有工作树： 
+列出所有工作树：
 `git worktree list`
 
-移除工作树（清理工作树目录的元信息并删除工作树记录）： 
+移除工作树（清理工作树目录的元信息并删除工作树记录）：
 `git worktree remove ../feature`
 
-清理已丢失的（stale）工作树记录： 
-`git worktree prune` （可结合 --expire 参数） 
+清理已丢失的（stale）工作树记录：
+`git worktree prune` （可结合 --expire 参数）
 
-
->[!tip] 备注
-不要直接用 rm -rf 删除工作树目录，否则会留下 git 的记录；若已删除请运行 git worktree prune 清理。
-
+> [!tip] 备注
+> 不要直接用 rm -rf 删除工作树目录，否则会留下 git 的记录；若已删除请运行 git worktree prune 清理。

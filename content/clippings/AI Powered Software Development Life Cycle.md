@@ -30,15 +30,15 @@ Below are few key areas how AI Codex and LLM tools can be helpful in SDLC.
 以下是 AI Codex 和 LLM 工具在 SDLC 中可以提供帮助的一些关键领域。
 
 - **Summarization Tools**: AI can be used to summarize code changes, document code, create release notes, readme documents, create test summary reports, draft product guides, making it easier for product owners & developers to develop software more rapidly.  
-	总结工具：AI 可以用于总结代码更改、文档化代码、创建发布说明、README 文档、创建测试总结报告、起草产品指南，使产品所有者和开发人员能够更快地开发软件。
+  总结工具：AI 可以用于总结代码更改、文档化代码、创建发布说明、README 文档、创建测试总结报告、起草产品指南，使产品所有者和开发人员能够更快地开发软件。
 - **Code Recommendations:** AI can suggest relevant code snippets, design patterns, and best practices while developers write code. Advanced custom trained codex models can generate good quality code while adhering to your organization’s standards and software framework.  
-	代码推荐：AI 可以在开发者编写代码时建议相关的代码片段、设计模式和最佳实践。高级自定义训练的代码模型可以在遵守您组织的标准和软件框架的同时生成高质量的代码。
+  代码推荐：AI 可以在开发者编写代码时建议相关的代码片段、设计模式和最佳实践。高级自定义训练的代码模型可以在遵守您组织的标准和软件框架的同时生成高质量的代码。
 - **Chatbots — Interactive Q&A/Knowledge Search:** AI-driven chatbots can assist various teams in finding solutions, answering queries, and sharing knowledge.  
-	聊天机器人——交互式问答/知识搜索：基于 AI 的聊天机器人可以协助各个团队查找解决方案、回答问题和分享知识。
+  聊天机器人——交互式问答/知识搜索：基于 AI 的聊天机器人可以协助各个团队查找解决方案、回答问题和分享知识。
 - **Standards Checkers:** AI can perform code analysis to ensure adherence to coding standards and identify potential issues.  
-	标准检查器：AI 可以进行代码分析以确保遵守编码标准并识别潜在问题。
+  标准检查器：AI 可以进行代码分析以确保遵守编码标准并识别潜在问题。
 - **Testing Tools:** Utilize AI for generating test data, suggesting SQL queries, and even automating the creation of test cases.  
-	测试工具：利用 AI 生成测试数据、建议 SQL 查询，甚至自动化测试用例的创建。
+  测试工具：利用 AI 生成测试数据、建议 SQL 查询，甚至自动化测试用例的创建。
 
 Below table illustrates few SDLC tasks and sample Codex prompts for those tasks.  
 以下表格展示了部分 SDLC 任务以及这些任务的示例 Codex 提示。
@@ -61,8 +61,9 @@ Transitioning to AI Powered SDLC needs a detailed strategy and thoughtful execut
 
 The key aspects are:关键方面是：
 
-**1)** **Defining the AI SDLC Vision and Evaluation approach**  
-1) 定义 AI 驱动的软件开发生命周期愿景和评估方法
+**1)** **Defining the AI SDLC Vision and Evaluation approach**
+
+1. 定义 AI 驱动的软件开发生命周期愿景和评估方法
 
 **Vision 愿景**
 
@@ -130,39 +131,39 @@ There are several open source and closed-source tools & models available. Below 
 
 Codex Tools Codex 工具
 
-*• OpenAI Codex ( Github)  
-• OpenAI Codex (Github)*
+_• OpenAI Codex ( Github)  
+• OpenAI Codex (Github)_
 
-*• CodeT5 ( Salesforce )  
-• CodeT5 (Salesforce)*
+_• CodeT5 ( Salesforce )  
+• CodeT5 (Salesforce)_
 
-*• Starcoder ( Service Now)  
-• Starcoder (Service Now)*
+_• Starcoder ( Service Now)  
+• Starcoder (Service Now)_
 
-*• Vertx Codey ( Google tools)  
-• Vertx Codey (Google tools)*
+_• Vertx Codey ( Google tools)  
+• Vertx Codey (Google tools)_
 
-*• LLaMA models ( facebook)  
-• LLaMA 模型 (Facebook)*
+_• LLaMA models ( facebook)  
+• LLaMA 模型 (Facebook)_
 
 LLM Models LLM 模型
 
-*· GPT3/4 from OpenAI · GPT3/4 来自 OpenAI*
+_· GPT3/4 from OpenAI · GPT3/4 来自 OpenAI_
 
-*· LLaMA2 ( facebook) · LLaMA2（Facebook）*
+_· LLaMA2 ( facebook) · LLaMA2（Facebook）_
 
 Chatbots for Knowledge Bank  
 知识库聊天机器人
 
-*· fastChat*
+_· fastChat_
 
-*· GPTChat ( OpenAI) · GPTChat (OpenAI)*
+_· GPTChat ( OpenAI) · GPTChat (OpenAI)_
 
 Orchestration Tools 编排工具
 
-*· Langchain*
+_· Langchain_
 
-*· Langflow*
+_· Langflow_
 
 IDE Plugins: There are plugins coming up for the popular tools such as Jira, IntelliJ, VS Code already. You can consider them or develop your own plugins to integrate Codex Tools in your Organization SDLC workflow.  
 IDE 插件：对于像 Jira、IntelliJ、VS Code 这样的流行工具，已经有了一些插件。你可以考虑使用这些插件，或者开发自己的插件来将 Codex Tools 集成到你们组织的 SDLC 流程中。
@@ -192,7 +193,7 @@ Below is one example from a study at Duolingo using Github Co-Pilot:
 
 ![](https://miro.medium.com/v2/resize:fit:640/format:webp/1*MLrqPvlzOVmAia3x6VyivA.png)
 
-*Source:* [*https://github.blog/2023-05-09-how-companies-are-boosting-productivity-with-generative-ai/*](https://github.blog/2023-05-09-how-companies-are-boosting-productivity-with-generative-ai/)  
+_Source:_ [_https://github.blog/2023-05-09-how-companies-are-boosting-productivity-with-generative-ai/_](https://github.blog/2023-05-09-how-companies-are-boosting-productivity-with-generative-ai/)  
 源: https://github.blog/2023-05-09-how-companies-are-boosting-productivity-with-generative-ai/
 
 ## Watch Items & Risks 关注项与风险
@@ -201,11 +202,11 @@ While integrating AI Codex and pair programming tools can bring substantial bene
 将 AI Codex 和配对编程工具集成虽然能带来显著的好处，但也需要考虑潜在的风险和挑战：
 
 - **Data Security:** Ensure that sensitive data and proprietary code remain protected when using AI-powered tools.  
-	数据安全：在使用 AI 驱动的工具时，确保敏感数据和专有代码得到保护。
+  数据安全：在使用 AI 驱动的工具时，确保敏感数据和专有代码得到保护。
 - **Accuracy of Suggestions:** There might be instances where AI-generated code suggestions are not accurate or aligned with the intended functionality.  
-	建议的准确性：AI 生成的代码建议可能存在不准确或与预期功能不一致的情况。
+  建议的准确性：AI 生成的代码建议可能存在不准确或与预期功能不一致的情况。
 - **Lack of Human Creativity:** Overreliance on AI might hinder the creativity and innovative thinking of developers.  
-	缺乏人类创造力：过度依赖 AI 可能会阻碍开发人员的创造力和创新思维。
+  缺乏人类创造力：过度依赖 AI 可能会阻碍开发人员的创造力和创新思维。
 
 ## Conclusion 结论
 

@@ -7,6 +7,7 @@ draft: true
 description: Personal AI infrastructure
 source: http://wogithub.com/danielmiessler/Personal_AI_Infrastructure
 ---
+
 ## 项目简介
 
 **PAI 的宗旨是解决世界上的“P0 问题”：**
@@ -122,6 +123,7 @@ cp -r .claude ~/ && cd ~/.claude && bash PAI-Install/install.sh
 ```
 
 **安装器将自动：**
+
 - 检测你的系统并安装 Bun、Git、Claude Code；
 - 询问你的名字、AI 助手名、时区；
 - 克隆配置仓库到 `~/.claude`；
@@ -205,7 +207,6 @@ MIT License，详情见 LICENSE 文件。
 - [IndyDevDan](https://www.youtube.com/@indydevdan)
 - fayerman-source：Google Cloud TTS 集成等
 - Matt Espinoza：测试与建议
-
 
 ## 推荐阅读
 

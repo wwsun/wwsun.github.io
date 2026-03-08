@@ -5,6 +5,7 @@ tags:
   - pnpm
   - monorepo
 ---
+
 ## pnpm add
 
 ```bash
@@ -20,7 +21,7 @@ pnpm add -Dw dotenv @gitbeaker/rest
 
 ## pnpm outdated
 
-检查过期的包。 
+检查过期的包。
 
 ```bash
 pnpm outdated --filter @music/agents
@@ -54,8 +55,8 @@ pnpm dlx npm-check-updates --packageFile [package.json]
 
 https://github.com/raineorshine/npm-check-updates
 
-
 ## workspace
+
 monorepo support
 
 https://pnpm.io/zh/workspaces
@@ -73,4 +74,3 @@ packages:
   # 排除测试目录中的包
   - '!**/test/**'
 ```
-

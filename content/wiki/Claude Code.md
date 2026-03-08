@@ -5,6 +5,7 @@ tags:
   - claude-code
   - agent
 ---
+
 ## 自定义配置
 
 ```json
@@ -36,19 +37,19 @@ tags:
 
 钩子允许在 Claude Code 特定事件发生时自动执行 shell 命令，实现自动化工作流。
 
-|钩子事件|触发时机|常用场景|
-|---|---|---|
-|`SessionStart`|新会话开始|初始化环境、加载配置|
-|`SessionEnd`|会话结束|清理资源、生成报告|
-|`PreToolUse`|工具执行前|验证、修改工具输入|
-|`PostToolUse`|工具执行后|日志记录、触发后续操作|
-|`UserPromptSubmit`|用户提交提示后|添加上下文、权限检查|
-|`PermissionRequest`|请求权限时|自动审批/拒绝权限|
-|`PreCompact`|对话压缩前|保存重要信息|
-|`SubagentStart`|子代理启动|监控、日志|
-|`SubagentStop`|子代理停止|收集结果|
-|`Stop`|Claude 停止工作|通知、清理|
-|`Notification`|通知事件|自定义通知处理|
+| 钩子事件            | 触发时机        | 常用场景               |
+| ------------------- | --------------- | ---------------------- |
+| `SessionStart`      | 新会话开始      | 初始化环境、加载配置   |
+| `SessionEnd`        | 会话结束        | 清理资源、生成报告     |
+| `PreToolUse`        | 工具执行前      | 验证、修改工具输入     |
+| `PostToolUse`       | 工具执行后      | 日志记录、触发后续操作 |
+| `UserPromptSubmit`  | 用户提交提示后  | 添加上下文、权限检查   |
+| `PermissionRequest` | 请求权限时      | 自动审批/拒绝权限      |
+| `PreCompact`        | 对话压缩前      | 保存重要信息           |
+| `SubagentStart`     | 子代理启动      | 监控、日志             |
+| `SubagentStop`      | 子代理停止      | 收集结果               |
+| `Stop`              | Claude 停止工作 | 通知、清理             |
+| `Notification`      | 通知事件        | 自定义通知处理         |
 
 ## Config demo
 
@@ -73,24 +74,23 @@ tags:
 ## 例子：代码提交前自动格式化
 
 ```json
-{  
-  "hooks": {  
-    "PreToolUse": [  
-      {  
-        "matcher": "Bash",  
-        "command": "bash -c 'if echo \"$CLAUDE_TOOL_INPUT\" | grep -q \"git commit\"; then cd $CLAUDE_PROJECT_DIR && npm run format; fi'"  
-      }  
-    ]  
-  }  
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "command": "bash -c 'if echo \"$CLAUDE_TOOL_INPUT\" | grep -q \"git commit\"; then cd $CLAUDE_PROJECT_DIR && npm run format; fi'"
+      }
+    ]
+  }
 }
 ```
 
 ## 钩子命令可通过环境变量访问上下文
 
 ```
-$CLAUDE_PROJECT_DIR    # 项目目录  
-$CLAUDE_FILE_PATH      # 当前操作的文件路径  
-$CLAUDE_TOOL_INPUT     # 工具输入参数 (JSON)  
+$CLAUDE_PROJECT_DIR    # 项目目录
+$CLAUDE_FILE_PATH      # 当前操作的文件路径
+$CLAUDE_TOOL_INPUT     # 工具输入参数 (JSON)
 $CLAUDE_TOOL_OUTPUT    # 工具输出结果 (JSON)
 ```
-

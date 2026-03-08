@@ -7,9 +7,10 @@ created: 2026-01-21
 tags:
   - "clippings"
 ---
+
 15th December 2025 2025 年 12 月 15 日
 
-I [wrote about JustHTML yesterday](https://simonwillison.net/2025/Dec/14/justhtml/) —Emil Stenström’s project to build a new standards compliant HTML5 parser in pure Python code using coding agents running against the comprehensive html5lib-tests testing library. Last night, purely out of curiosity, I decided to try **porting JustHTML from Python to JavaScript** with the least amount of effort possible, using Codex CLI and GPT-5.2. It worked beyond my expectations.  
+I [wrote about JustHTML yesterday](https://simonwillison.net/2025/Dec/14/justhtml/) —Emil Stenström’s project to build a new standards compliant HTML5 parser in pure Python code using coding agents running against the comprehensive html5lib-tests testing library. Last night, purely out of curiosity, I decided to try **porting JustHTML from Python to JavaScript** with the least amount of effort possible, using Codex CLI and GPT-5.2. It worked beyond my expectations.
 
 我昨天写过 JustHTML——Emil Stenström 的项目，旨在用纯 Python 代码构建一个符合新标准的 HTML5 解析器，借助编码代理运行在全面的 html5lib-tests 测试库上。昨晚，纯粹出于好奇，我决定尝试用最少的精力，将 JustHTML 从 Python 移植到 JavaScript，使用 Codex CLI 和 GPT-5.2。结果远超我的预期。
 
@@ -78,15 +79,15 @@ Here’s [the resulting spec.md file](https://github.com/simonw/justjshtml/blob/
 
 > **Milestone 0.5 — End-to-end smoke parse (single valid document)  
 > 里程碑 0.5 —— 端到端冒烟解析（单个有效文档）**
-> 
+>
 > - Implement the smallest end-to-end slice so the public API is real early:  
-> 	实现最小的端到端流程，这样公共 API 能尽早投入使用：
-> 	- `new JustHTML("<html><head></head><body><p>Hello</p></body></html>")` returns a tree with the expected tag structure and text nodes.  
-> 		`new JustHTML("<html><head></head><body><p>Hello</p></body></html>")` 返回一个具有预期标签结构和文本节点的树。
-> 	- `doc.toText()` returns `"Hello"` and `doc.errors` is empty for this valid input.  
-> 		`doc.toText()` 返回 `"Hello"` ，并且对于这个有效输入， `doc.errors` 是空的。
+>   实现最小的端到端流程，这样公共 API 能尽早投入使用：
+>   - `new JustHTML("<html><head></head><body><p>Hello</p></body></html>")` returns a tree with the expected tag structure and text nodes.  
+>     `new JustHTML("<html><head></head><body><p>Hello</p></body></html>")` 返回一个具有预期标签结构和文本节点的树。
+>   - `doc.toText()` returns `"Hello"` and `doc.errors` is empty for this valid input.  
+>     `doc.toText()` 返回 `"Hello"` ，并且对于这个有效输入， `doc.errors` 是空的。
 > - Add `scripts/smoke.js` (no deps) that runs the example and asserts the expected structure/output.  
-> 	添加 `scripts/smoke.js` （无依赖），运行示例并断言预期的结构/输出。
+>   添加 `scripts/smoke.js` （无依赖），运行示例并断言预期的结构/输出。
 > - Gate: `node scripts/smoke.js` passes.Gate： `node scripts/smoke.js` 通过。
 
 Then I told it:  
@@ -141,7 +142,7 @@ As a finishing touch, I had it add a playground interface so I could try out the
 
 > `Add a playground.html in the top level folder which loads the necessary ES modules from ./src/... and implements the exact same functionality as seen on https://tools.simonwillison.net/justhtml but using the JavaScript library instead of Pyodide`
 
-It fetched my [existing JustHTML playground page](https://tools.simonwillison.net/justhtml) ([described here](https://simonwillison.net/2025/Dec/14/justhtml/#first-impressions-of-justhtml)) using `curl` and built a new `playground.html` file that loaded the new JavaScript code instead. This worked *perfectly*.  
+It fetched my [existing JustHTML playground page](https://tools.simonwillison.net/justhtml) ([described here](https://simonwillison.net/2025/Dec/14/justhtml/#first-impressions-of-justhtml)) using `curl` and built a new `playground.html` file that loaded the new JavaScript code instead. This worked _perfectly_.  
 它使用 `curl` 获取了我现有的 JustHTML playground 页面（如这里所述），并构建了一个新的 `playground.html` 文件，加载了新的 JavaScript 代码。这个过程非常顺利。
 
 I enabled GitHub Pages for my still-private repo which meant I could access the new playground at this URL:  
@@ -172,15 +173,15 @@ My [llm-prices.com calculator](https://www.llm-prices.com/#it=2089858&cit=971221
 我分享这个项目，是因为我认为它展示了 2025 年 12 月 LLM 发展现状中的许多有趣之处。
 
 - Frontier LLMs really can perform complex, multi-hour tasks with hundreds of tool calls and minimal supervision. I used GPT-5.2 for this but I have no reason to believe that Claude Opus 4.5 or Gemini 3 Pro would not be able to achieve the same thing—the only reason I haven’t tried is that I don’t want to burn another 4 hours of time and several million tokens on more runs.  
-	前沿大语言模型确实能够在极少监督的情况下，完成包含数百次工具调用的复杂、多小时任务。我这次用的是 GPT-5.2，但我没有理由认为 Claude Opus 4.5 或 Gemini 3 Pro 无法做到同样的事情——我之所以没去尝试，只是不想再花 4 个小时和几百万个 token 去多跑几次。
+  前沿大语言模型确实能够在极少监督的情况下，完成包含数百次工具调用的复杂、多小时任务。我这次用的是 GPT-5.2，但我没有理由认为 Claude Opus 4.5 或 Gemini 3 Pro 无法做到同样的事情——我之所以没去尝试，只是不想再花 4 个小时和几百万个 token 去多跑几次。
 - If you can reduce a problem to a robust test suite you can set a coding agent loop loose on it with a high degree of confidence that it will eventually succeed. I called this [designing the agentic loop](https://simonwillison.net/2025/Sep/30/designing-agentic-loops/) a few months ago. I think it’s the key skill to unlocking the potential of LLMs for complex tasks.  
-	如果你能将一个问题简化为一个健壮的测试套件，你就可以让一个编码代理循环自由运行，并且高度自信它最终会成功。我几个月前把这称为设计代理循环。我认为这是释放 LLM 在复杂任务中潜力的关键技能。
+  如果你能将一个问题简化为一个健壮的测试套件，你就可以让一个编码代理循环自由运行，并且高度自信它最终会成功。我几个月前把这称为设计代理循环。我认为这是释放 LLM 在复杂任务中潜力的关键技能。
 - Porting entire open source libraries from one language to another via a coding agent works extremely well.  
-	通过编码代理将整个开源库从一种语言移植到另一种语言效果非常好。
-- Code is so cheap it’s practically free. Code that *works* continues to carry a cost, but that cost has plummeted now that coding agents can check their work as they go.  
-	代码的成本低得几乎可以忽略不计。虽然可用的代码仍然有成本，但随着编码代理能够边写边检查，这个成本已经大幅下降。
-- We haven’t even *begun* to unpack the etiquette and ethics around this style of development. Is it responsible and appropriate to churn out a direct port of a library like this in a few hours while watching a movie? What would it take for code built like this to be trusted in production?  
-	我们甚至还没有开始探讨这种开发方式的礼仪和伦理。边看电影边在几小时内快速移植一个库，这样做是否负责任、是否合适？用这种方式构建的代码要获得生产环境的信任，需要达到什么标准？
+  通过编码代理将整个开源库从一种语言移植到另一种语言效果非常好。
+- Code is so cheap it’s practically free. Code that _works_ continues to carry a cost, but that cost has plummeted now that coding agents can check their work as they go.  
+  代码的成本低得几乎可以忽略不计。虽然可用的代码仍然有成本，但随着编码代理能够边写边检查，这个成本已经大幅下降。
+- We haven’t even _begun_ to unpack the etiquette and ethics around this style of development. Is it responsible and appropriate to churn out a direct port of a library like this in a few hours while watching a movie? What would it take for code built like this to be trusted in production?  
+  我们甚至还没有开始探讨这种开发方式的礼仪和伦理。边看电影边在几小时内快速移植一个库，这样做是否负责任、是否合适？用这种方式构建的代码要获得生产环境的信任，需要达到什么标准？
 
 最后，我想提出一些开放性问题：
 

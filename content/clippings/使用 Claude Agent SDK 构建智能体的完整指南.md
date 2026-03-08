@@ -9,6 +9,7 @@ tags:
   - claude-code
   - agent
 ---
+
 如果你用过 Claude Code，你就会明白 AI 智能体实际上能做些什么：读取文件、运行命令、编辑代码、规划完成任务的步骤。
 
 你知道，它不仅仅是帮助你写代码，它会像一位有思考的工程师那样主动承担问题并逐步解决。
@@ -28,13 +29,13 @@ Our code review agent will:
 我们的代码审查代理将会：
 
 1. Analyze a codebase for bugs and security issues  
-	分析代码库中的错误和安全问题
+   分析代码库中的错误和安全问题
 2. Read files and search through code autonomously  
-	自主读取文件并搜索代码
+   自主读取文件并搜索代码
 3. Provide structured, actionable feedback  
-	提供结构化、可操作的反馈
+   提供结构化、可操作的反馈
 4. Track its progress as it works  
-	在运行过程中跟踪其进度
+   在运行过程中跟踪其进度
 
 ## The stack 技术栈
 
@@ -94,7 +95,7 @@ You don’t have to implement any of this yourself.
 
 1. Node.js 18+ installed 已安装 Node.js 18 及以上版本
 2. An Anthropic API key ([get one here](https://console.anthropic.com/))  
-	一个 Anthropic API 密钥（在这里获取）
+   一个 Anthropic API 密钥（在这里获取）
 
 ## Getting started 入门
 
@@ -151,7 +152,7 @@ async function main() {
         }
       }
     }
-    
+
     if (message.type === "result") {
       console.log("\nDone:", message.subtype);
     }
@@ -185,7 +186,7 @@ for await (const message of query({ prompt: "..." })) {
         console.log("Available tools:", message.tools);
       }
       break;
-      
+
     case "assistant":
       // Claude's responses and tool calls
       for (const block of message.message.content) {
@@ -196,7 +197,7 @@ for await (const message of query({ prompt: "..." })) {
         }
       }
       break;
-      
+
     case "result":
       // Final result
       console.log("Status:", message.subtype); // "success" or error type
@@ -216,11 +217,11 @@ import { query } from "@anthropic-ai/claude-agent-sdk";
 
 async function reviewCode(directory: string) {
   console.log(\`\n🔍 Starting code review for: ${directory}\n\`);
-  
+
   for await (const message of query({
     prompt: \`Review the code in ${directory} for:
 1. Bugs and potential crashes
-2. Security vulnerabilities  
+2. Security vulnerabilities
 3. Performance issues
 4. Code quality improvements
 
@@ -242,7 +243,7 @@ Be specific about file names and line numbers.\`,
         }
       }
     }
-    
+
     // Show completion status
     if (message.type === "result") {
       if (message.subtype === "success") {
@@ -351,11 +352,11 @@ async function reviewCodeStructured(directory: string) {
         summary: string;
         overallScore: number;
       };
-      
+
       console.log(\`\n📊 Code Review Results\n\`);
       console.log(\`Score: ${review.overallScore}/100\`);
       console.log(\`Summary: ${review.summary}\n\`);
-      
+
       for (const issue of review.issues) {
         const icon = issue.severity === "critical" ? "🔴" :
                      issue.severity === "high" ? "🟠" :
@@ -385,10 +386,10 @@ By default, the SDK asks for approval before executing tools. You can customize 
 options: {
   // Standard mode - prompts for approval
   permissionMode: "default",
-  
+
   // Auto-approve file edits
   permissionMode: "acceptEdits",
-  
+
   // No prompts (use with caution)
   permissionMode: "bypassPermissions"
 }
@@ -407,12 +408,12 @@ options: {
     if (["Read", "Glob", "Grep"].includes(toolName)) {
       return { behavior: "allow", updatedInput: input };
     }
-    
+
     // Block writes to certain files
     if (toolName === "Write" && input.file_path?.includes(".env")) {
       return { behavior: "deny", message: "Cannot modify .env files" };
     }
-    
+
     // Allow everything else
     return { behavior: "allow", updatedInput: input };
   }
@@ -429,7 +430,7 @@ import { query, AgentDefinition } from "@anthropic-ai/claude-agent-sdk";
 
 async function comprehensiveReview(directory: string) {
   for await (const message of query({
-    prompt: \`Perform a comprehensive code review of ${directory}. 
+    prompt: \`Perform a comprehensive code review of ${directory}.
 Use the security-reviewer for security issues and test-analyzer for test coverage.\`,
     options: {
       model: "opus",
@@ -447,7 +448,7 @@ Use the security-reviewer for security issues and test-analyzer for test coverag
           tools: ["Read", "Grep", "Glob"],
           model: "sonnet"
         } as AgentDefinition,
-        
+
         "test-analyzer": {
           description: "Test coverage and quality analyzer",
           prompt: \`You are a testing expert. Analyze:
@@ -486,7 +487,7 @@ import { query } from "@anthropic-ai/claude-agent-sdk";
 
 async function interactiveReview() {
   let sessionId: string | undefined;
-  
+
   // Initial review
   for await (const message of query({
     prompt: "Review this codebase and identify the top 3 issues",
@@ -502,7 +503,7 @@ async function interactiveReview() {
     }
     // ... handle messages
   }
-  
+
   // Follow-up question using same session
   if (sessionId) {
     for await (const message of query({
@@ -644,7 +645,7 @@ for await (const message of query({ prompt: "..." })) {
   if (message.type === "result" && message.subtype === "success") {
     console.log("Total cost:", message.total_cost_usd);
     console.log("Token usage:", message.usage);
-    
+
     // Per-model breakdown (useful with subagents)
     for (const [model, usage] of Object.entries(message.modelUsage)) {
       console.log(\`${model}: $${usage.costUSD.toFixed(4)}\`);
@@ -780,28 +781,28 @@ function printResults(result: ReviewResult) {
   console.log(\`\n${"=".repeat(50)}\`);
   console.log(\`📊 REVIEW RESULTS\`);
   console.log(\`${"=".repeat(50)}\n\`);
-  
+
   console.log(\`Score: ${result.overallScore}/100\`);
   console.log(\`Issues Found: ${result.issues.length}\n\`);
   console.log(\`Summary: ${result.summary}\n\`);
-  
+
   const byCategory = {
     critical: result.issues.filter(i => i.severity === "critical"),
     high: result.issues.filter(i => i.severity === "high"),
     medium: result.issues.filter(i => i.severity === "medium"),
     low: result.issues.filter(i => i.severity === "low")
   };
-  
+
   for (const [severity, issues] of Object.entries(byCategory)) {
     if (issues.length === 0) continue;
-    
+
     const icon = severity === "critical" ? "🔴" :
                  severity === "high" ? "🟠" :
                  severity === "medium" ? "🟡" : "🟢";
-    
+
     console.log(\`\n${icon} ${severity.toUpperCase()} (${issues.length})\`);
     console.log("-".repeat(30));
-    
+
     for (const issue of issues) {
       const location = issue.line ? \`${issue.file}:${issue.line}\` : issue.file;
       console.log(\`\n[${issue.category}] ${location}\`);
@@ -817,7 +818,7 @@ function printResults(result: ReviewResult) {
 async function main() {
   const directory = process.argv[2] || ".";
   const result = await runCodeReview(directory);
-  
+
   if (result) {
     printResults(result);
   }
@@ -843,19 +844,19 @@ If you want to go deeper:
 More capabilities 更多功能
 
 - [File checkpointing](https://platform.claude.com/docs/en/agent-sdk/file-checkpointing) \- track and revert file changes  
-	文件检查点 - 跟踪并恢复文件更改
+  文件检查点 - 跟踪并恢复文件更改
 - [Skills](https://platform.claude.com/docs/en/agent-sdk/skills) \- package reusable capabilities  
-	技能 - 打包可复用的功能
+  技能 - 打包可复用的功能
 
 Production deployment 生产部署
 
 - [Hosting](https://platform.claude.com/docs/en/agent-sdk/hosting) \- deploy in containers and CI/CD  
-	托管 - 在容器和 CI/CD 中部署
+  托管 - 在容器和 CI/CD 中部署
 - [Secure deployment](https://platform.claude.com/docs/en/agent-sdk/secure-deployment) \- sandboxing and credential management  
-	安全部署 - 沙箱机制与凭证管理
+  安全部署 - 沙箱机制与凭证管理
 
 Full reference 完整参考
 
 - [TypeScript SDK reference  
-	TypeScript SDK 参考](https://platform.claude.com/docs/en/agent-sdk/typescript)
+  TypeScript SDK 参考](https://platform.claude.com/docs/en/agent-sdk/typescript)
 - [Python SDK reference Python SDK 参考](https://platform.claude.com/docs/en/agent-sdk/python)

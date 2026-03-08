@@ -7,6 +7,7 @@ tags:
   - clippings
   - prompt
 ---
+
 Miles这个妙的点是用组织管理的逻辑驾驭 AI，
 
 不着急让 AI 写代码，

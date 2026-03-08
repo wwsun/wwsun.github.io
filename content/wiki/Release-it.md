@@ -7,6 +7,7 @@ draft: false
 description: Automate versioning and package publishing
 source: https://github.com/release-it/release-it
 ---
+
 ```bash
 npm init release-it
 ```
@@ -38,8 +39,6 @@ npm init release-it
     }
   }
 }
-
 ```
 
 https://github.com/release-it/release-it/blob/main/docs/configuration.md
-

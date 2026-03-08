@@ -7,6 +7,7 @@ draft: true
 description: 日常阅读和学习 Prompts
 source:
 ---
+
 ## 阅读理解
 
 拒绝“稍后读”变成“从不读”。在信息进入 Obsidian 之前，先用 LLM 进行降噪。
@@ -43,4 +44,3 @@ source:
 ```
 
 避免陷入“回声室”效应。LLM 倾向于给出平庸、正确的共识性回答，你需要逼迫它吐出具有“高惊奇度”（Surprisal）的信息。
-

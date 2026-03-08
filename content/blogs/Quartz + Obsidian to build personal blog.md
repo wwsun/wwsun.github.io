@@ -135,8 +135,6 @@ description: "简短的文章描述，用于 SEO 和预览"
 
 https://github.com/saberzero1/quartz-themes
 
-
-
 ## 避坑小贴士
 
 - **图片路径**：在 Obsidian 里的 `Settings -> Files & Links`，将 "Default location for new attachments" 改为 "Same folder as current file"，并确保 Quartz 的配置文件中图片路径解析正确。

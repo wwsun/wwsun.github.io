@@ -8,6 +8,7 @@ draft: false
 description: 未命名
 source: https://github.com/obra/superpowers
 ---
+
 Superpowers 是为你的编码智能体构建的完整软件开发工作流程，基于一套可组合的“技能”和一些初始指令，确保你的智能体能够使用这些技能。
 
 ## 工作原理
@@ -87,13 +88,16 @@ Fetch and follow instructions from https://raw.githubusercontent.com/obra/superp
 ### 技能库
 
 **测试**
+
 - **test-driven-development** —— 红-绿-重构循环；包含测试反模式参考
 
 **调试**
+
 - **systematic-debugging** —— 4阶段根因分析（包含根因追踪、防御深入、基于条件等待技术）
 - **verification-before-completion** —— 确保问题真正修复
 
 **协作**
+
 - **brainstorming** —— 苏格拉底式设计完善
 - **writing-plans** —— 详细实现计划
 - **executing-plans** —— 检查点批量执行
@@ -105,6 +109,7 @@ Fetch and follow instructions from https://raw.githubusercontent.com/obra/superp
 - **subagent-driven-development** —— 快速迭代，双阶段审核（规范合规、代码质量）
 
 **元技能**
+
 - **writing-skills** —— 创建新技能的方法（含测试方法）
 - **using-superpowers** —— 技能系统简介
 

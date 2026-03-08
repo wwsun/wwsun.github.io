@@ -6,8 +6,8 @@ tags:
   - gemini
   - npm
 ---
-https://geminicli.com/
 
+https://geminicli.com/
 
 ## Gemini Tips
 
@@ -16,6 +16,7 @@ https://github.com/addyosmani/gemini-cli-tips
 ## 配额
 
 Google AI Pro
+
 - 每天 1500 次
 - 每分钟 120 次
 
@@ -69,9 +70,9 @@ gemini skills list
 
 **使用 `/memory`：**
 
-* `/memory add "<文本>"` - 向记忆添加事实或注释（持久化上下文）。这会立即用新条目更新 `GEMINI.md`。
-* `/memory show` - 显示记忆的完整内容（即当前加载的组合上下文文件）。
-* `/memory refresh` - 从磁盘重新加载上下文（如果您在 Gemini CLI 之外手动编辑了 `GEMINI.md` 文件，或者多人正在协作，这很有用）。
+- `/memory add "<文本>"` - 向记忆添加事实或注释（持久化上下文）。这会立即用新条目更新 `GEMINI.md`。
+- `/memory show` - 显示记忆的完整内容（即当前加载的组合上下文文件）。
+- `/memory refresh` - 从磁盘重新加载上下文（如果您在 Gemini CLI 之外手动编辑了 `GEMINI.md` 文件，或者多人正在协作，这很有用）。
 
 因为记忆存储在 Markdown 中，您也可以手动编辑 `GEMINI.md` 文件来整理或组织信息。`/memory` 命令只是为了在对话期间方便使用，所以您不必离开 CLI。
 

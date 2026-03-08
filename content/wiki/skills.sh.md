@@ -8,6 +8,7 @@ draft: true
 description: the open source skills ecosystem
 source: https://skills.sh/
 ---
+
 ## common commands
 
 ```bash
@@ -25,5 +26,3 @@ npx skills update
 ```
 
 https://github.com/vercel-labs/skills
-
-

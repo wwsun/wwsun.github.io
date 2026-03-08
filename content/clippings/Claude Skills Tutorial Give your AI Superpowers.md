@@ -8,11 +8,12 @@ tags:
   - clippings
   - claude-code
 ---
+
 在《黑客帝国》中，有一个场景是莫菲斯将训练程序加载到 Neo 的大脑里，Neo 醒来后说：“我会功夫了。”
 
 这基本上就是 Claude 技能的含义。
 
-They’re a set of instructions that teach [Claude](https://www.siddharthbharath.com/claude-cookbook-1/) how to do a certain thing. You explain it once in a document, like a training manual, and hand that to Claude. The next time you ask Claude to do that thing, it reaches for this document, reads the instructions, and does the thing.  
+They’re a set of instructions that teach [Claude](https://www.siddharthbharath.com/claude-cookbook-1/) how to do a certain thing. You explain it once in a document, like a training manual, and hand that to Claude. The next time you ask Claude to do that thing, it reaches for this document, reads the instructions, and does the thing.
 
 它们是一组指令，用来教 Claude 如何完成某项任务。你只需在一个文档中解释一次，就像培训手册一样，然后交给 Claude。下次你让 Claude 做这件事时，它会查阅这个文档，阅读指令，然后完成任务。
 
@@ -22,8 +23,8 @@ In this article, I’ll go over everything Claude Skills related, how it works, 
 在本文中，我将全面介绍 Claude Skills，包括它的工作原理、使用场景，甚至如何自己构建一个。
 
 ![](https://www.youtube.com/watch?v=-2edcNTgJXs)
-## Got Skills? 
 
+## Got Skills?
 
 技能本质上是一个自包含的“插件”（也称为 Agent Skill），以文件夹的形式打包，包含自定义指令、可选的代码脚本和资源文件，Claude 在执行专业任务时可以加载这些内容。
 
@@ -33,9 +34,7 @@ In this article, I’ll go over everything Claude Skills related, how it works, 
 
 ## 教我吧，师父
 
-
 至少，一个技能是一个包含名为 `SKILL.md` 的主文件的文件夹（以及任何补充文件或脚本）。这个主文件包含技能的名称和描述。
-
 
 接下来是包含该技能详细说明、示例或工作流程指导的 Markdown 正文。技能文件夹还可以包含其他 Markdown 文件（参考资料、模板、示例等）以及技能所用的代码脚本（如 Python 或 JavaScript）。
 
@@ -71,9 +70,7 @@ If you’ve used Claude and [Claude Code](https://www.siddharthbharath.com/claud
 
 ![](https://www.siddharthbharath.com/wp-content/uploads/2025/10/Screenshot-2025-10-28-at-6.06.56-PM-980x406.png)
 
-
 现在，每次你在该项目中开启新聊天时，所有这些指令和文档都会被加载作为上下文。随着时间推移，Claude 甚至会记住该项目中的过往对话。
-
 
 所以，是的，这听起来确实像技能，因为在一个项目的范围内，你不需要重复指令。
 
@@ -119,13 +116,13 @@ It turns out you’ve been using Skills without realizing it. Anthropic built fo
 事实证明，你一直在不知不觉中使用 Skills。Anthropic 开发了四项核心文档技能：
 
 - **DOCX**: Word documents with tracked changes, comments, formatting preservation  
-	DOCX：带有修订、评论、格式保留的 Word 文档
+  DOCX：带有修订、评论、格式保留的 Word 文档
 - **PPTX**: PowerPoint presentations with layouts, templates, charts  
-	PPTX：带有布局、模板、图表的 PowerPoint 演示文稿
+  PPTX：带有布局、模板、图表的 PowerPoint 演示文稿
 - **XLSX**: Excel spreadsheets with formulas, data analysis, visualization  
-	XLSX：带有公式、数据分析、可视化的 Excel 电子表格
+  XLSX：带有公式、数据分析、可视化的 Excel 电子表格
 - **PDF**: PDF creation, text extraction, form filling, document merging  
-	PDF：PDF 创建、文本提取、表单填写、文档合并
+  PDF：PDF 创建、文本提取、表单填写、文档合并
 
 这些技能包含高度优化的指令、参考库以及在 Claude 上下文窗口之外运行的代码。这也是为什么 Claude 现在可以生成 50 页幻灯片演示文稿，而不必像跑马拉松一样为上下文令牌喘息。
 
@@ -142,6 +139,7 @@ It turns out you’ve been using Skills without realizing it. Anthropic built fo
 但让我们手动操作一遍，这样你就能明白发生了什么。在你的电脑上，创建一个名为 `team-report` 的文件夹。在里面创建一个名为 `SKILL.md` 的文件：
 
 Python
+
 ```
 ---
 
@@ -159,7 +157,7 @@ When creating a weekly team update, follow this structure:
 
 1. **Wins This Week**: 3-5 bullet points of accomplishments
 
-2. **Challenges**: 2-3 current blockers or concerns  
+2. **Challenges**: 2-3 current blockers or concerns
 
 3. **Next Week's Focus**: 3 key priorities
 
@@ -193,7 +191,7 @@ When creating a weekly team update, follow this structure:
 
 - Complete migration
 
-- Start project Y implementation  
+- Start project Y implementation
 
 - Team planning for Q4
 
@@ -236,6 +234,7 @@ Include concrete examples in your skill. Show Claude what success looks like:
 在你的技能中包含具体的示例。向 Claude 展示什么是成功的案例：
 
 Python
+
 ```
 ## Example Input
 
@@ -270,12 +269,12 @@ Don’t just test your skill once. Try:
 不要只测试一次你的技能。试试：
 
 - Different phrasings of the same request  
-	同一请求的不同表述方式
+  同一请求的不同表述方式
 - Edge cases 边缘情况
 - Combinations with other skills  
-	与其他技能的组合
+  与其他技能的组合
 - Both explicit mentions and implicit triggers  
-	包括明确提及和隐性触发
+  包括明确提及和隐性触发
 
 ## 安全（请勿忽视此信息）
 
@@ -286,44 +285,44 @@ The problem is Skills can execute code, and if you don’t know what this code d
 问题在于技能可以执行代码，如果你不了解这些代码的作用，可能会遇到糟糕的意外。恶意技能可能会：
 
 - Execute harmful commands  
-	执行有害命令
+  执行有害命令
 - Exfiltrate your data 窃取您的数据
 - Misuse file operations 滥用文件操作
 - Access sensitive information  
-	访问敏感信息
+  访问敏感信息
 - Make unauthorized API calls (in environments with network access)  
-	在有网络访问权限的环境中进行未经授权的 API 调用
+  在有网络访问权限的环境中进行未经授权的 API 调用
 
 Anthropic’s guidelines are clear: Only use skills from trusted sources. This means:  
 Anthropic 的指南很明确：只使用来自可信来源的技能。这意味着：
 
 1. **You created it** (and remember creating it)  
-	你自己创建的（并且记得是你创建的）
+   你自己创建的（并且记得是你创建的）
 2. **Anthropic created it** (official skills)  
-	Anthropic 创建的（官方技能）
+   Anthropic 创建的（官方技能）
 3. **You thoroughly audited it** (read every line, understand every script)  
-	你已经彻底审查了它（阅读了每一行，理解了每个脚本）
+   你已经彻底审查了它（阅读了每一行，理解了每个脚本）
 
 So if you found it on GitHub or some influencer recommended it, stay away. At the very least, be skeptical and:  
 所以如果你是在 GitHub 上找到的，或者是某个网红推荐的，请远离。至少要保持怀疑态度，并且：
 
 - Read the entire SKILL.md file  
-	阅读完整个 SKILL.md 文件
+  阅读完整个 SKILL.md 文件
 - Check all scripts for suspicious operations  
-	检查所有脚本是否有可疑操作
+  检查所有脚本是否有可疑操作
 - Look for external URL fetches (big red flag)  
-	留意外部 URL 抓取（重大警示）
+  留意外部 URL 抓取（重大警示）
 - Verify tool permissions requested  
-	核查请求的工具权限
+  核查请求的工具权限
 - Check for unexpected network calls  
-	检查是否有异常的网络调用
+  检查是否有异常的网络调用
 
 Treat skills like browser extensions or npm packages: convenient when trustworthy, catastrophic when compromised.  
 像对待浏览器扩展或 npm 包一样对待技能：可信时很方便，被攻破时则灾难性。
 
 ## 用例与灵感
 
-The best Skills are focused on solving a specific, repeatable task that you do in your daily life or work. This is different for everyone. So ask yourself: *What do I want Claude to do better or automatically?*  
+The best Skills are focused on solving a specific, repeatable task that you do in your daily life or work. This is different for everyone. So ask yourself: _What do I want Claude to do better or automatically?_  
 最好的技能专注于解决你日常生活或工作中某个具体且可重复的任务。每个人的情况都不同。所以请问问自己：我希望 Claude 在哪些方面做得更好或实现自动化？
 
 I’ll give you a few examples from my work to inspire you.  
@@ -365,14 +364,14 @@ I’ve alluded to this earlier in the post but there are plenty areas where I re
 **I立即行动：**
 
 1. **Enable Skills**: Go to Settings > Capabilities > Skills  
-	启用技能：进入设置 > 功能 > 技能
+   启用技能：进入设置 > 功能 > 技能
 2. **Try Built-In Skills**: Ask Claude to create a PowerPoint or Excel file  
-	尝试内置技能：让 Claude 创建一个 PowerPoint 或 Excel 文件
+   尝试内置技能：让 Claude 创建一个 PowerPoint 或 Excel 文件
 3. **Identify One Pattern**: What do you ask Claude to do repeatedly?  
-	识别一个模式：你经常让 Claude 做什么事情？
+   识别一个模式：你经常让 Claude 做什么事情？
 4. **Create Your First Skill**: Use the team report example as template  
-	创建你的第一个技能：以团队报告示例为模板
+   创建你的第一个技能：以团队报告示例为模板
 5. **Test and Iterate**: Use it 5 times, refine based on results  
-	测试并迭代：使用 5 次，根据结果进行优化
+   测试并迭代：使用 5 次，根据结果进行优化
 
 如果你认为 MCP 很强大，我认为技能的潜力更大。如果你需要帮助来构建更多技能，请在下方订阅并联系我。

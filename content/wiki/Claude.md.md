@@ -4,6 +4,7 @@ source: https://www.anthropic.com/engineering/claude-code-best-practices
 tags:
   - claude-code
 ---
+
 `CLAUDE.md` 是一个特殊文件，Claude 在开始对话时会自动将其引入上下文。这使得它成为记录以下内容的理想位置：
 
 - 常用 bash 命令
@@ -14,7 +15,6 @@ tags:
 - 开发环境设置（例如，pyenv 的使用、支持哪些编译器）
 - 项目中特有的任何异常行为或警告
 - 你希望 Claude 记住的其他信息
-
 
 `CLAUDE.md` 文件没有固定格式。我们建议保持简洁且易于阅读。例如：
 
@@ -70,4 +70,3 @@ paths: src/api/**/*.ts
 - Use the standard error response format
 - Include OpenAPI documentation comments
 ```
-

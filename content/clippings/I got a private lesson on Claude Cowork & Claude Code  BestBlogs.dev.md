@@ -7,6 +7,7 @@ created: 2026-01-26
 tags:
   - "clippings"
 ---
+
 ![I got a private lesson on Claude Cowork & Claude Code](https://img.youtube.com/vi/DW4a1Cm8nG4/maxresdefault.jpg)
 
 ## 内容概要

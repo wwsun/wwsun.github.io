@@ -8,6 +8,7 @@ tags:
   - clippings
   - cont3xt
 ---
+
 在过去的一年里，我大量使用了 AI 编程工具。Claude、Cursor、GitHub Copilot——它们现在都是我日常工作流程的一部分。但我总是遇到同样令人沮丧的情况。
 
 我开始一个新项目时，AI 总是做出错误的默认选择。它会建议使用 SQLite，而我一直用 Postgres。它会以不同于我惯用方式的结构来编写测试。它会忽略我对 Redis 连接池的偏好。每一次，我都不得不停下来说：“不，要按这种方式做。”
@@ -134,4 +135,4 @@ MCP 集成支持 Cursor、Claude Code、GitHub Copilot、VS Code、JetBrains AI 
 
 他们不再是“没有上下文的快速打字员”，而是变成了“了解我们工作方式的团队成员”。
 
-[Give it a try](https://cont3xt.dev/?ref=ksred.com). I'd love to hear what you think.  
+[Give it a try](https://cont3xt.dev/?ref=ksred.com). I'd love to hear what you think.

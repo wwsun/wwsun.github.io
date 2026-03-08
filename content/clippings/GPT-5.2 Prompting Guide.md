@@ -24,15 +24,15 @@ While GPT-5.2 works well out of the box for many use cases, this guide focuses o
 与上一代模型（如 GPT-5 和 GPT-5.1）相比，GPT-5.2 具备以下优势：**
 
 - **More deliberate scaffolding:** Builds clearer plans and intermediate structure by default; benefits from explicit scope and verbosity constraints.  
-	更有条理的搭建过程：默认情况下构建更清晰的计划和中间结构；在明确范围和冗长约束下表现更佳。
+  更有条理的搭建过程：默认情况下构建更清晰的计划和中间结构；在明确范围和冗长约束下表现更佳。
 - **Generally lower verbosity:** More concise and task-focused, though still prompt-sensitive and preference needs to be articulated in the prompt.  
-	通常更低的冗余度：内容更简洁，任务更聚焦，但仍对提示敏感，需要在提示中明确表达偏好。
+  通常更低的冗余度：内容更简洁，任务更聚焦，但仍对提示敏感，需要在提示中明确表达偏好。
 - **Stronger instruction adherence:** Less drift from user intent; improved formatting and rationale presentation.  
-	更强的指令遵循性：更少偏离用户意图；格式和推理展示得到改进。
+  更强的指令遵循性：更少偏离用户意图；格式和推理展示得到改进。
 - **Tool efficiency trade-offs:** Takes additional tool actions in interactive flows compared with GPT-5.1, can be further optimized via prompting.  
-	工具效率权衡：在交互流程中比 GPT-5.1 采取更多工具操作，可通过提示进一步优化。
+  工具效率权衡：在交互流程中比 GPT-5.1 采取更多工具操作，可通过提示进一步优化。
 - **Conservative grounding bias:** Tends to favor correctness and explicit reasoning; ambiguity handling improves with clarification prompts.  
-	保守的事实偏向：倾向于正确性和明确推理；通过澄清提示，处理模糊性的能力有所提升。
+  保守的事实偏向：倾向于正确性和明确推理；通过澄清提示，处理模糊性的能力有所提升。
 
 This guide focuses on prompting GPT-5.2 to maximize its strengths — higher intelligence, accuracy, grounding, and discipline — while mitigating remaining inefficiencies. Existing GPT-5 / GPT-5.1 prompting guidance largely carries over and remains applicable.  
 本指南重点介绍如何对 GPT-5.2 进行提示，以最大化其优势——更高的智能、准确性、事实依据和规范性——同时减少现有的低效问题。现有的 GPT-5 / GPT-5.1 提示指导基本适用于 GPT-5.2，并且依然有效。
@@ -58,23 +58,23 @@ GPT-5.2 在结构化代码方面更强，但可能会生成超出最小用户体
 ```
 <design_and_scope_constraints>
 
-- Explore any existing design systems and understand it deeply. 
+- Explore any existing design systems and understand it deeply.
 
 - Implement EXACTLY and ONLY what the user requests.
 
 - No extra features, no added components, no UX embellishments.
 
-- Style aligned to the design system at hand. 
+- Style aligned to the design system at hand.
 
-- Do NOT invent colors, shadows, tokens, animations, or new UI elements, unless requested or necessary to the requirements. 
+- Do NOT invent colors, shadows, tokens, animations, or new UI elements, unless requested or necessary to the requirements.
 
 - If any instruction is ambiguous, choose the simplest valid interpretation.
 
 </design_and_scope_constraints>
 ```
 
-For design system enforcement, reuse your 5.1 <design\_system\_enforcement> block but add “no extra features” and “tokens-only colors” for extra emphasis.  
-对于设计系统的执行，复用你的 5.1 <design\_system\_enforcement>模块，但需额外强调“禁止添加额外功能”和“仅限使用色彩令牌”。
+For design system enforcement, reuse your 5.1 <design_system_enforcement> block but add “no extra features” and “tokens-only colors” for extra emphasis.  
+对于设计系统的执行，复用你的 5.1 <design_system_enforcement>模块，但需额外强调“禁止添加额外功能”和“仅限使用色彩令牌”。
 
 ### 3.3 Long-context and recall3.3 长上下文与回忆
 
@@ -133,22 +133,22 @@ For long-running, tool-heavy workflows that exceed the standard context window, 
 **When to use compaction 何时使用压缩**
 
 - Multi-step agent flows with many tool calls  
-	包含大量工具调用的多步骤代理流程
+  包含大量工具调用的多步骤代理流程
 - Long conversations where earlier turns must be retained  
-	需要保留早期对话轮次的长对话
+  需要保留早期对话轮次的长对话
 - Iterative reasoning beyond the maximum context window  
-	超出最大上下文窗口的迭代推理
+  超出最大上下文窗口的迭代推理
 
 **Key properties 关键属性**
 
 - Produces opaque, encrypted items (internal logic may evolve)  
-	生成不透明、加密的内容（内部逻辑可能会变化）
+  生成不透明、加密的内容（内部逻辑可能会变化）
 - Designed for continuation, not inspection  
-	专为续写而设计，而非检查
+  专为续写而设计，而非检查
 - Compatible with GPT-5.2 and Responses API  
-	兼容 GPT-5.2 和 Responses API
+  兼容 GPT-5.2 和 Responses API
 - Safe to run repeatedly in long sessions  
-	可在长时间会话中安全反复运行
+  可在长时间会话中安全反复运行
 
 **Compact a Response 压缩响应**
 
@@ -166,13 +166,13 @@ Runs a compaction pass over a conversation and returns a compacted response obje
 **Best practices 最佳实践**
 
 - Monitor context usage and plan ahead to avoid hitting context window limits  
-	监控上下文使用情况，并提前规划，以避免达到上下文窗口限制
+  监控上下文使用情况，并提前规划，以避免达到上下文窗口限制
 - Compact after major milestones (e.g., tool-heavy phases), not every turn  
-	在重要节点（例如工具密集型阶段）后进行压缩，而不是每一步都压缩
+  在重要节点（例如工具密集型阶段）后进行压缩，而不是每一步都压缩
 - Keep prompts functionally identical when resuming to avoid behavior drift  
-	恢复时保持提示在功能上完全一致，以避免行为偏移
+  恢复时保持提示在功能上完全一致，以避免行为偏移
 - Treat compacted items as opaque; don’t parse or depend on internals  
-	将压缩后的项目视为不透明对象；不要解析或依赖其内部结构
+  将压缩后的项目视为不透明对象；不要解析或依赖其内部结构
 
 For guidance on when and how to compact in production, see the [Conversation State](https://platform.openai.com/docs/guides/conversation-state?api-mode=responses) guide and [Compact a Response](https://platform.openai.com/docs/api-reference/responses/compact) page.  
 有关在生产环境中何时以及如何进行压缩的指导，请参阅《会话状态指南》和《压缩响应》页面。
@@ -181,16 +181,16 @@ Here is an example:以下是一个示例：
 
 ## 5\. Agentic steerability & user updates5. 主动性可控性与用户更新
 
-GPT-5.2 is strong on agentic scaffolding and multi-step execution when prompted well. You can reuse your GPT-5.1 <user\_updates\_spec> and <solution\_persistence> blocks.  
-GPT-5.2 在主动性支撑和多步执行方面表现出色，只要提示得当。你可以复用你的 GPT-5.1 <user\_updates\_spec> 和 <solution\_persistence> 模块。
+GPT-5.2 is strong on agentic scaffolding and multi-step execution when prompted well. You can reuse your GPT-5.1 <user_updates_spec> and <solution_persistence> blocks.  
+GPT-5.2 在主动性支撑和多步执行方面表现出色，只要提示得当。你可以复用你的 GPT-5.1 <user_updates_spec> 和 <solution_persistence> 模块。
 
 Two key tweaks could be added to further push the performance of GPT-5.2:  
 可以添加两个关键调整，以进一步提升 GPT-5.2 的性能：
 
 - Clamp verbosity of updates (shorter, more focused).  
-	限制更新的冗长性（更简短、更聚焦）。
+  限制更新的冗长性（更简短、更聚焦）。
 - Make scope discipline explicit (don’t expand problem surface area).  
-	明确范围纪律（不要扩大问题表面区域）。
+  明确范围纪律（不要扩大问题表面区域）。
 
 Example updated spec:示例更新规范：
 
@@ -218,11 +218,11 @@ GPT-5.2 improves on 5.1 in tool reliability and scaffolding, especially in MCP/A
 GPT-5.2 在工具可靠性和支撑结构方面优于 5.1，尤其是在 MCP/Atlas 风格的环境中。适用于 GPT-5 / 5.1 的最佳实践：
 
 - Describe tools crisply: 1–2 sentences for what they do and when to use them.  
-	简明扼要地描述工具：用 1-2 句话说明它们的功能以及适用场景。
+  简明扼要地描述工具：用 1-2 句话说明它们的功能以及适用场景。
 - Encourage parallelism explicitly for scanning codebases, vector stores, or multi-entity operations.  
-	明确鼓励在扫描代码库、向量存储或多实体操作时采用并行处理。
+  明确鼓励在扫描代码库、向量存储或多实体操作时采用并行处理。
 - Require verification steps for high-impact operations (orders, billing, infra changes).  
-	对于高影响力的操作（如订单、账单、基础设施变更），要求进行核实步骤。
+  对于高影响力的操作（如订单、账单、基础设施变更），要求进行核实步骤。
 
 Example tool usage section:  
 示例工具使用部分：
@@ -255,11 +255,11 @@ This is an area where GPT-5.2 clearly shows strong improvements. To get the most
 这是 GPT-5.2 明显展现出强大提升的领域。要充分发挥其优势：
 
 - Always provide a schema or JSON shape for the output. You can use structured outputs for strict schema adherence.  
-	始终为输出提供一个 schema 或 JSON 结构。你可以使用结构化输出来严格遵循 schema。
+  始终为输出提供一个 schema 或 JSON 结构。你可以使用结构化输出来严格遵循 schema。
 - Distinguish between required and optional fields.  
-	区分必填字段和可选字段。
+  区分必填字段和可选字段。
 - Ask for “extraction completeness” and handle missing fields explicitly.  
-	要求“抽取完整性”，并明确处理缺失字段。
+  要求“抽取完整性”，并明确处理缺失字段。
 
 Example:示例：
 
@@ -293,24 +293,24 @@ For multi-table/multi-file extraction, add guidance to:
 对于多表/多文件抽取，添加如下指导：
 
 - Serialize per-document results separately.  
-	分别序列化每个文档的结果。
+  分别序列化每个文档的结果。
 - Include a stable ID (filename, contract title, page range).  
-	请包含一个稳定的 ID（文件名、合同标题、页码范围）。
+  请包含一个稳定的 ID（文件名、合同标题、页码范围）。
 
 ## 8\. Prompt Migration Guide to GPT 5.28. GPT 5.2 提示迁移指南
 
-This section helps you migrate prompts and model configs to GPT-5.2 while keeping behavior stable and cost/latency predictable. GPT-5-class models support a reasoning\_effort knob (e.g., none|minimal|low|medium|high|xhigh) that trades off speed/cost vs. deeper reasoning.  
-本节帮助你将提示和模型配置迁移到 GPT-5.2，同时保持行为稳定，并确保成本和延迟可预测。GPT-5 类模型支持 reasoning\_effort 调节（例如：none|minimal|low|medium|high|xhigh），可在速度/成本与更深层次推理之间进行权衡。
+This section helps you migrate prompts and model configs to GPT-5.2 while keeping behavior stable and cost/latency predictable. GPT-5-class models support a reasoning_effort knob (e.g., none|minimal|low|medium|high|xhigh) that trades off speed/cost vs. deeper reasoning.  
+本节帮助你将提示和模型配置迁移到 GPT-5.2，同时保持行为稳定，并确保成本和延迟可预测。GPT-5 类模型支持 reasoning_effort 调节（例如：none|minimal|low|medium|high|xhigh），可在速度/成本与更深层次推理之间进行权衡。
 
 Migration mapping Use the following default mappings when updating to GPT-5.2  
 迁移映射 在升级到 GPT-5.2 时，请使用以下默认映射
 
-| Current model 当前模型 | Target model 目标模型 | Target reasoning\_effort 目标推理努力 | Notes 备注 |
-| --- | --- | --- | --- |
-| GPT-4o | GPT-5.2 | none 无 | Treat 4o/4.1 migrations as “fast/low-deliberation” by default; only increase effort if evals regress.   默认将 4o/4.1 的迁移视为“快速/低深思熟虑”，只有在评估结果倒退时才增加投入。 |
-| GPT-4.1 | GPT-5.2 | none 无 | Same mapping as GPT-4o to preserve snappy behavior.   与 GPT-4o 保持相同的映射，以保持响应迅速的行为。 |
-| GPT-5 | GPT-5.2 | same value except minimal → none   与之前相同的值，只是将 minimal 改为 none | Preserve none/low/medium/high to keep latency/quality profile consistent.   保留 none/low/medium/high，以保持延迟和质量特性一致。 |
-| GPT-5.1 | GPT-5.2 | same value 相同的数值 | Preserve existing effort selection; adjust only after running evals.   保留现有的努力选择，仅在运行评估后进行调整。 |
+| Current model 当前模型 | Target model 目标模型 | Target reasoning_effort 目标推理努力                                      | Notes 备注                                                                                                                                                                        |
+| ---------------------- | --------------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GPT-4o                 | GPT-5.2               | none 无                                                                   | Treat 4o/4.1 migrations as “fast/low-deliberation” by default; only increase effort if evals regress. 默认将 4o/4.1 的迁移视为“快速/低深思熟虑”，只有在评估结果倒退时才增加投入。 |
+| GPT-4.1                | GPT-5.2               | none 无                                                                   | Same mapping as GPT-4o to preserve snappy behavior. 与 GPT-4o 保持相同的映射，以保持响应迅速的行为。                                                                              |
+| GPT-5                  | GPT-5.2               | same value except minimal → none 与之前相同的值，只是将 minimal 改为 none | Preserve none/low/medium/high to keep latency/quality profile consistent. 保留 none/low/medium/high，以保持延迟和质量特性一致。                                                   |
+| GPT-5.1                | GPT-5.2               | same value 相同的数值                                                     | Preserve existing effort selection; adjust only after running evals. 保留现有的努力选择，仅在运行评估后进行调整。                                                                 |
 
 \*Note that default reasoning level for GPT-5 is medium, and for GPT-5.1 and GPT-5.2 is none.  
 \*请注意，GPT-5 的默认推理水平为中等，而 GPT-5.1 和 GPT-5.2 的默认推理水平为无。
@@ -319,15 +319,15 @@ We introduced the [Prompt Optimizer](https://platform.openai.com/chat/edit?optim
 我们在 Playground 中引入了提示优化器，帮助用户快速改进现有提示，并在 GPT-5 及其他 OpenAI 模型之间迁移。迁移到新模型的一般步骤如下：
 
 - Step 1: Switch models, don’t change prompts yet. Keep the prompt functionally identical so you’re testing the model change—not prompt edits. Make one change at a time.  
-	步骤 1：切换模型，但暂时不要更改提示词。保持提示词在功能上完全一致，这样你测试的就是模型的变化，而不是提示词的修改。每次只做一个更改。
-- Step 2: Pin reasoning\_effort. Explicitly set GPT-5.2 reasoning\_effort to match the prior model’s latency/depth profile (avoid provider-default “thinking” traps that skew cost/verbosity/structure).  
-	步骤 2：固定 reasoning\_effort。明确设置 GPT-5.2 的 reasoning\_effort，使其与之前模型的延迟/深度特征保持一致（避免使用提供商默认的“思考”设置，这会导致成本、冗长度或结构偏差）。
+  步骤 1：切换模型，但暂时不要更改提示词。保持提示词在功能上完全一致，这样你测试的就是模型的变化，而不是提示词的修改。每次只做一个更改。
+- Step 2: Pin reasoning_effort. Explicitly set GPT-5.2 reasoning_effort to match the prior model’s latency/depth profile (avoid provider-default “thinking” traps that skew cost/verbosity/structure).  
+  步骤 2：固定 reasoning_effort。明确设置 GPT-5.2 的 reasoning_effort，使其与之前模型的延迟/深度特征保持一致（避免使用提供商默认的“思考”设置，这会导致成本、冗长度或结构偏差）。
 - Step 3: Run Evals for a baseline. After model + effort are aligned, run your eval suite. If results look good (often better at med/high), you’re ready to ship.  
-	步骤 3：运行评测以获得基线。在模型和 effort 对齐后，运行你的评测套件。如果结果良好（通常在中/高设置下更好），你就可以准备上线了。
+  步骤 3：运行评测以获得基线。在模型和 effort 对齐后，运行你的评测套件。如果结果良好（通常在中/高设置下更好），你就可以准备上线了。
 - Step 4: If regressions, tune the prompt. Use Prompt Optimizer + targeted constraints (verbosity/format/schema, scope discipline) to restore parity or improve.  
-	步骤 4：如果出现回退，调整提示词。使用 Prompt Optimizer 和有针对性的约束（冗长度/格式/结构、范围控制）来恢复一致性或进一步提升。
-- Step 5: Re-run Evals after each small change. Iterate by either bumping reasoning\_effort one notch or making incremental prompt tweaks—then re-measure.  
-	步骤 5：每次进行小的修改后，重新运行评估。通过将 reasoning\_effort 提高一个等级或对提示进行渐进式微调来迭代，然后重新测量。
+  步骤 4：如果出现回退，调整提示词。使用 Prompt Optimizer 和有针对性的约束（冗长度/格式/结构、范围控制）来恢复一致性或进一步提升。
+- Step 5: Re-run Evals after each small change. Iterate by either bumping reasoning_effort one notch or making incremental prompt tweaks—then re-measure.  
+  步骤 5：每次进行小的修改后，重新运行评估。通过将 reasoning_effort 提高一个等级或对提示进行渐进式微调来迭代，然后重新测量。
 
 GPT-5.2 is more steerable and capable at synthesizing information across many sources.  
 GPT-5.2 在整合来自多个来源的信息方面更加可控且能力更强。
@@ -336,11 +336,11 @@ Best practices to follow:
 应遵循的最佳实践：
 
 - Specify the research bar up front: Tell the model how you want to perform search. Whether to follow second-order leads, resolve contradictions and include citations. Explicitly state how far to go, for instance: that additional research should continue until marginal value drops.  
-	提前明确研究标准：告知模型你希望如何进行搜索。无论是跟进二阶线索、解决矛盾还是包含引用，都要明确说明。明确研究的深度，例如：额外研究应持续到边际价值下降为止。
+  提前明确研究标准：告知模型你希望如何进行搜索。无论是跟进二阶线索、解决矛盾还是包含引用，都要明确说明。明确研究的深度，例如：额外研究应持续到边际价值下降为止。
 - Constrain ambiguity by instruction, not questions: Instruct the model to cover all plausible intents comprehensively and not ask clarifying questions. Require breadth and depth when uncertainty exists.  
-	通过指令而非提问来限制歧义：指示模型全面覆盖所有合理的意图，而不是提出澄清性问题。在存在不确定性时，要求模型兼顾广度和深度。
+  通过指令而非提问来限制歧义：指示模型全面覆盖所有合理的意图，而不是提出澄清性问题。在存在不确定性时，要求模型兼顾广度和深度。
 - Dictate output shape and tone: Set expectations for structure (Markdown, headers, tables for comparisons), clarity (define acronyms, concrete examples) and voice (conversational, persona-adaptive, non-sycophantic)  
-	规定输出的结构和语气：设定结构期望（如 Markdown、标题、对比表格）、清晰度（定义缩略词、具体示例）和语气（对话式、可适应角色、不过分奉承）
+  规定输出的结构和语气：设定结构期望（如 Markdown、标题、对比表格）、清晰度（定义缩略词、具体示例）和语气（对话式、可适应角色、不过分奉承）
 
 ## 10\. Conclusion 10. 结论
 
@@ -474,7 +474,7 @@ WRITING GUIDELINES
 
 Be direct: Start answering immediately.
 
-Be comprehensive: Answer every part of the user’s query. Your answer should be very detailed and long unless the user request is extremely simplistic. If your response is long, include a short summary at the top. 
+Be comprehensive: Answer every part of the user’s query. Your answer should be very detailed and long unless the user request is extremely simplistic. If your response is long, include a short summary at the top.
 
 Use simple language: full sentences, short words, concrete verbs, active voice, one main idea per sentence.
 
@@ -502,7 +502,7 @@ Do not be overly brief by default: even for straightforward questions, your resp
 
 In general, provide additional well-researched material whenever it clearly helps the user’s goal.
 
-Before you finalize, do a quick completeness pass: 
+Before you finalize, do a quick completeness pass:
 
 1. Did I answer every subpart
 

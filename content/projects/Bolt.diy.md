@@ -6,24 +6,25 @@ draft: true
 description: bolt.diy 是一个完全在浏览器中运行的 AI 驱动全栈 Web 开发环境。它是 Bolt.new 的官方开源版本，其主要区别在于它允许用户为每个提示词选择自己的 LLM 提供商和模型。
 source: https://github.com/stackblitz-labs/bolt.diy#
 ---
+
 ## 技术栈
 
-*   **框架**: [Remix](https://remix.run/) (React) - 负责服务端渲染、路由管理及前后端协同。
-*   **运行时沙箱**: [StackBlitz WebContainers](https://webcontainers.io/) - 在浏览器中运行 Node.js 的核心。
-*   **状态管理**: [Nano Stores](https://github.com/nanostores/nanostores) - 轻量级、原子化的状态管理，适合流式更新。
-*   **AI 调度**: [Vercel AI SDK](https://sdk.vercel.ai/) - 统一管理不同 LLM 供应商的流式接口。
-*   **UI/样式**: [UnoCSS](https://unocss.dev/) & [Lucide Icons](https://lucide.dev/) - 极速且现代的样式方案。
-*   **编辑器**: [CodeMirror 6](https://codemirror.net/) - 强大的 Web 代码编辑器。
+- **框架**: [Remix](https://remix.run/) (React) - 负责服务端渲染、路由管理及前后端协同。
+- **运行时沙箱**: [StackBlitz WebContainers](https://webcontainers.io/) - 在浏览器中运行 Node.js 的核心。
+- **状态管理**: [Nano Stores](https://github.com/nanostores/nanostores) - 轻量级、原子化的状态管理，适合流式更新。
+- **AI 调度**: [Vercel AI SDK](https://sdk.vercel.ai/) - 统一管理不同 LLM 供应商的流式接口。
+- **UI/样式**: [UnoCSS](https://unocss.dev/) & [Lucide Icons](https://lucide.dev/) - 极速且现代的样式方案。
+- **编辑器**: [CodeMirror 6](https://codemirror.net/) - 强大的 Web 代码编辑器。
 
 ## 顶层架构
 
-  Bolt.diy 采用的是 Client-Side Heavy (重前端) 架构，极大地减轻了服务端压力。
+Bolt.diy 采用的是 Client-Side Heavy (重前端) 架构，极大地减轻了服务端压力。
 
+- **前端 (Frontend): ** 基于 Remix (React) 框架。这是用户交互、状态管理和 UI 渲染的主战场。
+- **运行时 (Runtime):** StackBlitz WebContainers。这是它的“心脏”，一个运行在浏览器里的 Node.js 虚拟机。
+- **AI 调度层 (AI Orchestrator): ** Vercel AI SDK。负责连接各种 LLM（OpenAI, Anthropic, Ollama 等）并管理对话流。
+- **服务端 (Backend):** Remix 的 Loader/Action (运行在 Cloudflare Workers 或 Node.js 上)。主要负责 API 代理，隐藏 Key 等敏感信息，逻辑非常轻量。
 
-   * **前端 (Frontend): ** 基于 Remix (React) 框架。这是用户交互、状态管理和 UI 渲染的主战场。
-   * **运行时 (Runtime):**  StackBlitz WebContainers。这是它的“心脏”，一个运行在浏览器里的 Node.js 虚拟机。
-   * **AI 调度层 (AI Orchestrator): ** Vercel AI SDK。负责连接各种 LLM（OpenAI, Anthropic, Ollama 等）并管理对话流。
-   * **服务端 (Backend):** Remix 的 Loader/Action (运行在 Cloudflare Workers 或 Node.js 上)。主要负责 API 代理，隐藏 Key 等敏感信息，逻辑非常轻量。
 ```mermaid
 graph TB
     subgraph Browser["浏览器 (用户界面)"]
@@ -102,30 +103,32 @@ bolt.diy/
 └── wrangler.toml               # Cloudflare Pages 部署配置
 ```
 
-
 ## 核心流程
 
 项目实现的核心逻辑可以概括为：**流式指令生成 -> 实时标签解析 -> 沙箱任务执行**。
 
 ### 提示词工程 (Prompt Engineering)
+
 系统启动时会发送一个复杂的 `System Prompt`，它将 AI 塑造成一个“全栈工程师”。
-*   **约束**：强制 AI 使用特定的 XML 结构（`<boltArtifact>`）来包裹输出。
-*   **思考链**：要求 AI 在给出代码前先进行思考（CoT），提高复杂逻辑的准确性。
+
+- **约束**：强制 AI 使用特定的 XML 结构（`<boltArtifact>`）来包裹输出。
+- **思考链**：要求 AI 在给出代码前先进行思考（CoT），提高复杂逻辑的准确性。
 
 [[Bolt.diy Prompt Engineering]]
 
-
 ### 流式解析算法 (Streaming Parser)
+
 代码位于 `app/lib/runtime/message-parser.ts`。
-*   **状态机模式**：由于 AI 返回的是流式文本，标签可能会被中断。解析器能够识别“进行中”的标签。
-*   **即时动作**：解析器不需要等待 AI 全部说毕，只要识别出 `<boltAction type="file">` 的起始，就可以开始在 UI 上创建文件占位符。
+
+- **状态机模式**：由于 AI 返回的是流式文本，标签可能会被中断。解析器能够识别“进行中”的标签。
+- **即时动作**：解析器不需要等待 AI 全部说毕，只要识别出 `<boltAction type="file">` 的起始，就可以开始在 UI 上创建文件占位符。
 
 ### Artifacts 与 Actions 机制
-*   **Artifact**: 代表一个完整的任务单元（如“创建一个 React 组件”）。
-*   **Action**: 是 Artifact 中的原子操作：
-    *   `file`: 写入或修改文件内容。
-    *   `shell`: 运行终端命令（npm install, git, 等）。
 
+- **Artifact**: 代表一个完整的任务单元（如“创建一个 React 组件”）。
+- **Action**: 是 Artifact 中的原子操作：
+  - `file`: 写入或修改文件内容。
+  - `shell`: 运行终端命令（npm install, git, 等）。
 
 ## 文件系统同步
 
@@ -140,19 +143,20 @@ bolt.diy/
 Bolt.diy 利用了 [StackBlitz WebContainers](https://webcontainers.io/) 技术，实现了在浏览器端运行完整 Node.js 环境的能力。
 
 工作流程：
+
 1. **指令接收**：AI 生成包含代码或命令的 Artifact。
 2. **任务调度**：`WorkbenchStore` 将任务加入执行队列。
 3. **沙箱操作**：`ActionRunner` 调用 WebContainer API 修改文件或运行命令。
 4. **实时反馈**：沙箱内的文件变化、终端输出、预览错误实时回传并更新 UI。
 
 ```mermaid
-graph TD                                                                   
+graph TD
   User[用户/LLM] -->|指令| WorkbenchStore
-  WorkbenchStore -->|分发| ActionRunner                                  
+  WorkbenchStore -->|分发| ActionRunner
   ActionRunner -->|执行命令| WebContainer(Shell)
   ActionRunner -->|写入文件| WebContainer(FS)
   WebContainer(FS) -->|Watch事件| FilesStore
-  FilesStore -->|更新| EditorUI[代码编辑器]                              
+  FilesStore -->|更新| EditorUI[代码编辑器]
   WebContainer(Server) -->|HTTP| Preview[预览 Iframe]
 ```
 
@@ -180,19 +184,17 @@ graph TD
 - **缺点**：
   - **成本高昂**：需要为每位用户支付云服务器计算费用。
   - **延迟**：所有交互依赖网络连接。
+
 #### Sandpack
 
 - **Sandpack (CodeSandbox)**：一种轻量级的浏览器打包方案。
 - **原理**：不在浏览器中运行 Node.js，而是重写了打包逻辑（如 Webpack/Vite 的部分功能）使其在浏览器运行。
 - **场景**：非常适合 React/Vue 组件库文档演示，但不适合全栈应用开发。
 
-
 ## Remix
 
 Remix 是一个全栈 React 框架，强调使用 Web 标准并提供极佳的用户体验。它允许前后端代码共存于同一架构中，通过 Loader 和 Action 机制简化了数据流。
 
-
-  - 从 app/root.tsx、app/routes/_index.tsx 看“路由与布局”是如何落地的。
-  - 看 app/routes/api.chat.ts 这种 route module，理解 action/loader 与服务端逻辑如何写在同一个文件里。
-  - 看 app/entry.client.tsx 和 app/entry.server.tsx，对应 Remix 的客户端/服务端入口文件约定。
-
+- 从 app/root.tsx、app/routes/\_index.tsx 看“路由与布局”是如何落地的。
+- 看 app/routes/api.chat.ts 这种 route module，理解 action/loader 与服务端逻辑如何写在同一个文件里。
+- 看 app/entry.client.tsx 和 app/entry.server.tsx，对应 Remix 的客户端/服务端入口文件约定。
