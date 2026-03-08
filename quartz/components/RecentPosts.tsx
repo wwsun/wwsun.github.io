@@ -21,16 +21,16 @@ export default ((userOpts?: Partial<Options>) => {
   const RecentPosts: QuartzComponent = (props: QuartzComponentProps) => {
     const { allFiles, cfg } = props
     const opts = { ...defaultOptions(cfg), ...userOpts }
-    
+
     // Filter and sort
     const pages = allFiles.filter(opts.filter).sort(opts.sort)
-    
+
     // Create a new props object with the filtered files to pass to PageList
     // PageList expects 'allFiles' to be the list it renders (or we can handle slicing here)
     const filteredProps = {
       ...props,
       allFiles: pages,
-      limit: opts.limit
+      limit: opts.limit,
     }
 
     return (

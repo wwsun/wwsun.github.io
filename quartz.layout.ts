@@ -66,15 +66,21 @@ export const defaultContentPageLayout: PageLayout = {
       component: Component.Graph(),
       condition: (page) => page.fileData.slug !== "index",
     }),
-    Component.DesktopOnly(Component.TableOfContents()),
-    Component.SimpleRecentNotes({
-      title: "最近更新",
-      limit: 5,
-      filter: (f) =>
-        !f.slug?.endsWith("index") &&
-        !f.frontmatter?.noindex &&
-        !f.slug?.startsWith("templates/"),
-      linkToMore: "tags/" as any,
+    Component.ConditionalRender({
+      component: Component.DesktopOnly(Component.TableOfContents()),
+      condition: (page) => page.fileData.slug !== "index",
+    }),
+    Component.ConditionalRender({
+      component: Component.SimpleRecentNotes({
+        title: "最近更新",
+        limit: 5,
+        filter: (f) =>
+          !f.slug?.endsWith("index") &&
+          !f.frontmatter?.noindex &&
+          !f.slug?.startsWith("templates/"),
+        linkToMore: "tags/" as any,
+      }),
+      condition: (page) => page.fileData.slug !== "index",
     }),
     Component.ConditionalRender({
       component: Component.Backlinks(),

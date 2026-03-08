@@ -34,7 +34,9 @@ export default ((userOpts?: Partial<Options>) => {
     const remaining = Math.max(0, pages.length - opts.limit)
     return (
       <div class={classNames(displayClass, "recent-notes simple-recent-notes")}>
-        <h3 style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>{opts.title ?? i18n(cfg.locale).components.recentNotes.title}</h3>
+        <h3 style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>
+          {opts.title ?? i18n(cfg.locale).components.recentNotes.title}
+        </h3>
         <ul class="recent-ul" style={{ paddingLeft: "0" }}>
           {pages.slice(0, opts.limit).map((page) => {
             const title = page.frontmatter?.title ?? i18n(cfg.locale).propertyDefaults.title
@@ -44,7 +46,11 @@ export default ((userOpts?: Partial<Options>) => {
                 <div class="section">
                   <div class="desc">
                     <h3 style={{ fontSize: "0.9rem", lineHeight: "1.3", margin: "0" }}>
-                      <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal" style={{ fontWeight: "normal" }}>
+                      <a
+                        href={resolveRelative(fileData.slug!, page.slug!)}
+                        class="internal"
+                        style={{ fontWeight: "normal" }}
+                      >
                         {title}
                       </a>
                     </h3>

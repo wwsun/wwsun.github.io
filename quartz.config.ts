@@ -35,7 +35,7 @@ const config: QuartzConfig = {
           darkgray: "#4e4e4e",
           dark: "#2b2b2b",
           secondary: "#0055ff", // Tech Blue
-          tertiary: "#00aaff",  // Lighter Blue for hover/accent
+          tertiary: "#00aaff", // Lighter Blue for hover/accent
           highlight: "rgba(0, 85, 255, 0.15)",
           textHighlight: "#fff23688",
         },
@@ -46,7 +46,7 @@ const config: QuartzConfig = {
           darkgray: "#d4d4d4",
           dark: "#ebebec",
           secondary: "#4da6ff", // Brighter Blue for dark mode visibility
-          tertiary: "#80bfff",  // Even brighter for hover
+          tertiary: "#80bfff", // Even brighter for hover
           highlight: "rgba(77, 166, 255, 0.15)",
           textHighlight: "#b3aa0288",
         },
