@@ -12,22 +12,22 @@ This is a personal digital garden and knowledge base for **wwsun**, built using 
 - **Markdown Processing:** Unified (Remark/Rehype) with Obsidian-flavored Markdown support.
 - **Local Editor:** Obsidian (configuration stored in `.obsidian/`).
 - **Hosting:** GitHub Pages.
-- **Intelligence:** Gemini CLI with custom skills (e.g., `clipping-post-optimizer`).
+- **Intelligence:** Gemini CLI with custom skills.
 
-### Key Files
+### Key Files & Directories
 
 - **`quartz.config.ts`**: Main configuration (Title: "wwsun", Locale: "zh-CN", SPA enabled).
 - **`quartz.layout.ts`**: Defines the custom layout, including Recent Posts on the homepage, Explorer, Graph, and Backlinks.
-- **`.gemini/skills/`**: Contains project-specific Gemini CLI skills for automation.
+- **`.agents/skills/`**: Contains project-specific AI agent skills for automation (e.g., `clipping-post-optimizer`, `json-canvas`, `obsidian-bases`, `obsidian-markdown`).
 
 ### Content Organization (`content/`)
 
 - **`blogs/`**: Original articles and blog posts.
 - **`books/`**: Notes and summaries of books read.
-- **`clippings/`**: Curated web content and articles (optimized via Gemini skills).
+- **`clippings/`**: Curated web content and articles (optimized via AI skills).
 - **`wiki/`**: Structured knowledge base and permanent notes.
-- **`projects/`**: open source projects analysis and notes.
-- **`prompts/`**: prompts collection.
+- **`projects/`**: Open-source projects analysis and notes.
+- **`prompts/`**: Prompts collection.
 - **`assets/`**: Images and other media files used within notes.
 
 ## Development & Publishing Workflow
