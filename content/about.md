@@ -18,7 +18,7 @@ title: About Me
 
 ## Job Experience
 
-- **2021.8 - Now**: Web Engineer @ NetEase (AI Agent, Low-code)
+- **2021.8 - Now**: Agent Engineer + Web Engineer @ NetEase (AI Agent, Low-code)
 - **2016.3 - 2021.8**: Frontend Engineer @ Alibaba (Design System, Design Engineering)
 
 ## Recent Shares
