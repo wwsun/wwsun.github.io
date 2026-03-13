@@ -1,0 +1,22 @@
+
+> @jackyzha0/quartz@4.5.2 start
+> npx quartz build --serve
+
+
+ Quartz v4.5.2
+
+Cleaned output directory `public` in 2ms
+Found 173 input files from `content` in 46ms
+Parsing input files using 1 threads
+Parsed 173 Markdown files in 9s
+Filtered out 13 files in 309μs
+Emitting files
+Emitted 312 files to `public` in 2s
+Done processing 173 files in 10s
+Started a Quartz server listening at http://localhost:8080
+hint: exit with ctrl+c
+[200] /
+[200] /index.css
+[200] /prescript.js
+[200] /postscript.js
+[200] /static/contentIndex.json

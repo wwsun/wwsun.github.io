@@ -7,6 +7,10 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   afterBody: [
     Component.ConditionalRender({
+      component: Component.RecentTags({ title: "标签" }),
+      condition: (page) => page.fileData.slug === "index",
+    }),
+    Component.ConditionalRender({
       component: Component.RecentPosts({
         title: "最新文章",
         limit: 10,

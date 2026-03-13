@@ -548,10 +548,10 @@ CSS Variables (应用到 :root)
 - `src/contexts/ThemeContext.tsx` (新)
 - `src/components/ThemeToggle.tsx` (新)
 - `src/styles/globals.css` (修改)
-
 ````
 
 **何时更新设计:**
+
 - 实现显示方法不可行
 - 发现更好的解决方案
 - 依赖或约束变化
@@ -564,21 +564,25 @@ CSS Variables (应用到 :root)
 # 任务
 
 ## 1. 主题基础设施
+
 - [ ] 1.1 创建带亮/暗状态的 ThemeContext
 - [ ] 1.2 为颜色添加 CSS 自定义属性
 - [ ] 1.3 实现 localStorage 持久化
 - [ ] 1.4 添加系统偏好检测
 
 ## 2. UI 组件
+
 - [ ] 2.1 创建 ThemeToggle 组件
 - [ ] 2.2 在设置页面添加切换
 - [ ] 2.3 更新 Header 以包含快速切换
 
 ## 3. 样式
+
 - [ ] 3.1 定义深色主题颜色调色板
 - [ ] 3.2 更新组件以使用 CSS 变量
 - [ ] 3.3 测试可访问性的对比度
-````
+```
+
 ````
 
 **任务最佳实践:**
@@ -1645,3 +1649,4 @@ openspec schema fork spec-driven with-review
     - design
     - review # 现在 tasks 也需要 review
 ```
+````
