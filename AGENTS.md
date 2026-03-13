@@ -1,33 +1,68 @@
 # Repository Guidelines for AI Agents
 
-This repository is **wwsun's Digital Garden**, built with Quartz v4 and Obsidian. It is primarily a content repository, not a software library. As an AI agent, your focus should be on content generation, formatting, and organization, rather than modifying the underlying Quartz engine unless explicitly requested.
+This repository is **wwsun's Digital Garden**, built with **Quartz v4** and integrated with **Obsidian**. It is a content-focused repository where notes, thoughts, and research are interconnected.
 
-## Project Structure & Module Organization
+## Role & Mission
 
-- `content/` stores all Markdown notes, posts, and knowledge base files. Subdirectories include `blogs/`, `wiki/`, `clippings/`, `books/`, `projects/`, and `prompts/`.
-- `content/assets/` and `assets/` store images and static media referenced by notes.
-- `.agents/skills/` contains custom agent skills (e.g., `obsidian-markdown`, `json-canvas`, `obsidian-bases`, `clipping-post-optimizer`).
-- `quartz.config.ts` and `quartz.layout.ts` control site behavior, layout, and styling.
+As an AI agent, your mission is to help expand and maintain this digital garden. You should focus on:
+- Creating high-quality, structured Markdown content.
+- Ensuring strong interconnectivity between notes using Wiki-links.
+- Maintaining the aesthetic and technical integrity of the garden.
 
-## Content & Authoring Conventions
+## Architecture & Structure
 
-- **Language**: Always use Simplified Chinese (`zh-CN`) unless otherwise specified.
-- **Markdown Flavor**: Strictly follow Obsidian-flavored Markdown.
-  - Use `[[Internal Links]]` for linking between notes (shortest path resolution is supported).
-  - Use Obsidian Callouts (e.g., `> [!note]`, `> [!warning]`).
-- **Frontmatter**: Ensure standard YAML frontmatter properties if generating new posts (e.g., `title`, `date`, `tags`).
-- **File Naming**: Use descriptive names. Keep content paths consistent with existing notes in `content/`.
-- **Formatting**: Maintain clean and readable Markdown. Use `npm run format` to apply Prettier formatting.
+- **`content/`**: The heart of the garden. Organized by category.
+  - `blogs/`: Original long-form articles.
+  - `wiki/`: Permanent notes and structured knowledge.
+  - `clippings/`: Optimized web clippings and translations.
+  - `books/`: Book notes and summaries.
+  - `projects/`: Project-specific research.
+  - `assets/`: Media files (images, etc.).
+- **`quartz.config.ts`**: Site configuration (Title, Locale, Plugins).
+- **`quartz.layout.ts`**: Layout definitions (Header, Footer, Sidebar).
+- **`.agents/skills/`**: Custom automation skills for agents.
+- **`.obsidian/`**: Local Obsidian configuration.
 
-## Workflows & Agent Skills
+## Content & Authoring Standards
 
-- **Content Optimization**: For web clippings in `content/clippings/`, apply the `clipping-post-optimizer` skill to clean up titles, footnotes, and translations.
-- **Obsidian Formats**: When interacting with `.canvas` or `.base` files, utilize the `json-canvas` or `obsidian-bases` skills.
-- **Do Not Modify Build Output Manually**: The website is built statically. Do not create or edit files in generated build folders manually.
+### 1. Language & Tone
+- **Language**: Primary language is **Simplified Chinese (`zh-CN`)**.
+- **Tone**: Professional, insightful, and clear. Avoid fluff.
 
-## Development & Publishing Commands
+### 2. Markdown Flavor (Obsidian)
+- **Internal Links**: Always use `[[Link]]` for internal navigation. Use the shortest path resolution (e.g., `[[My Note]]`).
+- **Callouts**: Use Obsidian-style callouts: `> [!note]`, `> [!warning]`, etc.
+- **Frontmatter**: Every new note should have standard YAML frontmatter:
+  ```yaml
+  ---
+  title: "Note Title"
+  date: 2026-03-13
+  tags:
+    - category/tag
+  ---
+  ```
 
-- `npx quartz build --serve` — Build and run a local preview server.
-- `npx quartz sync` — Sync content with GitHub and deploy to GitHub Pages.
-- `npm run format` — Apply Prettier formatting across the repository.
-- `npm run check` — Run TypeScript checks and Prettier verification (mainly for Quartz config/engine).
+### 3. File Organization
+- Use descriptive, URL-friendly filenames (e.g., `my-new-post.md`).
+- Keep content paths consistent with existing notes.
+
+## Workflow & Automation
+
+### Optimization
+- **Web Clippings**: Use available skills to clean titles, align footnotes, and sync hyperlinks.
+- **Specialized Formats**: Use specific skills for `.canvas` (JSON Canvas) and `.base` (Obsidian Bases) files.
+
+### Maintenance
+- Run `npm run format` after significant changes.
+- Run `npm run check` to verify links and types.
+
+## Prohibitions
+- **Do Not** modify the `quartz/` engine or core logic unless specifically instructed.
+- **Do Not** create files in the `public/` or `dist/` folders.
+- **Do Not** use complex HTML if Markdown is sufficient.
+
+## Development Commands
+- `npx quartz build --serve` — Preview changes locally.
+- `npx quartz sync` — Sync and deploy content.
+- `npm run format` — Apply Prettier formatting.
+- `npm run check` — Run validations.

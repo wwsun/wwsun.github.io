@@ -1,17 +1,24 @@
-# Claude Code 项目配置
+# Claude Code Project Context: wwsun's Digital Garden
 
-## Skills
+> [!important]
+> Please refer to **[[AGENTS.md]]** for core repository guidelines, project structure, content standards, and authoring conventions.
 
-本项目在 `.agents/skills/` 目录下提供了以下自定义 skills，使用时通过 Skill 工具调用：
+## Claude Code Specifics
 
-- **json-canvas** (`.agents/skills/json-canvas/SKILL.md`)：创建和编辑 JSON Canvas 文件（`.canvas`），用于 Obsidian 画布、思维导图和流程图。
-- **obsidian-bases** (`.agents/skills/obsidian-bases/SKILL.md`)：创建和编辑 Obsidian Bases（`.base` 文件），包含视图、过滤器、公式和汇总配置。
-- **obsidian-markdown** (`.agents/skills/obsidian-markdown/SKILL.md`)：创建和编辑 Obsidian Flavored Markdown，包含 wikilinks、callouts、embeds、frontmatter 等 Obsidian 特有语法。
-- **clipping-post-optimizer** (`.agents/skills/clipping-post-optimizer/SKILL.md`)：优化 `content/clippings/` 目录下的译文文件，清理标题冗余英文，对齐脚注格式，同步超链接。
+### Skill Usage
+This project provides several custom skills in `.agents/skills/`. Use the `Skill` tool to load their instructions before performing relevant tasks.
 
-## 使用规则
+- **`clipping-post-optimizer`**: Optimizes translated web clippings in `content/clippings/`.
+- **`obsidian-markdown`**: Handles Obsidian-specific Markdown syntax (wikilinks, callouts).
+- **`obsidian-bases`**: Manages `.base` files (Obsidian view configurations).
+- **`json-canvas`**: Manages `.canvas` files (Obsidian visual maps).
 
-- 处理 `.canvas` 文件时，优先使用 `json-canvas` skill
-- 处理 `.base` 文件时，优先使用 `obsidian-bases` skill
-- 处理 Obsidian Markdown 文件时，优先使用 `obsidian-markdown` skill
-- 优化 `content/clippings/` 下的译文时，优先使用 `clipping-post-optimizer` skill
+### Specific Rules
+- When processing `.canvas` files, you **MUST** use the `json-canvas` skill.
+- When processing `.base` files, you **MUST** use the `obsidian-bases` skill.
+- When processing Obsidian Markdown files, you **MUST** use the `obsidian-markdown` skill.
+- When optimizing translations in `content/clippings/`, you **MUST** use the `clipping-post-optimizer` skill.
+
+### Maintenance Commands
+- Run `npm run format` (calls Prettier) to ensure clean Markdown formatting.
+- Run `npm run check` (calls `tsc` and Prettier verification) to ensure technical integrity.

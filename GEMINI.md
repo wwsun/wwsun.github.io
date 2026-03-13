@@ -1,53 +1,28 @@
-# Project Context: wwsun's Digital Garden (Quartz v4)
+# Gemini CLI Project Context: wwsun's Digital Garden
 
-## Overview
+> [!important]
+> Please refer to **[[AGENTS.md]]** for core repository guidelines, project structure, content standards, and authoring conventions.
 
-This is a personal digital garden and knowledge base for **wwsun**, built using **Quartz v4** and integrated with **Obsidian**. It serves as a centralized hub for notes, blog posts, book summaries, and web clippings, automatically published to [wwsun.github.io](https://wwsun.github.io).
+## Gemini CLI Specifics
 
-## Architecture & Structure
+### Skill Activation
+This project provides several custom skills in `.agents/skills/`. Use the `activate_skill` tool to load their instructions before performing relevant tasks.
 
-### Core Technologies
+- **`clipping-post-optimizer`**: Optimizes translated web clippings in `content/clippings/`.
+- **`obsidian-markdown`**: Handles Obsidian-specific Markdown syntax (wikilinks, callouts).
+- **`obsidian-bases`**: Manages `.base` files (Obsidian view configurations).
+- **`json-canvas`**: Manages `.canvas` files (Obsidian visual maps).
 
-- **Static Site Generator:** Quartz v4 (TypeScript, Preact, Esbuild)
-- **Markdown Processing:** Unified (Remark/Rehype) with Obsidian-flavored Markdown support.
-- **Local Editor:** Obsidian (configuration stored in `.obsidian/`).
-- **Hosting:** GitHub Pages.
-- **Intelligence:** Gemini CLI with custom skills.
+### Workflow Guidelines
+- **Research Phase**: Use `grep_search` to ensure notes don't already exist and to find related content for cross-linking.
+- **Implementation Phase**: 
+  - For content updates, use `replace` for targeted edits (e.g., updating frontmatter).
+  - For new notes, use `write_file`.
+- **Validation Phase**: 
+  - Always run `npm run check` or `npx quartz build` to ensure no broken links or build errors were introduced.
+  - Run `npm run format` to maintain consistency.
 
-### Key Files & Directories
-
-- **`quartz.config.ts`**: Main configuration (Title: "wwsun", Locale: "zh-CN", SPA enabled).
-- **`quartz.layout.ts`**: Defines the custom layout, including Recent Posts on the homepage, Explorer, Graph, and Backlinks.
-- **`.agents/skills/`**: Contains project-specific AI agent skills for automation (e.g., `clipping-post-optimizer`, `json-canvas`, `obsidian-bases`, `obsidian-markdown`).
-
-### Content Organization (`content/`)
-
-- **`blogs/`**: Original articles and blog posts.
-- **`books/`**: Notes and summaries of books read.
-- **`clippings/`**: Curated web content and articles (optimized via AI skills).
-- **`wiki/`**: Structured knowledge base and permanent notes.
-- **`projects/`**: Open-source projects analysis and notes.
-- **`prompts/`**: Prompts collection.
-- **`assets/`**: Images and other media files used within notes.
-
-## Development & Publishing Workflow
-
-### Workflow
-
-1.  **Edit Locally:** Use Obsidian to create and edit Markdown files in the `content/` directory.
-2.  **Optimize (Optional):** Use Gemini CLI skills (like `clipping-post-optimizer`) to refine clippings or other content.
-3.  **Preview:** Run `npx quartz build --serve` to view changes locally.
-4.  **Sync/Deploy:** Run `npx quartz sync` to commit changes, pull from remote, and push to GitHub, triggering the GitHub Actions deployment.
-
-### Useful Commands
-
-- `npx quartz build --serve`: Local development server.
-- `npx quartz sync`: Sync content with GitHub and deploy.
-- `npm run format`: Format code and Markdown files.
-- `npm run check`: Typecheck and lint the project.
-
-## Project-Specific Conventions
-
-- **Markdown Flavor:** Strictly follows Obsidian-flavored Markdown (shortest path link resolution, `[[Internal Links]]`, Callouts).
-- **Language:** Primarily Chinese (`zh-CN`).
-- **Automation:** Leverages Gemini CLI skills for repetitive content processing tasks.
+### Tool Preferences
+- **`save_memory`**: Use only for global user preferences, NOT for project-specific facts.
+- **`ask_user`**: Use only for critical ambiguity or high-level decisions.
+- **`run_shell_command`**: Explain commands that modify the file system (e.g., `git` operations, if requested).
