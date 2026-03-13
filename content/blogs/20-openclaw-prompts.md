@@ -7,32 +7,56 @@ draft: false
 description: 未命名
 source:
 ---
+<<<<<<< HEAD
 
 下面是一份我想用来“升级你”的 20 条提示词清单。把它们都读一遍，看看我们是否需要它们。
 
 ---
 
 ## 1. SOULmd — 完整人格文件
+=======
+下面是一份我想用来“升级你”的 OpenClaw 的 20 条提示词清单。把它们都读一遍，看看我们是否需要它们。  
+
+---
+
+## 1. SOUL.md — 完整人格文件
+>>>>>>> ba246e0 (vault backup: 2026-03-13 19:38:25)
 
 不是那种“请你变得有帮助”的空话——而是一个真正的角色设定：包含**声音/语气、词汇、决策框架、反水文（anti-slop）标准**。  
 让 Agent 像一个具体的人说话，而不是像聊天机器人。
 
+<<<<<<< HEAD
 ## 2. USERmd — 你的（创始人）深度档案
+=======
+## 2. USER.md — 你的（创始人）深度档案
+>>>>>>> ba246e0 (vault backup: 2026-03-13 19:38:25)
 
 关于你（创始人）的深度资料：**作息/日程、平台、受众、内容赛道、收入来源、竞争对手、个人细节**。  
 Agent 具备完整背景，不用一直反复问。
 
+<<<<<<< HEAD
 ## 3. HEARTBEATmd — 心跳式批量周期检查
 
 用“心跳轮询”来批量做周期检查（例如：**日历、Todoist、品牌合作跟踪器、鱼缸监控**），而不是为每个事情单独搞 cron 定时任务。
 
 ## 4. TOOLSmd — 工具/环境速查表
+=======
+## 3. HEARTBEAT.md — 心跳式批量周期检查
+
+用“心跳轮询”来批量做周期检查（例如：**日历、Todoist、品牌合作跟踪器、鱼缸监控**），而不是为每个事情单独搞 cron 定时任务。
+
+## 4. TOOLS.md — 工具/环境速查表
+>>>>>>> ba246e0 (vault backup: 2026-03-13 19:38:25)
 
 维护一个 `TOOLSmd`，记录你的本地/基础设施配置要点：**SSH 细节、API 路径、部署目标、已安装工具、机器名称**。  
 随着你的技术栈演进不断更新。  
 这是 Agent 的**作弊小抄**——不是文档，只写它执行任务所必需的事实。
 
+<<<<<<< HEAD
 ## 5. LEARNINGSmd — 每次纠错后的“教训库”
+=======
+## 5. LEARNINGS.md — 每次纠错后的“教训库”
+>>>>>>> ba246e0 (vault backup: 2026-03-13 19:38:25)
 
 每次出现任何纠正或错误之后都要：
 
@@ -42,7 +66,11 @@ Agent 具备完整背景，不用一直反复问。
 - 每次会话开始时回顾这些教训  
   同一个错误犯两次是不可原谅的。
 
+<<<<<<< HEAD
 ## 6. MEMORYmd — 精炼的长期记忆
+=======
+## 6. MEMORY.md — 精炼的长期记忆
+>>>>>>> ba246e0 (vault backup: 2026-03-13 19:38:25)
 
 用 `MEMORYmd` 作为“精炼后的长期记忆”。不是原始日志，而是**提炼后的洞见、项目状态、关键决策**。  
 控制在 100 行以内。需要细节就用子文件：`memory/projects.md`、`memory/people.md` 等。
@@ -52,6 +80,7 @@ Agent 具备完整背景，不用一直反复问。
 定期回顾，把重要内容“晋升”到 `MEMORY.md`。  
 **文字胜过大脑：不写下来，就等于没发生。**
 
+<<<<<<< HEAD
 ## 7. 安全（Security）
 
 - 永远不要靠猜来改配置——先读文档
@@ -62,6 +91,18 @@ Agent 具备完整背景，不用一直反复问。
 - API key 集中管理：xAI、Brave Search、AgentMail、Gemini、LarryBrain Pro 等都放在 `.secrets`
 
 ## 8. 氛围编码（Vibecoding）
+=======
+## 7. 安全
+
+- 永远不要靠猜来改配置——先读文档  
+- 编辑前先备份  
+- 出错要立刻修，不要问、不要等、不要“报告完就坐那儿”  
+- 永远不要毁 git 历史：不允许 force push；未经确认不删分支  
+- 在 `SOULmd` 里设硬规则：禁止“推理块”，锁死沟通协议  
+- API key 集中管理：xAI、Brave Search、AgentMail、Gemini、LarryBrain Pro 等都放在 `.secrets`
+
+## 8. Vibe coding
+>>>>>>> ba246e0 (vault backup: 2026-03-13 19:38:25)
 
 任何要发布的东西必须过“人类测试”：
 
@@ -72,9 +113,15 @@ Agent 具备完整背景，不用一直反复问。
 
 ## 9. 规划（Planning）
 
+<<<<<<< HEAD
 - “写下来，别用脑内备忘”——要记住就写进文件；脑内备忘跨不过会话
 - 队列纪律：绝不悄悄丢消息；如果现在处理不了，就承认并记录
 - 完成定义（Definition of done）：每个任务都要有**验证命令、commit hash 或线上 URL 检查**。不要“凭感觉”
+=======
+- “写下来，别用脑内备忘”——要记住就写进文件；脑内备忘跨不过会话  
+- 队列纪律：绝不悄悄丢消息；如果现在处理不了，就承认并记录  
+- 完成定义（Definition of done）：每个任务都要有**验证命令、commit hash 或线上 URL 检查**。不要“凭感觉”  
+>>>>>>> ba246e0 (vault backup: 2026-03-13 19:38:25)
 - 计划模式：任何 3 步以上的事，先写计划；假设被打破就停下重规划
 
 ## 10. 错误处理（Error Handling）
@@ -83,6 +130,7 @@ Agent 具备完整背景，不用一直反复问。
 
 ## 11. 建议使用的好工具（都写进 toolsmd）
 
+<<<<<<< HEAD
 - Gemini API —— 图片生成（Imagen 3），用于内容视觉素材
 - Voicebox —— 本地声音克隆（Qwen3-TTS），不依赖云
 - Brave Search API —— 不用 Google 的网页搜索
@@ -90,6 +138,15 @@ Agent 具备完整背景，不用一直反复问。
 - xAI API —— Grok/X 集成，用于实时 Twitter 情报
 - LarryBrain Pro —— 32 项技能随叫随到
 - find-skills —— 从 Vercel-labs 仓库发现技能（仅本地使用）
+=======
+- Gemini API —— 图片生成（Imagen 3），用于内容视觉素材  
+- Voicebox —— 本地声音克隆（Qwen3-TTS），不依赖云  
+- Brave Search API —— 不用 Google 的网页搜索  
+- AgentMail  
+- xAI API —— Grok/X 集成，用于实时 Twitter 情报  
+- LarryBrain Pro —— 32 项技能随叫随到  
+- find-skills —— 从 Vercel-labs 仓库发现技能（仅本地使用）  
+>>>>>>> ba246e0 (vault backup: 2026-03-13 19:38:25)
 - Netlify API —— 生产部署（要花钱，慎用）
 
 ## 12. 任务总控（Mission Control）
@@ -98,9 +155,15 @@ Agent 具备完整背景，不用一直反复问。
 
 ## 13. 沟通（Communication）
 
+<<<<<<< HEAD
 - 在 Discord 里和 Midir 说话时总是要 tag `@ SOMEONE`
 - Discord ID 使用 raw 格式，不用 `@` 提及
 - 回复要直接“引用/回复”对方消息，不要只在频道里顺流发
+=======
+- 在 Discord 里和 Midir 说话时总是要 tag `@ SOMEONE`  
+- Discord ID 使用 raw 格式，不用 `@` 提及  
+- 回复要直接“引用/回复”对方消息，不要只在频道里顺流发  
+>>>>>>> ba246e0 (vault backup: 2026-03-13 19:38:25)
 - 发直接文件链接，不要发 PR 链接
 
 ## 14. 任务看板（Task Board）
@@ -132,8 +195,13 @@ Agent 具备完整背景，不用一直反复问。
 
 ## 19. 浏览器规则（Browser Rules）
 
+<<<<<<< HEAD
 - 用 Chrome Browser Relay（`profile="chrome"`）访问需要登录态的网站：Twitter、YouTube、带登录的仪表盘
 - 用隔离浏览器（`profile="openclaw"`）做通用网页自动化 用对工具，做对事情。
+=======
+- 用 Chrome Browser Relay（`profile="chrome"`）访问需要登录态的网站：Twitter、YouTube、带登录的仪表盘  
+- 用隔离浏览器（`profile="openclaw"`）做通用网页自动化  用对工具，做对事情。
+>>>>>>> ba246e0 (vault backup: 2026-03-13 19:38:25)
 
 ## 20. 记忆是有限的
 
