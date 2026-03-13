@@ -467,7 +467,6 @@ It won't appear in reading view.
 
 ```markdown
 ---
-
 ---
 
 ---

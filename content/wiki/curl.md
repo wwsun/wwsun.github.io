@@ -16,16 +16,21 @@ curl <https://example.com>
 ### 2. 指定 HTTP 方法
 
 - **GET**（默认）：
+
   ```bash
   curl <https://api.example.com/data>
 
   ```
+
 - **POST**：
+
   ```bash
   curl -X POST <https://api.example.com/login>
 
   ```
+
 - **PUT、DELETE 等**：
+
   ```bash
   curl -X PUT <https://api.example.com/item/123>
   curl -X DELETE <https://api.example.com/item/123>
@@ -35,11 +40,14 @@ curl <https://example.com>
 ### 3. 携带数据
 
 - **POST 表单数据**：
+
   ```bash
   curl -d "username=foo&password=bar" <https://api.example.com/login>
 
   ```
+
 - **POST JSON**：
+
   ```bash
   curl -H "Content-Type: application/json" -d '{"key":"value"}' <https://api.example.com/api>
 
@@ -63,11 +71,14 @@ curl -o result.json <https://api.example.com/data>
 ### 6. 显示请求和响应头信息
 
 - 只显示响应头：
+
   ```bash
   curl -I <https://example.com>
 
   ```
+
 - 显示全部过程（包括请求头和响应头）：
+
   ```bash
   curl -v <https://example.com>
 

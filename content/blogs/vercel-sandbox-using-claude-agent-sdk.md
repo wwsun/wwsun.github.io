@@ -110,91 +110,91 @@ vercel env pull
 创建一个名为 `claude-sandbox.ts` 的新文件，用于设置 Vercel Sandbox、安装 Claude Code CLI 和 Anthropic SDK，并验证安装：
 
 ```typescript
-import ms from 'ms';
-import { Sandbox } from '@vercel/sandbox';
+import ms from "ms"
+import { Sandbox } from "@vercel/sandbox"
 
 async function main() {
   const sandbox = await Sandbox.create({
     resources: { vcpus: 4 },
     // 超时时间（毫秒）：ms('10m') = 600000
     // 默认为 5 分钟。Pro/Enterprise 最大为 5 小时，Hobby 为 45 分钟。
-    timeout: ms('10m'),
-    runtime: 'node22',
-  });
+    timeout: ms("10m"),
+    runtime: "node22",
+  })
 
-  console.log(`Sandbox created: ${sandbox.sandboxId}`);
+  console.log(`Sandbox created: ${sandbox.sandboxId}`)
 
-  console.log(`Installing Claude Code CLI...`);
+  console.log(`Installing Claude Code CLI...`)
   // 全局安装 Claude Code CLI
   const installCLI = await sandbox.runCommand({
-    cmd: 'npm',
-    args: ['install', '-g', '@anthropic-ai/claude-code'],
+    cmd: "npm",
+    args: ["install", "-g", "@anthropic-ai/claude-code"],
     stderr: process.stderr,
     stdout: process.stdout,
     sudo: true,
-  });
+  })
 
   if (installCLI.exitCode != 0) {
-    console.log('installing Claude Code CLI failed');
-    process.exit(1);
+    console.log("installing Claude Code CLI failed")
+    process.exit(1)
   }
 
-  console.log(`✓ Claude Code CLI installed`);
+  console.log(`✓ Claude Code CLI installed`)
 
-  console.log(`Installing Anthropic SDK...`);
+  console.log(`Installing Anthropic SDK...`)
   // 在工作目录中安装 @anthropic-ai/sdk
   const installSDK = await sandbox.runCommand({
-    cmd: 'npm',
-    args: ['install', '@anthropic-ai/sdk'],
+    cmd: "npm",
+    args: ["install", "@anthropic-ai/sdk"],
     stderr: process.stderr,
     stdout: process.stdout,
-  });
+  })
 
   if (installSDK.exitCode != 0) {
-    console.log('installing Anthropic SDK failed');
-    process.exit(1);
+    console.log("installing Anthropic SDK failed")
+    process.exit(1)
   }
 
-  console.log(`✓ Anthropic SDK installed`);
+  console.log(`✓ Anthropic SDK installed`)
 
-  console.log(`Verifying SDK connection...`);
+  console.log(`Verifying SDK connection...`)
   // 创建一个简单的脚本来验证 SDK 是否可以导入
   const verifyScript = `
 import Anthropic from '@anthropic-ai/sdk';
 console.log('SDK imported successfully');
 console.log('Anthropic SDK version:', Anthropic.VERSION);
 console.log('SDK is ready to use');
-`;
+`
 
   await sandbox.writeFiles([
     {
-      path: '/vercel/sandbox/verify.mjs',
+      path: "/vercel/sandbox/verify.mjs",
       content: Buffer.from(verifyScript),
     },
-  ]);
+  ])
 
   // 运行验证脚本
   const verifyRun = await sandbox.runCommand({
-    cmd: 'node',
-    args: ['verify.mjs'],
+    cmd: "node",
+    args: ["verify.mjs"],
     stderr: process.stderr,
     stdout: process.stdout,
-  });
+  })
 
   if (verifyRun.exitCode != 0) {
-    console.log('SDK verification failed');
-    process.exit(1);
+    console.log("SDK verification failed")
+    process.exit(1)
   }
 
-  console.log(`✓ Anthropic SDK is properly connected`);
-  console.log(`\\nSuccess! Both Claude Code CLI and Anthropic SDK are installed and ready to use.`);
+  console.log(`✓ Anthropic SDK is properly connected`)
+  console.log(`\\nSuccess! Both Claude Code CLI and Anthropic SDK are installed and ready to use.`)
 
   // 停止沙盒
-  await sandbox.stop();
-  console.log(`Sandbox stopped`);
+  await sandbox.stop()
+  console.log(`Sandbox stopped`)
 }
 
-main().catch(console.error);
+main().catch(console.error)
 ```
 
 ### 脚本的作用
@@ -261,8 +261,8 @@ Sandbox stopped
 try {
   // 您的沙盒操作
 } finally {
-  await sandbox.stop();
-  console.log('Sandbox stopped');
+  await sandbox.stop()
+  console.log("Sandbox stopped")
 }
 ```
 
@@ -272,9 +272,9 @@ try {
 
 ```typescript
 const sandbox = await Sandbox.create({
-  timeout: ms('10m'), // 10 分钟用于安装
+  timeout: ms("10m"), // 10 分钟用于安装
   // 最大：Pro/Enterprise 为 5 小时，Hobby 为 45 分钟
-});
+})
 ```
 
 ---

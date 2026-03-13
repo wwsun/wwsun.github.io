@@ -21,6 +21,7 @@ import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import SimpleRecentNotes from "./SimpleRecentNotes"
 import RecentPosts from "./RecentPosts"
+import RecentTags from "./RecentTags"
 import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
 import Flex from "./Flex"
@@ -49,6 +50,7 @@ export {
   RecentNotes,
   SimpleRecentNotes,
   RecentPosts,
+  RecentTags,
   NotFound,
   Breadcrumbs,
   Comments,
