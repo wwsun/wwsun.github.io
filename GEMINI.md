@@ -1,28 +1,29 @@
 # Gemini CLI Project Context: wwsun's Digital Garden
 
 > [!important]
-> Please refer to **[[AGENTS.md]]** for core repository guidelines, project structure, content standards, and authoring conventions.
+> 核心存储库指南、项目结构、内容标准和创作规范，请**优先参考 [[AGENTS.md]]**。
 
 ## Gemini CLI Specifics
 
 ### Skill Activation
-This project provides several custom skills in `.agents/skills/`. Use the `activate_skill` tool to load their instructions before performing relevant tasks.
+本项目在 `.agents/skills/` 中提供了多个自定义 Skill。在执行相关任务前，请优先使用 `activate_skill` 加载其指令：
 
-- **`clipping-post-optimizer`**: Optimizes translated web clippings in `content/clippings/`.
-- **`obsidian-markdown`**: Handles Obsidian-specific Markdown syntax (wikilinks, callouts).
-- **`obsidian-bases`**: Manages `.base` files (Obsidian view configurations).
-- **`json-canvas`**: Manages `.canvas` files (Obsidian visual maps).
+- **`content-metadata-curator`**: 自动化管理 Markdown 的 Frontmatter 元数据。
+- **`clipping-post-optimizer`**: 优化 `content/clippings/` 中的译文剪报。
+- **`obsidian-markdown`**: 处理 Obsidian 特有的 Markdown 语法（wikilinks, callouts）。
+- **`obsidian-bases`**: 管理 `.base` 文件（Obsidian 视图配置）。
+- **`json-canvas`**: 管理 `.canvas` 文件（Obsidian 视觉画布）。
 
-### Workflow Guidelines
-- **Research Phase**: Use `grep_search` to ensure notes don't already exist and to find related content for cross-linking.
-- **Implementation Phase**: 
-  - For content updates, use `replace` for targeted edits (e.g., updating frontmatter).
-  - For new notes, use `write_file`.
-- **Validation Phase**: 
-  - Always run `npm run check` or `npx quartz build` to ensure no broken links or build errors were introduced.
-  - Run `npm run format` to maintain consistency.
+### Workflow Guidelines (Implementation)
+
+- **Research**: 使用 `grep_search` 确保笔记不重复，并寻找相关内容进行交叉链接。
+- **Action**: 
+  - 对于内容更新，优先使用 `replace` 进行精准编辑。
+  - 对于新笔记，使用 `write_file`。
+- **Validation**: 遵循 `AGENTS.md` 中的维护标准，在完成更改后运行相关的验证命令。
 
 ### Tool Preferences
-- **`save_memory`**: Use only for global user preferences, NOT for project-specific facts.
-- **`ask_user`**: Use only for critical ambiguity or high-level decisions.
-- **`run_shell_command`**: Explain commands that modify the file system (e.g., `git` operations, if requested).
+
+- **`save_memory`**: 仅用于存储全局用户偏好，**禁止**存储项目特定的事实。
+- **`ask_user`**: 仅在存在严重歧义或需要高层决策时使用。
+- **`run_shell_command`**: 在执行修改文件系统的敏感命令（如 `git` 提交）前，请务必简要说明。
