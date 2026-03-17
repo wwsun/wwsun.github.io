@@ -1,9 +1,11 @@
 ---
-title: 制造业采购经理指数
+title: PMI (制造业采购经理指数)
 tags:
-  - AIGC
-draft: true
-description: 制造业采购经理指数
+  - financial
+  - macro-economy
+  - economic-indicators
+draft: false
+description: 制造业采购经理指数 (PMI) 是宏观经济的“晴雨表”。本文深入解析 PMI 的核心定义、计算逻辑、关键分项指标及其对经济趋势的预判作用。
 source:
 ---
 

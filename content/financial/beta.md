@@ -1,9 +1,11 @@
 ---
-title: 贝塔
+title: 贝塔 (Beta)
 tags:
-  - AIGC
-draft: true
-description: 贝塔斯衡量一种资产或投资组合相对于整个市场的**波动性**或**系统性风险**。
+  - financial
+  - investing
+  - risk-management
+draft: false
+description: 贝塔（Beta）是衡量资产相对于市场波动性或系统性风险的核心指标。本文详细介绍了贝塔值的含义、系统性风险的定义、以及贝塔收益与阿尔法收益的区别。
 source:
 ---
 

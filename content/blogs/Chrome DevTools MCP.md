@@ -7,8 +7,9 @@ draft: false
 description: >-
   编码代理面临一个根本性问题：它们无法看到自己生成的代码在浏览器中运行时实际执行的操作。他们实际上是在蒙着眼睛编程。Chrome 开发者工具 MCP
   服务器改变了这种情况。AI 编码助理可以直接在 Chrome 中调试网页，并受益于开发者工具的调试功能和性能洞见。这有助于他们更准确地识别和修复问题。M
-source: 'https://github.com/ChromeDevTools/chrome-devtools-mcp'
+source: "https://github.com/ChromeDevTools/chrome-devtools-mcp"
 ---
+
 编码代理面临一个根本性问题：它们无法看到自己生成的代码在浏览器中运行时实际执行的操作。他们实际上是在蒙着眼睛编程。
 
 Chrome 开发者工具 MCP 服务器改变了这种情况。AI 编码助理可以直接在 Chrome 中调试网页，并受益于开发者工具的调试功能和性能洞见。这有助于他们更准确地识别和修复问题。

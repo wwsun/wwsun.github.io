@@ -8,7 +8,7 @@ draft: false
 description: >-
   引言Skill（技能）是一组指令——以一个简单文件夹的形式打包——用来教 Claude 如何处理特定任务或工作流。Skill 是为你的特定需求定制
   Claude 的最强大方式之一。你不必在每次对话中反复解释你的偏好、流程和领域知识；Skill 让你只需教一次，以后每次都能受益。当你有可重复的工作流时
-source: 'https://claude.com/blog/complete-guide-to-building-skills-for-claude'
+source: "https://claude.com/blog/complete-guide-to-building-skills-for-claude"
 ---
 
 ## 引言

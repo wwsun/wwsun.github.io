@@ -8,7 +8,7 @@ description: >-
   项目简介PAI 的宗旨是解决世界上的“P0
   问题”：只有极少数人的创造力被激发，大多数人认为自己并没有什么价值，认为有“特殊”的人，而自己不是其中之一。我们的目标是通过 AI
   激发每个人的潜能：激活更多人 —— 帮助每个人通过 AI 增强自我认知，识别并追求自己的目标和人生目的。让最好的 AI普惠众
-source: 'http://wogithub.com/danielmiessler/Personal_AI_Infrastructure'
+source: "http://wogithub.com/danielmiessler/Personal_AI_Infrastructure"
 ---
 
 ## 项目简介

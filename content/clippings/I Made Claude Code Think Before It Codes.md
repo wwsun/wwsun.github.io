@@ -9,6 +9,7 @@ tags:
   - claude-code
   - prompt
 ---
+
 # 我教会 Claude Code 先思考再写代码。这是我的提示词。
 
 Claude Code 是我用过最快的编程助手。它能在几分钟内搭建一个功能、编写测试并发起 PR。但我一直遇到同一个问题：**代码运行正常了，然后又出问题了**。
@@ -79,16 +80,16 @@ Claude 读取你的 `CLAUDE.md`，找到关联的 GitHub issue，在写下一行
 
 这是 `/wizard` 真正发挥价值的地方。在每次提交前，Claude 以攻击者的身份而非作者评审自己的工作。检查清单：
 
-*   如果这个并发运行两次会发生什么？
-*   如果输入是 null 呢？空值？负数？
-*   我做错了什么假设？
-*   如果这个在生产环境崩了我会尴尬吗？
+- 如果这个并发运行两次会发生什么？
+- 如果输入是 null 呢？空值？负数？
+- 我做错了什么假设？
+- 如果这个在生产环境崩了我会尴尬吗？
 
 这不是理论。在我的代码库中，这个阶段捕获了：
 
-*   一个缺少数据库锁定的状态转换服务。两个并发 API 调用可能应用冲突的转换。一个竞态条件，静静地坐在那里，等着一个糟糕的日子。
-*   一个 Blade 模板在可空的 datetime 上调用 `->format()`。在任何该字段为 null 的页面加载时崩溃。完全无声，直到它突然发生。
-*   通知载荷使用硬编码的分类字符串，而不是**就在同一个 PR 中创建**的枚举。真是令人叹为观止。
+- 一个缺少数据库锁定的状态转换服务。两个并发 API 调用可能应用冲突的转换。一个竞态条件，静静地坐在那里，等着一个糟糕的日子。
+- 一个 Blade 模板在可空的 datetime 上调用 `->format()`。在任何该字段为 null 的页面加载时崩溃。完全无声，直到它突然发生。
+- 通知载荷使用硬编码的分类字符串，而不是**就在同一个 PR 中创建**的枚举。真是令人叹为观止。
 
 这些都不会被单独的测试捕获。它们需要以不同的模式思考代码：作为攻击者，而非作者。
 
@@ -141,9 +142,9 @@ curl -sL https://raw.githubusercontent.com/vlad-ko/claude-wizard/main/install.sh
 
 这会将三个文件放入 `.claude/skills/wizard/`：
 
-*   `SKILL.md`：核心 8 阶段方法论
-*   `CHECKLISTS.md`：快速参考检查清单
-*   `PATTERNS.md`：常见模式和反模式
+- `SKILL.md`：核心 8 阶段方法论
+- `CHECKLISTS.md`：快速参考检查清单
+- `PATTERNS.md`：常见模式和反模式
 
 然后在 Claude Code 中输入 `/wizard` 激活它。
 
@@ -155,11 +156,11 @@ curl -sL https://raw.githubusercontent.com/vlad-ko/claude-wizard/main/install.sh
 
 但当你定制它时，它会变得**更**强大。在我的项目中，我添加了：
 
-*   Laravel 特定的测试命令（`./vendor/bin/sail test`）
-*   我们的日志服务模式（`LoggingService::logPortfolioEvent()`）
-*   我们 ORM 的数据库锁定约定
-*   Bug Bot 线程解析命令（GraphQL 突变）
-*   UI 组件的 Alpine.js 要求
+- Laravel 特定的测试命令（`./vendor/bin/sail test`）
+- 我们的日志服务模式（`LoggingService::logPortfolioEvent()`）
+- 我们 ORM 的数据库锁定约定
+- Bug Bot 线程解析命令（GraphQL 突变）
+- UI 组件的 Alpine.js 要求
 
 你添加的项目特定上下文越多，Claude 需要猜测的就越少。而 Claude 猜测得越少，漏过的 Bug 就越少。事实证明这两者是相关的。
 
@@ -181,5 +182,5 @@ curl -sL https://raw.githubusercontent.com/vlad-ko/claude-wizard/main/install.sh
 
 ---
 
-*原文：[I Made Claude Code Think Before It Codes. Here's the Prompt.](https://dev.to/_vjk/i-made-claude-code-think-before-it-codes-heres-the-prompt-bf)*
-*作者：Vladimir J. K.*
+_原文：[I Made Claude Code Think Before It Codes. Here's the Prompt.](https://dev.to/_vjk/i-made-claude-code-think-before-it-codes-heres-the-prompt-bf)_
+_作者：Vladimir J. K._

@@ -6,6 +6,7 @@
 ## Gemini CLI Specifics
 
 ### Skill Activation
+
 本项目在 `.agents/skills/` 中提供了多个自定义 Skill。在执行相关任务前，请优先使用 `activate_skill` 加载其指令：
 
 - **`content-metadata-curator`**: 自动化管理 Markdown 的 Frontmatter 元数据。
@@ -17,7 +18,7 @@
 ### Workflow Guidelines (Implementation)
 
 - **Research**: 使用 `grep_search` 确保笔记不重复，并寻找相关内容进行交叉链接。
-- **Action**: 
+- **Action**:
   - 对于内容更新，优先使用 `replace` 进行精准编辑。
   - 对于新笔记，使用 `write_file`。
 - **Validation**: 遵循 `AGENTS.md` 中的维护标准，在完成更改后运行相关的验证命令。

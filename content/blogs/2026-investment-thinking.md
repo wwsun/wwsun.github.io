@@ -6,7 +6,7 @@ draft: false
 description: >-
   [[一篇来自美国的AI末日爆款文]]基于《2028年全球智能危机》这篇文章所构建的逻辑，我们正处于“大裂变”的前夜。如果按照文中的时间线，2026年2月到2027年2月将是从“AI狂热”转向“现实冲击”的关键转折期。以下是基于该文章逻辑的未来1年投资策略建议：一、
   核心战术：利用“凸性”（Conve
-source: 'https://gemini.google.com/app/4fff7408fbaa7fb3'
+source: "https://gemini.google.com/app/4fff7408fbaa7fb3"
 ---
 
 [[一篇来自美国的AI末日爆款文]]
