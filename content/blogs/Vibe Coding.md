@@ -1,13 +1,12 @@
 ---
-title: "Vibe Coding"
-date: 2025-12-15 16:41:00
+title: Vibe Coding
 tags:
-  - AI-Code
+  - ai-code
   - vibe-coding
   - workflow
 draft: false
-description: "Vibe Coding 工作流简易指南：收集上下文、分析结构并生成计划。"
-source: https://www.claudecode101.com/zh/tutorial/workflows/explore-plan-code
+description: Vibe Coding 工作流简易指南：收集上下文、分析结构并生成计划。
+source: 'https://www.claudecode101.com/zh/tutorial/workflows/explore-plan-code'
 ---
 
 ## 规划

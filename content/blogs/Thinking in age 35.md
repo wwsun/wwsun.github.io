@@ -1,11 +1,13 @@
 ---
 title: Thinking in age 35
-date: 2026-02-04 09:32:38
 tags:
   - thinking
 draft: false
-description:
-source:
+description: >-
+  财务和技术技术复盘： AI Agent 工程化、低代码、稳定性、可观测。财务复盘：
+  长期主义的财务观念，建立稳定健康可持续的个人持仓方案，量化“抗风险周期”。工具流： 打磨基于 Obsidian 的 PKM
+  Workflow。确保过去的技术积累能迅速被检索并复用到新场景中。AI Evolution持
+source: null
 ---
 
 Thinking in age 35

@@ -1,11 +1,14 @@
 ---
 title: What is product sense?
 tags:
-  - "#thinking"
-  - AIGC
+  - '#thinking'
+  - aigc
 draft: false
-description: 未命名
-source:
+description: >-
+  对开发者而言，产品意识是从“如何实现”向“为什么实现”转变的关键。[!info] 产品意识（Product
+  Sense）通常被定义为在不确定性中发现用户问题，并将其转化为商业价值和用户体验平衡点的能力。它并非某种不可捉摸的天赋，而是一套可以被训练的思维框架。一、
+  什么是产品意识产品意识的核心在于回答
+source: null
 ---
 对开发者而言，产品意识是从“如何实现”向“为什么实现”转变的关键。
 

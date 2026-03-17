@@ -5,8 +5,11 @@ tags:
   - agent
   - blog
 draft: false
-description: 使用 OpenClaw 自动化工作流
-source:
+description: >-
+  OpenClaw 不仅仅是一个 AI 助手，它更像是一个可以深度定制的"数字同事"。写这篇博客主要分享我是如何与 OpenClaw
+  协作，以及在实际工作中的一些具体实践。这篇文章随便聊聊我目前用它跑通的几个场景。设定行为准则在与 OpenClaw 协作之前，首先让 OpenClaw
+  明确了三个基本原
+source: null
 ---
 
 OpenClaw 不仅仅是一个 AI 助手，它更像是一个可以深度定制的"数字同事"。写这篇博客主要分享我是如何与 OpenClaw 协作，以及在实际工作中的一些具体实践。

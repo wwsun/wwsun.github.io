@@ -4,8 +4,11 @@ tags:
   - llm
   - nlp
 draft: false
-description: 未命名
-source:
+description: >-
+  1. 继承关系：NLP 是 LLM 的“母体”从学术分类上讲，LLM（大语言模型）确实属于 NLP（自然语言处理）的一个子领域。 NLP
+  的目标是让计算机能够理解、生成和处理人类语言。早期的 NLP 依赖于规则（如语法树）和统计模型，而 LLM 是 NLP 发展到深度学习阶段的集大成者。传统
+  NLP
+source: null
 ---
 
 ### 1. 继承关系：NLP 是 LLM 的“母体”
