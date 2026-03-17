@@ -1,1 +1,8 @@
+# 加载 NVM/FNM 等 Node 管理器（针对 macOS GUI 应用）
+[ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh"
+[ -s "$HOME/.fnm/fnm" ] && eval "$(fnm env)"
+[ -s "/usr/local/bin/node" ] && export PATH="/usr/local/bin:$PATH"
+[ -s "/opt/homebrew/bin/node" ] && export PATH="/opt/homebrew/bin:$PATH"
+
+# 运行 lint-staged
 npx lint-staged
