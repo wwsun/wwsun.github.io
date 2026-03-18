@@ -1,8 +1,8 @@
 ---
 title: Claude Agent Sandbox
 tags:
-  - vercel
   - sandbox
+  - vercel
 draft: false
 description: agent 沙箱最佳实践
 source: https://platform.claude.com/docs/zh-CN/agent-sdk/hosting

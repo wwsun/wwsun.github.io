@@ -1,9 +1,9 @@
 ---
 title: Superpowers
 tags:
-  - claude-code
   - agent
   - agent-plugin
+  - claude-code
 draft: false
 description: 未命名
 source: https://github.com/obra/superpowers

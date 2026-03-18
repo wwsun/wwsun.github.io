@@ -5,9 +5,9 @@ author:
   - "[[Nader Dabit]]"
 created: 2026-01-12
 tags:
-  - clippings
-  - claude-code
   - agent
+  - claude-code
+  - clippings
 ---
 
 如果你用过 Claude Code，你就会明白 AI 智能体实际上能做些什么：读取文件、运行命令、编辑代码、规划完成任务的步骤。

@@ -5,9 +5,9 @@ author:
   - "[[@AnthropicAI]]"
 created: 2025-12-15
 tags:
-  - clippings
-  - claude-code
   - agent
+  - claude-code
+  - clippings
 ---
 
 原文： [Building agents with the Claude Agent SDK](https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk)

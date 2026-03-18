@@ -3,9 +3,9 @@ title: "macOS Web 开发环境配置指南"
 date: 2026-02-02 00:00:00
 tags:
   - macos
-  - web-development
   - setup
   - tools
+  - web-development
 draft: false
 description: "2026 年 macOS Web 开发环境配置综合指南，涵盖 Homebrew, Node.js, Zsh 及核心开发工具。"
 source: https://www.robinwieruch.de/mac-setup-web-development/

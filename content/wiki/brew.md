@@ -2,8 +2,8 @@
 title: brew
 date: 2026-02-02
 tags:
-  - status/seed
-  - type/post
+  - status-seed
+  - type-post
 draft: true
 description: brew 命令使用指南
 ---

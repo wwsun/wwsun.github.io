@@ -2,11 +2,11 @@
 title: "在 macOS 上将 SVG 转换为 PNG"
 date: 2026-02-02 18:06:11
 tags:
-  - macos
-  - svg
-  - png
   - imagemagick
   - librsvg
+  - macos
+  - png
+  - svg
 draft: false
 description: "如何在 macOS 上使用 ImageMagick 或 rsvg-convert 将 SVG 图像转换为 PNG。"
 source: https://imagemagick.org/

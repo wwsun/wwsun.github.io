@@ -1,9 +1,9 @@
 ---
 title: 基本面分析 (Fundamental Analysis)
 tags:
+  - analysis-framework
   - financial
   - investing
-  - analysis-framework
 draft: false
 description: 财务投资中的基本面分析框架，涵盖宏观视角（货币政策与流动性）、行业研究以及公司层面的深度剖析，旨在从底层逻辑理解资产的内在价值。
 source:

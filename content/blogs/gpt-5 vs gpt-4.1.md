@@ -2,10 +2,10 @@
 title: "GPT-5 vs GPT-4.1"
 date: 2025-12-12 09:58:00
 tags:
-  - gpt
-  - openai
-  - llm
   - comparison
+  - gpt
+  - llm
+  - openai
 draft: false
 description: "GPT-5 (推理型) 与 GPT-4.1 (速度型) 的详细对比，帮助用户选择适合其应用需求的模型。"
 source: https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/how-to/model-choice-guide?view=foundry-classic

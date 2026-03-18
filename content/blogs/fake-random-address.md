@@ -1,6 +1,6 @@
 ---
 title: Fake random japan address
-tags: null
+tags:
 draft: false
 description: >-
   sometimes you need a faked address, you can use this generatorTranslated

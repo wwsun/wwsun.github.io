@@ -2,10 +2,10 @@
 title: "Angular Commit Spec"
 date: 2025-12-26 09:50:00
 tags:
-  - git
   - angular
   - commit-message
   - convention
+  - git
 draft: false
 description: "Angular 提交信息规范参考，定义了 feat、fix、docs、style 和 refactor 等类型。"
 source: https://github.com/angular/angular/blob/main/CONTRIBUTING.md#type

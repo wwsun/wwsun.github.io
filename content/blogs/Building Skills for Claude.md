@@ -2,8 +2,8 @@
 title: Agent Skills 构建指南
 tags:
   - agent
-  - skills
   - claude
+  - skills
 draft: false
 description: >-
   引言Skill（技能）是一组指令——以一个简单文件夹的形式打包——用来教 Claude 如何处理特定任务或工作流。Skill 是为你的特定需求定制

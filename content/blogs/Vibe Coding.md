@@ -1,7 +1,7 @@
 ---
 title: Vibe Coding
 tags:
-  - ai-code
+  - ai-coding
   - vibe-coding
   - workflow
 draft: false

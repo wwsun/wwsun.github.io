@@ -7,9 +7,9 @@ published: 2025-04-18
 created: 2025-09-12
 description: A blog post covering tips and tricks that have proven effective for using Claude Code across various codebases, languages, and environments.
 tags:
-  - clippings
   - agent
   - claude
+  - clippings
 ---
 
 我们最近发布了 Claude Code，这是一个用于智能编程的命令行工具。作为研究项目开发，Claude Code 为 Anthropic 的工程师和研究人员提供了一种更原生的方式，将 Claude 集成到他们的编程工作流程中。

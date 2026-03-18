@@ -1,8 +1,8 @@
 ---
 title: Personal AI infrastructure
 tags:
-  - github
   - agent
+  - github
 draft: true
 description: >-
   项目简介PAI 的宗旨是解决世界上的“P0

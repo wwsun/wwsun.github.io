@@ -2,9 +2,9 @@
 title: "使用 Quartz + Obsidian 构建个人博客"
 date: 2026-02-02 10:02:00
 tags:
-  - quartz
-  - obsidian
   - blog
+  - obsidian
+  - quartz
   - tutorial
 draft: false
 description: "使用 Quartz 和 Obsidian 构建个人博客的分步指南，包括 GitHub Pages 部署和工作流优化。"

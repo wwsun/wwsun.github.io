@@ -6,8 +6,8 @@ author:
 created: 2025-07-09
 description: Cognition 团队发布了一份编程智能体实践指南。
 tags:
-  - clippings
   - agent
+  - clippings
 ---
 
 近期，Cognition团队发布了一份编程智能体实践指南，总结了他们两年来构建Devin（自主编程智能体）的经验教训。整份指南建立在一个简单的心智模型之上：把AI当作需要明确指导的初级开发者，而不是魔法工具。

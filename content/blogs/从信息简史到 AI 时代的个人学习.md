@@ -2,8 +2,8 @@
 title: 从信息简史到 AI 时代的个人学习
 date: 2026-02-06T10:59:49.000Z
 tags:
+  - ai
   - thinking
-  - aigc
 draft: false
 description: >-
   LLM 本质上是基于概率的“预测机”，它们通过处理海量数据来降低文本的“熵”（不确定性）。个人学习与发展建议一、 应对“信息洪流”（The

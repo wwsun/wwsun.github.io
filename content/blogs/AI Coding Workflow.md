@@ -3,9 +3,9 @@ title: "AI 编程工作流"
 date: 2026-01-06 20:10:00
 tags:
   - ai-coding
-  - workflow
   - claude
   - copilot
+  - workflow
 draft: false
 description: "涉及使用 Claude Code 进行规划和 Copilot 执行子任务的 AI 编程简要工作流。"
 source:

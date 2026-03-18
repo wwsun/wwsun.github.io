@@ -2,10 +2,10 @@
 title: "GLM Coding Plan"
 date: 2026-01-05 13:55:00
 tags:
-  - glm
   - claude
   - coding
   - configuration
+  - glm
 draft: false
 description: "使用 Claude Code 配合 GLM 模型的配置指南，包括 API 密钥设置和环境变量。"
 source: https://docs.bigmodel.cn/cn/coding-plan/overview

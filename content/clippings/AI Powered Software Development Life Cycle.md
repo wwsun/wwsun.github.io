@@ -7,9 +7,9 @@ published: 2023-08-10
 created: 2025-06-03
 description: In today’s fast-paced technology landscape, software development has become a critical driver of innovation and business success. With the advent of AI technologies like Codex and AI-powered pair…
 tags:
+  - ai
   - clippings
-  - AI
-  - SLDC
+  - sldc
 ---
 
 ## 背景与动机

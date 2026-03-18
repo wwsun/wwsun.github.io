@@ -3,7 +3,7 @@ description: "This article provides senior engineer Eyad's practical guide to us
 source: "https://www.bestblogs.dev/en/article/bb756d4b"
 created: 2026-01-14
 tags:
-  - "clippings"
+  - clippings
 ---
 
 分享一个这两天非常火的Claude Code使用指南，2百万人围观，近7000点赞，都是作者在实践中的干货

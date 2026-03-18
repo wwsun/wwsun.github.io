@@ -2,8 +2,8 @@
 title: CPI (消费者物价指数)
 tags:
   - financial
-  - macro-economy
   - inflation
+  - macro-economy
 draft: false
 description: CPI（消费者物价指数）是衡量通货膨胀水平的核心指标。本文详细介绍了 CPI 的定义、年增长 3% 的经济内涵、宏观政策信号以及对不同资产类别的影响。
 source:

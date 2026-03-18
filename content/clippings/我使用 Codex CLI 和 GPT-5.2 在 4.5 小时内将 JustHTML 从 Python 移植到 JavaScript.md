@@ -5,7 +5,7 @@ author:
   - "[[Simon Willison]]"
 created: 2026-01-21
 tags:
-  - "clippings"
+  - clippings
 ---
 
 15th December 2025 2025 年 12 月 15 日

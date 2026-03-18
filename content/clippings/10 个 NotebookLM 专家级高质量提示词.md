@@ -6,8 +6,8 @@ author:
   - "[[青小蛙]]"
 tags:
   - clippings
-  - notebooklm
   - google
+  - notebooklm
 ---
 
 ## 提示词1. 专家级提炼

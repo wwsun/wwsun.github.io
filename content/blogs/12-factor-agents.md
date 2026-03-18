@@ -3,8 +3,8 @@ title: "12 Factor Agents"
 date: 2025-12-10 20:33:00
 tags:
   - agent
-  - engineering
   - best-practices
+  - engineering
 draft: false
 description: "构建可靠、可扩展且易于维护的 LLM 驱动软件的核心工程技术，涵盖 Prompt 工程、上下文管理和控制流。"
 source: https://github.com/humanlayer/12-factor-agents

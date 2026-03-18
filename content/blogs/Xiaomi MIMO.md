@@ -2,10 +2,10 @@
 title: "小米 MIMO API 集成"
 date: 2026-01-05 13:51:00
 tags:
-  - xiaomi
-  - mimo
   - api
   - claude-code
+  - mimo
+  - xiaomi
 draft: false
 description: "用于集成小米 MIMO 平台的 API 文档和 Claude Code 配置。"
 source: https://platform.xiaomimimo.com/#/docs/integration/claude-code

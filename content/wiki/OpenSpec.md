@@ -2,8 +2,8 @@
 created: 2026-01-26 17:45
 source: https://github.com/Fission-AI/OpenSpec
 tags:
-  - SDD
-  - AI-Code
+  - ai-coding
+  - sdd
 ---
 
 # 快速上手

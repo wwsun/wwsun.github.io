@@ -1,9 +1,9 @@
 ---
 title: Spec-Driven Development
 tags:
-  - ai-code
-  - sdd
+  - ai-coding
   - methodology
+  - sdd
   - workflow
 draft: false
 description: 规范驱动开发 (SDD) 的最佳实践，定义输入/输出规范和 AI 辅助工作流。

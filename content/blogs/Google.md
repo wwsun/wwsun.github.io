@@ -3,9 +3,9 @@ title: "Google 搜索技巧"
 date: 2025-12-26 09:51:00
 tags:
   - google
+  - productivity
   - search
   - tips
-  - productivity
 draft: false
 description: "高级 Google 搜索技巧合集，包括文件类型过滤、特定站点搜索和日期范围，以提高搜索效率。"
 source: https://www.freecodecamp.org/news/how-to-google-like-a-pro-10-tips-for-effective-googling/

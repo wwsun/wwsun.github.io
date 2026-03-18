@@ -2,9 +2,9 @@
 title: "Git Rebase 与 Merge 详解"
 date: 2025-12-11 16:14:00
 tags:
+  - best-practices
   - git
   - version-control
-  - best-practices
 draft: false
 description: "Git Rebase 对比 Merge 的使用指南，强调‘公共历史神圣不可侵犯，私有历史由你主宰’的原则。"
 source:

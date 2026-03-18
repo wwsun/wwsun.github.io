@@ -2,8 +2,8 @@
 created: 2026-01-28 16:06
 source: https://github.com/google-gemini/gemini-cli
 tags:
-  - google
   - gemini
+  - google
   - npm
 ---
 

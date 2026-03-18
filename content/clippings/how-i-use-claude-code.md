@@ -5,9 +5,9 @@ source: https://boristane.com/blog/how-i-use-claude-code/
 author:
   - "[[how-i-use-claude-code]]"
 tags:
-  - clippings
+  - ai-coding
   - claude-code
-  - AI-Code
+  - clippings
 ---
 
 我使用 [Claude Code](https://docs.anthropic.com/en/docs/claude-code) 作为主要开发工具已有大约 9 个月了，我所形成的这种工作流与大多数人使用 AI 编程工具的方式截然不同。大多数开发者只是输入一段提示词，有时用一下计划模式，修复错误，然后重复。那些更沉迷于网络的人则在拼凑 ralph loops、MCP、gas towns（还记得那些吗？）等等。在这两种情况下，结果都是一团糟，一旦遇到非琐碎的任务就会彻底崩溃。

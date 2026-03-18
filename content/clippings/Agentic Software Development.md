@@ -5,8 +5,8 @@ author:
   - Greg Brockman
 created: 2026-02-06
 tags:
+  - ai-coding
   - clippings
-  - AI-Code
 ---
 
 软件开发正发生在我们眼前的复兴。

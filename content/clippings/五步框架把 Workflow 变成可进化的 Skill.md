@@ -3,8 +3,8 @@ description: 80 多个节点的 workflow，稳定性和可调整性真的不是 
 source: https://baoyu.io/blog/2026/01/10/agent-skills-replace-workflow
 created: 2026-01-14
 tags:
-  - clippings
   - claude-code
+  - clippings
 ---
 
 ![你可能不再需要 workflow，大部分场景 skills 足矣——五步框架把 Workflow 变成可进化的 Skill](https://s.baoyu.io/imgs/2026-01-10/agent-skills-replace-workflow/cover.png)

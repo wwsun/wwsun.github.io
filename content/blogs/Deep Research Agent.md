@@ -3,9 +3,9 @@ title: "Deep Research Agent"
 date: 2025-12-15 16:24:00
 tags:
   - agent
-  - research
   - ai
   - architecture
+  - research
 draft: false
 description: "了解 Deep Research Agent：一种 AI 驱动的系统，能够接受目标、规划工作流并利用网络搜索等工具进行深入研究。"
 source: https://blog.bytebytego.com/p/how-openai-gemini-and-claude-use

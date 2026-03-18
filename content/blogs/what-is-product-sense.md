@@ -1,8 +1,8 @@
 ---
 title: What is product sense?
 tags:
-  - "#thinking"
-  - aigc
+  - ai
+  - thinking
 draft: false
 description: >-
   对开发者而言，产品意识是从“如何实现”向“为什么实现”转变的关键。[!info] 产品意识（Product

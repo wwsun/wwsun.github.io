@@ -1,8 +1,8 @@
 ---
 title: Claude Code with Vercel AI Gateway
 tags:
-  - vercel
   - claude-code
+  - vercel
 draft: false
 description: AI Gateway 提供了与 Anthropic 兼容的 API 端点，以便您可以通过统一网关使用 Claude Code。
 source: https://vercel.com/docs/agent-resources/coding-agents/claude-code

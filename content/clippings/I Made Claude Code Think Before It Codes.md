@@ -5,8 +5,8 @@ source: https://dev.to/_vjk/i-made-claude-code-think-before-it-codes-heres-the-p
 author:
   - "[[DEV Community]]"
 tags:
-  - clippings
   - claude-code
+  - clippings
   - prompt
 ---
 

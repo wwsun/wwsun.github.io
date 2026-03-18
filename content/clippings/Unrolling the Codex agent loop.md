@@ -5,9 +5,9 @@ source: https://openai.com/index/unrolling-the-codex-agent-loop/
 author:
   - "[[Michael Bolin]]"
 tags:
+  - agent
   - clippings
   - codex
-  - agent
 ---
 
 [Codex CLI ](https://developers.openai.com/codex/cli) 是我们的跨平台本地软件智能体，旨在安全、高效地在您的机器上运行，并生成高质量、可靠的软件变更。自 4 月份首次发布该 CLI 以来，我们在如何构建世界级软件智能体方面积累了海量经验。为了深入探讨这些见解，本篇是系列文章的第一篇，我们将探索 Codex 运作的各个方面以及辛苦换来的教训。（若想更细致地了解 Codex CLI 是如何构建的，请查看我们的开源代码仓库：https://github.com/openai/codex。如果您想了解更多，我们设计决策中的许多细节都记录在 GitHub 的 issue 和 pull request 中。）

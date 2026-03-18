@@ -7,8 +7,8 @@ published: 2025-11-17
 created: 2025-11-26
 description: Datawhale explains in detail how to build a lightweight, education-oriented AI Agent Framework (HelloAgents) from scratch, implementing its core components and various Agent paradigms.
 tags:
-  - clippings
   - agent
+  - clippings
 ---
 
 在前面的文章中，我们讲解了智能体的基础知识，并体验了主流框架带来的开发便利。从本文开始，我们将进入一个更具挑战也更有价值的阶段： **从零开始，逐步构建一个智能体框架 —— HelloAgents** 。

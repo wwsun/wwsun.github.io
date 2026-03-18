@@ -1,6 +1,6 @@
 ---
 title: 如何阅读一本书
-tags: null
+tags:
 draft: false
 description: >-
   阅读一本书不仅仅是“看字”的过程，而是一个主动获取信息、理解观点并将其转化为自身知识储备的过程。莫提默·艾德勒（Mortimer J.

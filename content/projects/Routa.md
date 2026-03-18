@@ -1,8 +1,8 @@
 ---
 title: Rout
 tags:
-  - github
   - agent
+  - github
 draft: false
 description: Routa 是一个面向 AI 开发的多智能体编排平台，让多个 AI Agent 协作完成复杂的开发任务。
 source: https://github.com/phodal/routa

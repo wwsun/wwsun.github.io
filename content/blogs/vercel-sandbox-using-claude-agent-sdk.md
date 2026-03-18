@@ -1,9 +1,9 @@
 ---
 title: 使用 Vercel Sandbox 运行 Claude Agent SDK
 tags:
-  - vercel
-  - sandbox
   - claude
+  - sandbox
+  - vercel
 draft: false
 description: 未命名使用 Vercel Sandbox 运行 Claude Agent SDK
 source: https://vercel.com/kb/guide/using-vercel-sandbox-claude-agent-sdk

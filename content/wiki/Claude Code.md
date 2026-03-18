@@ -2,8 +2,8 @@
 created: 2025-12-11 10:33
 source: https://code.claude.com/docs/en/hooks
 tags:
-  - claude-code
   - agent
+  - claude-code
 ---
 
 ## 自定义配置

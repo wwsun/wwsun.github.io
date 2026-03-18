@@ -2,10 +2,10 @@
 title: "在 macOS 上使用 ffmpeg 将 MOV 转换为 MP4"
 date: 2026-02-02 18:30:15
 tags:
-  - macos
-  - ffmpeg
-  - video
   - conversion
+  - ffmpeg
+  - macos
+  - video
 draft: false
 description: "使用 ffmpeg 命令行工具在 macOS 上将 MOV 视频文件转换为 MP4 格式的快速指南。"
 source: https://ffmpeg.org/documentation.html

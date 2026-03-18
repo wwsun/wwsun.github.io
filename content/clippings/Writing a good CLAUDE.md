@@ -5,8 +5,8 @@ published: 2025-11-25
 created: 2025-12-01
 description: "`CLAUDE.md` is a high-leverage configuration point for Claude Code. Learning how to write a good `CLAUDE.md` (or `AGENTS.md`) is a key skill for agent-enabled software engineering."
 tags:
-  - clippings
   - claude
+  - clippings
 ---
 
 _Note: this post is also applicable to `AGENTS.md`_, the open-source equivalent of `CLAUDE.md` for agents and harnesses like OpenCode, Zed, Cursor and Codex.

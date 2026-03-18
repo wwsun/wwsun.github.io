@@ -6,8 +6,8 @@ author:
   - "[[Max Leiter]]"
 tags:
   - clippings
-  - vercel
   - v0
+  - vercel
 ---
 
 去年，我们推出了 [v0 复合模型系列](https://vercel.com/blog/v0-composite-model-family)，并介绍了 v0 模型如何在多步智能体流水线中运行。该流水线中有三个部分对可靠性的影响最大：动态系统提示词、我们称之为“LLM Suspense”的流式处理操作层，以及一套在模型完成流式传输其响应之后（或期间！）运行的确定性且由模型驱动的自动修复器。

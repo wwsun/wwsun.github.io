@@ -7,8 +7,8 @@ published: 2025-10-29
 created: 2025-11-03
 description:
 tags:
-  - clippings
   - claude
+  - clippings
 ---
 
 编辑（最终版？）：我咬咬牙，花了一个下午为你们搭建了一个 github 代码仓库。刚刚发了一个帖子，里面有一些额外信息，你们可以看这里，或者直接去源地址：

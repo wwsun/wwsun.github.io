@@ -1,9 +1,9 @@
 ---
 title: My OpenClaw Automation Workflow
 tags:
-  - openclaw
   - agent
   - blog
+  - openclaw
 draft: false
 description: >-
   OpenClaw 不仅仅是一个 AI 助手，它更像是一个可以深度定制的"数字同事"。写这篇博客主要分享我是如何与 OpenClaw

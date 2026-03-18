@@ -1,6 +1,6 @@
 ---
 title: 美区app订阅
-tags: null
+tags:
 draft: true
 description: "美区订阅支付，是真的很难。 很多人拿着 港卡、Visa 卡去订阅 App，都被拒绝了 原因其实很简单：\U0001F449 美区 App Store 只认美国发行的银行卡。 但有一个方便的备选方案，那就是在 Safari 浏览器里面通过 Apple Pay 来订阅！ 关键点在于：\U0001F34E App 内 Apple Pay"
 source: null

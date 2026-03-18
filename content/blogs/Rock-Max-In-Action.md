@@ -2,10 +2,10 @@
 title: Rork Max 使用体验：使用 5 轮提示词手撮一个原生音乐 App
 date: 2026-02-20 20:30:00
 tags:
-  - rork-max
   - ai-coding
-  - ios
   - architecture
+  - ios
+  - rork-max
 draft: false
 description: 从一个真实音乐 App 实战复盘 Rork Max：功能、优势、边界、竞品对比与技术架构。
 source:

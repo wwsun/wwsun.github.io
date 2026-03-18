@@ -1,9 +1,9 @@
 ---
 title: skills.sh
 tags:
-  - skills
   - agent
   - clippings
+  - skills
 draft: true
 description: the open source skills ecosystem
 source: https://skills.sh/

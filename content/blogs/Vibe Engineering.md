@@ -2,9 +2,9 @@
 title: "Vibe Engineering"
 date: 2025-12-15 15:51:00
 tags:
-  - vibe-engineering
   - ai
   - software-engineering
+  - vibe-engineering
 draft: false
 description: "探索 Vibe Engineering，以及大模型如何奖励优秀的软件工程实践（如测试、规划和文档）。"
 source:

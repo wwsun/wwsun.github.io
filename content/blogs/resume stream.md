@@ -1,9 +1,9 @@
 ---
 title: Vercel AI SDK Resume Stream 原理
 tags:
-  - vercel
   - llm
   - stream
+  - vercel
 draft: false
 description: 深入探讨 Vercel AI SDK 的流恢复机制（Resume Stream），解决流数据不可恢复和状态丢失的核心问题，提升 AI 应用的可靠性与用户体验。
 source: https://github.com/vercel/resumable-stream

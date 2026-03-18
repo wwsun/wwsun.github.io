@@ -5,7 +5,7 @@ author:
   - "[[Cognition]]"
 created: 2026-01-08
 tags:
-  - "clippings"
+  - clippings
 ---
 
 在发布十八个月后，Devin 已经从处理小型项目，成长为在包括高盛、桑坦德银行和 Nubank 在内的数千家公司工程团队中工作。

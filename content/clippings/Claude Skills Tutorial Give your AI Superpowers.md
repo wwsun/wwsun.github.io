@@ -5,8 +5,8 @@ author:
   - "[[Sid]]"
 created: 2026-01-08
 tags:
-  - clippings
   - claude-code
+  - clippings
 ---
 
 在《黑客帝国》中，有一个场景是莫菲斯将训练程序加载到 Neo 的大脑里，Neo 醒来后说：“我会功夫了。”

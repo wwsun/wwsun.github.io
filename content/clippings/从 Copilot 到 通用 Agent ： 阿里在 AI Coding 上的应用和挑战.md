@@ -5,8 +5,8 @@ source: https://www.infoq.cn/article/5X7q545Ua4GYJOQ7g9lt
 created: 2025-07-02
 description: 从 Copilot 到 通用 Agent ： 阿里在 AI Coding 上的应用和挑战
 tags:
-  - clippings
   - agent
+  - clippings
 ---
 
 #### 阿里内部在 AI Coding 领域做了哪些探索

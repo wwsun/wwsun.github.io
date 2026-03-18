@@ -7,8 +7,8 @@ published: 2025-09-16
 created: 2025-09-17
 description: In this article, we will understand the architecture of the multi-agent research system that Anthropic built.
 tags:
-  - clippings
   - agent
+  - clippings
 ---
 
 开放性研究任务很难处理，因为它们很少遵循可预测的路径。每个发现都可能改变研究方向，使得依赖固定管道变得不可能。这就是多智能体系统变得重要的原因。
