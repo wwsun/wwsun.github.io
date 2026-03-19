@@ -1,11 +1,11 @@
 ---
-title: Retrieval augmented generation(RAG)
+title: Retrieval-Augmented Generation (RAG)
 tags:
   - agent
   - llm
   - rag
 draft: false
-description: RAG通过利用外部知识，使人工智能应用能够生成更全面、更具情境意识的响应。
+description: RAG（检索增强生成）对做 Agent 很关键：它让模型"先查再答"，把回答锚定在你自己的知识库/工具结果上，而不是只靠参数记忆。
 source: https://docs.langchain.com/langsmith/evaluation-approaches#retrieval-augmented-generation-rag
 ---
 

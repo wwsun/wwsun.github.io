@@ -1,5 +1,5 @@
 ---
-title: 财务投资 (Financial)
+title: Financial
 tags:
   - financial
   - investing
