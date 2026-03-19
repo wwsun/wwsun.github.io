@@ -1,5 +1,5 @@
 ---
-title: Superpowers
+title: Superpowers - 流行的 Claude 插件包
 tags:
   - agent
   - agent-plugin

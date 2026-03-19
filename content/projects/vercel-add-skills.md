@@ -6,7 +6,7 @@ tags:
   - github
 draft: false
 description: '`skills` 是一个开放的 AI Agent 技能生态系统 CLI 工具，面向开发者，让他们能将 Markdown 格式的"技能"文件（SKILL.md）安装到 40+ 种 AI Agent（Claude Code、Cursor、Codex 等）的配置目录中。'
-source:
+source: https://github.com/vercel-labs/skills
 ---
 
 `skills` 是一个开放的 AI Agent 技能生态系统 CLI 工具，面向开发者，让他们能将 Markdown 格式的"技能"文件（SKILL.md）安装到 40+ 种 AI Agent（Claude Code、Cursor、Codex 等）的配置目录中。

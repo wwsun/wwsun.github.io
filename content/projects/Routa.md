@@ -1,5 +1,5 @@
 ---
-title: Rout
+title: Routa 一个 multi-agents 编排平台
 tags:
   - agent
   - github
@@ -7,8 +7,6 @@ draft: false
 description: Routa 是一个面向 AI 开发的多智能体编排平台，让多个 AI Agent 协作完成复杂的开发任务。
 source: https://github.com/phodal/routa
 ---
-
-## 一、项目定位
 
 Routa 是一个**多智能体协调平台**，核心思路是：不再由单个 AI 处理所有事情，而是将开发任务分解给专业角色团队协作完成。
 
