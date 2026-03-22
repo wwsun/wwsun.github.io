@@ -89,7 +89,7 @@ flowchart TD
 - “队列消费者已经处理了重试，所以这里的重试逻辑是多余的。删除它，直接让它失败即可” —— 解释为什么要进行更改。
 - “this is wrong，可见性字段需要放在列表本身，而不是单个项目上。当列表公开时，所有项目都是公开的。请相应地重构架构部分”——重定向计划中的整个章节
 
-然后我让 Claude 回到文档中：
+==然后我让 Claude 回到文档中：
 
 > I added a few notes to the document, address all the notes and update the document accordingly. don’t implement yet  
 > 我在文档中添加了一些注释，请处理所有注释并相应地更新文档。先不要实现代码。

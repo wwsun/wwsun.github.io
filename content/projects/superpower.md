@@ -83,20 +83,18 @@ Fetch and follow instructions from https://raw.githubusercontent.com/obra/superp
 
 **智能体会在每个任务前确认相关技能。** 这些流程是强制执行，不只是建议。
 
-## 内部组成
+## 技能库
 
-### 技能库
-
-**测试**
+### **测试**
 
 - **test-driven-development** —— 红-绿-重构循环；包含测试反模式参考
 
-**调试**
+### **调试**
 
 - **systematic-debugging** —— 4阶段根因分析（包含根因追踪、防御深入、基于条件等待技术）
 - **verification-before-completion** —— 确保问题真正修复
 
-**协作**
+### **协作**
 
 - **brainstorming** —— 苏格拉底式设计完善
 - **writing-plans** —— 详细实现计划
@@ -108,7 +106,7 @@ Fetch and follow instructions from https://raw.githubusercontent.com/obra/superp
 - **finishing-a-development-branch** —— 合并/PR决策流程
 - **subagent-driven-development** —— 快速迭代，双阶段审核（规范合规、代码质量）
 
-**元技能**
+### **元技能**
 
 - **writing-skills** —— 创建新技能的方法（含测试方法）
 - **using-superpowers** —— 技能系统简介
