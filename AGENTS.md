@@ -1,19 +1,20 @@
 # Repository Guidelines for AI Agents
 
-This repository is **wwsun's Digital Garden**, built with **Quartz v4** and integrated with **Obsidian**. It is a content-focused repository where notes, thoughts, and research are interconnected.
+This repository is **Weiwei Sun's Weblog**, built with **Quartz v4** and integrated with **Obsidian**. It is a content-focused repository where notes, thoughts, and research are interconnected.
 
 ## Role & Mission
 
-As an AI agent (Gemini CLI, Claude Code, etc.), your mission is to help expand and maintain this digital garden. You should focus on:
+As an AI agent (Gemini CLI, Claude Code, etc.), your mission is to help expand and maintain this weblog. You should focus on:
 
 - Creating high-quality, structured Markdown content.
 - Ensuring strong interconnectivity between notes using Wiki-links.
-- Maintaining the aesthetic and technical integrity of the garden.
+- Maintaining the aesthetic and technical integrity of the weblog.
 
 ## Architecture & Structure
 
-- **`content/`**: The heart of the garden. Organized by category.
-  - `blogs/`: Original long-form articles.
+- **`content/`**: The heart of the weblog. Organized by category.
+  - `blog/`: Original long-form formal articles.
+  - `notes/`: Permanent notes, short thinkings, check list, configurations.
   - `wiki/`: Permanent notes and structured knowledge.
   - `clippings/`: Optimized web clippings and translations.
   - `books/`: Book notes and summaries.
@@ -58,6 +59,7 @@ As an AI agent (Gemini CLI, Claude Code, etc.), your mission is to help expand a
 - **`clipping-post-optimizer`**: Clean titles, align footnotes, and sync hyperlinks for clippings.
 - **`obsidian-markdown`**: Handle Obsidian-specific syntax (wikilinks, callouts).
 - **`obsidian-bases` / `json-canvas`**: Manage specialized Obsidian view and map files.
+- **`write-blog`**: Draft and create original blog posts in `content/blog/` following project conventions.
 
 ### Maintenance
 

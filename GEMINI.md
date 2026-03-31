@@ -1,4 +1,4 @@
-# Gemini CLI Project Context: wwsun's Digital Garden
+# Gemini CLI Project Context: Weiwei Sun's Weblog
 
 > [!important]
 > 核心存储库指南、项目结构、内容标准和创作规范，请**优先参考 [[AGENTS.md]]**。
