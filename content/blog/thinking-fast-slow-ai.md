@@ -1,9 +1,10 @@
 ---
 title: 思考——快、慢与 AI
-tags:
+tags: null
 draft: false
 description: 未命名
-source: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6097646
+source: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6097646"
+date: 2026-03-31T06:02:38.679Z
 ---
 
 > **原文标题**: Thinking — Fast, Slow, and Artificial: How AI is Reshaping Human Reasoning and the Rise of Cognitive Surrender  

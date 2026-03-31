@@ -10,3 +10,4 @@ private/
 .replit
 replit.nix
 copilot/
+.claude/settings.local.json

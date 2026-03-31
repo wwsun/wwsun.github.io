@@ -4,8 +4,9 @@ tags:
   - agent-skill
   - claude-code
 draft: false
-description: 未命名
-source: https://github.com/brennercruvinel/CCPlugins
+description: 为 Claude Code CLI 提供的专业命令集，每周可节省 2-3 小时的重复开发任务时间。
+source: "https://github.com/brennercruvinel/CCPlugins"
+date: 2026-03-31T06:02:38.753Z
 ---
 
 为 Claude Code CLI 提供的专业命令集，每周可节省 2-3 小时的重复开发任务时间。

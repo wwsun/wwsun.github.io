@@ -116,8 +116,8 @@ Quartz 是一个将 Obsidian Markdown 转换为 HTML 的引擎。
 
 ```
 ---
-title: "<% tp.file.title %>"
-date: <% tp.date.now("YYYY-MM-DD") %>
+title: "从信息简史到 AI 时代的个人学习"
+date: 2026-03-30
 tags:
   - status/seed
   - type/post
@@ -125,7 +125,7 @@ draft: true
 description: "简短的文章描述，用于 SEO 和预览"
 ---
 
-# <% tp.file.title %>
+# 从信息简史到 AI 时代的个人学习
 
 ## 引言
 在此输入内容...

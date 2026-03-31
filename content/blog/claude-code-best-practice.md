@@ -3,8 +3,9 @@ title: Claude Code 最佳实践
 tags:
   - claude-code
 draft: false
-description: 未命名
-source: https://github.com/shanraisshan/claude-code-best-practice
+description: "\U0001F6AB\U0001F476 不要过度干预"
+source: "https://github.com/shanraisshan/claude-code-best-practice"
+date: 2026-03-31T06:02:38.277Z
 ---
 
 ## ⚙ 开发工作流

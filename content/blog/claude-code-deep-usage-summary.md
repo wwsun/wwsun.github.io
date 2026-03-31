@@ -1,9 +1,10 @@
 ---
 title: claude-code 深度使用总结
-tags:
+tags: null
 draft: false
-description:
-source: https://tw93.fun/2026-03-12/claude.html
+description: Claude Code 不是 ChatBot，而是一个反复循环的代理系统。与其写长 Prompt，不如理解它的六层架构：
+source: "https://tw93.fun/2026-03-12/claude.html"
+date: 2026-03-31T06:02:38.355Z
 ---
 
 ## TLDR

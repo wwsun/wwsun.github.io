@@ -1,9 +1,9 @@
 views:
   - type: table
-    name: 表格
+    name: 博客文章
     filters:
       and:
-        - file.folder == "content/blogs"
+        - file.folder == "content/blog"
     order:
       - title
       - file.name

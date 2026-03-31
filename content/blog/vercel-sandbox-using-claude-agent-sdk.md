@@ -5,8 +5,11 @@ tags:
   - sandbox
   - vercel
 draft: false
-description: 未命名使用 Vercel Sandbox 运行 Claude Agent SDK
-source: https://vercel.com/kb/guide/using-vercel-sandbox-claude-agent-sdk
+description: >-
+  Claude Agent SDK 是一个长期运行的进程，用于执行命令、管理文件并维护对话状态。由于 SDK 会代表 AI 代理运行 shell
+  命令和修改文件，因此将其隔离在沙盒容器中非常重要。这可以防止代理访问您的生产系统、消耗无限资源或干扰其他进程。
+source: "https://vercel.com/kb/guide/using-vercel-sandbox-claude-agent-sdk"
+date: 2026-03-31T06:02:38.824Z
 ---
 
 [Claude Agent SDK](https://docs.claude.com/en/api/agent-sdk/overview) 是一个长期运行的进程，用于执行命令、管理文件并维护对话状态。由于 SDK 会代表 AI 代理运行 shell 命令和修改文件，因此将其隔离在沙盒容器中非常重要。这可以防止代理访问您的生产系统、消耗无限资源或干扰其他进程。

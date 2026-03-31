@@ -1,14 +1,16 @@
 ---
 title: Rork Max 使用体验：使用 5 轮提示词手撮一个原生音乐 App
-date: 2026-02-20 20:30:00
+date: 2026-02-20T20:30:00.000Z
 tags:
   - ai-coding
   - architecture
   - ios
   - rork-max
 draft: false
-description: 从一个真实音乐 App 实战复盘 Rork Max：功能、优势、边界、竞品对比与技术架构。
-source:
+description: >-
+  这次我把目标限定得很明确：只用 5 轮提示词，做出一个可运行的 iOS 音乐 App
+  原型。功能边界包括：媒体库列表、全屏播放器、播放状态管理，以及灵动岛/Live Activity 的信息展示。
+source: null
 ---
 
 ## 从真实案例开始：我用 5 轮提示词做了一个音乐 App
