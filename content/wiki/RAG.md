@@ -106,7 +106,7 @@ Agent 里常见策略：`plan → retrieve → read → (if missing) retrieve ag
 
 ## RAG 技术全景图
 
-![[Pasted image 20260209163647.png]]
+![[rag-modular-architecture.png]]
 
 https://github.com/langchain-ai/rag-from-scratch
 

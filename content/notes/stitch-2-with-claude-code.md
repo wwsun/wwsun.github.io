@@ -22,23 +22,23 @@ Stitch 现在的定位不再仅仅是一个根据提示词生成漂亮界面的 
 准备内容：先帮我生成 5 首虚拟的歌曲（包含歌名、歌手和封面图），让我能看到实际效果
 ```
 
-![[Pasted image 20260327100852.png]]
+![[vibestream-v0-design-system-screens.png]]
 
 ## round 2: 添加一个“正在播放”的播放器界面
 
-![[Pasted image 20260327100938.png]]
+![[vibestream-now-playing-screen.png]]
 
 ## round3: 调整 design system
 
-![[Pasted image 20260327101007.png]]
+![[vibestream-crimson-edge-design-screens.png]]
 
 ## round4: 导出
 
-![[Pasted image 20260327101745.png]]
+![[vibestream-fixed-now-playing-export.png]]
 
 ## round 5: 在 AI Studio 中实现
 
 Stitch 现在通过 MCP 服务 SDK、技能插件以及对 AI Studio 的导出，接入了更广泛的工具链。这解决了 AI 设计工具长期以来的痛点：交付尴尬。以往你可能只得到一张精美的图片，开发工作仍需从零开始。
 
 Stitch 现在被定位为 AI 智能体与开发工具之间的桥梁。对于独立开发者或快速迭代的团队来说，理想的工具不是给出一张静态图，而是帮助你以最小的摩擦从创意走向可构建的产品。
-![[Pasted image 20260327102109.png]]
+![[vibestream-gemini-ai-studio-preview.png]]

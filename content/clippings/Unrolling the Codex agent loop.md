@@ -171,7 +171,7 @@ Codex CLI 使用的 Responses API 端点是 [可配置的 ⁠](https://developer
 
 当 OpenAI Responses API 服务器收到请求时，它会使用 JSON 按如下方式推导模型的提示词（当然，Responses API 的自定义实现可能会做出不同的选择）：
 
-![[Pasted image 20260211172829.png]]
+![[codex-snapshot-1-initial-prompt.png]]
 
 如你所见，提示词中前三项的顺序是由服务器而非客户端决定的。即便如此，在这三项中，只有系统消息的内容也由服务器控制，因为 `tools` 和 `instructions` 是由客户端决定的。紧随其后的是来自 JSON 负载的 `input` ，以此完成提示词。
 
@@ -220,7 +220,7 @@ Codex [消费事件流 ⁠](https://github.com/openai/codex/blob/2a68b74b9bf16b6
 
 作为后续查询的一部分，用于对模型进行采样的最终提示词如下所示：
 
-![[Pasted image 20260211172854.png]]
+![[codex-snapshot-2-tool-output.png]]
 
 特别要注意的是，旧提示词正是新提示词的前缀。这是有意为之的，因为这使得后续请求更加高效，因为它让我们能够利用提示词缓存（我们将在下一节关于性能的内容中讨论这一点）。
 
@@ -233,7 +233,7 @@ data: {"type":"response.completed","response":{...}}
 
 在 Codex CLI 中，我们将助手消息呈现给用户，并将焦点置于编辑器上，以向用户示意现在轮到他们继续对话了。如果用户做出响应，则上一轮的助手消息以及用户的新消息都必须附加到 Responses API 请求中的 `input` ，以开启新的一轮：
 
-![[Pasted image 20260211172907.png]]
+![[codex-snapshot-3-new-turn.png]]
 
 让我们来看看这种不断增长的提示词对性能意味着什么。
 

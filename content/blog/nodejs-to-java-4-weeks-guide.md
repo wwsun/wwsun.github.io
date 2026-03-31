@@ -1,5 +1,5 @@
 ---
-title: "从 Node.js 到 Java：前端老鸟的 4 周全栈大逆袭指南"
+title: "从 Node.js 到 Java：全栈开发指南"
 date: 2026-03-31
 tags:
   - learning

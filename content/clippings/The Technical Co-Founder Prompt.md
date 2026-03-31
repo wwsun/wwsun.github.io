@@ -39,7 +39,7 @@ Drafting Strategy:
 • Highlight: 重点强调 Phase 1 的“Challenge assumptions”和 Phase 3 的“Stop and check in”
 • Ending: 总结这个 Prompt 的核心心法
 
-![[Pasted image 20260209104241.png]]
+![[technical-co-founder-prompt.png]]
 
 ```
 Build Any App: The Technical Co-Founder

@@ -26,7 +26,7 @@ source: null
 
 输出结果：项目骨架、导航结构、基础主题色和组件规范一次成型。
 
-![[Pasted image 20260220180459.png]]
+![[rork-max-vibestream-init.png]]
 
 ### Round 2：构建响应式媒体库列表与视图组件
 
@@ -36,7 +36,7 @@ source: null
 
 输出结果：列表卡片、占位封面、空态处理与滚动性能都可用。
 
-![[Pasted image 20260220181024.png]]
+![[rork-max-library-view.png]]
 
 ### Round 3：开发全屏交互播放器
 
@@ -47,7 +47,7 @@ source: null
 
 输出结果：核心交互链路打通，视觉层级和手势响应达到可演示状态。
 
-![[Pasted image 20260220182752.png]]
+![[rork-max-fullscreen-player.png]]
 
 ### Round 4：实现状态管理与播放逻辑
 

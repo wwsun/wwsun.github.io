@@ -26,7 +26,7 @@ TLDR
 | **System 2** | 慢思考 | 缓慢、深思熟虑、分析性 | 填写纳税申报表           |
 | **System 3** | AI认知 | 外部、自动化、数据驱动 | 使用AI聊天机器人回答问题 |
 
-![[Pasted image 20260323173659.png]]
+![[three-system-cognitive-model.png]]
 
 ### 2. 认知卸载 vs 认知投降
 

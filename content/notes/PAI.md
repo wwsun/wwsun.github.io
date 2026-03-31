@@ -38,7 +38,7 @@ AI 系统可以分成三层：
 
 关键区别：**PAI 能持续学习和改进，每一次交互都让它更懂你。**
 
-![[Pasted image 20260225153350.png]]
+![[ai-evolution-chatbot-to-pai.png]]
 
 ---
 
@@ -108,7 +108,7 @@ PAI 与传统 agent 系统（如 Claude Code）不同：
 - 语音系统（如 ElevenLabs TTS，AI有自己的声音）
 - 基于终端的 UI（动态状态栏、信号展示等）
 
-![[Pasted image 20260225153447.png]]
+![[unique-pai-components-architecture.png]]
 
 ---
 

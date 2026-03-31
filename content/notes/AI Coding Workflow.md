@@ -21,7 +21,7 @@ Always respond in Chinese-simplified
 
 ## 两个技巧
 
-![[Pasted image 20260209105016.png]]
+![[ai-efficiency-improvement-technique.png]]
 
 ## 思考
 

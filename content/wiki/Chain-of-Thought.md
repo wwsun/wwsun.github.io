@@ -19,7 +19,7 @@ source: https://arxiv.org/abs/2201.11903
 - _Standard:_ Q: 罗杰有5个网球，他又买了2筒，每筒3个。他现在有多少个？ A: 11个。
 - _CoT:_ Q: 罗杰有5个网球... A: 罗杰原本有5个。2筒每筒3个意味着买了 个。。所以答案是11个。
 
-![[Pasted image 20260209150337.png]]
+![[chain-of-thought-prompting-comparison.png]]
 
 https://www.promptingguide.ai/zh/techniques/cot
 
