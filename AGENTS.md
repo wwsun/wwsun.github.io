@@ -63,7 +63,7 @@ As an AI agent (Gemini CLI, Claude Code, etc.), your mission is to help expand a
 
 ### Maintenance
 
-- Run `npm run format` after significant changes to maintain style.
+- Run `npm run format` after significant changes in `quartz/` to maintain style.
 - Run `npm run check` to verify links, types, and build integrity.
 
 ## Prohibitions
