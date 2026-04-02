@@ -1,7 +1,7 @@
 ---
-title: 未命名
-tags:
-draft: true
+title: Google Stitch 2 with Claude Code
+tags: google, stitch, claude-code
+draft: false
 description: 未命名
 source: https://www.youtube.com/watch?v=EKix32vioss
 ---
