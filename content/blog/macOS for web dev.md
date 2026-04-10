@@ -255,9 +255,32 @@ brew services stop mysql
 
 ```
 
-### 安装 java
+### 安装 sdkman 管理多个 jdk 版本
 
-[https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+```bash
+curl -s "https://get.sdkman.io" | bash
+```
+
+依赖 bash >= 4
+
+```bash
+brew install bash
+```
+
+### 使用 sdkman 安装 openjdk
+
+推荐使用 Eclipse Temurin（后缀为 tem），它是目前最主流、免费且开源的发行版。
+
+```bash
+sdk install java 21.0.10-tem
+sdk install java 17.0.18-tem
+```
+
+设置默认版本
+
+```bash
+sdk default java 17.0.18-tem
+```
 
 ### 安装 python
 

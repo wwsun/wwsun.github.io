@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phase 3 业务落地计划 - 0415</title>
+    <style>
+      :root {
+        --bg: #f8fafc;
+        --bg-card: rgba(255, 255, 255, 0.8);
+        --border: rgba(0, 0, 0, 0.07);
+        --text-primary: #0f172a;
+        --text-secondary: #334155;
+        --accent: #3b82f6;
+        --accent-alt: #8b5cf6;
+        --accent-green: #10b981;
+        --shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+        --radius: 14px;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--bg);
+        color: var(--text-secondary);
+        font-family: "Plus Jakarta Sans", sans-serif;
+        line-height: 1.4;
+        padding: 2rem 1.5rem;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 2.5rem;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 4px 12px;
+        background: var(--accent);
+        color: white;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        font-family: "Outfit", sans-serif;
+        margin-bottom: 0.75rem;
+      }
+
+      h1 {
+        font-family: "Outfit", sans-serif;
+        font-size: 2.5rem;
+        color: var(--text-primary);
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+      }
+
+      .date-range {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.9rem;
+        color: var(--accent);
+        font-weight: 500;
+      }
+
+      .progress-container {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .progress-ring {
+        width: 80px;
+        height: 80px;
+      }
+      .progress-ring__circle {
+        transition: stroke-dashoffset 0.8s ease;
+        transform: rotate(-90deg);
+        transform-origin: 50% 50%;
+        stroke-dasharray: 213.6;
+        stroke-dashoffset: 213.6;
+      }
+
+      .progress-text {
+        position: absolute;
+        font-family: "Outfit", sans-serif;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--text-primary);
+      }
+
+      .goal-section {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 2rem;
+        backdrop-filter: blur(8px);
+        box-shadow: var(--shadow);
+      }
+
+      .goal-label {
+        font-family: "Outfit", sans-serif;
+        font-weight: 700;
+        font-size: 0.8rem;
+        color: var(--accent-alt);
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+        display: block;
+      }
+
+      .goal-text {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--text-primary);
+      }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--accent);
+      }
+
+      .card.alternate::before {
+        background: var(--accent-alt);
+      }
+
+      .card-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .card-id {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.8rem;
+        background: #f1f5f9;
+        padding: 2px 6px;
+        border-radius: 4px;
+        color: #64748b;
+      }
+
+      .card-title {
+        font-family: "Outfit", sans-serif;
+        font-size: 1.15rem;
+        color: var(--text-primary);
+        font-weight: 700;
+      }
+
+      .task-list {
+        list-style: none;
+      }
+
+      .task-item {
+        display: flex;
+        gap: 0.75rem;
+        margin-bottom: 0.85rem;
+        align-items: flex-start;
+      }
+
+      .check-box {
+        width: 18px;
+        height: 18px;
+        border: 2px solid #cbd5e1;
+        border-radius: 4px;
+        flex-shrink: 0;
+        margin-top: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+      }
+
+      .task-item.done .check-box {
+        background: var(--accent-green);
+        border-color: var(--accent-green);
+        color: white;
+      }
+
+      .task-content {
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+      }
+
+      .task-item.done .task-content {
+        color: #94a3b8;
+        text-decoration: line-through;
+      }
+
+      .staggered {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: all 0.5s ease;
+      }
+
+      .staggered.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      footer {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        color: #94a3b8;
+        font-size: 0.75rem;
+      }
+
+      .mono {
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      @media (max-width: 640px) {
+        h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="header-left">
+          <span class="badge">Phase 3</span>
+          <h1>试点业务场景开始落地</h1>
+          <div class="date-range">2026.04.03 - 2026.04.15</div>
+        </div>
+        <div class="progress-container">
+          <svg class="progress-ring" width="80" height="80">
+            <circle stroke="#e2e8f0" stroke-width="8" fill="transparent" r="34" cx="40" cy="40" />
+            <circle
+              class="progress-ring__circle"
+              stroke="var(--accent-green)"
+              stroke-width="8"
+              stroke-linecap="round"
+              fill="transparent"
+              r="34"
+              cx="40"
+              cy="40"
+            />
+          </svg>
+          <div class="progress-text" id="pct-text">0%</div>
+        </div>
+      </header>
+
+      <section class="goal-section staggered">
+        <span class="goal-label">Objective</span>
+        <p class="goal-text">
+          4.6 号开放给运营试用；本周期结合 AI
+          写歌等试点运营场景，进行实战落地验证并调优，保障无明显卡点。
+        </p>
+      </section>
+
+      <div class="content-grid">
+        <article class="card staggered">
+          <div class="card-header">
+            <span class="card-id mono">3.1</span>
+            <h3 class="card-title">业务支持与可用性打磨</h3>
+          </div>
+          <ul class="task-list">
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">针对首批试点场景补充对应的模板与特定组件知识</span>
+            </li>
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">4.6 开放给运营使用；收集反馈修复核心缺陷</span>
+            </li>
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">复杂提示词和错误生成提供友好错误处理</span>
+            </li>
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">多人系统编辑会话锁机制</span>
+            </li>
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">设计器提供搭建进度引导</span>
+            </li>
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">使用文档提供</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card alternate staggered">
+          <div class="card-header">
+            <span class="card-id mono">3.2</span>
+            <h3 class="card-title">高级对话能力</h3>
+          </div>
+          <ul class="task-list">
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">提供多条链路支持（5种场景流程适配）</span>
+            </li>
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">Overmind-mcp 支持：BYOK 模式 Token 入库</span>
+            </li>
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">POPO MCP 支持：支持 popo prd 文档</span>
+            </li>
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">Figma MCP 支持：获取 figma 设计稿</span>
+            </li>
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">图片输入支持（截图参考生成）</span>
+            </li>
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">非模板场景：数据接口绑定（Fetch 替换 Mock）</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card staggered">
+          <div class="card-header">
+            <span class="card-id mono">3.3</span>
+            <h3 class="card-title">易搭组件和模板适配</h3>
+          </div>
+          <ul class="task-list">
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">提供易搭 DSL → React 迁移方案</span>
+            </li>
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">为 C 端 API 创建统一的 npm 包</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card alternate staggered">
+          <div class="card-header">
+            <span class="card-id mono">3.4</span>
+            <h3 class="card-title">线上稳定性</h3>
+          </div>
+          <ul class="task-list">
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">会话多 pod 同步问题</span>
+            </li>
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">Stream resume via Redis</span>
+            </li>
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">沙箱隔离方案</span>
+            </li>
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">Agent Trace & 安全防泄漏</span>
+            </li>
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">成本跟踪与用量统计</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card staggered">
+          <div class="card-header">
+            <span class="card-id mono">3.6</span>
+            <h3 class="card-title">Benchmark</h3>
+          </div>
+          <ul class="task-list">
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">Skill 稳定性与效果评测</span>
+            </li>
+            <li class="task-item">
+              <div class="check-box"></div>
+              <span class="task-content">上下文有效性评估</span>
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <footer>
+        <span class="mono">PHASE-3-0415 / DEVELOPMENT PLAN</span>
+        <span id="gen-date">生成于 2026-04-03</span>
+      </footer>
+    </div>
+
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add("visible"), i * 80)
+          }
+        })
+      })
+      document.querySelectorAll(".staggered").forEach((el) => observer.observe(el))
+
+      const circle = document.querySelector(".progress-ring__circle")
+      const tasks = document.querySelectorAll(".task-item")
+      const done = document.querySelectorAll(".task-item.done")
+      const pct = tasks.length > 0 ? Math.round((done.length / tasks.length) * 100) : 0
+
+      setTimeout(() => {
+        circle.style.strokeDashoffset = 213.6 - (pct / 100) * 213.6
+        document.getElementById("pct-text").innerText = pct + "%"
+      }, 500)
+    </script>
+  </body>
+</html>

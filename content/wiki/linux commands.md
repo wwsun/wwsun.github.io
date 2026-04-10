@@ -1,14 +1,7 @@
 ---
-created: 2026-01-30 18:28
-source:
+title: linux commands
 tags:
+draft: true
+description: linux commands
+source:
 ---
-
-# ls
-
-```
-# -a 显示所有文件
-# -l 以长格式显示
-# -t 按修改时间排序，最新修改的文件显示在最前面
-ls -alt
-```
