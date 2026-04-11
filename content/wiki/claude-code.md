@@ -4,6 +4,7 @@ source: https://code.claude.com/docs/en/hooks
 tags:
   - agent
   - claude-code
+title: Claude Code
 ---
 
 ## 自定义配置

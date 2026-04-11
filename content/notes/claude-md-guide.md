@@ -1,5 +1,5 @@
 ---
-title: "# 如何编写优秀的 CLAUDE.md 文件"
+title: 如何编写优秀的 CLAUDE.md 文件
 tags:
   - claude-code
 draft: false

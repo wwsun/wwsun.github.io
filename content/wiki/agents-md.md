@@ -1,5 +1,5 @@
 ---
-title: AGENTS.md
+title: AGENTS.md 是什么
 date: 2026-02-06 14:03:42
 tags:
   - agent
@@ -21,7 +21,7 @@ AGENTS.md 面向智能体
 
 https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/
 
-## 优化渐进披露 prompt
+## 如何优化渐进披露 prompt
 
 ```
 I want you to refactor my AGENTS.md file to follow progressive disclosure principles.

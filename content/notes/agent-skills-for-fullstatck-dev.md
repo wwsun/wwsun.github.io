@@ -75,5 +75,5 @@ https://github.com/vercel-labs/agent-skills/tree/main/skills/vercel-deploy-claim
 
 **相关阅读**:
 
-- [[AI Coding Workflow]]
+- [[ai-coding-workflow]]
 - [[Vibe Coding]]
