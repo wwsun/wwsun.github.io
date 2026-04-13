@@ -34,6 +34,35 @@ title: Claude Code
 
 - GLM + Claude Code https://docs.bigmodel.cn/cn/guide/develop/claude
 
+## 常用权限跳过配置
+
+```
+{
+  "permissions": {
+    "allow": [
+      "Bash(date:*)",
+      "Bash(echo:*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "Bash(wc:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(sort:*)",
+      "Bash(grep:*)",
+      "Bash(tr:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git tag:*)"
+      "Bash(mvn:*)"
+    ]
+  }
+}
+```
+
 ## Hooks
 
 钩子允许在 Claude Code 特定事件发生时自动执行 shell 命令，实现自动化工作流。
