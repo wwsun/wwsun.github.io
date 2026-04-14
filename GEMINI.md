@@ -1,7 +1,6 @@
 # Gemini CLI Project Context: Weiwei Sun's Weblog
 
-> [!important]
-> 核心存储库指南、项目结构、内容标准和创作规范，请**优先参考 [[AGENTS.md]]**。
+严格遵循 @AGENTS.md 中的规则。
 
 ## Gemini CLI Specifics
 
