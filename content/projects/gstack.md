@@ -40,6 +40,32 @@ Fork 它。改进它。让它成为你的。如果你想讨厌免费开源软件
 5. 在你的 staging URL 上运行 `/qa`
 6. 停在那里。你会知道这是否适合你。
 
+### Skill 使用建议
+
+```
+# 项目启动
+/session-start → /understand → /scaffold
+
+# 需求分析
+/office-hours → /plan-ceo-review → /create-todos
+
+# 方案设计
+/autoplan（一键触发三视角评审）
+或分步：/plan-ceo-review → /plan-eng-review → /plan-design-review
+
+# 编码阶段（每个模块循环）
+/implement → /test → /review → /checkpoint
+
+# 前端实现
+/design-shotgun（选型）→ /frontend-design（实现）→ /browse（验证）→ /qa（测试）
+
+# 安全审查
+/cso → /web-security-expert → /security-scan
+
+# 上线
+/score-app → /ship → /canary → /document-release → /retro
+```
+
 ## 安装 —— 30秒
 
 **要求：** [Claude Code](https://docs.anthropic.com/en/docs/claude-code), [Git](https://git-scm.com/), [Bun](https://bun.sh/) v1.0+, [Node.js](https://nodejs.org/)（仅 Windows）

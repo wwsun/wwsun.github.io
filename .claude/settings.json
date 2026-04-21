@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm root:*)",
+      "Bash(NODE_PATH=$\\(npm root -g\\) node gen-openclaw-pptx.js)",
+      "Read(//Applications/LibreOffice.app/Contents/MacOS/**)",
+      "Bash(python3 /Users/weiwei/.claude/plugins/cache/anthropic-agent-skills/example-skills/0f7c287eaf0d/skills/pptx/scripts/office/soffice.py --headless --convert-to pdf /Users/weiwei/Desktop/openclaw-team-sharing.pptx)",
+      "Bash(/Applications/LibreOffice.app/Contents/MacOS/soffice --headless --convert-to pdf /Users/weiwei/Desktop/openclaw-team-sharing.pptx)",
+      "Bash(ls /tmp/*.pdf)",
+      "Bash(pdftoppm -jpeg -r 120 /tmp/openclaw-team-sharing.pdf /tmp/slide)",
+      "Bash(brew list:*)",
+      "Bash(python3 -c \"from PIL import Image; import fitz; print\\('fitz ok'\\)\")",
+      "Bash(python3 -c \"import fitz; print\\('pymupdf ok'\\)\")",
+      "Bash(pip3 install:*)",
+      "Bash(python3 -)",
+      "Read(//Users/weiwei/.claude/plugins/cache/anthropic-agent-skills/example-skills/0f7c287eaf0d/skills/pptx/**)",
+      "Bash(node -e \"require\\('pptxgenjs'\\); console.log\\('ok'\\)\")",
+      "Bash(node -e \"require\\('/Users/weiwei/.local/share/fnm/node-versions/v24.12.0/installation/lib/node_modules/pptxgenjs'\\); console.log\\('pptxgenjs ok'\\)\")",
+      "Bash(node gen-openclaw-talk.js)",
+      "Bash(node /Users/weiwei/projj/github.com/wwsun/wwsun.github.io/content/speech/gen-openclaw-talk.cjs)",
+      "Bash(python3 /Users/weiwei/.claude/plugins/cache/anthropic-agent-skills/example-skills/0f7c287eaf0d/skills/pptx/scripts/office/soffice.py --headless --convert-to pdf openclaw-intro-talk.pptx)",
+      "Read(//Applications/**)",
+      "Bash(mdfind \"kMDItemCFBundleIdentifier == 'org.libreoffice.script'\")",
+      "Bash(/Applications/LibreOffice.app/Contents/MacOS/soffice --headless --convert-to pdf openclaw-intro-talk.pptx)",
+      "Bash(pdftoppm -jpeg -r 150 openclaw-intro-talk.pdf slide)",
+      "Bash(magick --version)",
+      "Bash(magick -density 150 openclaw-intro-talk.pdf -quality 90 slide-%02d.jpg)",
+      "Bash(node gen-openclaw-talk.cjs)"
+    ],
+    "additionalDirectories": ["/Users/weiwei/projj/github.com/wwsun/wwsun.github.io/content/speech"]
+  }
+}
