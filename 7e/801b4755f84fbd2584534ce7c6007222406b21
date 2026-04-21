@@ -1,0 +1,56 @@
+content/blog/how-i-use-openclaw.md
+  a7efcd13d243382d 20,24-25,42-61,64,69-74,86,88-91,94,98-99,148-154,159,162-164,166-172,174-184,197-212,223,238,254,256,258,260-264,267,269-270,272,274,276,278,280-281,283,285-291,293-384,386,388-400,404,406,408,410-411,413,415-429,431-458
+content/notes/agent-driven-workflow.md
+  c888fc675dc6b660 189-304
+content/wiki/nginx.md
+  c888fc675dc6b660 56
+.claude/settings.json
+  c888fc675dc6b660 1-3,31-32
+  3a03eed50fbdaa95 16-17,19,21-25,29-30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2",
+  "base_commit_sha": "7e801b4755f84fbd2584534ce7c6007222406b21",
+  "prompts": {
+    "3a03eed50fbdaa95": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3265e963-fe9f-4d02-80ea-66e1e20b5ef1",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "wwsun",
+      "messages": [],
+      "total_additions": 2952,
+      "total_deletions": 2360,
+      "accepted_lines": 10,
+      "overriden_lines": 3
+    },
+    "a7efcd13d243382d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "622329ea-97bb-4757-831f-ff54a05486c5",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "wwsun",
+      "messages": [],
+      "total_additions": 275,
+      "total_deletions": 51,
+      "accepted_lines": 273,
+      "overriden_lines": 1
+    },
+    "c888fc675dc6b660": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "614920dc-e88d-4f2f-aa43-d0188202d520",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "wwsun",
+      "messages": [],
+      "total_additions": 13,
+      "total_deletions": 5,
+      "accepted_lines": 11,
+      "overriden_lines": 1
+    }
+  }
+}
