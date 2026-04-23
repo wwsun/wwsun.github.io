@@ -1,6 +1,6 @@
 {
   "name": "wwsun.github.io",
-  "description": "🌱 Weiwei Sun's Weblog",
+  "description": "Weiwei Sun's Weblog",
   "private": true,
   "version": "4.5.2",
   "type": "module",
@@ -12,6 +12,7 @@
     "url": "https://github.com/wwsun/wwsun.github.io.git"
   },
   "scripts": {
+    "sync-tags": "tsx scripts/sync-tags.ts",
     "start": "npx quartz build --serve",
     "quartz": "./quartz/bootstrap-cli.mjs",
     "docs": "npx quartz build --serve -d docs",
@@ -116,6 +117,11 @@
     "typescript": "^6.0.3"
   },
   "lint-staged": {
-    "**/*.{md,ts,js,css,json,html}": "prettier --write"
+    "**/*.md": [
+      "npx tsx scripts/sync-tags.ts",
+      "git add content/tags.json",
+      "prettier --write"
+    ],
+    "**/*.{ts,js,css,json,html}": "prettier --write"
   }
 }
