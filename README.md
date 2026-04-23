@@ -1,7 +1,7 @@
 # wwsun's Digital Garden
 
 > [!tip]
-> 这是一个基于 **Quartz v4** 构建、通过 **Obsidian** 管理的数字花园。它不仅是博客，更是一个互联的知识库。
+> 这是一个基于 **Quartz v4** 构建、通过 **Obsidian** 管理的个人知识库。
 
 ## 快速开始
 
@@ -23,14 +23,14 @@ npx quartz sync
 
 ## 存储库结构
 
-- **`content/`**: 花园的核心内容。
+- **`content/`**: 知识库的核心内容。
   - `blog/`: 深度长文与原创博客。
   - `notes/`: 学习记录、零散思考片段与备忘录。
   - `wiki/`: 常青笔记与结构化知识。
   - `clippings/`: 经过优化的 Web 剪报与译文。
   - `books/`: 读书笔记与摘要。
   - `projects/`: 特定项目的研究与记录。
-- **`.agents/`**: 为 AI 代理定制的自动化技能（Skills）。
+- `quartz/`: 站点源码
 - **`quartz.config.ts`**: 站点标题、语言及插件配置。
 
 ## 维护与验证
