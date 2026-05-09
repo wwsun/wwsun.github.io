@@ -7,6 +7,12 @@ tags:
 title: Claude Code
 ---
 
+## claude.md
+
+1. WHAT：项目结构、技术栈
+2. WHY：项目目的、各模块作用
+3. HOW：如何运行、测试、验证
+
 ## 自定义配置
 
 ```json
@@ -63,6 +69,38 @@ title: Claude Code
 }
 ```
 
+## skill 加载限制
+
+```json
+// .claude/settings.json（项目级）或 ~/.claude/settings.json（全局）
+{
+  "skillOverrides": {
+    "legacy-context": "name-only", // 只显示名称，不自动加载内容
+    "deploy": "off", // 完全禁用
+    "pdf": "user-invocable-only" // 只能手动 /pdf 调用，不自动触发
+  }
+}
+```
+
+分层设置
+
+```
+~/.claude/settings.json          ← 全局：关掉不属于当前工作流的 global skills
+.claude/settings.json            ← 项目共享：项目级 skill 的开关，提交到 git
+.claude/settings.local.json      ← 个人覆盖：本机特有的关闭项，gitignore
+```
+
+## 禁用 ai commit
+
+```json
+{
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  }
+}
+```
+
 ## Hooks
 
 钩子允许在 Claude Code 特定事件发生时自动执行 shell 命令，实现自动化工作流。
@@ -81,7 +119,7 @@ title: Claude Code
 | `Stop`              | Claude 停止工作 | 通知、清理             |
 | `Notification`      | 通知事件        | 自定义通知处理         |
 
-## Config demo
+### Config demo
 
 ```json
 {
@@ -101,7 +139,7 @@ title: Claude Code
 }
 ```
 
-## 例子：代码提交前自动格式化
+### 例子：代码提交前自动格式化
 
 ```json
 {
@@ -116,7 +154,7 @@ title: Claude Code
 }
 ```
 
-## 钩子命令可通过环境变量访问上下文
+### 钩子命令可通过环境变量访问上下文
 
 ```
 $CLAUDE_PROJECT_DIR    # 项目目录

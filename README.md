@@ -26,10 +26,9 @@ npx quartz sync
 - **`content/`**: 知识库的核心内容。
   - `blog/`: 深度长文与原创博客。
   - `notes/`: 学习记录、零散思考片段与备忘录。
-  - `wiki/`: 常青笔记与结构化知识。
+  - `wiki/`: 通用笔记，工具使用、开源项目调研等
   - `clippings/`: 经过优化的 Web 剪报与译文。
   - `books/`: 读书笔记与摘要。
-  - `projects/`: 特定项目的研究与记录。
 - `quartz/`: 站点源码
 - **`quartz.config.ts`**: 站点标题、语言及插件配置。
 
