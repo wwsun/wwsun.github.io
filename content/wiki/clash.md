@@ -3,7 +3,7 @@ title: Clash
 tags:
   - vpn
 draft: false
-description: clash
+description: Clash 代理工具配置指南，推荐转向 Clash Verge Rev 等现代内核，涵盖规则自定义、TUN 模式与性能优化。
 source:
 ---
 

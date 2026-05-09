@@ -4,7 +4,7 @@ tags:
   - agent
   - llm
 draft: false
-description: 未命名
+description: "ReAct（Reason + Act）本质是让模型在思考（推理/计划）—行动（调用工具/读写环境）—观察（读取结果）的循环里完成任务。"
 source:
 ---
 

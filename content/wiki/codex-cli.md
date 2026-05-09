@@ -1,7 +1,9 @@
 ---
 title: Codex-CLI
 tags:
-description: 未命名
+  - codex
+  - cli
+description: OpenAI Codex CLI 配置与使用指南，涵盖 yolo 模式、审批策略与沙箱安全配置。
 source:
 ---
 

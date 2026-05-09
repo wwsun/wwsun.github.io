@@ -1,8 +1,10 @@
 ---
+title: HTTP Status Code
 created: 2025-12-19 16:56
 source: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
 tags:
   - http
+description: HTTP 常见状态码速查表，涵盖 1xx 信息响应、2xx 成功、3xx 重定向、4xx 客户端错误和 5xx 服务器错误。
 ---
 
 常见状态码如下

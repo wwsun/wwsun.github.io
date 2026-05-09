@@ -1,8 +1,10 @@
 ---
+title: fd
 created: 2025-12-15 21:15
 source: https://github.com/sharkdp/fd
 tags:
   - linux
+description: 在 macOS 或 Linux 下，fd 是一个非常高效且现代化的文件查找工具，可以快速查找特定名字的文件或目录。
 ---
 
 在 macOS 或 Linux 下，`fd` 是一个非常高效且现代化的文件查找工具。你可以用它快速查找特定名字的文件或目录。

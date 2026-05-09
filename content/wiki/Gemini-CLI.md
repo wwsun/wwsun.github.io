@@ -1,10 +1,12 @@
 ---
+title: Gemini CLI
 created: 2026-01-28 16:06
 source: https://github.com/google-gemini/gemini-cli
 tags:
   - gemini
   - google
   - npm
+description: Gemini CLI 是 Google 开源的命令行 AI 编码工具，提供每日 1500 次免费配额，支持自定义 Skills、MCP 集成和持久化记忆功能。
 ---
 
 https://geminicli.com/

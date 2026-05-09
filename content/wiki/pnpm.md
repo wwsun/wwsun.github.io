@@ -1,9 +1,11 @@
 ---
+title: pnpm
 created: 2025-12-15 09:49
 source: https://pnpm.io/zh/feature-comparison
 tags:
   - monorepo
   - pnpm
+description: "pnpm 是一个快速、节省磁盘空间的 Node.js 包管理器，支持 monorepo 工作区管理，通过硬链接和符号链接实现高效的依赖存储。"
 ---
 
 ## pnpm add

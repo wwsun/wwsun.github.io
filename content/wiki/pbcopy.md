@@ -1,7 +1,11 @@
 ---
+title: pbcopy
 created: 2025-12-19 17:01
 source:
 tags:
+  - macos
+  - cli
+description: "是 macOS 上用来把文本写入剪贴板的命令行工具，pbcopy = pasteboard copy，配合 pbpaste 可完成剪贴板读写操作。"
 ---
 
 是 macOS 上用来**把文本写入剪贴板**的命令行工具

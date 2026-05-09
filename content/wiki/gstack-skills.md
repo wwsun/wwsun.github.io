@@ -1,8 +1,11 @@
 ---
 title: gstack Skills 深度解析
 tags:
+  - gstack
+  - claude-code
+  - skills
 draft: true
-description: gstack-skills
+description: 每个 gstack 技能的详细指南，涵盖理念、工作流程和示例，从 office-hours 到 QA、ship 的完整冲刺流程。
 source: https://github.com/garrytan/gstack/blob/main/docs/skills.md*
 ---
 

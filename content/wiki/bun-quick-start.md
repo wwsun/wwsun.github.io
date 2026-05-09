@@ -4,7 +4,7 @@ tags:
   - bun
   - nodejs
 draft: true
-description: Bun 入门指南
+description: Bun 不仅仅是一个运行时，它是一个集运行时、包管理器、打包器、测试运行器于一体的全栈工具链。
 source: https://bun.com/docs
 ---
 

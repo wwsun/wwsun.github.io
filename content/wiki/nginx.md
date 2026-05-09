@@ -2,8 +2,10 @@
 title: nginx beginner guide
 date: 2026-02-05 15:25:53
 tags:
+  - nginx
+  - linux
 draft: false
-description:
+description: Nginx 入门指南，涵盖 Master-Worker 进程模型、反向代理、负载均衡和静态资源服务三大核心场景的配置与排错。
 source: https://dzone.com/articles/nginx-reverse-proxy-and-load-balancing
 ---
 

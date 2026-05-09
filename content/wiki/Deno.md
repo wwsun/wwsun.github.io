@@ -2,8 +2,9 @@
 title: Deno
 date: 2026-02-06 14:37:55
 tags:
+  - deno
 draft: false
-description: Deno
+description: Deno is an open source JavaScript, TypeScript, and WebAssembly runtime with secure defaults and a great developer experience, built on V8, Rust, and Tokio.
 source: https://deno.com/
 ---
 

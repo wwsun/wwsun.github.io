@@ -1,8 +1,11 @@
 ---
+title: OpenCode
 created: 2026-01-12 19:46
 source: https://github.com/anomalyco/opencode
 tags:
   - agent
+  - ai-coding
+description: "Plan mode 用于分析代码结构与规划设计，Build mode 用于让 AI 写新功能、修 Bug 和重构代码。"
 ---
 
 ## Plan vs Build

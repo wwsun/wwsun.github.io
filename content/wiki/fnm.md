@@ -1,8 +1,10 @@
 ---
+title: fnm
 created: 2025-12-17 21:10
 source: https://github.com/Schniz/fnm
 tags:
   - nodejs
+description: fnm (Fast Node Manager) 是一个用 Rust 编写的快速 Node.js 版本管理工具，支持安装、切换和管理多个 Node.js 版本。
 ---
 
 fast node manager

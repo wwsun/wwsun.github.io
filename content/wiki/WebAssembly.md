@@ -3,7 +3,7 @@ title: WebAssembly
 tags:
   - wasm
 draft: false
-description: WebAssembly
+description: "WebAssembly（Wasm）是一种面向 Web 的二进制指令格式与运行时，即可移植的低层字节码加沙箱执行模型，被设计成在浏览器中接近原生性能地执行 CPU 密集型任务。"
 source:
 ---
 

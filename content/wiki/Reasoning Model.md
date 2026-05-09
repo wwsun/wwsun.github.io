@@ -1,7 +1,12 @@
 ---
+title: Reasoning Model
 created: 2026-01-08 17:10
 source:
 tags:
+  - ai
+  - llm
+  - reasoning
+description: "推理模型（Reasoning Model）引入思维链强化，在给出答案前产生大量内部推理 Token 实现慢思考，擅长数学证明、复杂编程和逻辑谜题等需要深度推理的任务。"
 ---
 
 ### 1. 核心定义：从“快思考”到“慢思考”

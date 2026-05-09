@@ -3,7 +3,7 @@ title: Chain-of-Thought 思维链
 tags:
   - llm
 draft: false
-description: Chain-of-Thought 思维链
+description: CoT 的核心在于打破"输入输出"的直接映射，强制模型生成中间推理步骤，从而提升大语言模型的复杂推理能力。
 source: https://arxiv.org/abs/2201.11903
 ---
 

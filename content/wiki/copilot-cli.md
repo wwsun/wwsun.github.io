@@ -4,7 +4,7 @@ tags:
   - copilot
   - cli
 draft: false
-description: 未命名
+description: GitHub Copilot CLI 是一款原生终端 AI 编程助手，将智能体能力直接带入命令行，支持自主委派任务、代码审查与多仓库工作流。
 source: https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-best-practices
 ---
 

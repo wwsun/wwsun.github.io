@@ -1,8 +1,10 @@
 ---
 title: Mixture of Experts，混合专家模型
 tags:
+  - llm
+  - reasoning
 draft: false
-description: Mixture of Experts，混合专家模型
+description: 如果说 Transformer 的多头是让模型在特征空间上进行并行关注，那么 MoE 则是让模型在模型参数上实现条件计算，以更低推理成本实现远超激活参数量的性能。
 source:
 ---
 

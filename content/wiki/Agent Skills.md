@@ -1,8 +1,12 @@
 ---
+title: Agent Skills
 created: 2025-12-19 16:27
 source: https://code.claude.com/docs/zh-CN/skills
 tags:
   - agent
+  - claude-code
+  - skills
+description: Skills 是一组指令，用来教 Claude 如何完成某项任务。你只需在一个文档中解释一次，然后交给 Claude 使用。
 ---
 
 SKills 是一组指令，用来教 Claude 如何完成某项任务。你只需在一个文档中解释一次，就像培训手册一样，然后交给 Claude。下次你让 Claude 做这件事时，它会查阅这个文档，阅读指令，然后完成任务。

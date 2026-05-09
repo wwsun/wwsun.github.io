@@ -1,7 +1,11 @@
 ---
+title: Clawd.bot
 created: 2026-01-26 10:09
 source: https://clawd.bot/
 tags:
+  - agent
+  - ai
+description: clawd.bot 是一个长期在线的 AI 消息网关与 Agent 宿主，能够将聊天平台桥接到 AI Agent，实现跨平台消息中转与任务自动化。
 ---
 
 **clawd.bot = 一个“长期在线的 AI 消息网关 + Agent 宿主”**

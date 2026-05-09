@@ -2,7 +2,7 @@
 title: google-workspace-cli
 tags:
   - github
-description: 未命名
+description: Google Workspace CLI (gws) 是一个用 Rust 编写的动态命令行工具，通过运行时解析 Google Discovery Service 的 JSON 文档自动生成命令界面，为所有 Google Workspace API 提供统一的 CLI 访问入口。
 source:
 ---
 

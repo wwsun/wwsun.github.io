@@ -1,8 +1,10 @@
 ---
 title: Direct Preference Optimization, 直接偏好优化
 tags:
+  - llm
+  - reasoning
 draft: false
-description: DPO
+description: 如果说传统的 RLHF (PPO) 是绕远路，那么 DPO 就是通过数学上的巧妙转换，直接抄了近路，在对话对齐中以更低计算开销实现与 PPO 平起平坐的效果。
 source:
 ---
 

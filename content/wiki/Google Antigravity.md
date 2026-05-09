@@ -1,7 +1,11 @@
 ---
+title: Google Antigravity
 created: 2026-01-12 18:00
 source:
 tags:
+  - google
+  - agent
+description: Google Antigravity 的 marketplace、skills 配置和使用说明，包含 skill 文件格式示例。
 ---
 
 ## marketplace

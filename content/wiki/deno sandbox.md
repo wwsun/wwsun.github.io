@@ -2,8 +2,10 @@
 title: deno sandbox
 date: 2026-02-06 14:34:45
 tags:
+  - deno
+  - sandbox
 draft: false
-description: deno sandbox
+description: Deno Sandbox 为您提供轻量级 Linux 微型虚拟机，以深度防御的安全机制运行不可信代码，可通过 JavaScript 或 Python SDK 以编程方式创建，启动时间不到一秒。
 source: https://deno.com/blog/introducing-deno-sandbox
 ---
 

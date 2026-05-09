@@ -3,7 +3,7 @@ title: sdkman
 tags:
   - jdk
 draft: false
-description: 未命名
+description: "关于 SDKMAN!，对于从 Node.js 环境转向 Java 生态的开发者来说，其核心定位和使用逻辑与 nvm 非常相似，基于 Shell 环境变量动态修改来实现 JDK 版本隔离。"
 source: https://sdkman.io/
 ---
 

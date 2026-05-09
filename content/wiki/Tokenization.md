@@ -3,7 +3,7 @@ title: Tokenization 分词/标记化
 tags:
   - llm
 draft: false
-description: Tokenization
+description: "可以将 Tokenization（分词/标记化）理解为 NLP 流水线中的数据预处理逻辑，核心任务是将连续的字符串映射为离散的整数序列作为神经网络输入，主流方案为子词分词。"
 source:
 ---
 

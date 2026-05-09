@@ -4,7 +4,7 @@ date: 2026-02-06 15:53:34
 tags:
   - llm
 draft: false
-description: Large Language Model
+description: LLM 的基石是 Transformer 架构，涵盖自注意力机制、位置编码、分词、预训练到对齐的全生命周期，以及 MoE、Flash Attention 等现代工程挑战。
 source:
 ---
 

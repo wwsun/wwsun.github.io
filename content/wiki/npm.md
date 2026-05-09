@@ -1,8 +1,10 @@
 ---
+title: npm
 created: 2025-12-15 21:14
 source: https://docs.npmjs.com/cli/v11/commands
 tags:
   - npm
+description: npm 常用命令速查，涵盖依赖管理、版本升级、缓存管理、私有 registry 认证与发布以及 workspace 操作。
 ---
 
 ## 查看全局包是否需要升级

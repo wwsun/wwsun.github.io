@@ -1,8 +1,10 @@
 ---
+title: ssh
 created: 2025-12-18 09:49
 source:
 tags:
   - ssh
+description: "macOS 自带 SSH 客户端，无需额外安装。涵盖密钥生成、config 配置管理、安全设置、跳板机和端口转发等常用操作指南。"
 ---
 
 macOS 自带 SSH 客户端（`ssh`、`ssh-keygen` 等），无需额外安装。

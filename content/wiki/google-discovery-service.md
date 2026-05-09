@@ -1,7 +1,9 @@
 ---
 title: Google Discovery Service
 tags:
-description: 未命名
+  - google
+  - api
+description: Google Discovery Service 是 Google 所有 REST API 的自描述 Schema 中心，每个 API 提供一个 JSON 文档精确描述其资源层级、方法、参数和认证要求。
 source:
 ---
 

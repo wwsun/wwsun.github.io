@@ -1,7 +1,10 @@
 ---
+title: git
 created: 2025-12-18 09:56
 source:
 tags:
+  - git
+description: Git 常用命令速查，涵盖配置初始化、远程仓库管理、提交撤销、分支操作、cherry-pick 和 worktree 等高频操作。
 ---
 
 ## Config 初始化

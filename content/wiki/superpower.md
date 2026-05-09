@@ -5,7 +5,7 @@ tags:
   - agent-plugin
   - claude-code
 draft: false
-description: 未命名
+description: "Superpowers 是为编码智能体构建的完整软件开发工作流程，基于可组合的技能和初始指令，包括头脑风暴、TDD、代码审查和子代理驱动开发等环节。"
 source: https://github.com/obra/superpowers
 ---
 

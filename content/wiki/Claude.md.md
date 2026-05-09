@@ -1,8 +1,11 @@
 ---
+title: CLAUDE.md
 created: 2025-12-11 14:38
 source: https://www.anthropic.com/engineering/claude-code-best-practices
 tags:
   - claude-code
+  - agent
+description: CLAUDE.md 是一个特殊文件，Claude 在开始对话时会自动将其引入上下文，适合记录常用命令、代码风格指南、测试说明和仓库规范。
 ---
 
 `CLAUDE.md` 是一个特殊文件，Claude 在开始对话时会自动将其引入上下文。这使得它成为记录以下内容的理想位置：

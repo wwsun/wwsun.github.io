@@ -1,7 +1,10 @@
 ---
+title: Github
 created: 2026-01-29 14:58
 source:
 tags:
+  - github
+description: GitHub 官方 RSS 订阅源汇总，包括仓库发布、提交记录、用户动态和私有订阅等多种 Feed 格式。
 ---
 
 ## Github RSS

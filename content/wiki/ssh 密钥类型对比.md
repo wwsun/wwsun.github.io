@@ -1,7 +1,11 @@
 ---
+title: ssh 密钥类型对比
 created: 2025-12-18 10:20
 source:
 tags:
+  - ssh
+  - security
+description: "SSH 支持 RSA、DSA、ECDSA 和 Ed25519 四种主要密钥类型，本文对其算法基础、安全性、签名速度、兼容性和推荐程度进行了全面对比，首选 Ed25519。"
 ---
 
 ## 一、主要密钥类型概览

@@ -1,9 +1,11 @@
 ---
+title: OpenSpec
 created: 2026-01-26 17:45
 source: https://github.com/Fission-AI/OpenSpec
 tags:
   - ai-coding
   - sdd
+description: "OpenSpec 帮助你和 AI 编码助手在编写任何代码之前就达成共识，定义要构建什么，通过提案、规格、设计和任务四类工件指导实现流程。"
 ---
 
 # 快速上手

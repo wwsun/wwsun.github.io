@@ -2,8 +2,10 @@
 title: Deno vs Bun
 date: 2026-02-06 14:38:41
 tags:
+  - deno
+  - bun
 draft: false
-description: Deno vs Bun
+description: Deno 和 Bun 的对比分析，涵盖内核引擎、开发语言、首要目标、包管理和 Node 兼容性等关键特性差异。
 source:
 ---
 

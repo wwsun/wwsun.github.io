@@ -1,7 +1,10 @@
 ---
 title: PinchBench
 tags:
-description: 未命名
+  - llm
+  - agent
+  - benchmark
+description: "PinchBench 是一个用于评估 LLM 模型作为 OpenClaw 编码 Agent 性能的基准测试系统，通过真实世界的任务来测量模型在完整 Agent 环境下的综合表现。"
 source: PinchBench
 ---
 

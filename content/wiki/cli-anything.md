@@ -1,6 +1,9 @@
 ---
 title: CLI-Anything
 tags:
+  - cli
+  - agent
+  - ai
 draft: false
 description: 让任意软件都能被 AI Agent 驱动
 source: https://github.com/HKUDS/CLI-Anything

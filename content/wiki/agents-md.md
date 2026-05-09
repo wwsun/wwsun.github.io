@@ -4,7 +4,7 @@ date: 2026-02-06 14:03:42
 tags:
   - agent
 draft: false
-description: AGENTS
+description: README.md 面向人类开发者，AGENTS.md 面向智能体。AGENTS.md 用于帮助 AI 编程助手高效处理项目。
 source: https://agents.md/
 ---
 

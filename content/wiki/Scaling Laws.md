@@ -1,8 +1,11 @@
 ---
 title: Scaling Laws
 tags:
+  - ai
+  - llm
+  - training
 draft: false
-description: Scaling Laws
+description: "如果把预训练看作是炼丹，那么 Scaling Laws 就是那本告诉你要放多少料、烧多久火的炼丹准则，描述了模型性能与计算量、参数量和数据量之间的幂律数学关系。"
 source:
 ---
 

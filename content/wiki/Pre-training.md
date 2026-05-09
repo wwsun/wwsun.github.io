@@ -1,8 +1,11 @@
 ---
 title: Pre-training
 tags:
+  - llm
+  - ai
+  - training
 draft: false
-description: Pre-training
+description: "可以将预训练（Pre-training）理解为大型语言模型（LLM）的通识教育阶段，模型通过自监督学习从海量无标注文本中习得语法、世界知识和推理线索。"
 source:
 ---
 

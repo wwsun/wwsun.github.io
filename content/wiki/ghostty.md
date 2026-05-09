@@ -1,8 +1,9 @@
 ---
 title: ghostty 常用设置
 tags:
+  - ghostty
 draft: false
-description: 未命名
+description: Ghostty 终端模拟器的常用设置，包括字体配置、主题选择、快捷键和分屏管理等。
 source: https://ghostty.org/docs/config/keybind
 ---
 

@@ -1,8 +1,11 @@
 ---
 title: TAURI
 tags:
+  - wasm
+  - rust
+  - desktop
 draft: false
-description: 创建跨平台应用
+description: "Tauri 是一个应用构建工具包，让你可以使用 Web 技术为所有主流桌面操作系统构建软件，核心库使用 Rust 编写，用户界面可使用任何前端框架。"
 source: https://v2.tauri.app/
 ---
 

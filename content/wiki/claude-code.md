@@ -5,6 +5,7 @@ tags:
   - agent
   - claude-code
 title: Claude Code
+description: Claude Code 使用指南，涵盖 CLAUDE.md 配置、settings.json 自定义、权限跳过、Skill 加载限制与 Hooks 事件驱动自动化。
 ---
 
 ## claude.md

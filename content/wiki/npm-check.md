@@ -4,7 +4,7 @@ tags:
   - nodejs
   - npm
 draft: false
-description: npm-check
+description: npm-check 用于检查过时、不正确和未使用的 npm 依赖，支持交互式升级和全局模块更新。
 source: https://github.com/dylang/npm-check
 ---
 

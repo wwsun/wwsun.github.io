@@ -4,7 +4,7 @@ tags:
   - sandbox
   - vercel
 draft: false
-description: agent 沙箱最佳实践
+description: Claude Agent SDK 与传统的无状态 LLM API 不同，它维护对话状态并在持久化环境中执行命令，本文涵盖生产环境下代理的架构、托管注意事项和最佳实践。
 source: https://platform.claude.com/docs/zh-CN/agent-sdk/hosting
 ---
 
