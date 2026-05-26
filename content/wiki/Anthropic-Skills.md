@@ -5,7 +5,7 @@ description: 未命名
 source:
 ---
 
-这个仓库是 Anthropic 官方维护的 **Agent Skills 示例集合**，每个 skill 是一个独立文件夹，包含 `SKILL.md` 指令和配套脚本。按用途分为四大类：
+这个仓库是 Anthropic 官方维护的 **Agent Skills 示例集合**，每个 skill 是一个独立文件夹，包含 `SKILL.md` 指令和配套脚本。完整的开发和构建指南可参考 [[building-skills-for-claude|构建 Claude 技能完整指南]]。按用途分为四大类：
 
 ---
 
