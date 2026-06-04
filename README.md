@@ -1,4 +1,4 @@
-# wwsun's Digital Garden
+# wwsun's weblog
 
 > [!tip]
 > 这是一个基于 **Quartz v4** 构建、通过 **Obsidian** 管理的个人知识库。

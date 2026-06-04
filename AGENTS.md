@@ -24,7 +24,7 @@
 
 - 不在 `public/` 或 `dist/` 目录创建文件
 - Markdown 可以表达的内容不使用复杂 HTML
-- Markdown 内部的标题不要使用 emoji
+- 不要使用 emoji，除非明确要求
 - 不删除或覆盖已有笔记，除非明确要求
 - 不擅自重命名文件（会破坏现有 Wiki-links）
 
