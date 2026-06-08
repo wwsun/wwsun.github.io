@@ -8,15 +8,32 @@ source: https://ghostty.org/docs/config/keybind
 ---
 
 ```
-font-family = "JetBrainsMono Nerd Font"
-font-size = 14
 
 # 主题
-# theme = Github Dark
-theme = TokyoNight
+theme = github light default
+font-family = "JetBrains Mono"
+font-size = 14
 
-# 自动注入 Shell 集成，支持 Cmd+Shift+Up/Down 在 Prompt 间跳转
-shell-integration = zsh
+macos-titlebar-style = tabs
+
+copy-on-select = clipboard
+
+# 自动恢复穿够位置、标签页、分屏布局
+window-save-state = always
+
+# 与 VSCode 集成最关键的配置
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# Claude Code 渲染优化
+term = xterm-256color
+
+# 桌面通知（配合 Claude Code）
+desktop-notifications = true
+
+# 窗口
+window-padding-x = 12
+window-padding-y = 8
 ```
 
 ## 主题选择

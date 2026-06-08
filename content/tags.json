@@ -1,4 +1,5 @@
 [
+  "工具",
   "架构设计",
   "开源项目/工程分析",
   "agent",
@@ -29,6 +30,7 @@
   "claude-code",
   "claude-skills",
   "cli",
+  "CLI",
   "clippings",
   "codex",
   "coding",
@@ -126,6 +128,7 @@
   "rlhf",
   "rork-max",
   "rust",
+  "Rust",
   "sandbox",
   "sdd",
   "sdk",
