@@ -25,7 +25,6 @@
 - 不在 `public/` 或 `dist/` 目录创建文件
 - Markdown 可以表达的内容不使用复杂 HTML
 - 不要使用 emoji，除非明确要求
-- 不删除或覆盖已有笔记，除非明确要求
 - 不擅自重命名文件（会破坏现有 Wiki-links）
 
 ## 目录结构
@@ -94,6 +93,11 @@
 - 在 `content/` 子目录中添加新的文件后，需要及时更新该目录中的 `index.md`
 - 在 `quartz/` 中进行重大改动后运行 `npm run format` 保持风格一致
 - 运行 `npm run check` 验证链接、类型与构建完整性
+
+### 创建笔记
+
+1. 创建新笔记时，需要参考模板 `tempaltes/default.md` ，该模板内容包含了新笔记需要包含的 metadata 属性列表。
+2. 新建笔记后需要及时更新所属目录的 `index.md`
 
 ### Query workflow
 
