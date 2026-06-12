@@ -7,6 +7,33 @@ tags:
 source: https://code.claude.com/docs/en/hooks
 ---
 
+## workflow
+
+Claude Code 动态工作流（Workflow）本质上是一个后台执行的 JavaScript 脚本，用于大规模编排子代理。相比让 Claude 逐轮自主决策，工作流将复杂的编排逻辑固化到了代码中。
+
+**核心使用案例：**
+
+1. **突破对话规模限制：** 当任务复杂到需要协调数十或上百个代理协同工作时。
+2. **固化可复用流程：** 将日常重复任务固化为脚本，如每次提交前运行的标准审查工作流。
+3. **需要交叉验证的复杂任务：**
+   - **大规模重构与扫描：** 例如全代码库的 Bug 扫描或跨越数百个文件的自动化迁移。
+   - **深度研究与对抗审查：** 像内置的 `/deep-research` 一样，让独立代理互相验证信息来源，或者从多个角度起草方案并进行对抗性审查，以获得更严谨的结论。
+
+要作为工作流运行单个任务而不改变会话的 effort 级别，在提示词中的任意位置包含 `workflow` 一词。
+
+```
+Run a workflow to audit every API endpoint under src/routes/ for missing auth checks
+```
+
+Claude Code 会高亮输入中的该词，Claude 会为该任务编写工作流脚本，而不是逐轮处理。如果你本意不是启动工作流，按 `Option+W`（macOS）或 `Alt+W`（Windows/Linux）取消当前提示词的高亮，或者在光标位于高亮词后时按退格键。要完全阻止该词触发，在 `/config` 中关闭 Workflow 关键字触发器。
+
+> [!tip] 自动触发
+> 开启 `/effort ultracode` 后，Claude 会自动为实质性任务规划并运行工作流。
+
+**管理运行：** 通过 `/workflows` 视图管理它
+
+https://code.claude.com/docs/en/workflows
+
 ## 减少 token 用量
 
 主动管理上下文：
@@ -28,17 +55,39 @@ When you are using compact, please focus on test output and code changes
 
 大多数命令在会话的特定节点发挥作用，从项目初始化到发布变更。
 
-**首次在仓库中使用。** 运行 `/init` 生成初始 `CLAUDE.md`，然后使用 `/memory` 进行优化。使用 `/mcp` 和 `/agents` 设置项目所需的任何服务器或子代理，并使用 `/permissions` 设置所需的审批规则。
+### 首次在仓库中使用
 
-**任务执行中。**`/plan` 在大型变更前切换到规划模式。`/model` 和 `/effort` 调整推理投入程度。当对话过长时，`/context` 显示窗口使用情况，`/compact` 进行压缩总结；使用 `/btw` 进行不应增加历史记录的快速旁问。
+运行 `/init` 生成初始 `CLAUDE.md`，然后使用 `/memory` 进行优化。使用 `/mcp` 和 `/agents` 设置项目所需的任何服务器或子代理，并使用 `/permissions` 设置所需的审批规则。
 
-**并行工作。**`/agents` 打开 Claude 可委托旁任务的[子代理](https://code.claude.com/docs/en/sub-agents)管理器，`/tasks` 列出当前会话后台运行的任务。`/background` 将会话转为[后台代理](https://code.claude.com/docs/en/agent-view)运行，释放终端。对于跨越整个代码库的大型变更，`/batch` 将其分解为独立单元并在各自的 [worktree](https://code.claude.com/docs/en/worktrees) 中运行。参见[并行运行代理](https://code.claude.com/docs/en/agents)了解这些方法之间的关系。
+### 任务执行中
 
-**发布前。**`/diff` 显示变更内容，`/simplify` 审查最近文件并应用质量和效率修复，`/review` 或 `/security-review` 进行更深度的只读审查。
+`/plan` 在大型变更前切换到规划模式。`/model` 和 `/effort` 调整推理投入程度。当对话过长时，`/context` 显示窗口使用情况，`/compact` 进行压缩总结；使用 `/btw` 进行不应增加历史记录的快速旁问。
 
-**会话之间。**`/clear` 在新任务上重新开始同时保留项目记忆。`/resume` 和 `/branch` 让你返回或分叉较早的对话。`/teleport` 将 Web 会话拉入终端，`/remote-control` 让你从另一设备继续当前本地会话。
+### 并行工作
 
-**遇到问题时。**`/rewind` 将代码和对话回滚到检查点，或总结对话的某部分。`/doctor` 和 `/debug` 诊断安装和运行时问题，`/feedback` 附带会话上下文提交错误报告。
+`/agents` 打开 Claude 可委托旁任务的[子代理](https://code.claude.com/docs/en/sub-agents)管理器，`/tasks` 列出当前会话后台运行的任务。`/background` 将会话转为[后台代理](https://code.claude.com/docs/en/agent-view)运行，释放终端。对于跨越整个代码库的大型变更，`/batch` 将其分解为独立单元并在各自的 [worktree](https://code.claude.com/docs/en/worktrees) 中运行。参见[并行运行代理](https://code.claude.com/docs/en/agents)了解这些方法之间的关系。
+
+### 发布前
+
+`/diff` 显示变更内容，`/simplify` 审查最近文件并应用质量和效率修复，`/review` 或 `/security-review` 进行更深度的只读审查。
+
+### 会话之间
+
+`/clear` 在新任务上重新开始同时保留项目记忆。`/resume` 和 `/branch` 让你返回或分叉较早的对话。`/teleport` 将 Web 会话拉入终端，`/remote-control` 让你从另一设备继续当前本地会话。
+
+### 遇到问题时
+
+`/rewind` 将代码和对话回滚到检查点，或总结对话的某部分。`/doctor` 和 `/debug` 诊断安装和运行时问题，`/feedback` 附带会话上下文提交错误报告。
+
+### 分叉对话分支
+
+在当前节点创建一个平行分支，保留原始对话：`/branch [name]`
+
+- 分叉后的分支可独立工作
+- 随时通过 /resume 返回原分支
+- 保留完整的对话历史
+
+场景：需要同时探索两个不同方向时使用。
 
 ## 所有命令
 

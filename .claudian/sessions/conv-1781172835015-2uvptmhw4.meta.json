@@ -1,0 +1,24 @@
+{
+  "id": "conv-1781172835015-2uvptmhw4",
+  "providerId": "claude",
+  "title": "如何基于当前会话创建一个新的会话",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1781172835067,
+  "updatedAt": 1781173022204,
+  "lastResponseAt": 1781172857812,
+  "sessionId": "c403c7ab-06af-449c-a428-82cba05dbdde",
+  "providerState": {
+    "providerSessionId": "c403c7ab-06af-449c-a428-82cba05dbdde"
+  },
+  "currentNote": "content/wiki/claude-code.md",
+  "usage": {
+    "model": "haiku",
+    "inputTokens": 6,
+    "cacheCreationInputTokens": 55202,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 55208,
+    "percentage": 28,
+    "contextWindowIsAuthoritative": true
+  }
+}

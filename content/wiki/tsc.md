@@ -101,11 +101,36 @@ declare const __APP_VERSION__: string
 
 在大型应用或 Monorepo（如使用 pnpm workspace）中，如果将所有代码放在一个庞大的 TypeScript 上下文中，`tsc` 检查会变得非常慢。
 
-此时会用到**项目引用**（Project References）：
+此时会用到**项目引用**（Project References）。典型的配置示例如下：
 
-- 在子项目中设置 `"composite": true`。
-- 在根目录的 `tsconfig.json` 中使用 `references` 数组引用子项目。
-  这样 `tsc -b`（build mode）就能实现增量编译，大幅提升类型检查的速度。
+**1. 子项目配置**（`packages/utils/tsconfig.json`）：
+必须开启 `composite` 选项以允许该项目被其他项目引用，并生成对应的增量编译信息。
+
+```json
+{
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "outDir": "dist"
+  },
+  "include": ["src/**/*"]
+}
+```
+
+**2. 根目录配置**（`tsconfig.json`）：
+通过 `references` 数组将子项目连接起来。
+
+```json
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext"
+  },
+  "references": [{ "path": "./packages/utils" }, { "path": "./packages/core" }]
+}
+```
+
+配置完成后，使用 `tsc -b`（或 `tsc --build`）代替普通的 `tsc` 命令。它会自动按依赖顺序执行增量编译，大幅提升整体的类型检查与编译速度。
 
 ## 延伸阅读
 
