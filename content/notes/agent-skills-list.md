@@ -23,3 +23,9 @@ https://github.com/anthropics/skills/blob/main/skills/internal-comms/SKILL.md
 使用 Mermaid 的基于文本的语法创建专业的软件图表。Mermaid 从简单的文本定义中渲染图表，使图表具有版本控制、易于更新和维护，并与代码一起维护。
 
 https://www.skills.sh/softaworks/agent-toolkit/mermaid-diagrams
+
+## next.js skills
+
+[[nextjs-skills]]
+
+https://github.com/vercel/next.js/tree/canary/.agents/skills
