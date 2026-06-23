@@ -1,0 +1,24 @@
+{
+  "id": "conv-1782119085931-cl4yvs437",
+  "providerId": "claude",
+  "title": "修复本文中的链接，改为对 Remote repo url",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1782119085931,
+  "updatedAt": 1782119278609,
+  "lastResponseAt": 1782119116210,
+  "sessionId": "21585925-d4d5-4e9e-bb92-df0da5a0ffbf",
+  "providerState": {
+    "providerSessionId": "21585925-d4d5-4e9e-bb92-df0da5a0ffbf"
+  },
+  "currentNote": "content/wiki/mattpocok-skills.md",
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 1222,
+    "cacheReadInputTokens": 47229,
+    "contextWindow": 200000,
+    "contextTokens": 48452,
+    "percentage": 24,
+    "contextWindowIsAuthoritative": true
+  }
+}

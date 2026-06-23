@@ -1,7 +1,7 @@
 {
   "userName": "",
   "permissionMode": "yolo",
-  "model": "haiku",
+  "model": "sonnet",
   "thinkingBudget": "off",
   "effortLevel": "high",
   "serviceTier": "default",
@@ -33,7 +33,7 @@
       "enableOpus1M": false,
       "enableSonnet1M": false,
       "customModels": "",
-      "lastModel": "haiku",
+      "lastModel": "sonnet",
       "environmentVariables": "",
       "environmentHash": ""
     },
@@ -46,9 +46,9 @@
       "reasoningSummary": "detailed",
       "environmentVariables": "",
       "environmentHash": "",
-      "installationMethod": "native-windows",
-      "installationMethodsByHost": {},
-      "wslDistroOverride": "",
+      "installationMethodsByHost": {
+        "device:9f68ded7-b193-41aa-8c5d-da8efdac0ee7": "native-windows"
+      },
       "wslDistroOverridesByHost": {}
     },
     "opencode": {
@@ -78,7 +78,7 @@
   },
   "settingsProvider": "claude",
   "savedProviderModel": {
-    "claude": "haiku"
+    "claude": "sonnet"
   },
   "savedProviderEffort": {
     "claude": "high"
