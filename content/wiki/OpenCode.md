@@ -8,6 +8,33 @@ tags:
 description: "Plan mode 用于分析代码结构与规划设计，Build mode 用于让 AI 写新功能、修 Bug 和重构代码。"
 ---
 
+## 切换 thinking effort
+
+使用快捷键 `Ctrl + T` 可以在不同的思考等级（如 Low、Medium、High）之间快速循环切换。
+
+## Config
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "*": "allow",
+    "bash": {
+      "rm *": "ask",
+      "rm -rf *": "deny",
+      "git push --force*": "deny",
+      "git reset --hard*": "ask",
+      "git clean *": "ask",
+      "chmod *": "ask",
+      "sudo *": "deny",
+      "*": "allow"
+    },
+    "external_directory": "allow"
+  },
+  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"]
+}
+```
+
 ## 自定义 command
 
 https://opencode.ai/docs/commands/
