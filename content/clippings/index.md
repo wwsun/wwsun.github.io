@@ -2,6 +2,67 @@
 title: Clippings
 ---
 
-这里存放我精选/翻译的互联网内容。
+# Clippings — 索引
 
-![[public/Clippings.base]]
+> 这里存放我精选/翻译的互联网内容。
+
+- [[10 个 NotebookLM 专家级高质量提示词|10 个 NotebookLM 专家级高质量提示词]] — 来自 @Ihtesham 分享的高质量提示词，青小蛙觉得写的非常赞啊，值得仔细学习一下。
+- [[2 百万人围观的 Claude Code 实战使用指南|2 百万人围观的 Claude Code 实战使用指南]] — This article provides senior engineer Eyad's practical guide to using Claude Code, emphasizing planning, context management, prompt engineering, and systematic use of AI tools to improve software development efficiency.
+- [[20 OpenClaw Prompts to Automate Your Daily Life and Work|20 个 OpenClaw 提示词：自动化你的日常生活与工作]] — 这是一篇介绍如何使用 **OpenClaw**（一款开源 AI 自动化代理框架）的实用提示词（Prompts）来自动化日常生活和工作任务的文章。文章提供了 20 个具体场景的使用示例
+- [[A01 Broken Access Control|A01 错误访问控制 - OWASP Top 10:2025 --- A01 Broken Access Control - OWASP Top 10:2025]] — 访问控制强制执行策略，使用户无法超出其预期权限范围。失败通常...
+- [[A02 Security Misconfiguratio|A02 Security Misconfiguration - OWASP Top 10:2025]] — Generally speaking, all data i...
+- [[A07 Authentication Failures|A07 认证失败]] — 当攻击者能够欺骗系统将无效或不正确的用户识别为合法用户时，这...
+- [[AI Agents 101 你需要了解的智能体基础|AI Agents 101: Everything You Need to Know About Agents]] — Imagine having an AI assistant that can not only answer your questions but also plan your entire vacation, negotiate deals for your business, or write and debug your code — all autonomously. This…
+- [[AI Powered Software Development Life Cycle|AI Powered Software Development Life Cycle]] — In today’s fast-paced technology landscape, software development has become a critical driver of innovation and business success. With the advent of AI technologies like Codex and AI-powered pair…
+- [[AI should help us produce better code|AI 应该帮助我们产出更好的代码]] — AI should help us produce better code - Agentic Engineering Patterns
+- [[AI 模型比较-Github Docs|AI 模型比较 - GitHub 文档]] — 比较 Copilot 对话助手 中的可用 AI 模型，并选择任务的最佳模型。
+- [[AI驱动的测试用例和应用开发平台|AI驱动的测试用例和应用开发平台_申报详情_荣誉]] — 易网是网易内网信息门户，包含易方天地、易彩纷呈、易点建议、KM、OA、服务导航等多个服务，从政策制度、业务动态、公司文化、公司风采、管理建议、生活建议等多个方面给员工提供全方位的信息传播与交流平台。
+- [[Agentic Software Development|Agentic Software Development]] — 格雷格·布鲁克曼概述了OpenAI的战略转变以及将工程团队过渡到以代理为中心的开发工作流程的实用框架。
+- [[Attention Is All You Need|Attention Is All You Need]] — Attention Is All You Need
+- [[Claude Code Tutorial Level 2|提交信息格式]] — 这是官方 Claude Code 教程的第二部分，我将在这里讲解更多进阶概念，帮助你更好地利用 Claude Code。如果你还没有阅读第一部分，强烈建议你先看那篇文章。本篇内容是在第一部分基础上进一步拓展的。
+- [[Claude Code 功能太强了——6 个月重度使用心得分享|Claude Code 功能太强了——6 个月重度使用心得分享]] — 编辑（最终版？）：我咬咬牙，花了一个下午为你们搭建了一个 g...
+- [[Claude Code 最佳实践|Claude Code Best Practices]] — A blog post covering tips and tricks that have proven effective for using Claude Code across various codebases, languages, and environments.
+- [[Claude Skills Tutorial Give your AI Superpowers|Weekly Team Update Skill]] — In the Matrix, there’s a scene where Morpheus is loading training programs into Neo’s brain and he wakes up from it and says, “I know Kung Fu.” That’s basically what Claude skills are. They’re a set of instructions that teach Claude how to do a certain thing. You explain it once in a document, like […]
+- [[Cont3xt.dev 解决 AI 上下文问题|Cont3xt.dev 解决 AI 上下文问题]] — Stop debating which is the best LLM for coding. I built Cont3xt.dev to give any AI coding tool your team's context.
+- [[Devin 教你做 Agent：把 AI 当做需要指导的初级开发者|Devin 教你做 Agent：把 AI 当做需要指导的初级开发者]] — Cognition 团队发布了一份编程智能体实践指南。
+- [[Devin's 2025 Performance Review Learnings From 18 Months of Agents At Work|Devin's 2025 Performance Review Learnings From 18 Months of Agents At Work]] — Eighteen months since launch, Devin’s gone from tackling small projects, to deeply embedding in engineering teams at thousands of companies, including some of the largest businesses in the world. We decided it was well past time for Devin to get a performance review - just like any human engineer.
+- [[GPT-5.2 Prompting Guide|GPT-5.2 Prompting Guide]] — GPT-5.2 is our newest flagship model for enterprise and agentic workloads, designed to deliver higher accuracy, stronger instruction foll...
+- [[Gemini 3.0 系统提示词|Gemini 3.0 系统提示词]] — 本文揭示了 Gemini 3.0 大语言模型的系统提示词，深入分析了其构建严密逻辑、引导推理深度并严格控制安全风险的指令设计，为 AI 开发者提供了宝贵的实践参考。
+- [[How Anthropic Built a Multi-Agent Research System|How Anthropic Built a Multi-Agent Research System]] — In this article, we will understand the architecture of the multi-agent research system that Anthropic built.
+- [[How to prompt v0|How to prompt v0]] — The best v0 prompts include three things. What you're building, who uses it and when, and your design constraints. This guide walks through the framework with side-by-side tests showing faster generation times, less code, and better UX decisions.
+- [[How we made v0 an effective coding agent|我们如何将 v0 打造为高效的编程智能体]] — v0’s composite AI pipeline boosts reliability by fixing errors in real time. Learn how dynamic system prompts, LLM Suspense, and autofixers work together to deliver stable, working web app generations at scale.
+- [[I Made Claude Code Think Before It Codes|教会 Claude Code 先思考再写代码。这是我的提示词。]] — 这篇文章介绍了一个 /wizard 提示词技能，通过 8 个阶段（规划→探索→TDD→最小实现→回归验证→文档→对抗性评审→质量门禁）让 Claude Code 从"快速编码"转变为"严谨架构"。
+- [[I got a private lesson on Claude Cowork & Claude Code  BestBlogs.dev|I got a private lesson on Claude Cowork & Claude Code  BestBlogs.dev]] — Anthropic founder Boris demonstrates Claude Co-work and Claude Code, showcasing how agentic AI can automate file management, browser tasks, and complex software engineering through a user-friendly interface.
+- [[Multi-Agent 多智能体架构解析--DeerFlow  BestBlogs.dev|Multi-Agent 多智能体架构解析--DeerFlow | BestBlogs.dev]] — 深入解析了字节跳动开源的多智能体协同框架 DeerFlow 的架构、核心 Agent 职责及数据流转逻辑，并提炼了关键 Prompt 设计。
+- [[My 20 Favorite ChatGPT Prompts for Coding in 2025|My 20 Favorite ChatGPT Prompts for Coding in 2025]] — I use ChatGPT almost every day as part of my coding workflow. Over time, I’ve learned that how you... Tagged with webdev, programming, java.
+- [[NotebookLM 使用指南|NotebookLM 使用指南]] — 很多人第一次用 NotebookLM，会出现一种“两极分化”的体验：这里的差距，往往不在于对NotebookLM的功能熟不熟悉，而在于你是把 NotebookLM 当成一个聊天工具，还是当成一套信息转化流程
+- [[OWASP Top 10 2025|OWASP Top 10:2025 --- Introduction]] — 2025 年的十大安全风险中新增了两个类别，并对一个类别进行...
+- [[State of LLMs 2026 RLVR, GRPO, Inference Scaling|State of LLMs 2026 RLVR, GRPO, Inference Scaling]] — State of LLMs 2026 RLVR, GRPO, Inference Scaling
+- [[The Technical Co-Founder Prompt|Build Any App: The Technical Co-Founder]] — Miles这个妙的点是用组织管理的逻辑驾驭 AI， 不着急让...
+- [[Unrolling the Codex agent loop|拆解 Codex 智能体循环]] — A technical deep dive into the Codex agent loop, explaining how Codex CLI orchestrates models, tools, prompts, and performance using the Responses API.
+- [[Writing a good CLAUDE|Writing a good CLAUDE.md]] — `CLAUDE.md` is a high-leverage configuration point for Claude Code. Learning how to write a good `CLAUDE.md` (or `AGENTS.md`) is a key skill for agent-enabled software engineering.
+- [[YC's Vibe Coding Guide|YC 编写的 Vibe Coding 指南]] — 与 AI 结对编程，就像是拥有了一位虽然才华横溢、但偶尔会“走神”的实习生。它能在一小时内帮你完成过去需要一周才能搞定的工作，但有时也会在你项目的核心代码里悄悄埋下一个“惊喜”。那么，如何才能驾驭好这位强大的编程伙伴呢？我们采访了多位利用 AI 编码的创始人，总结出了这套实用的“AI 协作编程指南”。
+- [[everything-claude-code-for-better-programmers|一名谷歌工程师如何利用 Claude Code 简化 80% 工作]] — 本文分享 Google 工程师用 Claude Code 和简单 dotnet 应用自动化 80% 工作，强调 AI 工具可大幅提升开发效率。
+- [[getting-the-most-out-of-codex|来自 Codex 官方团队的分享：如何把 Codex 用到极致]] — 大多数开发者最初使用编程智能体，是为了写代码：检查仓库、生成 diff、跑测试、开 pull request。
+- [[how-i-use-claude-code|我如何使用 Claude Code]] — The research-plan-implement workflow I use to build software with Claude Code, and why I never let it write code until I've approved a written plan.
+- [[i-read-the-claude-code-source-code|我读了 Claude Code 源代码——那些文档没告诉你的配置能力]] — 翻译自 buildingbetter.tech 文章，详细解读 Claude Code 源代码中隐藏的 hooks 返回字段、技能配置、agent 记忆系统、自动模式分类器等未文档化功能。
+- [[karpathy's second brain how to build it|Karpathy 的第二大脑：如何构建它]] — 本文拆解了 Andrej Karpathy 用 LLM 构建个人知识库的方法：让 AI 读取原始资料、整理成 wiki、持续维护并把知识变成可复利的研究系统。
+- [[superpowers-6|Superpowers 6]] — 原文：Superpowers 6 Superpowers 6...
+- [[一篇来自美国的AI末日爆款文|一篇来自美国的AI末日爆款文]] — 2028年全球智力危机：从未来视角看金融史的思考练习
+- [[中国版“标普500”上线：解读中证A500指数_中证网|中国版“标普500”上线：解读中证A500指数_中证网]] — 中国版“标普500”上线：解读中证A500指数
+- [[为智能体编写高效工具|Writing effective tools for AI agents—using AI agents]] — Writing effective tools for AI agents—using AI agents
+- [[五步框架把 Workflow 变成可进化的 Skill|五步框架把 Workflow 变成可进化的 Skill]] — 80 多个节点的 workflow，稳定性和可调整性真的不是 subagent 能比拟的吗？本文通过五步框架，展示如何用 Agent + Skills 架构实现复杂工作流，并正面回应稳定性、成本和门槛三大质疑。
+- [[从 0 到 1 开发一个 Agent（智能体）框架|Developing an Agent Framework from 0 to 1 | BestBlogs.dev]] — Datawhale explains in detail how to build a lightweight, education-oriented AI Agent Framework (HelloAgents) from scratch, implementing its core components and various Agent paradigms.
+- [[从 Copilot 到 通用 Agent ： 阿里在 AI Coding 上的应用和挑战|从 Copilot 到 通用 Agent ： 阿里在 AI Coding 上的应用和挑战]] — 从 Copilot 到 通用 Agent ： 阿里在 AI Coding 上的应用和挑战
+- [[从 “Tool search” 到 “Skills”：AI Agent 架构的范式重构|从 “Tool search” 到 “Skills”：AI Agent 架构的范式重构]] — 分析 AI Agent 架构从工具搜索到技能模式的转变，强调企业级应用的模块化和可靠性。
+- [[他们聊的不是产品，是未来：Claude Code 团队这期播客太震撼了|他们聊的不是产品，是未来：Claude Code 团队这期播客太震撼了]] — 这期播客的两位主角是Cat和Boris，他们是Claude Code的核心创建者。整期对话没有讲具体的功能设计，聊的全是非常本质的问题： 当模型每三个月就吞噬掉你精心搭建的脚手架，什么该被保留？什么该被删除？工具的终极形态是什么？当人和AI共享同一个界面、同一套工具，人的角色又是什么？
+- [[使用 Claude Agent SDK 构建智能体|使用 Claude Agent SDK 构建智能体]] — 在这篇文章中，我们将重点介绍我们构建 Claude Agent SDK 的原因、如何使用它构建你自己的智能体，并分享我们团队在实际部署中总结出的最佳实践。
+- [[使用 Claude Agent SDK 构建智能体的完整指南|使用 Claude Agent SDK 构建智能体的完整指南]] — The fast path to get up and running your own custom AI Agents.
+- [[先用 Deep Research 掃清認知盲區，再用 Google 搜尋，我的 6 種學習新流程|先用 Deep Research 掃清認知盲區，再用 Google 搜尋，我的 6 種學習新流程]] — 分享各種行動工作技巧、雲端生活應用，善用數位工具改變你我的工作效率與生活品質。
+- [[初探：从0开始的AI-Agent开发踩坑实录|初探：从0开始的AI-Agent开发踩坑实录]] — 引言 这事儿得回到两周前，彼时我刚入职，正兴致勃勃地想接下来...
+- [[如何在 1 小时内修复你的一生|如何在 1 小时内修复你的一生]] — You haven't experienced anythi...
+- [[我使用 Codex CLI 和 GPT-5.2 在 4.5 小时内将 JustHTML 从 Python 移植到 JavaScript|我使用 Codex CLI 和 GPT-5.2 在 4.5 小时内将 JustHTML 从 Python 移植到 JavaScript]] — 作者使用 Codex CLI 和 GPT-5.2 在 4.5 小时内成功将 Emil Stenström 的 JustHTML（Python HTML5 解析器）移植到 JavaScript，展示了前沿大型语言模型在复杂任务中的高级功能。
+- [[我是如何让我的团队转向规范驱动开发|我是如何让我的团队转向规范驱动开发]] — 你先设计文档/规范，然后用它们作为实现的输入。接着，把实现过程中发生的事情（调研、代理讨论、评审等）记录下来，作为输出规范，供以后参考。
+- [[探索-规划-编码工作流程|ClaudeCode 教程中心 - Claude Code 智能编程助手完整指南]] — Claude Code 最通用和有效的工作流程模式
+- [[生成既有质感，又能随意修改文字的完美 PPT|生成既有质感，又能随意修改文字的完美 PPT]] — 大家都很喜欢 NotebookLM 生成的 Audio Overview，它最近生成的 Slide Deck（幻灯片）风格也很棒。但有一个大问题：生成的 Slides 是死图，文字不能改，内容不能动。
+- [[编排多个代理|Orchestrating multiple agents]] — Coordinate the flow between several agents
