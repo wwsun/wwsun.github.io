@@ -12,21 +12,21 @@ description: 这里存放我的学习记录和一些零散整理的内容、思�
 - [[20-openclaw-prompts|20 条喂给你的 Openclaw 的提示词]] — 下面是一份我想用来“升级你”的 20 条提示词清单。把它们都读一遍，看看我们是否需要它们。1. SOUL.md — 完整人格文件不是那种“请你变得有帮助”的空话——而是一个真正的角色设定：包含声音/语气、词汇、决策框架、反水文（anti-slop）标准。让 Agent 像一个具体的人说话，而不是像聊
 - [[2026-investment-thinking|基于《2028年全球智能危机》的投资分析]] — [[一篇来自美国的AI末日爆款文]]基于《2028年全球智能危机》这篇文章所构建的逻辑，我们正处于“大裂变”的前夜。如果按照文中的时间线，2026年2月到2027年2月将是从“AI狂热”转向“现实冲击”的关键转折期。以下是基于该文章逻辑的未来1年投资策略建议：一、 核心战术：利用“凸性”（Conve
 - [[50-design-styles-for-better-prompting|提升 AI 提示词效果：设计师必知的 50 种设计风格]] — 一份针对生成式 AI 的设计风格备忘录，盘点了 50 种核心视觉风格及其在 AI 制图中的 Prompt 提效指南。
-- [[AI Diagram Cheatsheet|AI Diagram Cheatsheet]] — 常见图表类型和工具（包括 Mermaid、Graphviz、PlantUML 等）的速查表，适用于文档和项目管理。
+- [[AI Diagram Cheatsheet]] — 常见图表类型和工具（包括 Mermaid、Graphviz、PlantUML 等）的速查表，适用于文档和项目管理。
 - [[AI SLDC|AI SDLC]] — 新兴 AI 软件开发技术栈概览，包括代码搜索、构建运行器、Agent 编排器和代码沙箱。
-- [[Chrome DevTools MCP|Chrome DevTools MCP]] — 编码代理面临一个根本性问题：它们无法看到自己生成的代码在浏览器中运行时实际执行的操作。他们实际上是在蒙着眼睛编程。Chrome 开发者工具 MCP 服务器改变了这种情况。AI 编码助理可以直接在 Chrome 中调试网页，并受益于开发者工具的调试功能和性能洞见。这有助于他们更准确地识别和修复问题。M
-- [[Deep Research Agent|Deep Research Agent]] — 了解 Deep Research Agent：一种 AI 驱动的系统，能够接受目标、规划工作流并利用网络搜索等工具进行深入研究。
-- [[GLM Coding Plan|GLM Coding Plan]] — 使用 Claude Code 配合 GLM 模型的配置指南，包括 API 密钥设置和环境变量。
-- [[Google One Plan|Google One Plan]] — https://one.google.com/about/plans?g1_landing_page=0
+- [[Chrome DevTools MCP]] — 编码代理面临一个根本性问题：它们无法看到自己生成的代码在浏览器中运行时实际执行的操作。他们实际上是在蒙着眼睛编程。Chrome 开发者工具 MCP 服务器改变了这种情况。AI 编码助理可以直接在 Chrome 中调试网页，并受益于开发者工具的调试功能和性能洞见。这有助于他们更准确地识别和修复问题。M
+- [[Deep Research Agent]] — 了解 Deep Research Agent：一种 AI 驱动的系统，能够接受目标、规划工作流并利用网络搜索等工具进行深入研究。
+- [[GLM Coding Plan]] — 使用 Claude Code 配合 GLM 模型的配置指南，包括 API 密钥设置和环境变量。
 - [[Google|Google 搜索技巧]] — 高级 Google 搜索技巧合集，包括文件类型过滤、特定站点搜索和日期范围，以提高搜索效率。
+- [[Google One Plan]] — https://one.google.com/about/plans?g1_landing_page=0
 - [[OWASP-Top-10|OWASP Top 10]] — OWASP Top 10 是 Web 应用安全领域最权威的参...
 - [[Obsidian Markdown|Obsidian Markdown 语法]] — Obsidian Markdown 语法综合指南，包括链接、嵌入、Callouts、表格和脚注。
 - [[PAI|Personal AI infrastructure]] — 项目简介PAI 的宗旨是解决世界上的“P0 问题”：只有极少数人的创造力被激发，大多数人认为自己并没有什么价值，认为有“特殊”的人，而自己不是其中之一。我们的目标是通过 AI 激发每个人的潜能：激活更多人 —— 帮助每个人通过 AI 增强自我认知，识别并追求自己的目标和人生目的。让最好的 AI普惠众
 - [[Rebase or Merge master|Git Rebase 与 Merge 详解]] — Git Rebase 对比 Merge 的使用指南，强调‘公共历史神圣不可侵犯，私有历史由你主宰’的原则。
 - [[Spec-Driven-Development|Spec-Driven Development]] — 规范驱动开发 (SDD) 的最佳实践，定义输入/输出规范和 AI 辅助工作流。
-- [[Thinking in age 35|Thinking in age 35]] — 财务和技术技术复盘： AI Agent 工程化、低代码、稳定性、可观测。财务复盘： 长期主义的财务观念，建立稳定健康可持续的个人持仓方案，量化“抗风险周期”。工具流： 打磨基于 Obsidian 的 PKM Workflow。确保过去的技术积累能迅速被检索并复用到新场景中。AI Evolution持
-- [[Vibe Coding|Vibe Coding]] — Vibe Coding 工作流简易指南：收集上下文、分析结构并生成计划。
-- [[Vibe Engineering|Vibe Engineering]] — 探索 Vibe Engineering，以及大模型如何奖励优秀的软件工程实践（如测试、规划和文档）。
+- [[Thinking in age 35]] — 财务和技术技术复盘： AI Agent 工程化、低代码、稳定性、可观测。财务复盘： 长期主义的财务观念，建立稳定健康可持续的个人持仓方案，量化“抗风险周期”。工具流： 打磨基于 Obsidian 的 PKM Workflow。确保过去的技术积累能迅速被检索并复用到新场景中。AI Evolution持
+- [[Vibe Coding]] — Vibe Coding 工作流简易指南：收集上下文、分析结构并生成计划。
+- [[Vibe Engineering]] — 探索 Vibe Engineering，以及大模型如何奖励优秀的软件工程实践（如测试、规划和文档）。
 - [[Xiaomi MIMO|小米 MIMO API 集成]] — 用于集成小米 MIMO 平台的 API 文档和 Claude Code 配置。
 - [[agent-developer-roadmap|Agent Developer Roadmap]] — LLM Overview and Foundations P...
 - [[agent-driven-workflow|Agent 驱动的开发流程]] — --- --- 先把两个工具中所有相关 skill 的源码读...
@@ -51,7 +51,7 @@ description: 这里存放我的学习记录和一些零散整理的内容、思�
 - [[context-document|Content Document]] — ① 项目的背景是什么 ② 之前尝试过什么 ③ 什么是成功，什么是失败 ④ 谁会受影响 ⑤ 有哪些约束条件
 - [[decision-framework|决策框架：想能应可已正将]] — 决策框架：想、能、应、可、已、正、将。想：我想不想做？这是初心，是所有行动的起点。能：我能不能做？这是能力和资源的评估。应：我应不应该做？这是伦理和道德的约束。可：我可不可以做？这是法律和制度的许可。已：已经发生了什么？这是历史包袱和技术债。正：正在做什么？这是当前的状态。将：将要做什么？这是未来的
 - [[dotfiles management|用 bare repo 管理 HOME 目录中的 dot files]] — git init --bare $HOME/.dotfile...
-- [[experiences-overview|experiences-overview]] — experiences-overview
+- [[experiences-overview]] — experiences-overview
 - [[fake-random-address|Fake random japan address]] — sometimes you need a faked address, you can use this generatorTranslated Address: 1272-4, Honshio-cho, Shinjuku-ku, TokyoCity: TokyoZip Code/Postal co
 - [[gpt-5 vs gpt-4.1|GPT-5 vs GPT-4.1]] — GPT-5 (推理型) 与 GPT-4.1 (速度型) 的详细对比，帮助用户选择适合其应用需求的模型。
 - [[h5-image-best-practices|H5 页面背景图规范与处理指南]] — 移动端 H5 页面背景图的最佳视觉尺寸、文件体积控制规范，以及如何将大尺寸高清图片处理为 H5 适用规格的操作流程。
