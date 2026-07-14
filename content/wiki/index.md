@@ -18,6 +18,7 @@ description: 个人知识库，记录技术文档、工具使用指南和零散�
 - [[DPO|Direct Preference Optimization, 直接偏好优化]] — 如果说传统的 RLHF (PPO) 是绕远路，那么 DPO 就是通过数学上的巧妙转换，直接抄了近路，在对话对齐中以更低计算开销实现与 PPO 平起平坐的效果。
 - [[Deno vs Bun|Deno vs Bun]] — Deno 和 Bun 的对比分析，涵盖内核引擎、开发语言、首要目标、包管理和 Node 兼容性等关键特性差异。
 - [[Deno|Deno]] — Deno is an open source JavaScript, TypeScript, and WebAssembly runtime with secure defaults and a great developer experience, built on V8, Rust, and Tokio.
+- [[GPT-5-6|GPT 5-6]] — 未命名
 - [[Gemini-CLI|Gemini CLI]] — Gemini CLI 是 Google 开源的命令行 AI 编码工具，提供每日 1500 次免费配额，支持自定义 Skills、MCP 集成和持久化记忆功能。
 - [[Github|Github]] — GitHub 官方 RSS 订阅源汇总，包括仓库发布、提交记录、用户动态和私有订阅等多种 Feed 格式。
 - [[Google Antigravity|Google Antigravity]] — Google Antigravity 的 marketplace、skills 配置和使用说明，包含 skill 文件格式示例。
