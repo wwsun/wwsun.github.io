@@ -10,93 +10,93 @@ description: 个人知识库，记录技术文档、工具使用指南和零散�
 > 这里是我的个人知识库，记录了各种技术文档、工具使用指南和零散的知识点。
 
 - [[A2UI|A2UI]] — A2UI (Agent-to-User Interface) 是 Google 推出的 AI 代理界面框架，支持声明式定义跨平台自适应 UI。
+- [[vercel-add-skills|add-skills 代码学习]] — `skills` 是一个开放的 AI Agent 技能生态系统 CLI 工具，面向开发者，让他们能将 Markdown 格式的"技能"文件（SKILL.md）安装到 40+ 种 AI Agent（Claude Code、Cursor、Codex 等）的配置目录中。
 - [[Agent Skills|Agent Skills]] — Skills 是一组指令，用来教 Claude 如何完成某项任务。你只需在一个文档中解释一次，然后交给 Claude 使用。
-- [[Anthropic-Skills|Anthropic Skills]] — 这个仓库是 Anthropic 官方维护的 Agent Sk...
-- [[Chain-of-Thought|Chain-of-Thought 思维链]] — CoT 的核心在于打破"输入输出"的直接映射，强制模型生成中间推理步骤，从而提升大语言模型的复杂推理能力。
-- [[Claude.md|CLAUDE.md]] — CLAUDE.md 是一个特殊文件，Claude 在开始对话时会自动将其引入上下文，适合记录常用命令、代码风格指南、测试说明和仓库规范。
-- [[Clawd.bot|Clawd.bot]] — clawd.bot 是一个长期在线的 AI 消息网关与 Agent 宿主，能够将聊天平台桥接到 AI Agent，实现跨平台消息中转与任务自动化。
-- [[DPO|Direct Preference Optimization, 直接偏好优化]] — 如果说传统的 RLHF (PPO) 是绕远路，那么 DPO 就是通过数学上的巧妙转换，直接抄了近路，在对话对齐中以更低计算开销实现与 PPO 平起平坐的效果。
-- [[Deno vs Bun|Deno vs Bun]] — Deno 和 Bun 的对比分析，涵盖内核引擎、开发语言、首要目标、包管理和 Node 兼容性等关键特性差异。
-- [[Deno|Deno]] — Deno is an open source JavaScript, TypeScript, and WebAssembly runtime with secure defaults and a great developer experience, built on V8, Rust, and Tokio.
-- [[Gemini-CLI|Gemini CLI]] — Gemini CLI 是 Google 开源的命令行 AI 编码工具，提供每日 1500 次免费配额，支持自定义 Skills、MCP 集成和持久化记忆功能。
-- [[Github|Github]] — GitHub 官方 RSS 订阅源汇总，包括仓库发布、提交记录、用户动态和私有订阅等多种 Feed 格式。
-- [[Google Antigravity|Google Antigravity]] — Google Antigravity 的 marketplace、skills 配置和使用说明，包含 skill 文件格式示例。
-- [[HTTP Status Code|HTTP Status Code]] — HTTP 常见状态码速查表，涵盖 1xx 信息响应、2xx 成功、3xx 重定向、4xx 客户端错误和 5xx 服务器错误。
-- [[LLM|Large Language Model]] — LLM 的基石是 Transformer 架构，涵盖自注意力机制、位置编码、分词、预训练到对齐的全生命周期，以及 MoE、Flash Attention 等现代工程挑战。
-- [[MoE|Mixture of Experts，混合专家模型]] — 如果说 Transformer 的多头是让模型在特征空间上进行并行关注，那么 MoE 则是让模型在模型参数上实现条件计算，以更低推理成本实现远超激活参数量的性能。
-- [[OpenCode|OpenCode]] — Plan mode 用于分析代码结构与规划设计，Build mode 用于让 AI 写新功能、修 Bug 和重构代码。
-- [[OpenSpec|OpenSpec]] — OpenSpec 帮助你和 AI 编码助手在编写任何代码之前就达成共识，定义要构建什么，通过提案、规格、设计和任务四类工件指导实现流程。
-- [[Pre-training|Pre-training]] — 可以将预训练（Pre-training）理解为大型语言模型（LLM）的通识教育阶段，模型通过自监督学习从海量无标注文本中习得语法、世界知识和推理线索。
-- [[RAG|Retrieval-Augmented Generation (RAG)]] — RAG（检索增强生成）对做 Agent 很关键：它让模型"先查再答"，把回答锚定在你自己的知识库/工具结果上，而不是只靠参数记忆。
-- [[RLHF|RLHF 基于人类反馈的强化学习]] — 可以将 RLHF（基于人类反馈的强化学习）理解为一个将人类的主观偏好数学化并注入模型的过程，通过 SFT、奖励模型训练和 PPO 优化三个阶段让模型对齐人类价值观。
-- [[ReAct|ReAct]] — ReAct（Reason + Act）本质是让模型在思考（推理/计划）—行动（调用工具/读写环境）—观察（读取结果）的循环里完成任务。
-- [[Reasoning Model|Reasoning Model]] — 推理模型（Reasoning Model）引入思维链强化，在给出答案前产生大量内部推理 Token 实现慢思考，擅长数学证明、复杂编程和逻辑谜题等需要深度推理的任务。
-- [[Release-it|release-it]] — Automate versioning and package publishing
-- [[Scaling Laws|Scaling Laws]] — 如果把预训练看作是炼丹，那么 Scaling Laws 就是那本告诉你要放多少料、烧多久火的炼丹准则，描述了模型性能与计算量、参数量和数据量之间的幂律数学关系。
-- [[TAURI|TAURI]] — Tauri 是一个应用构建工具包，让你可以使用 Web 技术为所有主流桌面操作系统构建软件，核心库使用 Rust 编写，用户界面可使用任何前端框架。
-- [[Tokenization|Tokenization 分词/标记化]] — 可以将 Tokenization（分词/标记化）理解为 NLP 流水线中的数据预处理逻辑，核心任务是将连续的字符串映射为离散的整数序列作为神经网络输入，主流方案为子词分词。
-- [[WebAssembly|WebAssembly]] — WebAssembly（Wasm）是一种面向 Web 的二进制指令格式与运行时，即可移植的低层字节码加沙箱执行模型，被设计成在浏览器中接近原生性能地执行 CPU 密集型任务。
 - [[agents-md|AGENTS.md 是什么]] — README.md 面向人类开发者，AGENTS.md 面向智能体。AGENTS.md 用于帮助 AI 编程助手高效处理项目。
 - [[ai-coding-learning-science-principles|AI 辅助编码中的学习科学原理]] — 整理自 Learning Opportunities 项目的 PRINCIPLES.md，系统梳理 AI 编码中需要警惕的学习陷阱及应对策略
+- [[Anthropic-Skills|Anthropic Skills]] — 这个仓库是 Anthropic 官方维护的 Agent Sk...
 - [[bat|bat 但带有 git 集成和语法高亮.]] — bat 对大部分编程语言和标记语言提供语法高亮： bat 能...
 - [[bolt.diy|Bolt.diy 代码学习]] — bolt.diy 是一个完全在浏览器中运行的 AI 驱动全栈 Web 开发环境。它是 Bolt.new 的官方开源版本，其主要区别在于它允许用户为每个提示词选择自己的 LLM 提供商和模型。
 - [[brew|brew]] — brew search <包名> 例：brew search...
-- [[building-skills-for-claude|构建 Claude 技能完整指南]] — Anthropic 官方发布的 Claude Skills 构建指南中文翻译，涵盖基础概念、规划设计、测试迭代和分发分享全流程
 - [[bun-quick-start|Bun 入门指南]] — Bun 不仅仅是一个运行时，它是一个集运行时、包管理器、打包器、测试运行器于一体的全栈工具链。
+- [[Chain-of-Thought|Chain-of-Thought 思维链]] — CoT 的核心在于打破"输入输出"的直接映射，强制模型生成中间推理步骤，从而提升大语言模型的复杂推理能力。
 - [[clack-prompts|Clack - 现代、灵活、强大的 CLI 界面库]] — Clack 是一个现代、灵活且强大的 CLI 库，帮助你轻松构建美观的命令行界面。它提供了一组高级组件和低级原语，使创建交互式命令行应用变得简单。
 - [[clash|Clash]] — Clash 代理工具配置指南，推荐转向 Clash Verge Rev 等现代内核，涵盖规则自定义、TUN 模式与性能优化。
 - [[claude-agent-adaptive-thinking|Claude Agent Adaptive Thinking]] — Claude adaptive thinking 的中文整理、迁移建议与 TypeScript 示例
 - [[claude-agent-effort|Claude Agent Effort]] — Claude Agent SDK 中 effort 参数的中文翻译整理与选型建议
 - [[claude-agent-prompting-best-practices|Claude Agent Prompting 最佳实践]] — Claude 最新模型的提示工程实践整理，涵盖清晰表达、结构化提示、工具调用、thinking 与 agent 系统设计
 - [[claude-agent-sandbox|Claude Agent Sandbox]] — Claude Agent SDK 与传统的无状态 LLM API 不同，它维护对话状态并在持久化环境中执行命令，本文涵盖生产环境下代理的架构、托管注意事项和最佳实践。
-- [[claude-agent-sdk|Claude-Agent-SDK]] — 对比 systemPrompt 与 CLAUDE.md 在 Claude Agent SDK 中的职责分工：systemPrompt 定义平台层身份与约束，CLAUDE.md 定义知识层行为流程与领域知识。
-- [[claude-code-router|Claude Code Router]] — Claude Code 的第三方路由代理工具，支持将 API 请求转发至多个 LLM 提供商，实现模型切换与成本优化。
 - [[claude-code|Claude Code]] — Claude Code 使用指南 —— 从配置到日常工作流的完整参考
-- [[claude-design-skills|面向 Claude Code 的必备 UI/UX 设计技能大盘点]] — 随着 Claude Code 等 AI 编程助手的崛起，UI/UX 设计师的角色正发生转变，需要掌握结构化提示语设计与 MCP 生态衔接等核心技能。
-- [[claude-skill-md-frontmatter|SKILL.md Frontmatter 完整字段]] — SKILL.md Frontmatter 完整字段
-- [[cli-anything|CLI-Anything]] — 让任意软件都能被 AI Agent 驱动
-- [[codex-cli|Codex-CLI]] — OpenAI Codex CLI 配置与使用指南，涵盖 yolo 模式、审批策略与沙箱安全配置。
+- [[claude-code-router|Claude Code Router]] — Claude Code 的第三方路由代理工具，支持将 API 请求转发至多个 LLM 提供商，实现模型切换与成本优化。
 - [[codex-plugin-cc|Claude Code 的 Codex 插件]] — 在 claude code 中使用 codex 进行 code review
+- [[claude-agent-sdk|Claude-Agent-SDK]] — 对比 systemPrompt 与 CLAUDE.md 在 Claude Agent SDK 中的职责分工：systemPrompt 定义平台层身份与约束，CLAUDE.md 定义知识层行为流程与领域知识。
+- [[Claude.md|CLAUDE.md]] — CLAUDE.md 是一个特殊文件，Claude 在开始对话时会自动将其引入上下文，适合记录常用命令、代码风格指南、测试说明和仓库规范。
+- [[Clawd.bot|Clawd.bot]] — clawd.bot 是一个长期在线的 AI 消息网关与 Agent 宿主，能够将聊天平台桥接到 AI Agent，实现跨平台消息中转与任务自动化。
+- [[cli-anything|CLI-Anything]] — 让任意软件都能被 AI Agent 驱动
 - [[codex-sdk|Codex SDK]] — Codex SDK 官方 TypeScript 开发指南
-- [[copilot-cli|GitHub Copilot CLI 最佳实践]] — GitHub Copilot CLI 是一款原生终端 AI 编程助手，将智能体能力直接带入命令行，支持自主委派任务、代码审查与多仓库工作流。
+- [[codex-cli|Codex-CLI]] — OpenAI Codex CLI 配置与使用指南，涵盖 yolo 模式、审批策略与沙箱安全配置。
 - [[curl|curl 指南：接口调试必备]] — 面向开发者的 curl 实战指南，涵盖接口验证、JSON 发送、身份认证及调试调试技巧。
+- [[Deno|Deno]] — Deno is an open source JavaScript, TypeScript, and WebAssembly runtime with secure defaults and a great developer experience, built on V8, Rust, and Tokio.
 - [[deno sandbox|deno sandbox]] — Deno Sandbox 为您提供轻量级 Linux 微型虚拟机，以深度防御的安全机制运行不可信代码，可通过 JavaScript 或 Python SDK 以编程方式创建，启动时间不到一秒。
+- [[Deno vs Bun|Deno vs Bun]] — Deno 和 Bun 的对比分析，涵盖内核引擎、开发语言、首要目标、包管理和 Node 兼容性等关键特性差异。
+- [[DPO|Direct Preference Optimization, 直接偏好优化]] — 如果说传统的 RLHF (PPO) 是绕远路，那么 DPO 就是通过数学上的巧妙转换，直接抄了近路，在对话对齐中以更低计算开销实现与 PPO 平起平坐的效果。
 - [[docker-compose|docker-compose]] — docker compose 是一个用于定义和运行多容器 Docker 应用程序的工具。
 - [[eza|eza: 现代化的 ls 替代品]] — eza 是一款现代化的 ls 替代品，内置图标、Git 状态集成和树状视图，显著提升开发者的终端体验。
 - [[fd|fd 快速上手指南]] — 在 macOS 或 Linux 下，fd 是一个非常高效且现代化的文件查找工具，可以快速查找特定名字的文件或目录。
 - [[figma-context-mcp|Figma-Context-MCP]] — Figma-Context-MCP是一个基于 Model Context Protocol (MCP) 的服务器，旨在让 AI 编程助手直接访问 Figma 设计数据。
 - [[fnm|fnm]] — fnm (Fast Node Manager) 是一个用 Rust 编写的快速 Node.js 版本管理工具，支持安装、切换和管理多个 Node.js 版本。
+- [[Gemini-CLI|Gemini CLI]] — Gemini CLI 是 Google 开源的命令行 AI 编码工具，提供每日 1500 次免费配额，支持自定义 Skills、MCP 集成和持久化记忆功能。
 - [[get-shit-down|get-shit-down]] — GSD 解决 Vibe Coding 质量不稳定的问题。它是让 Claude Code 变得可靠的上下文工程层。你只要描述想法，系统会自动提取它需要知道的一切，然后让 Claude Code 去干活。
 - [[ghostty|ghostty 常用设置]] — Ghostty 终端模拟器的常用设置，包括字体配置、主题选择、快捷键和分屏管理等。
-- [[git-rebase|Git rebase 理解]] — 在 git rebase 过程中，如果发生代码冲突，编辑器（...
 - [[git|git]] — Git 常用命令速查，涵盖配置初始化、远程仓库管理、提交撤销、分支操作、cherry-pick 和 worktree 等高频操作。
+- [[git-rebase|Git rebase 理解]] — 在 git rebase 过程中，如果发生代码冲突，编辑器（...
+- [[Github|Github]] — GitHub 官方 RSS 订阅源汇总，包括仓库发布、提交记录、用户动态和私有订阅等多种 Feed 格式。
+- [[copilot-cli|GitHub Copilot CLI 最佳实践]] — GitHub Copilot CLI 是一款原生终端 AI 编程助手，将智能体能力直接带入命令行，支持自主委派任务、代码审查与多仓库工作流。
+- [[Google Antigravity|Google Antigravity]] — Google Antigravity 的 marketplace、skills 配置和使用说明，包含 skill 文件格式示例。
 - [[google-discovery-service|Google Discovery Service]] — Google Discovery Service 是 Google 所有 REST API 的自描述 Schema 中心，每个 API 提供一个 JSON 文档精确描述其资源层级、方法、参数和认证要求。
 - [[google-workspace-cli|google-workspace-cli]] — Google Workspace CLI (gws) 是一个用 Rust 编写的动态命令行工具，通过运行时解析 Google Discovery Service 的 JSON 文档自动生成命令界面，为所有 Google Workspace API 提供统一的 CLI 访问入口。
 - [[grep|grep]] — grep 是你进行代码搜索、日志排查等日常开发中极其重要的命令行工具，支持正则表达式和丰富的过滤选项。
-- [[gstack-skills|gstack Skills 深度解析]] — 每个 gstack 技能的详细指南，涵盖理念、工作流程和示例，从 office-hours 到 QA、ship 的完整冲刺流程。
 - [[gstack|gstack]] — gstack 是 Y Combinator CEO Garry Tan 开源的 Claude Code 技能集合，将 Claude Code 转变为虚拟工程团队。
+- [[gstack-skills|gstack Skills 深度解析]] — 每个 gstack 技能的详细指南，涵盖理念、工作流程和示例，从 office-hours 到 QA、ship 的完整冲刺流程。
+- [[HTTP Status Code|HTTP Status Code]] — HTTP 常见状态码速查表，涵盖 1xx 信息响应、2xx 成功、3xx 重定向、4xx 客户端错误和 5xx 服务器错误。
+- [[LLM|Large Language Model]] — LLM 的基石是 Transformer 架构，涵盖自注意力机制、位置编码、分词、预训练到对齐的全生命周期，以及 MoE、Flash Attention 等现代工程挑战。
 - [[learning-opportunities|Learning Opportunities — AI 辅助编码中的刻意练习技能插件]] — 基于学习科学的 Claude Code/Codex 技能插件调研，面向 Claude Code 用户的安装指南、使用场景和价值分析
 - [[linux-commands|Linux 常用排错与开发命令]] — 作为 Web 开发者，登录服务器排查问题是家常便饭，以下是必备且最高频的 Linux 命令集合，按场景分类。
-- [[mattpocok-skills|Skills For Real Engineers]] — Matt Pocock 的 Agent Skills 仓库 README 完整中文翻译，阐述其设计理念、四大失败模式及解决方案、所有技能的职责与调用模式
+- [[MoE|Mixture of Experts，混合专家模型]] — 如果说 Transformer 的多头是让模型在特征空间上进行并行关注，那么 MoE 则是让模型在模型参数上实现条件计算，以更低推理成本实现远超激活参数量的性能。
 - [[nginx|nginx beginner guide]] — Nginx 入门指南，涵盖 Master-Worker 进程模型、反向代理、负载均衡和静态资源服务三大核心场景的配置与排错。
-- [[npm-check-updates|npm-check-updates]] — ncu 用于升级 package.json 依赖，兼容 npm、yarn、pnpm、deno 和 bun，支持交互模式和 workspace 操作。
-- [[npm-check|npm-check]] — npm-check 用于检查过时、不正确和未使用的 npm 依赖，支持交互式升级和全局模块更新。
 - [[npm|npm]] — npm 常用命令速查，涵盖依赖管理、版本升级、缓存管理、私有 registry 认证与发布以及 workspace 操作。
-- [[open-cli|OpenCLI]] — OpenCLI 是一个革命性的 CLI 工具，能够让任何网站、Electron 应用或本地工具成为你的 CLI。
+- [[npm-check|npm-check]] — npm-check 用于检查过时、不正确和未使用的 npm 依赖，支持交互式升级和全局模块更新。
+- [[npm-check-updates|npm-check-updates]] — ncu 用于升级 package.json 依赖，兼容 npm、yarn、pnpm、deno 和 bun，支持交互模式和 workspace 操作。
 - [[openai-skills|OpenAI Agent Skills 架构速览]] — OpenAI 开源的 Agent Skills 标准与目录深度分析：揭秘 AI 代理如何通过标准化文件夹获取指令、脚本与资源。
 - [[openclaw|OpenClaw]] — OpenClaw 是一款开源本地优先的自主 AI 智能体，本文整理了关于 OpenClaw 的核心架构、配置文件体系及高阶安全与协作边界设定。
+- [[open-cli|OpenCLI]] — OpenCLI 是一个革命性的 CLI 工具，能够让任何网站、Electron 应用或本地工具成为你的 CLI。
+- [[OpenCode|OpenCode]] — Plan mode 用于分析代码结构与规划设计，Build mode 用于让 AI 写新功能、修 Bug 和重构代码。
+- [[OpenSpec|OpenSpec]] — OpenSpec 帮助你和 AI 编码助手在编写任何代码之前就达成共识，定义要构建什么，通过提案、规格、设计和任务四类工件指导实现流程。
 - [[pbcopy|pbcopy]] — 是 macOS 上用来把文本写入剪贴板的命令行工具，pbcopy = pasteboard copy，配合 pbpaste 可完成剪贴板读写操作。
 - [[pinchbench|PinchBench]] — PinchBench 是一个用于评估 LLM 模型作为 OpenClaw 编码 Agent 性能的基准测试系统，通过真实世界的任务来测量模型在完整 Agent 环境下的综合表现。
 - [[pnpm|pnpm]] — pnpm 是一个快速、节省磁盘空间的 Node.js 包管理器，支持 monorepo 工作区管理，通过硬链接和符号链接实现高效的依赖存储。
+- [[Pre-training|Pre-training]] — 可以将预训练（Pre-training）理解为大型语言模型（LLM）的通识教育阶段，模型通过自监督学习从海量无标注文本中习得语法、世界知识和推理线索。
 - [[projj|projj]] — Manage git repositories with directory conventions.
+- [[ReAct|ReAct]] — ReAct（Reason + Act）本质是让模型在思考（推理/计划）—行动（调用工具/读写环境）—观察（读取结果）的循环里完成任务。
+- [[Reasoning Model|Reasoning Model]] — 推理模型（Reasoning Model）引入思维链强化，在给出答案前产生大量内部推理 Token 实现慢思考，擅长数学证明、复杂编程和逻辑谜题等需要深度推理的任务。
+- [[Release-it|release-it]] — Automate versioning and package publishing
 - [[remix|Remix]] — Remix 是一个全栈 web 框架，基于 React Router 构建，注重 web 标准、服务端渲染和性能优化，支持数据加载、表单处理等开箱即用的能力。
+- [[RAG|Retrieval-Augmented Generation (RAG)]] — RAG（检索增强生成）对做 Agent 很关键：它让模型"先查再答"，把回答锚定在你自己的知识库/工具结果上，而不是只靠参数记忆。
+- [[RLHF|RLHF 基于人类反馈的强化学习]] — 可以将 RLHF（基于人类反馈的强化学习）理解为一个将人类的主观偏好数学化并注入模型的过程，通过 SFT、奖励模型训练和 PPO 优化三个阶段让模型对齐人类价值观。
 - [[routa|Routa 一个 multi-agents 编排平台]] — Routa 是一个面向 AI 开发的多智能体编排平台，让多个 AI Agent 协作完成复杂的开发任务。
+- [[Scaling Laws|Scaling Laws]] — 如果把预训练看作是炼丹，那么 Scaling Laws 就是那本告诉你要放多少料、烧多久火的炼丹准则，描述了模型性能与计算量、参数量和数据量之间的幂律数学关系。
 - [[sdkman|sdkman]] — 关于 SDKMAN!，对于从 Node.js 环境转向 Java 生态的开发者来说，其核心定位和使用逻辑与 nvm 非常相似，基于 Shell 环境变量动态修改来实现 JDK 版本隔离。
+- [[claude-skill-md-frontmatter|SKILL.md Frontmatter 完整字段]] — SKILL.md Frontmatter 完整字段
+- [[mattpocok-skills|Skills For Real Engineers]] — Matt Pocock 的 Agent Skills 仓库 README 完整中文翻译，阐述其设计理念、四大失败模式及解决方案、所有技能的职责与调用模式
 - [[skills.sh|skills.sh]] — the open source skills ecosystem
-- [[ssh 密钥类型对比|ssh 密钥类型对比]] — SSH 支持 RSA、DSA、ECDSA 和 Ed25519 四种主要密钥类型，本文对其算法基础、安全性、签名速度、兼容性和推荐程度进行了全面对比，首选 Ed25519。
 - [[ssh|ssh]] — macOS 自带 SSH 客户端，无需额外安装。涵盖密钥生成、config 配置管理、安全设置、跳板机和端口转发等常用操作指南。
+- [[ssh 密钥类型对比|ssh 密钥类型对比]] — SSH 支持 RSA、DSA、ECDSA 和 Ed25519 四种主要密钥类型，本文对其算法基础、安全性、签名速度、兼容性和推荐程度进行了全面对比，首选 Ed25519。
 - [[superpower|Superpowers - 流行的 Claude 插件包]] — Superpowers 是为编码智能体构建的完整软件开发工作流程，基于可组合的技能和初始指令，包括头脑风暴、TDD、代码审查和子代理驱动开发等环节。
 - [[tailwindcss|TailwindCSS 引入与实战指南]] — 为前端项目引入 TailwindCSS 的核心概念、最佳实践以及避坑指南，帮助开发者快速构建现代化响应式界面。
+- [[TAURI|TAURI]] — Tauri 是一个应用构建工具包，让你可以使用 Web 技术为所有主流桌面操作系统构建软件，核心库使用 Rust 编写，用户界面可使用任何前端框架。
+- [[Tokenization|Tokenization 分词/标记化]] — 可以将 Tokenization（分词/标记化）理解为 NLP 流水线中的数据预处理逻辑，核心任务是将连续的字符串映射为离散的整数序列作为神经网络输入，主流方案为子词分词。
 - [[tsc|TypeScript Compiler (tsc)]] — 关于 tsc 必须要知道的核心概念、常用配置与最佳实践
-- [[vercel-add-skills|add-skills 代码学习]] — `skills` 是一个开放的 AI Agent 技能生态系统 CLI 工具，面向开发者，让他们能将 Markdown 格式的"技能"文件（SKILL.md）安装到 40+ 种 AI Agent（Claude Code、Cursor、Codex 等）的配置目录中。
 - [[vercel-json-render|Vercel JSON Render]] — Vercel JSON Render 采取让模型生成映射到预定义组件集的 JSON，而不是任意代码，从而提供安全受控的生成式 UI 渲染。
+- [[WebAssembly|WebAssembly]] — WebAssembly（Wasm）是一种面向 Web 的二进制指令格式与运行时，即可移植的低层字节码加沙箱执行模型，被设计成在浏览器中接近原生性能地执行 CPU 密集型任务。
+- [[building-skills-for-claude|构建 Claude 技能完整指南]] — Anthropic 官方发布的 Claude Skills 构建指南中文翻译，涵盖基础概念、规划设计、测试迭代和分发分享全流程
+- [[claude-design-skills|面向 Claude Code 的必备 UI/UX 设计技能大盘点]] — 随着 Claude Code 等 AI 编程助手的崛起，UI/UX 设计师的角色正发生转变，需要掌握结构化提示语设计与 MCP 生态衔接等核心技能。
