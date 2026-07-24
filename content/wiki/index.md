@@ -100,3 +100,4 @@ description: 个人知识库，记录技术文档、工具使用指南和零散�
 - [[tsc|TypeScript Compiler (tsc)]] — 关于 tsc 必须要知道的核心概念、常用配置与最佳实践
 - [[vercel-add-skills|add-skills 代码学习]] — `skills` 是一个开放的 AI Agent 技能生态系统 CLI 工具，面向开发者，让他们能将 Markdown 格式的"技能"文件（SKILL.md）安装到 40+ 种 AI Agent（Claude Code、Cursor、Codex 等）的配置目录中。
 - [[vercel-json-render|Vercel JSON Render]] — Vercel JSON Render 采取让模型生成映射到预定义组件集的 JSON，而不是任意代码，从而提供安全受控的生成式 UI 渲染。
+- [[GPT-5-6|GPT-5-6]] — GPT-5.6 Sol、Terra 和 Luna 模型与 Claude 模型的综合对比与价格分析。
