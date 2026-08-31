@@ -24,6 +24,7 @@ description: 这里存放我的学习记录和一些零散整理的内容、思�
 - [[claude-code-superpower-plugin|Claude Code 的 Superpowers 插件：真正有效的结构化工作流]] — Superpowers 插件 在五个月内获得了 107,00...
 - [[codex-features|Codex CLI 功能特性]] — Codex 支持超越聊天的工作流。使用本指南了解每个功能解锁...
 - [[codex-best-practices|Codex 最佳实践]] — 如果你是 Codex 或编码智能体的新手，本指南将帮助你更快...
+- [[coding/index|Coding 学习笔记]] — Coding 相关的学习笔记。
 - [[context-document|Content Document]] — ① 项目的背景是什么 ② 之前尝试过什么 ③ 什么是成功，什么是失败 ④ 谁会受影响 ⑤ 有哪些约束条件
 - [[Deep Research Agent|Deep Research Agent]] — 了解 Deep Research Agent：一种 AI 驱动的系统，能够接受目标、规划工作流并利用网络搜索等工具进行深入研究。
 - [[experiences-overview|experiences-overview]] — experiences-overview
@@ -64,6 +65,7 @@ description: 这里存放我的学习记录和一些零散整理的内容、思�
 - [[dotfiles management|用 bare repo 管理 HOME 目录中的 dot files]] — git init --bare $HOME/.dotfile...
 - [[agent-skills-for-dev|研发场景十大热门 Skills 推荐]] — 本文面向实际研发场景，整理并推荐了一组可直接应用于日常开发流程的 Agent Skills。这些 Skills 覆盖前端设计、前后端开发、代码审查、自动化测试、CI/CD、问题修复以及文档维护等常见环节，分别针对具体任务提供明确的能力边界与使用场景说明，帮助你在不同阶段选择合适的 Skills，提高开发效率。
 - [[ios-us-app-subscribe|美区app订阅]] — 美区订阅支付，是真的很难。 很多人拿着 港卡、Visa 卡去订阅 App，都被拒绝了 原因其实很简单：👉 美区 App Store 只认美国发行的银行卡。 但有一个方便的备选方案，那就是在 Safari 浏览器里面通过 Apple Pay 来订阅！ 关键点在于：🍎 App 内 Apple Pay
+- [[english/index|英语学习]] — 每日技术英语精读、周报与词汇库。
 - [[claude-code-goal|让 Claude 持续向目标推进 — Claude Code /goal 命令]] — Claude Code /goal 命令官方文档完整中文翻译及 Web 开发实战指南，介绍了如何设置完成条件让 Claude 自主多轮工作直至目标达成
 - [[code-is-spec|足够详细的规范就是代码]] — AI 的价值在于辅助编码（Pair Programmer），而非完全替代；试图用规范消除编码工作注定失败。
 - [[agent-skills-for-fullstatck-dev|面向全栈开发者的 Agent Skills]] — 推荐 10 个在全栈开发各个阶段（设计、实现、测试、部署）极具赋能作用的 AI Agent Skills。
