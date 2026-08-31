@@ -9,35 +9,76 @@ title: Clippings
 - [[10 个 NotebookLM 专家级高质量提示词|10 个 NotebookLM 专家级高质量提示词]] — 来自 @Ihtesham 分享的高质量提示词，青小蛙觉得写的非常赞啊，值得仔细学习一下。
 - [[2 百万人围观的 Claude Code 实战使用指南|2 百万人围观的 Claude Code 实战使用指南]] — This article provides senior engineer Eyad's practical guide to using Claude Code, emphasizing planning, context management, prompt engineering, and systematic use of AI tools to improve software development efficiency.
 - [[20 OpenClaw Prompts to Automate Your Daily Life and Work|20 个 OpenClaw 提示词：自动化你的日常生活与工作]] — 这是一篇介绍如何使用 **OpenClaw**（一款开源 AI 自动化代理框架）的实用提示词（Prompts）来自动化日常生活和工作任务的文章。文章提供了 20 个具体场景的使用示例
+- [[top-ai-agent-skills-engineers|2026 年高级工程师的 10 大 AI 智能体技能]] — LogRocket 整理的高价值 AI 智能体技能清单——Superpowers、Deslop、Caveman、Context7、TDD 等，涵盖安装方法、适用场景与跳过时机，并给出技能串联组合方案。
 - [[A01 Broken Access Control|A01 错误访问控制 - OWASP Top 10:2025 --- A01 Broken Access Control - OWASP Top 10:2025]] — 访问控制强制执行策略，使用户无法超出其预期权限范围。失败通常...
 - [[A02 Security Misconfiguratio|A02 Security Misconfiguration - OWASP Top 10:2025]] — Generally speaking, all data i...
 - [[A07 Authentication Failures|A07 认证失败]] — 当攻击者能够欺骗系统将无效或不正确的用户识别为合法用户时，这...
+- [[agent-loop|Agent Loop 的工作原理]] — 深入解析 Agent SDK 的智能体循环机制，涵盖消息类型、工具执行、上下文窗口、权限控制等核心架构。
 - [[Agentic Software Development|Agentic Software Development]] — 格雷格·布鲁克曼概述了OpenAI的战略转变以及将工程团队过渡到以代理为中心的开发工作流程的实用框架。
 - [[AI Agents 101 你需要了解的智能体基础|AI Agents 101: Everything You Need to Know About Agents]] — Imagine having an AI assistant that can not only answer your questions but also plan your entire vacation, negotiate deals for your business, or write and debug your code — all autonomously. This…
 - [[AI Powered Software Development Life Cycle|AI Powered Software Development Life Cycle]] — In today’s fast-paced technology landscape, software development has become a critical driver of innovation and business success. With the advent of AI technologies like Codex and AI-powered pair…
+- [[after-the-ai-crash|AI 崩溃之后]] — Doug Dawson 分析 AI 行业面临的七大崩溃风险因素——不可持续的资本支出、循环收入、巨额债务、公众抵制、企业怀疑、规模不经济及机构警告，并推演崩溃后可能带来的长期后果
+- [[ai-torched-junior-programmers|AI 已经烧毁了初级程序员的就业市场]] — 深入分析 AI 如何重塑编程就业市场——22-25 岁开发者就业下降 19%，而 40 岁以上开发者增长 14%；数百万非开发者正在不依赖头衔地创造软件。
 - [[AI should help us produce better code|AI 应该帮助我们产出更好的代码]] — AI should help us produce better code - Agentic Engineering Patterns
+- [[software-engineering-in-the-age-of-ai|AI 时代的软件工程]] — 一位资深软件工程师对 AI 如何改变编程工作的深刻反思——从心流创造到审核机器的蜕变，从技能传承到知识断代的隐忧
 - [[AI 模型比较-Github Docs|AI 模型比较 - GitHub 文档]] — 比较 Copilot 对话助手 中的可用 AI 模型，并选择任务的最佳模型。
+- [[AI论文精读-GPT-4技术报告|AI 论文精读：GPT-4 技术报告]] — 翻译自 freeCodeCamp 的 AI Paper Review 系列，深入解读 OpenAI 2023 年发布的 GPT-4 技术报告，涵盖可预测扩展、多模态学习、RLHF 对齐、基准测试、安全风险等核心主题。
 - [[AI驱动的测试用例和应用开发平台|AI驱动的测试用例和应用开发平台_申报详情_荣誉]] — 易网是网易内网信息门户，包含易方天地、易彩纷呈、易点建议、KM、OA、服务导航等多个服务，从政策制度、业务动态、公司文化、公司风采、管理建议、生活建议等多个方面给员工提供全方位的信息传播与交流平台。
+- [[position-open-weights-models|Anthropic 关于开源权重模型的立场]] — Anthropic CEO Dario Amodei 就开源权重模型争议发表正式声明，澄清公司从未主张禁止开源模型，并提出三项应对国家安全风险的措施
 - [[Attention Is All You Need|Attention Is All You Need]] — Attention Is All You Need
+- [[how-baseline-can-help-ship-less-javascript|Baseline 如何帮你减少 JavaScript 打包量]] — 一个实用的依赖审计指南——审查你的 node_modules，找出那些浏览器已经原生支持的功能，从而减少 JS 打包体积
 - [[The Technical Co-Founder Prompt|Build Any App: The Technical Co-Founder]] — Miles这个妙的点是用组织管理的逻辑驾驭 AI， 不着急让...
+- [[new-rules-of-context-engineering-v2|Claude 5 代模型上下文工程新规则]] — Anthropic 分享 Claude 5 代模型上下文工程最佳实践：删除 80% 系统提示词、用判断替代规则、渐进式披露等 6 大范式转变
+- [[new-rules-of-context-engineering|Claude 5 代模型上下文工程新规则]] — Anthropic 发布 Claude 5 代模型上下文工程最佳实践，删除了 Claude Code 80% 的系统提示词，并分享了 6 条关键范式转变。
+- [[claude-code-artifacts|Claude Code Artifacts — 将会话输出发布为可交互页面]] — Claude Code Artifacts 功能完整中文翻译，涵盖创建/更新/共享 Artifact、设计系统定制、页面约束、可用性要求及组织管理
 - [[Claude Code 最佳实践|Claude Code Best Practices]] — A blog post covering tips and tricks that have proven effective for using Claude Code across various codebases, languages, and environments.
 - [[Claude Code 功能太强了——6 个月重度使用心得分享|Claude Code 功能太强了——6 个月重度使用心得分享]] — 编辑（最终版？）：我咬咬牙，花了一个下午为你们搭建了一个 g...
+- [[Claude-Code-Commands|Claude Code 命令参考翻译]] — Claude Code 所有内置命令和捆绑技能的完整参考文档中文翻译
+- [[Introducing-dynamic-workflows-in-Claude-Code|Claude Code 推出动态工作流]] — Anthropic 发布 Claude Code 动态工作流功能，支持端到端并行子代理编排，将季度级工作缩短至数天完成。
+- [[get-started-with-claude-cowork|Claude Cowork 入门指南]] — Anthropic 官方支持文档的完整中文翻译，涵盖 Claude Cowork 的可用性、核心能力、任务执行机制、安装设置、权限安全、使用限制及故障排查等内容。
+- [[introducing-claude-opus-5|Claude Opus 5 发布]] — Anthropic 发布 Claude Opus 5 模型，以 Opus 4.8 一半价格接近 Fable 5 前沿智能水平，在编码和知识工作评测中达到新 SOTA
+- [[claude-text-watermark|Claude 文本水印的工作原理]] — Anthropic 官方解读 Claude 文本水印机制——基于 SynthID-Text 技术，在不影响输出质量的前提下为文本打上可检测标记，以符合欧盟《人工智能法案》。
 - [[探索-规划-编码工作流程|ClaudeCode 教程中心 - Claude Code 智能编程助手完整指南]] — Claude Code 最通用和有效的工作流程模式
+- [[codepen-2-0|CodePen 2.0]] — Chris Coyier 宣布 CodePen 2.0 发布，分享上线首周的几个故事，展示新版本的协作编辑、npm 包管理、Blocks 扩展和小网站部署等亮点功能
+- [[codex-cli-features|Codex CLI 功能特性]] — tags: - clippings - codex - openai - cli - ai-coding
+- [[codex-handbook|Codex 手册：OpenAI 编程平台实用指南（翻译）]] — freeCodeCamp 发布的 OpenAI Codex 使用手册中文翻译
+- [[codex-best-practices|Codex 最佳实践]] — tags: - clippings - codex - openai - best-practices - ai-coding
+- [[codex-config-advanced|Codex 高级配置]] — OpenAI Codex CLI 高级配置选项中文翻译，涵盖模型提供者、审批策略、沙盒、OTel 遥测、指标等
 - [[Cont3xt.dev 解决 AI 上下文问题|Cont3xt.dev 解决 AI 上下文问题]] — Stop debating which is the best LLM for coding. I built Cont3xt.dev to give any AI coding tool your team's context.
+- [[dynamic-subagents-deep-agents|Deep Agents 引入动态子智能体——用代码编排替代工具调用]] — LangChain 的 Deep Agents 推出动态子智能体，通过编程式编排（代码循环/分支/并发）替代工具调用式调度，实现大规模、确定性的智能体协同
+- [[DeepSeek-V4-Flash-0731-分析|DeepSeek V4 Flash 0731 — 智能、性能与价格分析]] — - 类型：闭源模型- 发布时间：2026 年 7 月- 参数...
 - [[从 0 到 1 开发一个 Agent（智能体）框架|Developing an Agent Framework from 0 to 1 | BestBlogs.dev]] — Datawhale explains in detail how to build a lightweight, education-oriented AI Agent Framework (HelloAgents) from scratch, implementing its core components and various Agent paradigms.
 - [[Devin 教你做 Agent：把 AI 当做需要指导的初级开发者|Devin 教你做 Agent：把 AI 当做需要指导的初级开发者]] — Cognition 团队发布了一份编程智能体实践指南。
 - [[Devin's 2025 Performance Review Learnings From 18 Months of Agents At Work|Devin's 2025 Performance Review Learnings From 18 Months of Agents At Work]] — Eighteen months since launch, Devin’s gone from tackling small projects, to deeply embedding in engineering teams at thousands of companies, including some of the largest businesses in the world. We decided it was well past time for Devin to get a performance review - just like any human engineer.
+- [[effort-parameter|Effort 参数：控制 Claude 的 Token 消耗与响应深度]] — Anthropic Claude API 的 effort 参数完整中文翻译，涵盖 5 个努力级别、各模型推荐配置、与 thinking 的协作关系及最佳实践。
+- [[introducing-eve|eve — Vercel 开源的智能体框架]] — Vercel 正式发布 eve，一个内置持久化执行、沙盒计算、人工审批、多渠道支持、追踪和测评的智能体框架，让构建生产级智能体像定义文件一样简单。
 - [[Gemini 3.0 系统提示词|Gemini 3.0 系统提示词]] — 本文揭示了 Gemini 3.0 大语言模型的系统提示词，深入分析了其构建严密逻辑、引导推理深度并严格控制安全风险的指令设计，为 AI 开发者提供了宝贵的实践参考。
+- [[copilot-cli-best-practices|GitHub Copilot CLI 最佳实践]] — GitHub 官方文档，介绍如何充分发挥 Copilot CLI 的能力——从自定义环境、计划先行、无限会话到云端委派与多仓库协作，涵盖模型选择、权限管理、常用工作流与团队规范
+- [[github-copilot-cli-autopilot|GitHub Copilot CLI 自动驾驶模式详解]] — GitHub Copilot CLI 的自动驾驶模式允许它在任务中自主工作，执行多个步骤直到任务完成。
+- [[github-copilot-usage-based-billing-for-individuals|GitHub Copilot 个人用户按量计费指南]] — GitHub Copilot 个人用户按量计费（Usage-based Billing）的完整说明，包括 AI 积分机制、各套餐额度、超额处理方案及迁移准备。
+- [[GLM-5.2-vs-Opus|GLM-5.2 vs Claude Opus：亲手跑了一次 3D 游戏构建对比]] — 实测 GLM-5.2 与 Claude Opus 4.8 在 one-shot 原生 WebGL 3D 平台游戏构建中的表现对比，附带基准测试与社区反应分析
+- [[gemini-3-6-flash-antigravity|Google Antigravity 集成 Gemini 3.6 Flash]] — Gemini 3.6 Flash 在 Google Antigravity 中上线，编码和知识工作效率更高，输出 Token 消耗降低 17%
 - [[GPT-5.2 Prompting Guide|GPT-5.2 Prompting Guide]] — GPT-5.2 is our newest flagship model for enterprise and agentic workloads, designed to deliver higher accuracy, stronger instruction foll...
+- [[gpt-5-4-vs-glm-5-comparison|GPT-5.4 vs GLM-5：开源终于追上闭源 AI 了吗？]] — tags: - clippings - gpt-5 - glm-5 - open-source - llm - ai-comparison
+- [[Hermes-Agent-改变了我的执行边界认知|Hermes Agent 如何改变了我对执行边界的认知]] — 翻译自 dev.to 上关于 Hermes Agent 架构的深度分析文章，探讨了 Agent 系统中执行边界、验证循环和运行时约束的重要性。
 - [[How Anthropic Built a Multi-Agent Research System|How Anthropic Built a Multi-Agent Research System]] — In this article, we will understand the architecture of the multi-agent research system that Anthropic built.
 - [[How to prompt v0|How to prompt v0]] — The best v0 prompts include three things. What you're building, who uses it and when, and your design constraints. This guide walks through the framework with side-by-side tests showing faster generation times, less code, and better UX decisions.
+- [[html-invoker-commands-api|HTML 又变酷了：认识 Invoker Commands API]] — 介绍新的 Invoker Commands API，用 commandFor / command 属性声明式地把行为赋给按钮，从而少写 JavaScript、把状态交还给浏览器
 - [[I got a private lesson on Claude Cowork & Claude Code  BestBlogs.dev|I got a private lesson on Claude Cowork & Claude Code  BestBlogs.dev]] — Anthropic founder Boris demonstrates Claude Co-work and Claude Code, showcasing how agentic AI can automate file management, browser tasks, and complex software engineering through a user-friendly interface.
 - [[karpathy's second brain how to build it|Karpathy 的第二大脑：如何构建它]] — 本文拆解了 Andrej Karpathy 用 LLM 构建个人知识库的方法：让 AI 读取原始资料、整理成 wiki、持续维护并把知识变成可复利的研究系统。
+- [[kimi-k3-pelican-benchmark|Kimi K3 与鹈鹕基准测试的启示]] — Simon Willison 对 Moonshot AI 发布 Kimi K3 模型的评测，以及「鹈鹕骑自行车」基准测试的持续价值
+- [[the-kimi-k3-moment|Kimi K3 时刻]] — 开发者 Stephen Bochinski 实测比较 Kimi K3 与 Claude，认为开源中国模型在编码质量上已与闭源前沿模型持平，而价格仅为其几分之一，美国 AI 限制政策反而伤害了本国用户。
+- [[frontier-lab-economics|Kimi K3、Qwen 3.8 与 Anthropic 的潜在瓦解]] — 分析前沿实验室的经济学逻辑——为什么拥有基础设施的公司最终会胜出，以及 Anthropic 纯模型路线的战略脆弱性。
+- [[langgraph-graph-engineering-3-years|LangGraph 图工程三年实践]] — LangGraph 创始人回顾三年图工程实践，探讨何时用图建模 Agent 系统、图与循环的关系、动态路由的价值，以及将 Agent 作为图节点编排的新模式。
 - [[Multi-Agent 多智能体架构解析--DeerFlow  BestBlogs.dev|Multi-Agent 多智能体架构解析--DeerFlow | BestBlogs.dev]] — 深入解析了字节跳动开源的多智能体协同框架 DeerFlow 的架构、核心 Agent 职责及数据流转逻辑，并提炼了关键 Prompt 设计。
 - [[My 20 Favorite ChatGPT Prompts for Coding in 2025|My 20 Favorite ChatGPT Prompts for Coding in 2025]] — I use ChatGPT almost every day as part of my coding workflow. Over time, I’ve learned that how you... Tagged with webdev, programming, java.
 - [[NotebookLM 使用指南|NotebookLM 使用指南]] — 很多人第一次用 NotebookLM，会出现一种“两极分化”的体验：这里的差距，往往不在于对NotebookLM的功能熟不熟悉，而在于你是把 NotebookLM 当成一个聊天工具，还是当成一套信息转化流程
+- [[openai-codex-essentials-course|OpenAI Codex 精要 —— AI 辅助智能体开发课程]] — tags: - clippings - codex - openai - course - ai-agent
+- [[opensandbox-architecture|OpenSandbox 架构]] — OpenSandbox 是一个面向 AI 应用的通用沙箱平台...
 - [[编排多个代理|Orchestrating multiple agents]] — Coordinate the flow between several agents
 - [[OWASP Top 10 2025|OWASP Top 10:2025 --- Introduction]] — 2025 年的十大安全风险中新增了两个类别，并对一个类别进行...
+- [[popo-doc-sandbox-execution-model|POPO Doc 集成：沙盒直连与主机代理的执行模型决策]] — 一段关于 POPO Doc 集成应直连沙盒还是走主机代理的技术决策讨论，最终结论是走主机代理——因为沙盒有硬性架构边界、容器出网受限、且代理反而代码更少。
+- [[skills-for-real-engineers|Skills For Real Engineers — 真正的工程师技能（README 翻译）]] — Matt Pocock 的 Agent Skills 仓库 README 完整中文翻译，阐述其设计理念、四大失败模式及解决方案、所有技能的职责与调用模式
 - [[State of LLMs 2026 RLVR, GRPO, Inference Scaling|State of LLMs 2026 RLVR, GRPO, Inference Scaling]] — State of LLMs 2026 RLVR, GRPO, Inference Scaling
 - [[superpowers-6|Superpowers 6]] — 原文：Superpowers 6 Superpowers 6...
 - [[Claude Skills Tutorial Give your AI Superpowers|Weekly Team Update Skill]] — In the Matrix, there’s a scene where Morpheus is loading training programs into Neo’s brain and he wakes up from it and says, “I know Kung Fu.” That’s basically what Claude skills are. They’re a set of instructions that teach Claude how to do a certain thing. You explain it once in a document, like […]
@@ -46,23 +87,52 @@ title: Clippings
 - [[YC's Vibe Coding Guide|YC 编写的 Vibe Coding 指南]] — 与 AI 结对编程，就像是拥有了一位虽然才华横溢、但偶尔会“走神”的实习生。它能在一小时内帮你完成过去需要一周才能搞定的工作，但有时也会在你项目的核心代码里悄悄埋下一个“惊喜”。那么，如何才能驾驭好这位强大的编程伙伴呢？我们采访了多位利用 AI 编码的创始人，总结出了这套实用的“AI 协作编程指南”。
 - [[everything-claude-code-for-better-programmers|一名谷歌工程师如何利用 Claude Code 简化 80% 工作]] — 本文分享 Google 工程师用 Claude Code 和简单 dotnet 应用自动化 80% 工作，强调 AI 工具可大幅提升开发效率。
 - [[一篇来自美国的AI末日爆款文|一篇来自美国的AI末日爆款文]] — 2028年全球智力危机：从未来视角看金融史的思考练习
+- [[working-with-ai|与 AI 协作编程：一个具体案例]] — Carson Gross · 2026年6月29日总体而言，...
 - [[中国版“标普500”上线：解读中证A500指数_中证网|中国版“标普500”上线：解读中证A500指数_中证网]] — 中国版“标普500”上线：解读中证A500指数
+- [[persistent-memory-claude-agents-sdk|为 Claude Agent SDK 添加持久化记忆]] — Mem0 解析 Claude Agent SDK 的会话状态边界，并展示如何通过外部记忆层实现跨会话的用户个性化上下文
 - [[五步框架把 Workflow 变成可进化的 Skill|五步框架把 Workflow 变成可进化的 Skill]] — 80 多个节点的 workflow，稳定性和可调整性真的不是 subagent 能比拟的吗？本文通过五步框架，展示如何用 Agent + Skills 架构实现复杂工作流，并正面回应稳定性、成本和门槛三大质疑。
+- [[what-is-a-bearer-token|什么是 Bearer Token？理解 API 认证]] — Postman 博客关于 Bearer Token 工作原理、类型、安全实践及测试方法的入门指南
 - [[从 Copilot 到 通用 Agent ： 阿里在 AI Coding 上的应用和挑战|从 Copilot 到 通用 Agent ： 阿里在 AI Coding 上的应用和挑战]] — 从 Copilot 到 通用 Agent ： 阿里在 AI Coding 上的应用和挑战
 - [[从 “Tool search” 到 “Skills”：AI Agent 架构的范式重构|从 “Tool search” 到 “Skills”：AI Agent 架构的范式重构]] — 分析 AI Agent 架构从工具搜索到技能模式的转变，强调企业级应用的模块化和可靠性。
 - [[他们聊的不是产品，是未来：Claude Code 团队这期播客太震撼了|他们聊的不是产品，是未来：Claude Code 团队这期播客太震撼了]] — 这期播客的两位主角是Cat和Boris，他们是Claude Code的核心创建者。整期对话没有讲具体的功能设计，聊的全是非常本质的问题： 当模型每三个月就吞噬掉你精心搭建的脚手架，什么该被保留？什么该被删除？工具的终极形态是什么？当人和AI共享同一个界面、同一套工具，人的角色又是什么？
+- [[over-engineering-ai-app|你的 AI 应用是否过度设计？7 个迹象与破解之道]] — 剖析 AI 应用过度设计的 7 个典型迹象，并给出保持架构精简的实践清单，核心原则是"从能解决问题的最小技术栈开始
 - [[使用 Claude Agent SDK 构建智能体|使用 Claude Agent SDK 构建智能体]] — 在这篇文章中，我们将重点介绍我们构建 Claude Agent SDK 的原因、如何使用它构建你自己的智能体，并分享我们团队在实际部署中总结出的最佳实践。
 - [[使用 Claude Agent SDK 构建智能体的完整指南|使用 Claude Agent SDK 构建智能体的完整指南]] — The fast path to get up and running your own custom AI Agents.
+- [[claude-code-agent-harness|使用 Claude Code 构建 Agent 编排框架]] — 通过专业化子智能体、门控流水线、MCP 遥测和持久化学习机制，让 Claude Code 的 AI 辅助开发更可预测
+- [[codex-plans-md-guide|使用 PLANS.md 进行多小时问题解决]] — tags: - clippings - codex - plans-md - ai-coding - workflow
+- [[claude-code-worktrees|使用 Worktree 并行运行会话 — Claude Code 文档]] — Claude Code 利用 Git Worktree 实现会话隔离，多个并行会话互不干扰地编辑文件。涵盖 --worktree 标志、子代理隔离、.worktreeinclude、清理策略和非 Git 版本控制。
+- [[claude-agent-sdk-sessions|使用会话 — Claude Agent SDK]] — Claude Agent SDK 会话管理的完整指南，涵盖 continue、resume 和 fork 三种模式的选择和使用
+- [[stop-using-opencode|停止使用 OpenCode]] — 开发者 wren 对开源 AI 编程智能体 OpenCode 的全面批判——从缓存失效、上下文裁剪到安全漏洞，逐个拆解其设计与实现缺陷
 - [[先用 Deep Research 掃清認知盲區，再用 Google 搜尋，我的 6 種學習新流程|先用 Deep Research 掃清認知盲區，再用 Google 搜尋，我的 6 種學習新流程]] — 分享各種行動工作技巧、雲端生活應用，善用數位工具改變你我的工作效率與生活品質。
 - [[初探：从0开始的AI-Agent开发踩坑实录|初探：从0开始的AI-Agent开发踩坑实录]] — 引言 这事儿得回到两周前，彼时我刚入职，正兴致勃勃地想接下来...
+- [[claude-code-workflows|动态工作流：大规模编排子代理 — Claude Code 文档]] — Claude Code 工作流功能完整翻译，涵盖何时使用工作流、运行内置工作流、让 Claude 编写工作流、管理运行等。
+- [[handle-approvals-and-user-input|处理审批与用户输入 — Claude Agent SDK]] — Claude Agent SDK 的 canUseTool 回调与 AskUserQuestion 工具完整指南，涵盖权限审批与澄清问题的检测、响应与实现。
+- [[chromes-modern-web-guidance|如何使用 Chrome 现代 Web 指南防止 AI 编程智能体编写遗留前端代码]] — Chrome 团队推出的 Modern Web Guidance 将现代 Web 平台指南嵌入 AI 编程工作流，帮助智能体优先选择原生 HTML/CSS/浏览器 API 而非过时的依赖方案
 - [[如何在 1 小时内修复你的一生|如何在 1 小时内修复你的一生]] — You haven't experienced anythi...
+- [[understand-legacy-codebase-with-ai|如何用 AI 先理解遗留代码库、再动手改动]] — 一套用 AI 做「代码库考古」的方法论——在重构/迁移之前，先用 AI 摸清仓库结构、入口点、依赖、业务规则、副作用与隐式契约，把「未知」也显式记录下来
+- [[modern-web-guidance|如何用 Modern Web Guidance 阻止 AI 编码智能体写出过时代码]] — Google Chrome 团队推出的 Modern Web Guidance，通过注入专家审核的现代 Web 标准指导，让 AI 智能体生成符合 2025 年浏览器能力的代码
+- [[learn-software-system-design|学习软件系统设计]] — tags: - clippings - system-design - software-engineering - course
+- [[claude-agent-sdk-session-storage|将会话持久化到外部存储 — Claude Agent SDK]] — Claude Agent SDK SessionStore 接口的中文翻译，介绍如何将会话转录镜像到 S3、Redis、Postgres 等外部后端
 - [[How we made v0 an effective coding agent|我们如何将 v0 打造为高效的编程智能体]] — v0’s composite AI pipeline boosts reliability by fixing errors in real time. Learn how dynamic system prompts, LLM Suspense, and autofixers work together to deliver stable, working web app generations at scale.
 - [[我使用 Codex CLI 和 GPT-5.2 在 4.5 小时内将 JustHTML 从 Python 移植到 JavaScript|我使用 Codex CLI 和 GPT-5.2 在 4.5 小时内将 JustHTML 从 Python 移植到 JavaScript]] — 作者使用 Codex CLI 和 GPT-5.2 在 4.5 小时内成功将 Emil Stenström 的 JustHTML（Python HTML5 解析器）移植到 JavaScript，展示了前沿大型语言模型在复杂任务中的高级功能。
 - [[how-i-use-claude-code|我如何使用 Claude Code]] — The research-plan-implement workflow I use to build software with Claude Code, and why I never let it write code until I've approved a written plan.
+- [[how-i-use-llms-to-learn|我是如何用大语言模型学习复杂主题的]] — 作者分享了一套独特的学习方法：用 LLM 先构建知识库，再验证准确性，最后生成低多边形动画模拟来辅助记忆。以芯片制造为例展示了完整工作流和成果。
 - [[我是如何让我的团队转向规范驱动开发|我是如何让我的团队转向规范驱动开发]] — 你先设计文档/规范，然后用它们作为实现的输入。接着，把实现过程中发生的事情（调研、代理讨论、评审等）记录下来，作为输出规范，供以后参考。
+- [[my-agent-setup|我的智能体配置方案]] — Chad Arimura 分享他组建「AI 员工团队」一个月实验的完整配置：六个各司其职的 Hermes 智能体、Buzz 通信、Obsidian 记忆与真实用例
 - [[i-read-the-claude-code-source-code|我读了 Claude Code 源代码——那些文档没告诉你的配置能力]] — 翻译自 buildingbetter.tech 文章，详细解读 Claude Code 源代码中隐藏的 hooks 返回字段、技能配置、agent 记忆系统、自动模式分类器等未文档化功能。
 - [[Unrolling the Codex agent loop|拆解 Codex 智能体循环]] — A technical deep dive into the Codex agent loop, explaining how Codex CLI orchestrates models, tools, prompts, and performance using the Responses API.
+- [[controlling-reasoning-effort-in-llms|控制大语言模型的推理强度]] — Sebastian Raschka 深度解析推理模型的训练流程与推理强度（reasoning effort）控制机制，涵盖 DeepSeek-R1、GPT-5.6、Qwen3、Nemotron 3 Ultra 等旗舰模型的实现细节。
 - [[Claude Code Tutorial Level 2|提交信息格式]] — 这是官方 Claude Code 教程的第二部分，我将在这里讲解更多进阶概念，帮助你更好地利用 Claude Code。如果你还没有阅读第一部分，强烈建议你先看那篇文章。本篇内容是在第一部分基础上进一步拓展的。
+- [[teaching-claude-why|教 Claude 理解「为什么」]] — tags: - clippings - claude - alignment - anthropic - ai-safety
 - [[I Made Claude Code Think Before It Codes|教会 Claude Code 先思考再写代码。这是我的提示词。]] — 这篇文章介绍了一个 /wizard 提示词技能，通过 8 个阶段（规划→探索→TDD→最小实现→回归验证→文档→对抗性评审→质量门禁）让 Claude Code 从"快速编码"转变为"严谨架构"。
 - [[getting-the-most-out-of-codex|来自 Codex 官方团队的分享：如何把 Codex 用到极致]] — 大多数开发者最初使用编程智能体，是为了写代码：检查仓库、生成 diff、跑测试、开 pull request。
+- [[building-skills-for-claude|构建 Claude 技能完整指南]] — Anthropic 官方发布的 Claude Skills 构建指南中文翻译，涵盖基础概念、规划设计、测试迭代和分发分享全流程
+- [[memory-first-reminder-agent|构建真正会记忆的提醒智能体：Mem0 与 Claude Agent SDK 实践]] — Mem0 团队分享如何用 Claude Agent SDK + Mem0 记忆层构建 RecallAgent，实现一个既能可靠提醒又能学习用户行为模式的 Slack 机器人
+- [[generative-ai-engineering-disaster|生成式 AI 是一场工程灾难]] — 《大西洋月刊》深度调查：生成式 AI 是史上扩展性最差的技术之一，其低效正在推高全球硬件价格并消耗惊人电力。
 - [[生成既有质感，又能随意修改文字的完美 PPT|生成既有质感，又能随意修改文字的完美 PPT]] — 大家都很喜欢 NotebookLM 生成的 Audio Overview，它最近生成的 Slide Deck（幻灯片）风格也很棒。但有一个大问题：生成的 Slides 是死图，文字不能改，内容不能动。
+- [[programming-still-sucks|编程依然很烂 — Programming Still Sucks]] — Steven Langbroek 关于 AI、科技行业裁员和工程文化消亡的讽刺随笔翻译
+- [[claude-code-goal|让 Claude 持续向目标推进 — Claude Code /goal 命令]] — Claude Code /goal 命令官方文档完整中文翻译，介绍了如何设置完成条件让 Claude 自主多轮工作直至目标达成
+- [[stratechery-chinese-models-economics|谁在害怕中国模型？]] — Ben Thompson 从边际成本经济学、商品化市场、蒸馏争议和前沿实验室焦虑等角度深度分析中国 AI 模型崛起的真正影响
+- [[whos-afraid-of-chinese-models|谁在害怕中国模型？]] — Ben Thompson 深度分析中国开源模型（Kimi K3、Qwen3.8 Max）崛起的经济逻辑、地缘政治意义，以及美国前沿实验室应有的策略回应。
+- [[codex-follow-goals|跟随目标（Follow a Goal）— Codex /goal 使用指南]] — OpenAI Codex 官方文档「Follow a goal」使用案例翻译，介绍如何用 /goal 命令让 Codex 执行长期自动化编程任务。
+- [[claude-code-costs|高效管理成本 - Claude Code 文档翻译]] — Claude Code 成本管理指南中文翻译，涵盖用量追踪、团队成本管理和降低 Token 消耗的策略

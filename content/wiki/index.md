@@ -55,6 +55,7 @@ description: 个人知识库，记录技术文档、工具使用指南和零散�
 - [[Google Antigravity|Google Antigravity]] — Google Antigravity 的 marketplace、skills 配置和使用说明，包含 skill 文件格式示例。
 - [[google-discovery-service|Google Discovery Service]] — Google Discovery Service 是 Google 所有 REST API 的自描述 Schema 中心，每个 API 提供一个 JSON 文档精确描述其资源层级、方法、参数和认证要求。
 - [[google-workspace-cli|google-workspace-cli]] — Google Workspace CLI (gws) 是一个用 Rust 编写的动态命令行工具，通过运行时解析 Google Discovery Service 的 JSON 文档自动生成命令界面，为所有 Google Workspace API 提供统一的 CLI 访问入口。
+- [[GPT-5-6|GPT 5-6]] — 未命名
 - [[grep|grep]] — grep 是你进行代码搜索、日志排查等日常开发中极其重要的命令行工具，支持正则表达式和丰富的过滤选项。
 - [[gstack|gstack]] — gstack 是 Y Combinator CEO Garry Tan 开源的 Claude Code 技能集合，将 Claude Code 转变为虚拟工程团队。
 - [[gstack-skills|gstack Skills 深度解析]] — 每个 gstack 技能的详细指南，涵盖理念、工作流程和示例，从 office-hours 到 QA、ship 的完整冲刺流程。
