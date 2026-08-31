@@ -11,3 +11,7 @@ private/
 replit.nix
 copilot/
 .claude/settings.local.json
+.sync-cache
+__pycache__/
+
+.agents/skills/*-workspace/

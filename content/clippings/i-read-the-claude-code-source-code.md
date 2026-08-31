@@ -5,9 +5,8 @@ tags:
   - claude-code
   - ai-agent
   - configuration
-  - translation
+  - clippings
 source: "https://buildingbetter.tech/p/i-read-the-claude-code-source-code"
-date: 2026-06-02
 ---
 
 ## 我读了 Claude Code 源代码——那些文档没告诉你的配置能力
@@ -20,14 +19,14 @@ date: 2026-06-02
 
 Claude Code 的自动模式权限系统在内部被称为"YOLO 分类器"。这是 `yoloClassifier.ts` 中的实际变量名。你可以用纯英文描述你的环境来配置它，类似"这是一台 staging 服务器，破坏性操作是可接受的"这样的描述，分类器会读取这些内容来决定什么可以自动批准。这些内容在任何文档中都没有。
 
-这只是隐藏在 Claude Code 源代码中的数十个未记录功能之一——它就作为公开分发的 npm 包躺在你的 node_modules 里。官方文档很好地覆盖了基础知识（如需了解进阶用法，可阅读 [[how-i-use-claude-code|我如何使用 Claude Code]] 以及 [[Claude Code 最佳实践]]）。但源代码揭示了字段、响应格式和设置，这些能极大地扩展你能构建的东西。以下所有内容当前都可用，每个示例都设计为可以直接放入你的项目中使用。
+这只是隐藏在 Claude Code 源代码中的数十个未记录功能之一——它就作为公开分发的 npm 包躺在你的 node_modules 里。官方文档很好地覆盖了基础知识。但源代码揭示了字段、响应格式和设置，这些能极大地扩展你能构建的东西。以下所有内容当前都可用，每个示例都设计为可以直接放入你的项目中使用。
 
-> **版本说明**：这些发现来自 `@anthropic-ai/claude-code@2.1.87`。未记录的功能可能会在不同版本之间变化，所以把这看作当前可用功能的一个快照。名称中包含 "EXPERIMENTAL" 的字段被 Anthropic 工程师明确标记为不稳定，我会单独标注。（想看更多实战心得，可参考 [[Claude Code 功能太强了——6 个月重度使用心得分享]]）。
+> **版本说明**：这些发现来自 `@anthropic-ai/claude-code@2.1.87`。未记录的功能可能会在不同版本之间变化，所以把这看作当前可用功能的一个快照。名称中包含 "EXPERIMENTAL" 的字段被 Anthropic 工程师明确标记为不稳定，我会单独标注。
 
 文件位置速查：
 
 - **设置**：`~/.claude/settings.json`（个人）或 `.claude/settings.json`（项目级，通过 git 共享）
-- **技能**：`~/.claude/skills/<名称>/SKILL.md`（个人）或 `.claude/skills/<名称>/SKILL.md`（项目级）（关于如何开发和管理自定义技能，请参考 [[Claude Skills Tutorial Give your AI Superpowers|Claude Skills 教程]] 和 [[五步框架把 Workflow 变成可进化的 Skill]]）
+- **技能**：`~/.claude/skills/<名称>/SKILL.md`（个人）或 `.claude/skills/<名称>/SKILL.md`（项目级）
 - **Agent**：`~/.claude/agents/<名称>.md`（个人）或 `.claude/agents/<名称>.md`（项目级）
 - **Hook 脚本**：`~/.claude/hooks/` 是一个好的惯例。记得 `chmod +x` 你的脚本。
 
@@ -127,7 +126,7 @@ jq -n \
   }'
 ```
 
-现在 Claude Code 会自动监听 `package.json`、`.env` 和 `tsconfig` 的变更，并且在你输入任何内容之前，它就知道你在哪个分支以及有多少未提交的文件。
+现在 Claude Code 会自动监听 `package.json`、`.env` 和 `tsconfig` 的变更，而且在你输入任何内容之前，它就知道你在哪个分支以及有多少未提交的文件。
 
 还有一个自动批准只读 bash 命令的 hook：
 
@@ -358,7 +357,7 @@ Over time, you should answer faster because you remember where things are.
 
 几个会话之后，这个 agent 就建立了关于你代码库的知识库，并开始从记忆中回答而不是 grep。
 
-`omitClaudeMd: true` 跳过加载 [[Writing a good CLAUDE.md|CLAUDE.md]] 指令层级。对于应用行业标准而非项目约定的"全新视角"审查员很有用：
+`omitClaudeMd: true` 跳过加载 CLAUDE.md 指令层级。对于应用行业标准而非项目约定的"全新视角"审查员很有用：
 
 ```yaml
 ---
@@ -387,7 +386,7 @@ criticalSystemReminder_EXPERIMENTAL: "Always run migrations with --dry-run first
 
 > ⚠️ **警告**：这个字段的源代码中的实际名称包含 EXPERIMENTAL。Anthropic 的工程师认为它不稳定。它现在能用，但可能在任何版本中被移除或重命名。用它做锦上添花的安全提醒，不要在此基础上构建关键基础设施。
 
-`requiredMcpServers` 列出必须配置的 MCP服务器名称模式。如果服务器不可用，agent 就不会出现。防止 agent 在依赖未设置时加载。
+`requiredMcpServers` 列出必须配置的 MCP 服务器名称模式。如果服务器不可用，agent 就不会出现。防止 agent 在依赖未设置时加载。
 
 ## 自动模式："YOLO 分类器"
 
@@ -624,6 +623,6 @@ Evaluate structural decisions, dependency graph health, separation of concerns, 
 
 ## 结语
 
-这些未记录的功能揭示了 [[how-i-use-claude-code|Claude Code]] 的现状与 Anthropic 正在构建的未来之间的差距。带事件特定响应字段的 hooks 系统是 AI 工具使用的可编程中间件层，比大多数 CI/CD 管道更灵活。持久 agent 记忆创建了能在会话之间积累真正专业知识的 AI 专家。梦境整合系统是无需模型重新训练的从经验中学习。自动模式分类器接受环境自然语言描述来做出安全决策。
+这些未记录的功能揭示了 Claude Code 的现状与 Anthropic 正在构建的未来之间的差距。带事件特定响应字段的 hooks 系统是 AI 工具使用的可编程中间件层，比大多数 CI/CD 管道更灵活。持久 agent 记忆创建了能在会话之间积累真正专业知识的 AI 专家。梦境整合系统是无需模型重新训练的从经验中学习。自动模式分类器接受环境自然语言描述来做出安全决策。
 
 这些不是隐藏设置或彩蛋。它们是持久化、会学习、自主 AI 开发环境的脚手架，而且已经在你机器上的 npm 包中功能完备。文档最终可能会跟上，但如果你想在 Claude Code 真正能做的事情的前沿构建，源代码才是真正的文档所在之处。
