@@ -101,3 +101,4 @@ description: 个人知识库，记录技术文档、工具使用指南和零散�
 - [[WebAssembly|WebAssembly]] — WebAssembly（Wasm）是一种面向 Web 的二进制指令格式与运行时，即可移植的低层字节码加沙箱执行模型，被设计成在浏览器中接近原生性能地执行 CPU 密集型任务。
 - [[building-skills-for-claude|构建 Claude 技能完整指南]] — Anthropic 官方发布的 Claude Skills 构建指南中文翻译，涵盖基础概念、规划设计、测试迭代和分发分享全流程
 - [[claude-design-skills|面向 Claude Code 的必备 UI/UX 设计技能大盘点]] — 随着 Claude Code 等 AI 编程助手的崛起，UI/UX 设计师的角色正发生转变，需要掌握结构化提示语设计与 MCP 生态衔接等核心技能。
+- [[GPT-5-6|GPT 5-6]] — 模型对比 - Sol 太阳（旗舰模型） - Terra 地球
