@@ -1,0 +1,54 @@
+{
+  "skill_name": "post-clipping",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "帮我把这篇文章翻译整理一下，存到剪藏里：https://www.anthropic.com/engineering/writing-tools-for-agents",
+      "expected_output": "一篇归档到 content/clippings/ 的双语对照笔记：完整 frontmatter、中文摘要、5-20 条术语表、英文原段与中文译段逐段交替且无前缀标记，所有原文链接在译文中保留",
+      "files": [],
+      "expectations": [
+        "输出为单个 Markdown 文件，frontmatter 包含 title、description、tags、source 四个字段",
+        "frontmatter 的 source 字段与任务给定的 URL 完全一致",
+        "正文采用中英段落交替排列（英文原段与中文译段成对出现，段间空行分隔）",
+        "段落不以「EN:」「译:」「中文:」等前缀标记开头",
+        "存在术语表章节，为三列表格（英文|中文|说明），术语数量在 5-20 之间",
+        "输出中的超链接 URL 均能在原文中找到且地址未改变",
+        "译文完整覆盖全文，包含文章末尾段落的中文翻译（未截断）",
+        "输出保留原文中至少 15 个不同的超链接 URL"
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "把 Simon Willison 这篇新文章剪藏成双语对照笔记：https://simonwillison.net/2026/Apr/22/claude-code-confusion/",
+      "expected_output": "一篇双语对照笔记，含代码块（原样保留、只译注释）和原文链接同步，段落交替对齐，术语表含 5-20 个术语",
+      "files": [],
+      "expectations": [
+        "输出为单个 Markdown 文件，frontmatter 包含 title、description、tags、source 四个字段",
+        "frontmatter 的 source 字段与任务给定的 URL 完全一致",
+        "正文采用中英段落交替排列（英文原段与中文译段成对出现，段间空行分隔）",
+        "段落不以「EN:」「译:」「中文:」等前缀标记开头",
+        "存在术语表章节，为三列表格（英文|中文|说明），术语数量在 5-20 之间",
+        "输出中的超链接 URL 均能在原文中找到且地址未改变",
+        "译文完整覆盖全文，包含文章末尾段落的中文翻译（未截断）",
+        "代码块内的代码与原文一致（未改动），块内注释翻译为中文"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/ 这篇文章帮我翻译成双语对照，整理进 content/clippings",
+      "expected_output": "一篇经典纯散文文章的完整双语对照笔记，长句拆分得当，隐含语境有补充说明，URL 全部保留",
+      "files": [],
+      "expectations": [
+        "输出为单个 Markdown 文件，frontmatter 包含 title、description、tags、source 四个字段",
+        "frontmatter 的 source 字段与任务给定的 URL 完全一致",
+        "正文采用中英段落交替排列（英文原段与中文译段成对出现，段间空行分隔）",
+        "段落不以「EN:」「译:」「中文:」等前缀标记开头",
+        "存在术语表章节，为三列表格（英文|中文|说明），术语数量在 5-20 之间",
+        "输出中的超链接 URL 均能在原文中找到且地址未改变",
+        "译文完整覆盖全文，包含文章末尾段落的中文翻译（未截断）",
+        "中文译段不存在超过 150 字符的无标点连续文本（长句已拆分）",
+        "存在至少一处括号补充或「译者注」形式的语境说明"
+      ]
+    }
+  ]
+}

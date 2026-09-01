@@ -83,7 +83,7 @@
 ### 技能
 
 - **`vault-manager`**：知识库整体维护（健康诊断、frontmatter 更新、index.md 同步、断链检查、附件重命名）
-- **`clipping-post-optimizer`**：清理标题、对齐脚注、同步超链接（用于剪报）
+- **`post-clipping`**：抓取文章 URL 并翻译整理为双语对照笔记，归档到 `content/clippings/`（含术语表构建与静态参考表维护）
 - **`obsidian-markdown`**：处理 Obsidian 专属语法（wikilinks、callouts）
 - **`obsidian-bases` / `json-canvas`**：管理 Obsidian 特殊视图与画布文件
 - **`write-blog`**：按项目规范在 `content/blog/` 下起草并创建博客文章
