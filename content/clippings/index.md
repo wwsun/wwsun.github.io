@@ -6,6 +6,7 @@ title: Clippings
 
 > 这里存放我精选/翻译的互联网内容。
 
+- [[making-data-ready-for-agentic-ai|让你的数据为 Agentic AI 做好准备]] — 智能体不会质疑数据，所以数据架构必须先替它把关：数据契约、可追溯性、上下文层与受控写回，让数据从「人读得懂」变成「机器信得过」。
 - [[10 个 NotebookLM 专家级高质量提示词|10 个 NotebookLM 专家级高质量提示词]] — 来自 @Ihtesham 分享的高质量提示词，青小蛙觉得写的非常赞啊，值得仔细学习一下。
 - [[2 百万人围观的 Claude Code 实战使用指南|2 百万人围观的 Claude Code 实战使用指南]] — This article provides senior engineer Eyad's practical guide to using Claude Code, emphasizing planning, context management, prompt engineering, and systematic use of AI tools to improve software development efficiency.
 - [[20 OpenClaw Prompts to Automate Your Daily Life and Work|20 个 OpenClaw 提示词：自动化你的日常生活与工作]] — 这是一篇介绍如何使用 **OpenClaw**（一款开源 AI 自动化代理框架）的实用提示词（Prompts）来自动化日常生活和工作任务的文章。文章提供了 20 个具体场景的使用示例
