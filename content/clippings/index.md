@@ -137,3 +137,4 @@ title: Clippings
 - [[whos-afraid-of-chinese-models|谁在害怕中国模型？]] — Ben Thompson 深度分析中国开源模型（Kimi K3、Qwen3.8 Max）崛起的经济逻辑、地缘政治意义，以及美国前沿实验室应有的策略回应。
 - [[codex-follow-goals|跟随目标（Follow a Goal）— Codex /goal 使用指南]] — OpenAI Codex 官方文档「Follow a goal」使用案例翻译，介绍如何用 /goal 命令让 Codex 执行长期自动化编程任务。
 - [[claude-code-costs|高效管理成本 - Claude Code 文档翻译]] — Claude Code 成本管理指南中文翻译，涵盖用量追踪、团队成本管理和降低 Token 消耗的策略
+- [[claude-code-confusion|Claude Code 会涨到 100 美元/月吗？大概率不会——但这整件事非常混乱]] — Simon Willison 复盘 Anthropic 悄悄把 Claude Code 从 20 美元 Pro 套餐移除引发的风波：社区反弹、官方含糊回应、数小时后的回滚，以及「测试文化」失误对信任的伤害。
