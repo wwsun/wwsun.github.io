@@ -96,7 +96,7 @@
 
 ### 创建笔记
 
-1. 创建新笔记时，需要参考模板 `tempaltes/default.md` ，该模板内容包含了新笔记需要包含的 metadata 属性列表。
+1. 创建新笔记时，需要参考模板 `templates/default.md` ，该模板内容包含了新笔记需要包含的 metadata 属性列表。
 2. 新建笔记后需要及时更新所属目录的 `index.md`
 
 ### Query workflow

@@ -83,6 +83,7 @@
 | exponential backoff              | 指数退避                | 重试失败请求时逐次成倍延长等待时间的策略                                                     |
 | fan-in / fan-out                 | 扇入 / 扇出             | 一个模块被依赖的广度 / 一个模块依赖他人的广度                                                |
 | fine-tuning                      | 微调                    | 在预训练模型上针对特定任务或风格继续训练                                                     |
+| free tier                        | 免费档                  | 产品不收取费用、面向所有用户的档位                                                           |
 | Fork                             | Fork/派生               | 复制他人的项目到自己的账户中继续开发                                                         |
 | freshness SLA                    | 新鲜度 SLA              | 规定数据必须在指定时限内完成刷新的服务级别协议，超时即视为过期数据                           |
 | frontier intelligence            | 前沿智能                | 指当前最先进的 AI 模型能力边界                                                               |
@@ -109,6 +110,7 @@
 | just-in-time credentials         | 即时凭证                | 为单个具体任务签发、短时有效的临时凭证，任务完成即失效                                       |
 | JWT                              | JWT（JSON Web Token）   | 一种结构化、自包含、加密签名的令牌格式                                                       |
 | knowledge graph                  | 知识图谱                | 用图结构存储实体及其关系，支持深度不确定的遍历推理                                           |
+| landing page                     | 落地页                  | 用户从搜索结果或广告点击后到达的营销页面                                                     |
 | landmark                         | 地标                    | 用于标识页面主要区域的语义角色（如 nav、main）                                               |
 | least privilege                  | 最小权限                | 只授予完成任务所必需权限的安全原则                                                           |
 | legacy codebase                  | 遗留代码库              | 由他人编写、缺乏文档、长期演进的老旧代码系统                                                 |
@@ -149,6 +151,7 @@
 | permission rule                  | 权限规则                | 决定工具调用是否自动批准的规则                                                               |
 | PermissionResultAllow            | 允许结果                | 回调返回的「允许」响应类型                                                                   |
 | PermissionResultDeny             | 拒绝结果                | 回调返回的「拒绝」响应类型                                                                   |
+| pricing grid                     | 定价表格                | 官网对比各套餐功能与价格的表格                                                               |
 | plan mode                        | 计划模式                | 在写代码前先生成结构化实施计划的模式                                                         |
 | PMS_U                            | PMS_U（保留）           | 主机持有的业务机密，用于 query_material_library / mws_call                                   |
 | popover                          | 弹出层                  | 浏览器原生支持的浮层元素，通过 `popover` 属性声明                                            |
