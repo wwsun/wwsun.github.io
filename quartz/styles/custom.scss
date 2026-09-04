@@ -3959,3 +3959,131 @@ body {
     }
   }
 }
+
+/* ==================================================
+   中文排版与布局优化覆盖（2026-09）
+   追加于生成主题之后，利用级联覆盖，便于审查与回滚
+   ================================================== */
+
+// 1) 显式中文字体栈：拉丁字体在前，CJK 字体兜底，emoji 在最后
+//    原主题为纯拉丁栈，中文完全依赖系统兜底，跨平台表现不可控
+body
+  :is(
+    p,
+    li,
+    blockquote,
+    table,
+    figcaption,
+    strong,
+    b,
+    em,
+    i,
+    del,
+    a.external,
+    a.internal,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    input[type="text"]
+  ),
+body footer a,
+body .breadcrumb-container .breadcrumb-element > a,
+body h2.page-title a,
+body .explorer .explorer-content a,
+body .search > .search-button {
+  font-family:
+    ui-sans-serif,
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    "Segoe UI",
+    Roboto,
+    Inter,
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Microsoft YaHei",
+    "Noto Sans CJK SC",
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    sans-serif !important;
+}
+
+// 2) 正文行高放宽：1.6rem → 1.8（中文长文阅读）；仅文章区，侧栏导航保持紧凑
+body .center article p,
+body .center article li {
+  line-height: 1.8;
+}
+
+// 3) 标题字距归零（防御性）：拉丁排版常用的负字距会挤压中文标题
+body .center article h1,
+body .center article h2,
+body .center article h3 {
+  letter-spacing: 0;
+}
+
+// 4) 正文列限宽：中文每行 30–45 字可读性最佳，44rem ≈ 44 字 @16px
+//    主题规则嵌套在 body{} 内（body .page>#quartz-body div.center），
+//    此处用相同优先级选择器并靠后置位置覆盖
+@media all and not ($mobile) {
+  body .page > #quartz-body div.center {
+    min-width: 0;
+    max-width: 44rem;
+  }
+}
+
+// 5) 内部链接对比度：浅色模式 rgb(10,120,245) 白底约 4.2:1，低于 WCAG AA 4.5:1
+//    调整为 GitHub 标准链接蓝 rgb(9,105,218)（约 5:1）
+//    常显下划线改为半透明细线降低视觉噪音，hover 时恢复实色（保留非颜色线索）
+body a.internal,
+body .breadcrumb-container .breadcrumb-element > a {
+  color: light-dark(rgb(9, 105, 218), rgb(106, 176, 255));
+  text-decoration-color: light-dark(rgba(9, 105, 218, 0.35), rgba(106, 176, 255, 0.45));
+  text-underline-offset: 0.2em;
+}
+
+// 6) 首页（content/index.md 通过 frontmatter cssclasses: [home] 启用）
+article.home {
+  // hero：站点标题 + 一句话简介
+  & > h1:first-child {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  & > h1:first-child + p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: light-dark(rgb(87, 96, 106), rgb(145, 152, 161));
+  }
+
+  // 内容导航：双列卡片网格（窄屏自动降为单列）
+  & > ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.6rem;
+    padding-left: 0;
+    margin-top: 0.8rem;
+
+    & > li {
+      list-style: none;
+      padding: 0.6rem 0.9rem;
+      border: 1px solid light-dark(rgb(208, 215, 222), rgb(48, 54, 61));
+      border-radius: 8px;
+      transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+
+      &::marker {
+        content: none;
+      }
+
+      &:hover {
+        background-color: light-dark(rgb(246, 248, 250), rgb(22, 27, 34));
+        border-color: light-dark(rgb(9, 105, 218), rgb(106, 176, 255));
+      }
+    }
+  }
+}
