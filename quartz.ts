@@ -1,9 +1,8 @@
 import { loadQuartzConfig, loadQuartzLayout } from "./quartz/plugins/loader/config-loader"
 import { ConditionalRender, RecentPosts, RecentTags } from "./quartz/components"
+import { PageTypeDispatcher } from "./quartz/plugins/pageTypes"
 
 const config = await loadQuartzConfig()
-export default config
-
 const baseLayout = await loadQuartzLayout()
 
 const homeAfterBody = [
@@ -12,9 +11,7 @@ const homeAfterBody = [
       title: "最新动态",
       limit: 8,
       filter: (f) =>
-        !f.slug?.endsWith("index") &&
-        !f.frontmatter?.noindex &&
-        !f.slug?.startsWith("templates/"),
+        !f.slug?.endsWith("index") && !f.frontmatter?.noindex && !f.slug?.startsWith("templates/"),
     }),
     condition: (page) => page.fileData.slug === "index",
   }),
@@ -34,3 +31,14 @@ export const layout = await loadQuartzLayout({
     },
   },
 })
+
+// Replace PageTypeDispatcher in config.plugins.emitters with customized layout
+const dispatcherIdx = config.plugins.emitters.findIndex((e) => e.name === "PageTypeDispatcher")
+if (dispatcherIdx !== -1) {
+  config.plugins.emitters[dispatcherIdx] = PageTypeDispatcher({
+    defaults: layout.defaults,
+    byPageType: layout.byPageType,
+  })
+}
+
+export default config
