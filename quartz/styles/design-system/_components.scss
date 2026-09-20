@@ -1,0 +1,159 @@
+@use "../variables.scss" as *;
+
+/**
+ * Design System - Components
+ * UI 组件与模式体系：列表项、标签、首页 Hero & 网格卡片、引用块等。
+ */
+
+// 1) 首页布局组件 (content/index.md 通过 frontmatter cssclasses: [home] 启用)
+article.home {
+  // Hero 区域：站点标题 + 一句话简介
+  & > h1:first-child {
+    margin-top: 0;
+    margin-bottom: var(--ds-space-2);
+    font-size: var(--ds-text-4xl);
+    line-height: var(--ds-leading-tight);
+  }
+
+  & > h1:first-child + p {
+    font-size: var(--ds-text-lg);
+    line-height: 1.7;
+    color: var(--ds-color-text-secondary);
+  }
+
+  // 内容导航：响应式卡片网格 (窄屏自动降为单列)
+  & > ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--ds-space-3);
+    padding-left: 0;
+    margin-top: var(--ds-space-4);
+
+    & > li {
+      list-style: none;
+      padding: var(--ds-space-3) var(--ds-space-4);
+      border: var(--ds-border-width) solid var(--ds-color-border-default);
+      border-radius: var(--ds-radius-lg);
+      background-color: var(--ds-color-bg-surface);
+      box-shadow: var(--ds-shadow-sm);
+      transition:
+        border-color var(--ds-transition-normal),
+        background-color var(--ds-transition-normal),
+        box-shadow var(--ds-transition-normal),
+        transform var(--ds-transition-normal);
+
+      &::marker {
+        content: none;
+      }
+
+      &:hover {
+        background-color: var(--ds-color-bg-hover);
+        border-color: var(--ds-color-border-hover);
+        box-shadow: var(--ds-shadow-card);
+      }
+    }
+  }
+}
+
+// 2) 列表页 (/blog/、/notes/、/clippings/ 等) 文章列表项排版：日期防折行，tags 紧随标题下方
+li.section-li > .section {
+  display: grid;
+  grid-template-columns: max-content 1fr !important;
+  grid-template-rows: auto auto;
+  align-items: baseline;
+  column-gap: var(--ds-space-5);
+
+  & .meta {
+    grid-column: 1;
+    grid-row: 1;
+    white-space: nowrap !important;
+    margin: 0;
+    color: var(--ds-color-text-muted);
+    font-size: var(--ds-text-sm);
+    font-variant-numeric: tabular-nums;
+  }
+
+  & .desc {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+
+    & > h3 {
+      margin: 0 !important;
+      line-height: 1.35;
+      font-size: var(--ds-text-base);
+    }
+  }
+
+  & > .tags {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex !important;
+    justify-content: flex-start !important;
+    margin: var(--ds-space-1) 0 0 0 !important;
+    padding: 0;
+    gap: var(--ds-space-1);
+
+    & > li {
+      margin: 0;
+      line-height: 1;
+
+      & > a.tag-link {
+        font-size: var(--ds-text-xs);
+        padding: 0.12rem 0.4rem;
+        line-height: 1.2;
+        border-radius: var(--ds-radius-full);
+        background-color: var(--ds-color-tag-bg);
+        color: var(--ds-color-tag-text);
+        text-decoration: none;
+        transition:
+          background-color var(--ds-transition-fast),
+          color var(--ds-transition-fast);
+
+        &:hover {
+          background-color: var(--ds-color-tag-bg-hover);
+        }
+      }
+    }
+  }
+}
+
+// 3) 引用块与装饰标尺
+body .center article blockquote {
+  border-left: 3px solid var(--ds-color-accent-default);
+  padding: var(--ds-space-2) var(--ds-space-4);
+  margin: var(--ds-space-4) 0;
+  color: var(--ds-color-text-secondary);
+  background-color: var(--ds-color-bg-subtle);
+  border-radius: 0 var(--ds-radius-md) var(--ds-radius-md) 0;
+}
+
+// 4) 侧边栏 Explorer（探索）组件：桌面端锁定常驻展开，防止点击标题误触折叠消失
+.explorer {
+  @media all and not ($mobile) {
+    &.collapsed {
+      flex: 0 1 auto !important;
+
+      & > .explorer-content {
+        display: block !important;
+        visibility: visible !important;
+        height: auto !important;
+        max-height: none !important;
+      }
+    }
+
+    button.desktop-explorer {
+      cursor: default !important;
+      pointer-events: none; // 禁用标题点击折叠整棵树
+
+      & .fold {
+        display: none !important; // 隐藏多余的顶级折叠箭头
+      }
+
+      & h2 {
+        cursor: default !important;
+        user-select: none;
+      }
+    }
+  }
+}

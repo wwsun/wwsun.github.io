@@ -1,8 +1,6 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { QuartzPluginData } from "../plugins/vfile"
-import { byDateAndAlphabetical } from "./PageList"
-import { PageList } from "./PageList"
-import { GlobalConfiguration } from "../cfg"
+import { byDateAndAlphabetical, PageList } from "./PageList"
 
 interface Options {
   title?: string
@@ -11,22 +9,20 @@ interface Options {
   sort: (f1: QuartzPluginData, f2: QuartzPluginData) => number
 }
 
-const defaultOptions = (cfg: GlobalConfiguration): Options => ({
+const defaultOptions: Options = {
   limit: 10,
   filter: () => true,
-  sort: byDateAndAlphabetical(cfg),
-})
+  sort: byDateAndAlphabetical(),
+}
 
 export default ((userOpts?: Partial<Options>) => {
   const RecentPosts: QuartzComponent = (props: QuartzComponentProps) => {
-    const { allFiles, cfg } = props
-    const opts = { ...defaultOptions(cfg), ...userOpts }
+    const { allFiles } = props
+    const opts = { ...defaultOptions, ...userOpts }
 
     // Filter and sort
     const pages = allFiles.filter(opts.filter).sort(opts.sort)
 
-    // Create a new props object with the filtered files to pass to PageList
-    // PageList expects 'allFiles' to be the list it renders (or we can handle slicing here)
     const filteredProps = {
       ...props,
       allFiles: pages,
@@ -41,5 +37,15 @@ export default ((userOpts?: Partial<Options>) => {
     )
   }
 
+  RecentPosts.css = `
+.recent-posts {
+  margin-top: 2rem;
+}
+.recent-posts h2 {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+`
+
   return RecentPosts
-}) satisfies QuartzComponentConstructor
+}) satisfies QuartzComponentConstructor<Partial<Options>>

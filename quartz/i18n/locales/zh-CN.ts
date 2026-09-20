@@ -58,7 +58,6 @@ export default {
     },
     contentMeta: {
       readingTime: ({ minutes }) => `${minutes}分钟阅读`,
-      source: "原文",
     },
   },
   pages: {

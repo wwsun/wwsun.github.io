@@ -1,44 +1,17 @@
-# wwsun's weblog
+# Quartz v5
 
-> [!tip]
-> 这是一个基于 **Quartz v4** 构建、通过 **Obsidian** 管理的个人知识库。
+> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
 
-## 快速开始
+Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
 
-### 本地预览
+🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
 
-在本地启动预览服务器（支持热重载）：
+[Join the Discord Community](https://discord.gg/cRFFHYye7t)
 
-```bash
-npx quartz build --serve
-```
+## Sponsors
 
-### 同步与部署
-
-将更改同步到远程存储库并触发部署：
-
-```bash
-npx quartz sync
-```
-
-## 存储库结构
-
-- **`content/`**: 知识库的核心内容。
-  - `blog/`: 深度长文与原创博客。
-  - `notes/`: 学习记录、零散思考片段与备忘录。
-  - `wiki/`: 通用笔记，工具使用、开源项目调研等
-  - `clippings/`: 经过优化的 Web 剪报与译文。
-  - `books/`: 读书笔记与摘要。
-- `quartz/`: 站点源码
-- **`quartz.config.ts`**: 站点标题、语言及插件配置。
-
-## 维护与验证
-
-为了保持文档的格式正确，需要定期执行：
-
-- `npm run format`: 应用 Prettier 格式化，保持代码和文档整洁。
-- `npm run check`: 运行全局验证，检查断链、类型错误及构建完整性。
-
----
-
-Powered by [Quartz](https://quartz.jzhao.xyz/) & [Obsidian](https://obsidian.md/).
+<p align="center">
+  <a href="https://github.com/sponsors/jackyzha0">
+    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
+  </a>
+</p>

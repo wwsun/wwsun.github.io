@@ -1,0 +1,97 @@
+@use "../variables.scss" as *;
+
+/**
+ * Design System - Typography Rules
+ * 中西文排版体系：显式中文字体栈、标题防挤压、正文舒适黄金阅读列宽与行高。
+ */
+
+// 1) 显式中文字体栈：拉丁字体在前，CJK 字体兜底，emoji 在最后
+body
+  :is(
+    p,
+    li,
+    blockquote,
+    table,
+    figcaption,
+    strong,
+    b,
+    em,
+    i,
+    del,
+    a.external,
+    a.internal,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    input[type="text"]
+  ),
+body footer a,
+body .breadcrumb-container .breadcrumb-element > a,
+body h2.page-title a,
+body .explorer .explorer-content a,
+body .search > .search-button {
+  font-family: var(--ds-font-sans) !important;
+}
+
+// 2) 代码字体栈
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--ds-font-mono) !important;
+}
+
+// 3) 正文行高放宽：1.8 中文长文舒适黄金行高；仅文章区，侧栏导航保持紧凑
+body .center article p,
+body .center article li {
+  line-height: var(--ds-leading-relaxed);
+}
+
+// 4) 标题字距归零（防御性）：拉丁排版常用的负字距会挤压中文标题
+body .center article h1,
+body .center article h2,
+body .center article h3,
+body .center article h4,
+body .center article h5,
+body .center article h6 {
+  letter-spacing: var(--ds-tracking-heading);
+}
+
+// 5) 正文列限宽：中文每行 30–45 字可读性最佳，44rem ≈ 44 字 @16px
+@media all and not ($mobile) {
+  body .page > #quartz-body div.center {
+    min-width: 0;
+    max-width: var(--ds-reading-max-width);
+  }
+}
+
+// 6) 内部链接与面包屑导航：符合 WCAG AA 对比度要求，降低视觉噪音
+body a.internal,
+body .breadcrumb-container .breadcrumb-element > a {
+  color: var(--ds-color-text-link);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--ds-color-text-link) 35%, transparent);
+  text-underline-offset: 0.2em;
+  transition:
+    color var(--ds-transition-fast),
+    text-decoration-color var(--ds-transition-fast);
+
+  &:hover {
+    color: var(--ds-color-text-link-hover);
+    text-decoration-color: var(--ds-color-text-link-hover);
+  }
+}
+
+// 7) 内联代码块规范
+body .center article :not(pre) > code {
+  font-size: 0.875em;
+  padding: 0.15em 0.4em;
+  margin: 0 0.1em;
+  border-radius: var(--ds-radius-sm);
+  background-color: var(--ds-color-bg-hover);
+  border: 1px solid var(--ds-color-border-muted);
+  font-variant-ligatures: none;
+}

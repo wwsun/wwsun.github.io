@@ -1,13 +1,21 @@
 {
   "printWidth": 100,
-  "tabWidth": 2,
-  "useTabs": false,
-  "semi": false,
-  "singleQuote": false,
   "quoteProps": "as-needed",
   "trailingComma": "all",
-  "bracketSpacing": true,
-  "arrowParens": "always",
-  "endOfLine": "lf",
-  "proseWrap": "preserve"
+  "tabWidth": 2,
+  "semi": false,
+  "overrides": [
+    {
+      "files": "*.canvas",
+      "options": {
+        "parser": "json"
+      }
+    },
+    {
+      "files": "*.base",
+      "options": {
+        "parser": "yaml"
+      }
+    }
+  ]
 }

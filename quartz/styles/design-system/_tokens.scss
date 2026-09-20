@@ -1,0 +1,180 @@
+/**
+ * Design System - Design Tokens
+ * 统一设计代币体系：包含色彩、排版、间距、圆角、阴影等规范。
+ */
+
+:root {
+  /* ==================================================
+     1. Typography Tokens (排版代币)
+     ================================================== */
+  --ds-font-sans:
+    ui-sans-serif,
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    "Segoe UI",
+    Roboto,
+    Inter,
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Microsoft YaHei",
+    "Noto Sans CJK SC",
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    sans-serif;
+
+  --ds-font-mono:
+    "JetBrains Mono",
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace;
+
+  // 字阶标尺 (Modular Type Scale - 1.125 Major Second / 1.2 Minor Third 混合梯度)
+  --ds-text-xs: 0.75rem;    // 12px
+  --ds-text-sm: 0.875rem;   // 14px
+  --ds-text-base: 1rem;     // 16px (正文基准)
+  --ds-text-lg: 1.125rem;   // 18px
+  --ds-text-xl: 1.25rem;    // 20px (H4)
+  --ds-text-2xl: 1.5rem;    // 24px (H3)
+  --ds-text-3xl: 1.875rem;  // 30px (H2)
+  --ds-text-4xl: 2.25rem;   // 36px (H1)
+
+  // 字重 (Font Weights)
+  --ds-weight-normal: 400;
+  --ds-weight-medium: 500;
+  --ds-weight-semibold: 600;
+  --ds-weight-bold: 700;
+
+  // 行高与排版韵律 (Line Heights)
+  --ds-leading-none: 1;
+  --ds-leading-tight: 1.25;
+  --ds-leading-snug: 1.375;
+  --ds-leading-normal: 1.5;
+  --ds-leading-relaxed: 1.8; // 中文长文舒适黄金阅读行高
+
+  // 阅读标尺 (Reading Ergonomics)
+  --ds-reading-max-width: 44rem; // 约 35-45 个中文字符的黄金阅读宽度
+  --ds-tracking-heading: 0;      // 标题字距抗挤压
+
+  /* ==================================================
+     2. Spacing Scale (间距标尺 - 基于 4px/8px 网格)
+     ================================================== */
+  --ds-space-0-5: 0.125rem; // 2px
+  --ds-space-1: 0.25rem;   // 4px
+  --ds-space-2: 0.5rem;    // 8px
+  --ds-space-3: 0.75rem;   // 12px
+  --ds-space-4: 1rem;      // 16px
+  --ds-space-5: 1.25rem;   // 20px
+  --ds-space-6: 1.5rem;    // 24px
+  --ds-space-8: 2rem;      // 32px
+  --ds-space-10: 2.5rem;   // 40px
+  --ds-space-12: 3rem;     // 48px
+
+  /* ==================================================
+     3. Shape & Elevation (形状与层级)
+     ================================================== */
+  --ds-radius-sm: 4px;
+  --ds-radius-md: 6px;
+  --ds-radius-lg: 8px;
+  --ds-radius-xl: 12px;
+  --ds-radius-full: 9999px;
+
+  --ds-border-width: 1px;
+
+  --ds-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --ds-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --ds-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  --ds-transition-fast: 0.15s ease;
+  --ds-transition-normal: 0.2s ease;
+
+  /* ==================================================
+     4. Semantic Color Tokens (默认: Light Mode)
+     ================================================== */
+  // 背景表面 (Surface & Canvas)
+  --ds-color-bg-canvas: #ffffff;
+  --ds-color-bg-surface: #ffffff;
+  --ds-color-bg-muted: #f6f8fa;
+  --ds-color-bg-subtle: #fcfcfc;
+  --ds-color-bg-hover: rgba(208, 215, 222, 0.32);
+
+  // 文本色彩 (Text & Foreground)
+  --ds-color-text-primary: #1f2328;
+  --ds-color-text-secondary: #57606a;
+  --ds-color-text-muted: #6e7781;
+  --ds-color-text-link: #0969da;       // GitHub 链接蓝 (WCAG AA ~5:1)
+  --ds-color-text-link-hover: #0550ae; // 深蓝悬停态
+
+  // 边框与分割线 (Border & Dividers)
+  --ds-color-border-default: #d0d7de;
+  --ds-color-border-muted: #eaeef2;
+  --ds-color-border-hover: #0969da;
+  --ds-color-border-focus: #0969da;
+
+  // 强调与交互 (Accent & Interactive)
+  --ds-color-accent-default: #0969da;
+  --ds-color-accent-emphasis: #0550ae;
+  --ds-color-accent-subtle: rgba(9, 105, 218, 0.1);
+
+  // 状态语义色 (Status: Info, Success, Warning, Danger)
+  --ds-color-status-info: #0969da;
+  --ds-color-status-success: #1a7f37;
+  --ds-color-status-warning: #9a6700;
+  --ds-color-status-danger: #cf222e;
+
+  // 标签胶囊配色
+  --ds-color-tag-bg: rgba(9, 105, 218, 0.08);
+  --ds-color-tag-text: #0969da;
+  --ds-color-tag-bg-hover: rgba(9, 105, 218, 0.15);
+}
+
+/* ==================================================
+   5. Semantic Color Tokens (Dark Mode)
+   ================================================== */
+:root[saved-theme="dark"] {
+  // 背景表面
+  --ds-color-bg-canvas: #0d1117;
+  --ds-color-bg-surface: #161b22;
+  --ds-color-bg-muted: #161b22;
+  --ds-color-bg-subtle: #21262d;
+  --ds-color-bg-hover: rgba(110, 118, 129, 0.16);
+
+  // 文本色彩
+  --ds-color-text-primary: #f0f6fc;
+  --ds-color-text-secondary: #9198a1;
+  --ds-color-text-muted: #768390;
+  --ds-color-text-link: #6ab0ff;       // 高对比度夜间链接蓝
+  --ds-color-text-link-hover: #91caff;
+
+  // 边框与分割线
+  --ds-color-border-default: #30363d;
+  --ds-color-border-muted: #21262d;
+  --ds-color-border-hover: #6ab0ff;
+  --ds-color-border-focus: #6ab0ff;
+
+  // 强调与交互
+  --ds-color-accent-default: #2f81f7;
+  --ds-color-accent-emphasis: #58a6ff;
+  --ds-color-accent-subtle: rgba(56, 139, 253, 0.15);
+
+  // 状态语义色
+  --ds-color-status-info: #58a6ff;
+  --ds-color-status-success: #3fb950;
+  --ds-color-status-warning: #d29922;
+  --ds-color-status-danger: #f85149;
+
+  // 标签胶囊配色
+  --ds-color-tag-bg: rgba(110, 118, 129, 0.2);
+  --ds-color-tag-text: #91caff;
+  --ds-color-tag-bg-hover: rgba(110, 118, 129, 0.35);
+
+  --ds-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --ds-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --ds-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+}

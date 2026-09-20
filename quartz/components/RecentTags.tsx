@@ -26,7 +26,10 @@ export default ((userOpts?: Partial<Options>) => {
 
     const tags = [
       ...new Set(
-        pages.flatMap((data) => data.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes),
+        pages
+          .flatMap((data) => data.frontmatter?.tags ?? [])
+          .flatMap(getAllSegmentPrefixes)
+          .filter((tag) => Boolean(tag && tag.trim())),
       ),
     ].sort((a, b) => a.localeCompare(b))
 
@@ -80,4 +83,4 @@ export default ((userOpts?: Partial<Options>) => {
 }
 `
   return RecentTags
-}) satisfies QuartzComponentConstructor
+}) satisfies QuartzComponentConstructor<Partial<Options>>

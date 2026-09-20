@@ -1,6 +1,6 @@
 # AGENTS.md
 
-本仓库是 **Weiwei Sun 的网络日志与个人知识库**，基于 **Quartz v4** 构建，通过 **Obsidian** 管理。这是一个以内容为核心的知识库，笔记之间高度互联。
+本仓库是 **Weiwei Sun 的网络日志与个人知识库**，基于 **Quartz v5** 构建，通过 **Obsidian** 管理。这是一个以内容为核心的知识库，笔记之间高度互联。
 
 ## 角色与使命
 
@@ -34,14 +34,15 @@
   - `books/`：读书笔记与摘要
   - `clippings/`：经优化的网络剪报与译文
   - `financial/`: 投资理财相关的笔记
+  - `learning/`: 体系化专题学习与模拟实验笔记
   - `notes/`：笔记、零散思考、备忘录与配置
   - `parenting/`: 儿童教育相关的笔记
   - `prompts/`: 提示词相关的笔记
   - `speech/`: 演讲稿
   - `wiki/`：通用知识库，工具使用、开源项目等
   - `assets/`：媒体文件（图片等）
-- **`quartz.config.ts`**：站点配置（标题、语言、插件）
-- **`quartz.layout.ts`**：布局定义（页眉、页脚、侧边栏）
+  - `*.base`: Obsidian 数据视图（Bases）配置文件
+- **`quartz.config.yaml`**：站点配置与插件/布局声明（Quartz v5 核心配置）
 - **`.agents/skills/`**：AI 代理自定义技能
 - **`.obsidian/`**：本地 Obsidian 配置
 
@@ -113,20 +114,30 @@
 - **禁止**在 Markdown 可以表达的情况下使用复杂 HTML
 - **禁止**在未明确授权的情况下重命名或删除已有内容文件
 
+## 工具链与提交规范
+
+- **Node.js**：要求 Node.js `>= 22`，使用 `fnm` 管理 Node 版本
+- **版本控制**：Git 提交信息统一遵循 Conventional Commits 规范（如 `feat:`, `fix:`, `docs:`, `chore:`）
+
 ## 开发命令
 
 ```bash
 # 单文件格式化（推荐，比全量快）
 npx prettier --write content/path/to/file.md
 
-# 类型检查（不触发构建）
-tsc --noEmit
-
-# 链接与构建完整性验证
+# 类型检查与完整性验证
 npm run check
+
+# 单元测试
+npm test
 
 # 本地预览（支持热重载）
 npx quartz build --serve
+# 或
+npm start
+
+# 同步安装配置中的社区插件
+npm run install-plugins
 
 # 同步并部署（谨慎使用）
 npx quartz sync
@@ -143,8 +154,8 @@ npm run format
 
 - 读取文件、列出目录
 - 单文件 prettier 格式化
-- `tsc --noEmit` 类型检查
-- `npm run check` 验证
+- `tsc --noEmit` / `npm run check` 验证
+- `npm test` 单元测试
 
 **执行前需征得确认：**
 
