@@ -4087,3 +4087,17 @@ article.home {
     }
   }
 }
+
+// 列表页（/blog/、/notes/、/clippings/ 等）文章列表排版：避免日期折行
+li.section-li > .section {
+  grid-template-columns: max-content 3fr 1fr !important;
+  align-items: baseline;
+
+  & .meta {
+    white-space: nowrap !important;
+    margin: 0 1.25em 0 0;
+    opacity: 0.65;
+    font-size: 0.85em;
+    font-variant-numeric: tabular-nums;
+  }
+}
