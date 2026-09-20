@@ -76,13 +76,13 @@
 
 ### 4. 内容索引
 
-`content/` 子目录中统一使用 `index.md` 列出所有的页面，并给每个页面写一句话简介。
+`content/` 子目录使用 `index.md` 提供该目录的定位与导读说明。具体文章列表由 Quartz 自动根据元数据（标题、日期、标签、`description` 简介）动态渲染，无需在 `index.md` 中机械维护全量链接。
 
 ## 工作流与自动化
 
 ### 技能
 
-- **`vault-manager`**：知识库整体维护（健康诊断、frontmatter 更新、index.md 同步、断链检查、附件重命名）
+- **`vault-manager`**：知识库整体维护（健康诊断、frontmatter 更新、断链检查、附件重命名）
 - **`post-clipping`**：抓取文章 URL 并翻译整理为双语对照笔记，归档到 `content/clippings/`（含术语表构建与静态参考表维护）
 - **`obsidian-markdown`**：处理 Obsidian 专属语法（wikilinks、callouts）
 - **`obsidian-bases` / `json-canvas`**：管理 Obsidian 特殊视图与画布文件
@@ -90,14 +90,13 @@
 
 ### 日常维护
 
-- 在 `content/` 子目录中添加新的文件后，需要及时更新该目录中的 `index.md`
+- 在 `content/` 子目录中添加新的文件后，务必补充完整的 frontmatter（尤其是 `title`、`tags`、`description`）
 - 在 `quartz/` 中进行重大改动后运行 `npm run format` 保持风格一致
 - 运行 `npm run check` 验证链接、类型与构建完整性
 
 ### 创建笔记
 
-1. 创建新笔记时，需要参考模板 `templates/default.md` ，该模板内容包含了新笔记需要包含的 metadata 属性列表。
-2. 新建笔记后需要及时更新所属目录的 `index.md`
+1. 创建新笔记时，需要参考模板 `templates/default.md` ，该模板内容包含了新笔记需要包含的 metadata 属性列表（尤其是 `title`、`description` 和 `tags`）。
 
 ### Query workflow
 
