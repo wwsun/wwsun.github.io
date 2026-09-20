@@ -115,6 +115,8 @@ plugins:
     enabled: true
     options:
       renderEngine: katex
+      katexOptions:
+        strict: "ignore"
     order: 80
   - source: "@quartz-community/quartz-fonts"
     enabled: true
@@ -133,10 +135,6 @@ plugins:
       enableSiteMap: true
       enableRSS: true
   - source: "@quartz-community/favicon"
-    enabled: true
-  - source: "@quartz-community/cname"
-    enabled: true
-  - source: "@quartz-community/canvas-page"
     enabled: true
   - source: "@quartz-community/content-page"
     enabled: true
@@ -230,14 +228,6 @@ plugins:
     layout:
       position: footer
       priority: 50
-  - source: "@quartz-community/spacer"
-    enabled: true
-    options: {}
-    order: 25
-    layout:
-      position: left
-      priority: 25
-      display: mobile-only
 layout:
   groups:
     toolbar:
@@ -261,5 +251,4 @@ layout:
         - reader-mode
       positions:
         right: []
-    canvas: {}
     bases: {}
