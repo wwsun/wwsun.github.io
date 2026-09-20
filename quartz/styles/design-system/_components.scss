@@ -1,3 +1,5 @@
+@use "../variables.scss" as *;
+
 /**
  * Design System - Components
  * UI 组件与模式体系：列表项、标签、首页 Hero & 网格卡片、引用块等。
@@ -124,4 +126,34 @@ body .center article blockquote {
   color: var(--ds-color-text-secondary);
   background-color: var(--ds-color-bg-subtle);
   border-radius: 0 var(--ds-radius-md) var(--ds-radius-md) 0;
+}
+
+// 4) 侧边栏 Explorer（探索）组件：桌面端锁定常驻展开，防止点击标题误触折叠消失
+.explorer {
+  @media all and not ($mobile) {
+    &.collapsed {
+      flex: 0 1 auto !important;
+
+      & > .explorer-content {
+        display: block !important;
+        visibility: visible !important;
+        height: auto !important;
+        max-height: none !important;
+      }
+    }
+
+    button.desktop-explorer {
+      cursor: default !important;
+      pointer-events: none; // 禁用标题点击折叠整棵树
+
+      & .fold {
+        display: none !important; // 隐藏多余的顶级折叠箭头
+      }
+
+      & h2 {
+        cursor: default !important;
+        user-select: none;
+      }
+    }
+  }
 }
