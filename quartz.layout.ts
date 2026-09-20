@@ -7,18 +7,18 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   afterBody: [
     Component.ConditionalRender({
-      component: Component.RecentTags({ title: "标签" }),
-      condition: (page) => page.fileData.slug === "index",
-    }),
-    Component.ConditionalRender({
       component: Component.RecentPosts({
-        title: "最新文章",
-        limit: 10,
+        title: "最新动态",
+        limit: 8,
         filter: (f) =>
           !f.slug?.endsWith("index") &&
           !f.frontmatter?.noindex &&
           !f.slug?.startsWith("templates/"),
       }),
+      condition: (page) => page.fileData.slug === "index",
+    }),
+    Component.ConditionalRender({
+      component: Component.RecentTags({ title: "探索标签", limit: 25 }),
       condition: (page) => page.fileData.slug === "index",
     }),
   ],
@@ -66,14 +66,8 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Explorer(),
   ],
   right: [
-    Component.ConditionalRender({
-      component: Component.Graph(),
-      condition: (page) => page.fileData.slug !== "index",
-    }),
-    Component.ConditionalRender({
-      component: Component.DesktopOnly(Component.TableOfContents()),
-      condition: (page) => page.fileData.slug !== "index",
-    }),
+    Component.Graph(),
+    Component.DesktopOnly(Component.TableOfContents()),
     Component.ConditionalRender({
       component: Component.SimpleRecentNotes({
         title: "最近更新",
