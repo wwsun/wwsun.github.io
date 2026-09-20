@@ -1,10 +1,6 @@
 ---
-title: opencalw-intro-talk
-description: Index of opencalw-intro-talk
+title: OpenClaw 实战演讲
+description: 线下技术演讲：打造「数字同事」——OpenClaw 实战指南及配套 PPT/PDF。
 ---
 
-# opencalw-intro-talk — 索引
-
-> Index of opencalw-intro-talk
-
-- [[openclaw-intro-talk|打造「数字同事」——OpenClaw 实战指南]] — --- 目标：用信息过载的共鸣场景切入，建立"现在 vs 以...
+> 线下技术演讲：打造「数字同事」——OpenClaw 实战指南，附演讲文稿及演示文件。
