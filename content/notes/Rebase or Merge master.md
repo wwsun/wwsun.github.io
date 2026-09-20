@@ -1,0 +1,39 @@
+---
+title: "Git Rebase 与 Merge 详解"
+date: 2025-12-11 16:14:00
+tags:
+  - best-practices
+  - git
+  - version-control
+draft: false
+description: "Git Rebase 对比 Merge 的使用指南，强调‘公共历史神圣不可侵犯，私有历史由你主宰’的原则。"
+source:
+---
+
+> [!tip] 口诀
+> "公共历史要保护（用 merge），私有历史可整理（用 rebase）。"
+
+## 何时使用？
+
+### 使用 `merge` 的场景：
+
+- 团队协作中，分支已推送到远程（公共分支）。
+- 希望保留真实的开发历史（包括并行开发过程）。
+- 不想改写提交历史（避免造成他人混乱）。
+
+### 使用 `rebase` 的场景：
+
+- 本地开发，尚未推送分支。
+- 希望保持干净、线性的提交历史（便于代码审查或回溯）。
+- 在 pull request / MR 前整理自己的提交。
+
+> ⚠️ **重要原则**：**不要对已经推送到共享仓库的分支执行 rebase**，除非你确定团队其他成员不会受影响。
+
+---
+
+## 总结口诀：
+
+> **“Public history is sacred, private history is yours.”**  
+> 公共历史要保护（用 merge），私有历史可整理（用 rebase）。
+
+希望这能帮你清晰理解两者的区别！如需进一步演示命令流程，也可以告诉我。

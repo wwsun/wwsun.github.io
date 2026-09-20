@@ -1,0 +1,15 @@
+views:
+  - type: table
+    name: 表格
+    filters:
+      and:
+        - file.inFolder("content/finanical")
+        - file.name != "index"
+    order:
+      - file.name
+      - title
+      - file.ctime
+      - tags
+    columnSize:
+      file.name: 169
+      note.title: 242

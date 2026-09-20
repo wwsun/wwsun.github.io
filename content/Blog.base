@@ -1,0 +1,19 @@
+views:
+  - type: table
+    name: 博客文章
+    filters:
+      and:
+        - file.folder == "content/blog"
+    order:
+      - title
+      - file.name
+      - file.ctime
+      - tags
+    sort:
+      - property: file.mtime
+        direction: DESC
+    indentProperties: false
+    separator: " "
+    markers: number
+    columnSize:
+      file.name: 175

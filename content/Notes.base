@@ -1,0 +1,19 @@
+views:
+  - type: table
+    name: 学习笔记
+    filters:
+      and:
+        - file.folder == "content/notes"
+    order:
+      - title
+      - file.name
+      - file.ctime
+      - tags
+    sort:
+      - property: file.mtime
+        direction: DESC
+    indentProperties: false
+    separator: " "
+    markers: number
+    columnSize:
+      file.name: 175
