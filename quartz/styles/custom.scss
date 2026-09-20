@@ -4088,16 +4088,37 @@ article.home {
   }
 }
 
-// 列表页（/blog/、/notes/、/clippings/ 等）文章列表排版：避免日期折行
+// 列表页（/blog/、/notes/、/clippings/ 等）文章列表排版：日期防折行，tags 紧随标题下方
 li.section-li > .section {
-  grid-template-columns: max-content 3fr 1fr !important;
+  display: grid;
+  grid-template-columns: max-content 1fr !important;
+  grid-template-rows: auto auto;
   align-items: baseline;
+  column-gap: 1.25em;
 
   & .meta {
+    grid-column: 1;
+    grid-row: 1;
     white-space: nowrap !important;
-    margin: 0 1.25em 0 0;
+    margin: 0;
     opacity: 0.65;
     font-size: 0.85em;
     font-variant-numeric: tabular-nums;
+  }
+
+  & .desc {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+  }
+
+  & > .tags {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex !important;
+    justify-content: flex-start !important;
+    margin: 0.35rem 0 0 0 !important;
+    padding: 0;
+    gap: 0.35rem;
   }
 }
