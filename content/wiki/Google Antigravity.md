@@ -44,3 +44,7 @@ When reviewing code, follow these steps:
 - Explain why, not just what
 - Suggest alternatives when possible
 ```
+
+## 常见问题
+
+- [[antigravity-location-proxy|Antigravity 报 location 不可用：给单个应用配 Clash 代理]]
