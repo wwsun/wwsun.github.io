@@ -9,6 +9,11 @@ tsconfig.tsbuildinfo
 private/
 .replit
 replit.nix
+copilot/
+.claude/settings.local.json
+.sync-cache
+__pycache__/
+.agents/skills/*-workspace/
 .quartz/
 quartz/cli/tui/dist/
 .turbo/
