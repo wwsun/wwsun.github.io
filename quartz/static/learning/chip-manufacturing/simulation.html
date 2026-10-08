@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>芯片制造 3D 模拟</title>
+    <style>
+      :root {
+        --bg: #1a2332;
+        --panel: #232f42;
+        --text: #e8ecf1;
+        --muted: #9fb0c3;
+        --accent: #ffb347;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        overflow: hidden;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+      }
+      #scene {
+        flex: 1;
+        min-height: 0;
+        position: relative;
+      }
+      canvas {
+        display: block;
+      }
+      /* 阶段指示器 */
+      #stages {
+        display: flex;
+        gap: 6px;
+        padding: 10px 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        background: var(--panel);
+      }
+      .stage-pill {
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 13px;
+        background: #2e3d55;
+        color: var(--muted);
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: all 0.2s;
+      }
+      .stage-pill.active {
+        background: var(--accent);
+        color: #1a2332;
+        font-weight: 600;
+      }
+      /* 解说面板 */
+      #panel {
+        padding: 12px 16px;
+        background: var(--panel);
+        border-top: 1px solid #33445e;
+      }
+      #panel h2 {
+        font-size: 16px;
+        margin-bottom: 4px;
+        color: var(--accent);
+      }
+      #panel p {
+        font-size: 13px;
+        line-height: 1.55;
+        color: var(--muted);
+      }
+      /* 控件栏 */
+      #controls {
+        display: flex;
+        gap: 10px;
+        padding: 10px 12px;
+        justify-content: center;
+        align-items: center;
+        background: var(--panel);
+      }
+      button {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+        background: #33445e;
+        color: var(--text);
+        transition: background 0.15s;
+      }
+      button:hover {
+        background: #40567a;
+      }
+      button.primary {
+        background: var(--accent);
+        color: #1a2332;
+        font-weight: 600;
+      }
+      button.primary:hover {
+        background: #ffc36e;
+      }
+      /* 提示 */
+      #hint {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 12px;
+        color: var(--muted);
+        opacity: 0.8;
+        pointer-events: none;
+      }
+      /* 问答关卡 */
+      #quiz-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(10, 15, 25, 0.75);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        backdrop-filter: blur(3px);
+      }
+      #quiz-overlay.hidden {
+        display: none;
+      }
+      .quiz-card {
+        background: var(--panel);
+        border: 1px solid #3b4d68;
+        border-radius: 14px;
+        padding: 22px 24px;
+        max-width: 440px;
+        width: 88%;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+      }
+      .quiz-badge {
+        display: inline-block;
+        font-size: 12px;
+        padding: 3px 10px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #1a2332;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      #quiz-question {
+        font-size: 17px;
+        margin-bottom: 14px;
+        line-height: 1.5;
+        font-weight: 600;
+      }
+      .quiz-opt {
+        display: block;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 8px;
+        padding: 10px 14px;
+        background: #2e3d55;
+        border: 1px solid #33445e;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+        color: var(--text);
+        transition: all 0.15s;
+      }
+      .quiz-opt:hover:not(:disabled) {
+        background: #3a4d6b;
+      }
+      .quiz-opt:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+      .quiz-opt.wrong {
+        background: #7c3a3a;
+        border-color: #a05555;
+        animation: shake 0.3s;
+      }
+      .quiz-opt.right {
+        background: #2f7d4f;
+        border-color: #4fa06d;
+      }
+      #quiz-feedback {
+        min-height: 20px;
+        font-size: 13px;
+        color: var(--muted);
+        margin-top: 10px;
+        line-height: 1.55;
+      }
+      #quiz-feedback a {
+        color: var(--accent);
+      }
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-5px);
+        }
+        75% {
+          transform: translateX(5px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="scene"><div id="hint">拖动旋转视角 · 滚轮缩放</div></div>
+
+    <div id="stages">
+      <div class="stage-pill active" data-stage="0">1 提纯拉晶</div>
+      <div class="stage-pill" data-stage="1">2 光刻蚀刻</div>
+      <div class="stage-pill" data-stage="2">3 堆叠连线</div>
+      <div class="stage-pill" data-stage="3">4 封装交付</div>
+    </div>
+
+    <div id="panel">
+      <h2 id="panel-title"></h2>
+      <p id="panel-text"></p>
+    </div>
+
+    <div id="controls">
+      <button id="btn-prev">上一站</button>
+      <button id="btn-play" class="primary">暂停</button>
+      <button id="btn-next">下一站</button>
+    </div>
+
+    <div id="quiz-overlay" class="hidden">
+      <div class="quiz-card">
+        <span class="quiz-badge" id="quiz-badge">关卡</span>
+        <h3 id="quiz-question"></h3>
+        <div id="quiz-options"></div>
+        <p id="quiz-feedback"></p>
+      </div>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import * as THREE from "three"
+      import { OrbitControls } from "three/addons/controls/OrbitControls.js"
+
+      /* ---------- 场景初始化 ---------- */
+      const container = document.getElementById("scene")
+      const scene = new THREE.Scene()
+      scene.background = new THREE.Color(0x1a2332)
+      scene.fog = new THREE.Fog(0x1a2332, 40, 120)
+
+      const camera = new THREE.PerspectiveCamera(
+        50,
+        container.clientWidth / container.clientHeight,
+        0.1,
+        300,
+      )
+      camera.position.set(14, 12, 22)
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true })
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+      renderer.setSize(container.clientWidth, container.clientHeight)
+      container.appendChild(renderer.domElement)
+
+      const controls = new OrbitControls(camera, renderer.domElement)
+      controls.target.set(0, 1.5, 0)
+      controls.enableDamping = true
+      controls.maxPolarAngle = Math.PI * 0.45
+      controls.minDistance = 8
+      controls.maxDistance = 50
+      controls.update()
+
+      /* 灯光：低多边形玩具感 */
+      scene.add(new THREE.HemisphereLight(0xdfeaf5, 0x5a4a3a, 1.1))
+      const sun = new THREE.DirectionalLight(0xfff2d9, 1.6)
+      sun.position.set(18, 25, 10)
+      scene.add(sun)
+
+      /* ---------- 材质 ---------- */
+      const M = {
+        ground: new THREE.MeshLambertMaterial({ color: 0x2c3e50 }),
+        belt: new THREE.MeshLambertMaterial({ color: 0x4a5d73 }),
+        furnace: new THREE.MeshLambertMaterial({ color: 0xc0392b }),
+        furnaceHot: new THREE.MeshLambertMaterial({ color: 0xe67e22 }),
+        machine: new THREE.MeshLambertMaterial({ color: 0xecf0f1 }),
+        chamber: new THREE.MeshLambertMaterial({ color: 0x2980b9 }),
+        packer: new THREE.MeshLambertMaterial({ color: 0x8e44ad }),
+        sand: new THREE.MeshLambertMaterial({ color: 0xd9b98c }),
+        ingot: new THREE.MeshLambertMaterial({ color: 0xaeb6bf }),
+        wafer: new THREE.MeshLambertMaterial({ color: 0xcdd6dd }),
+        chip: new THREE.MeshLambertMaterial({ color: 0x21252b }),
+        gold: new THREE.MeshLambertMaterial({ color: 0xf1c40f }),
+        beam: new THREE.MeshBasicMaterial({ color: 0xffe066, transparent: true, opacity: 0.7 }),
+      }
+
+      function box(w, h, d, mat, x = 0, y = 0, z = 0, parent = scene) {
+        const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat)
+        m.position.set(x, y, z)
+        parent.add(m)
+        return m
+      }
+      function cyl(rt, rb, h, mat, seg = 8, x = 0, y = 0, z = 0, parent = scene) {
+        const m = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg), mat)
+        m.position.set(x, y, z)
+        parent.add(m)
+        return m
+      }
+
+      /* ---------- 地面与传送带 ---------- */
+      const ground = new THREE.Mesh(new THREE.PlaneGeometry(120, 60), M.ground)
+      ground.rotation.x = -Math.PI / 2
+      scene.add(ground)
+
+      const belt = box(26, 0.25, 3.2, M.belt, 0, 0.6, 0)
+      for (let i = -12; i <= 12; i += 1.2) {
+        box(0.35, 0.1, 3.4, new THREE.MeshLambertMaterial({ color: 0x5d7289 }), i, 0.75, 0)
+      }
+
+      /* ---------- 四个工作站 ---------- */
+      const stations = [
+        { x: -9, name: "提纯拉晶" },
+        { x: -3, name: "光刻蚀刻" },
+        { x: 3, name: "堆叠连线" },
+        { x: 9, name: "封装交付" },
+      ]
+
+      /* 站 1：熔炉 + 沙堆 */
+      const furnaceGroup = new THREE.Group()
+      box(3.4, 3.2, 2.6, M.furnace, -9, 2.2, -3.2, furnaceGroup)
+      cyl(0.4, 0.55, 1.6, M.furnace, 6, -8.4, 4.6, -3.2, furnaceGroup)
+      box(2.2, 0.5, 2.2, M.furnaceHot, -9, 0.9, -3.2, furnaceGroup)
+      scene.add(furnaceGroup)
+      for (let i = 0; i < 12; i++) {
+        box(
+          0.35 + Math.random() * 0.3,
+          0.2 + Math.random() * 0.25,
+          0.3,
+          M.sand,
+          -10.6 + (i % 4) * 0.45,
+          0.9 + Math.floor(i / 4) * 0.22,
+          -1.6 + (i % 3) * 0.4,
+        )
+      }
+
+      /* 站 2：光刻机 + 光束 */
+      const litho = box(3.8, 3.6, 3, M.machine, -3, 2.4, -3.2)
+      box(1.6, 0.6, 1.6, M.chamber, -3, 1.2, -3.2)
+      const beam = cyl(0.5, 0.5, 3, M.beam, 6, -3, 2.6, 1.6)
+      beam.visible = false
+
+      /* 站 3：沉积腔 */
+      const chamber = cyl(1.3, 1.1, 3.4, M.chamber, 10, 3, 2.2, -3.2)
+      box(1, 0.5, 1, M.machine, 3, 4.1, -3.2)
+
+      /* 站 4：封装机 */
+      box(3.2, 3.4, 2.6, M.packer, 9, 2.3, -3.2)
+      box(2.2, 0.6, 2.2, M.machine, 9, 0.85, -3.2)
+
+      /* ---------- 主角物体（随阶段变形） ---------- */
+      const hero = new THREE.Group()
+      scene.add(hero)
+
+      const sandPile = new THREE.Group()
+      for (let i = 0; i < 10; i++) {
+        box(
+          0.4 + Math.random() * 0.2,
+          0.25 + Math.random() * 0.2,
+          0.35,
+          M.sand,
+          (Math.random() - 0.5) * 1.2,
+          0.15 + Math.random() * 0.25,
+          (Math.random() - 0.5) * 0.8,
+          sandPile,
+        )
+      }
+      const ingot = cyl(0.55, 0.55, 2.6, M.ingot, 8)
+      const wafer = cyl(1.5, 1.5, 0.18, M.wafer, 28)
+      const chipBox = box(1.1, 0.35, 1.1, M.chip)
+      const chip = new THREE.Group()
+      chip.add(chipBox)
+      for (let i = 0; i < 8; i++) {
+        const pin = box(
+          0.14,
+          0.14,
+          0.7,
+          M.gold,
+          -0.4 + (i % 4) * 0.27,
+          -0.24,
+          i < 4 ? -0.8 : 0.8,
+          chip,
+        )
+      }
+      hero.add(sandPile, ingot, wafer, chip)
+
+      /* 晶圆上的晶体管小方块（站 3 用） */
+      const transistors = new THREE.Group()
+      for (let i = 0; i < 14; i++) {
+        box(
+          0.22,
+          0.1,
+          0.22,
+          M.chamber,
+          (Math.random() - 0.5) * 2.2,
+          0.14,
+          (Math.random() - 0.5) * 2.2,
+          transistors,
+        )
+      }
+      hero.add(transistors)
+
+      /* ---------- 状态机 ---------- */
+      const STAGES = [
+        {
+          title: "第 1 站：提纯拉晶",
+          text: "石英砂先经西门子法提纯为电子级多晶硅，再在约 1420°C 熔融后由籽晶旋转提拉，长成单晶硅锭——所有硅原子排成完美晶格。看，沙堆正在熔炉前变成银色硅锭。",
+          hero: "sand",
+          beam: false,
+        },
+        {
+          title: "第 2 站：光刻蚀刻",
+          text: "硅锭切片抛光成镜面晶圆后，光刻机把电路图案从掩膜投射到光刻胶上，再用等离子体蚀刻把图案刻进硅层。黄色光束扫过晶圆，像冲洗照片一样印出电路。",
+          hero: "wafer",
+          beam: true,
+        },
+        {
+          title: "第 3 站：堆叠连线",
+          text: "沉积长出新材料、离子注入掺入杂质形成晶体管，再用大马士革工艺铺上铜导线。晶圆表面长出的蓝色小方块，就是一颗颗晶体管。",
+          hero: "waferT",
+          beam: false,
+        },
+        {
+          title: "第 4 站：封装交付",
+          text: "晶圆划片切成数百颗裸片，封装机给芯片穿上外壳、引出引脚。金色引脚让芯片可以焊到电路板上——它将被装进手机、服务器和 AI 数据中心。",
+          hero: "chip",
+          beam: false,
+        },
+      ]
+
+      /* ---------- 问答关卡 ---------- */
+      const QUIZ = [
+        {
+          q: "为什么芯片要用单晶硅，而不能直接用多晶硅？",
+          options: [
+            "单晶中所有硅原子排成完美晶格，晶体管性能才稳定一致",
+            "单晶硅比多晶硅便宜得多",
+            "多晶硅太重，切出的晶圆会碎",
+            "只有单晶硅是透明的",
+          ],
+          answer: 0,
+          praise: "直拉法的意义就在于此——让原子跟着籽晶「排队」。",
+          explain:
+            "第 1 站笔记讲过：多晶硅里原子排列乱序，芯片需要所有硅原子排成完美晶格。熔化的硅跟着籽晶缓慢提拉，原子才会「排队」凝固成单晶。",
+          note: "/learning/chip-manufacturing/from-sand-to-wafer",
+        },
+        {
+          q: "光刻精度不断进步，最核心的推动力是什么？",
+          options: ["光源波长越来越短", "光刻胶涂得越来越厚", "掩膜越做越大", "晶圆转得越来越快"],
+          answer: 0,
+          praise: "波长越短，能印出的线条越细。",
+          explain:
+            "第 2 站笔记讲过：365 → 248 → 193 → 13.5 nm，波长决定线条能有多细。EUV 的 13.5 nm 光是当前的精度天花板。",
+          note: "/learning/chip-manufacturing/lithography-and-etching",
+        },
+        {
+          q: "n 型硅和 p 型硅的本质区别是什么？",
+          options: [
+            "掺入的杂质元素不同：磷/砷造 n 型，硼造 p 型",
+            "n 型硅是蓝色的，p 型是红色的",
+            "n 型硅更厚，p 型更薄",
+            "n 型硅白天用，p 型晚上用",
+          ],
+          answer: 0,
+          praise: "掺杂就是给硅「调味」。",
+          explain:
+            "第 3 站笔记讲过：五价元素（磷、砷）多出自由电子形成 n 型，三价元素（硼）多出「空穴」形成 p 型。两者的交界处就是晶体管的基础。",
+          note: "/learning/chip-manufacturing/deposition-doping-and-metallization",
+        },
+        {
+          q: "划片之前，为什么先要做晶圆级测试（CP）？",
+          options: [
+            "提前筛掉坏裸片，省下封装的成本",
+            "测试能让晶圆切得更整齐",
+            "测试是给晶圆加热消毒",
+            "不测试的话晶圆会褪色",
+          ],
+          answer: 0,
+          praise: "坏裸片打上墨点，不再为它们花封装的钱。",
+          explain:
+            "第 4 站笔记讲过：探针卡快速测出哪些裸片是坏的，打上墨点标记，划片后直接丢弃——封装很贵，不值得为坏裸片买单。",
+          note: "/learning/chip-manufacturing/packaging-and-testing",
+        },
+      ]
+
+      let unlockedStage = 0
+      let quizTarget = -1
+
+      let stage = 0
+      let playing = true
+      let t = 0
+
+      const stationTargets = [-8, -3, 3, 9]
+
+      function setHero(which) {
+        sandPile.visible = which === "sand"
+        ingot.visible = which === "ingot"
+        wafer.visible = which === "wafer" || which === "waferT"
+        transistors.visible = which === "waferT"
+        chip.visible = which === "chip"
+      }
+
+      function setStage(i) {
+        stage = i
+        const s = STAGES[i]
+        setHero(s.hero)
+        beam.visible = s.beam
+        document.getElementById("panel-title").textContent = s.title
+        document.getElementById("panel-text").textContent = s.text
+        document.querySelectorAll(".stage-pill").forEach((p, idx) => {
+          p.classList.toggle("active", idx === i)
+        })
+      }
+
+      /* ---------- 关卡逻辑 ---------- */
+      function attemptStage(target) {
+        if (target <= unlockedStage) {
+          setStage(target)
+          return
+        }
+        // 前进要过当前解锁线的关卡（答对一次即解锁到目标站）
+        quizTarget = target
+        showQuiz(unlockedStage)
+      }
+
+      function showQuiz(qi) {
+        const q = QUIZ[qi]
+        document.getElementById("quiz-badge").textContent = `关卡 ${qi + 1} / ${QUIZ.length}`
+        document.getElementById("quiz-question").textContent = q.q
+        const box = document.getElementById("quiz-options")
+        box.innerHTML = ""
+        const fb = document.getElementById("quiz-feedback")
+        fb.textContent = ""
+        q.options.forEach((opt, i) => {
+          const b = document.createElement("button")
+          b.className = "quiz-opt"
+          b.textContent = opt
+          b.addEventListener("click", () => answerQuiz(i, b, q))
+          box.appendChild(b)
+        })
+        document.getElementById("quiz-overlay").classList.remove("hidden")
+      }
+
+      function answerQuiz(i, btn, q) {
+        const fb = document.getElementById("quiz-feedback")
+        if (i === q.answer) {
+          btn.classList.add("right")
+          fb.innerHTML = `答对了！${q.praise}`
+          document.querySelectorAll(".quiz-opt").forEach((b) => (b.disabled = true))
+          unlockedStage = quizTarget
+          setTimeout(() => {
+            document.getElementById("quiz-overlay").classList.add("hidden")
+            setStage(quizTarget)
+            if (quizTarget === STAGES.length - 1) celebrate()
+          }, 900)
+        } else {
+          btn.classList.add("wrong")
+          btn.disabled = true
+          fb.innerHTML = `${q.explain} <a href="${q.note}" target="_blank">去复习笔记 →</a>`
+        }
+      }
+
+      function celebrate() {
+        document.getElementById("quiz-badge").textContent = "通关"
+        document.getElementById("quiz-question").textContent =
+          "恭喜！你跟着一颗沙子走完了芯片制造的全程。"
+        const box = document.getElementById("quiz-options")
+        box.innerHTML = ""
+        const done = document.createElement("button")
+        done.className = "quiz-opt right"
+        done.textContent = "回到生产线逛逛"
+        done.addEventListener("click", () =>
+          document.getElementById("quiz-overlay").classList.add("hidden"),
+        )
+        box.appendChild(done)
+        document.getElementById("quiz-feedback").textContent =
+          "四关全部通过。现在可以自由穿梭四个工作站，或者回头再翻翻知识库笔记。"
+        document.getElementById("quiz-overlay").classList.remove("hidden")
+      }
+
+      /* ---------- 动画循环 ---------- */
+      const heroPath = {
+        sand: { y: 1.3, scale: 1 },
+        ingot: { y: 1.3, scale: 1 },
+        wafer: { y: 1.4, scale: 1 },
+        waferT: { y: 1.4, scale: 1 },
+        chip: { y: 1.3, scale: 1 },
+      }
+      const heroOsc = { sand: 0.6, ingot: 0.9, wafer: 1.5, waferT: 1.5, chip: 1.1 }
+      let currentX = stationTargets[0]
+
+      function animate() {
+        requestAnimationFrame(animate)
+        const dt = Math.min(clock.getDelta(), 0.05)
+        if (playing) {
+          t += dt
+          const target = stationTargets[stage]
+          currentX += (target - currentX) * Math.min(1, dt * 2.2)
+          hero.position.set(currentX, heroPath[STAGES[stage].hero].y, 0)
+          hero.rotation.y += dt * 0.6
+          if (STAGES[stage].hero === "wafer" || STAGES[stage].hero === "waferT") {
+            hero.rotation.x = Math.PI / 2
+          } else {
+            hero.rotation.x = 0
+          }
+          if (beam.visible) {
+            beam.scale.y = 0.6 + Math.sin(t * 4) * 0.35
+          }
+        }
+        controls.update()
+        renderer.render(scene, camera)
+      }
+      const clock = new THREE.Clock()
+      animate()
+
+      /* ---------- 控件 ---------- */
+      document
+        .getElementById("btn-prev")
+        .addEventListener("click", () => setStage(Math.max(0, stage - 1)))
+      document
+        .getElementById("btn-next")
+        .addEventListener("click", () => attemptStage(Math.min(3, stage + 1)))
+      const btnPlay = document.getElementById("btn-play")
+      btnPlay.addEventListener("click", () => {
+        playing = !playing
+        btnPlay.textContent = playing ? "暂停" : "继续"
+      })
+      document.querySelectorAll(".stage-pill").forEach((p) => {
+        p.addEventListener("click", () => attemptStage(parseInt(p.dataset.stage)))
+      })
+
+      /* ---------- 响应式 ---------- */
+      window.addEventListener("resize", () => {
+        camera.aspect = container.clientWidth / container.clientHeight
+        camera.updateProjectionMatrix()
+        renderer.setSize(container.clientWidth, container.clientHeight)
+      })
+
+      setStage(0)
+    </script>
+  </body>
+</html>

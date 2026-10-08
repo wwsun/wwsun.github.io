@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LLM 评测 3D 模拟——一个模型考生的闯关之旅</title>
+    <style>
+      :root {
+        --bg: #0f1a24;
+        --panel: #1a2a38;
+        --text: #e8f1f8;
+        --muted: #9db4c8;
+        --accent: #4fc3f7;
+        --accent2: #ffd166;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        overflow: hidden;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+      }
+      #scene {
+        flex: 1;
+        min-height: 0;
+        position: relative;
+      }
+      canvas {
+        display: block;
+      }
+      .stage-label {
+        position: absolute;
+        transform: translate(-50%, -100%);
+        background: rgba(15, 26, 36, 0.85);
+        border: 1px solid rgba(79, 195, 247, 0.55);
+        color: var(--accent);
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+      #stages {
+        display: flex;
+        gap: 6px;
+        padding: 10px 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        background: var(--panel);
+      }
+      .stage-pill {
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 13px;
+        background: #24384a;
+        color: var(--muted);
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: all 0.2s;
+      }
+      .stage-pill.active {
+        background: var(--accent);
+        color: #0f1a24;
+        font-weight: 600;
+      }
+      #panel {
+        padding: 12px 16px;
+        background: var(--panel);
+        border-top: 1px solid #2c4054;
+      }
+      #panel h2 {
+        font-size: 16px;
+        margin-bottom: 4px;
+        color: var(--accent);
+      }
+      #panel p {
+        font-size: 13px;
+        line-height: 1.55;
+        color: var(--muted);
+      }
+      #panel a {
+        color: var(--accent2);
+        text-decoration: none;
+      }
+      #panel a:hover {
+        text-decoration: underline;
+      }
+      #controls {
+        display: flex;
+        gap: 10px;
+        padding: 10px 12px;
+        justify-content: center;
+        align-items: center;
+        background: var(--panel);
+      }
+      button {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+        background: #24384a;
+        color: var(--text);
+        transition: background 0.15s;
+      }
+      button:hover {
+        background: #31506b;
+      }
+      button.primary {
+        background: var(--accent);
+        color: #0f1a24;
+        font-weight: 600;
+      }
+      button.primary:hover {
+        background: #7ed8ff;
+      }
+      #hint {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 12px;
+        color: var(--muted);
+        opacity: 0.8;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="scene">
+      <div id="hint">拖动旋转视角 · 滚轮缩放</div>
+    </div>
+
+    <div id="stages">
+      <div class="stage-pill active" data-stage="0">1 进考场</div>
+      <div class="stage-pill" data-stage="1">2 竞技场投票</div>
+      <div class="stage-pill" data-stage="2">3 陷阱检查</div>
+      <div class="stage-pill" data-stage="3">4 智能体任务</div>
+      <div class="stage-pill" data-stage="4">5 排行榜放榜</div>
+    </div>
+
+    <div id="panel">
+      <h2 id="panel-title"></h2>
+      <p id="panel-text"></p>
+    </div>
+
+    <div id="controls">
+      <button id="btn-prev">上一站</button>
+      <button id="btn-play" class="primary">暂停</button>
+      <button id="btn-next">下一站</button>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import * as THREE from "three"
+      import { OrbitControls } from "three/addons/controls/OrbitControls.js"
+
+      /* ---------- 场景初始化 ---------- */
+      const container = document.getElementById("scene")
+      const scene = new THREE.Scene()
+      scene.background = new THREE.Color(0x0f1a24)
+      scene.fog = new THREE.Fog(0x0f1a24, 45, 130)
+
+      const camera = new THREE.PerspectiveCamera(
+        50,
+        container.clientWidth / container.clientHeight,
+        0.1,
+        300,
+      )
+      camera.position.set(12, 12, 24)
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true })
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+      renderer.setSize(container.clientWidth, container.clientHeight)
+      container.appendChild(renderer.domElement)
+
+      const controls = new OrbitControls(camera, renderer.domElement)
+      controls.target.set(0, 2, 0)
+      controls.enableDamping = true
+      controls.maxPolarAngle = Math.PI * 0.45
+      controls.minDistance = 8
+      controls.maxDistance = 55
+      controls.update()
+
+      /* 灯光：低多边形玩具感 */
+      scene.add(new THREE.HemisphereLight(0xd8ecf8, 0x23303c, 1.1))
+      const sun = new THREE.DirectionalLight(0xfff2d9, 1.6)
+      sun.position.set(18, 25, 10)
+      scene.add(sun)
+
+      /* ---------- 材质 ---------- */
+      const M = {
+        ground: new THREE.MeshLambertMaterial({ color: 0x16222e }),
+        machine: new THREE.MeshLambertMaterial({ color: 0x274357 }),
+        tower: new THREE.MeshLambertMaterial({ color: 0x3a5f7a }),
+        towerDark: new THREE.MeshLambertMaterial({ color: 0x22384a }),
+        bar: new THREE.MeshLambertMaterial({ color: 0xe8f1f8 }),
+        paper: new THREE.MeshLambertMaterial({ color: 0xfff8e7 }),
+        hero: new THREE.MeshLambertMaterial({ color: 0x4fc3f7 }),
+        heroDark: new THREE.MeshLambertMaterial({ color: 0x2b6d8f }),
+        rival: new THREE.MeshLambertMaterial({ color: 0x8b9bad }),
+        good: new THREE.MeshLambertMaterial({ color: 0x34d399 }),
+        bad: new THREE.MeshLambertMaterial({ color: 0xf87171 }),
+        judge: new THREE.MeshLambertMaterial({ color: 0xffd166 }),
+        beam: new THREE.MeshBasicMaterial({ color: 0x4fc3f7, transparent: true, opacity: 0.6 }),
+        alarm: new THREE.MeshBasicMaterial({ color: 0xf87171, transparent: true, opacity: 0.9 }),
+        gold: new THREE.MeshLambertMaterial({ color: 0xffd166 }),
+      }
+      const TOKEN_COLORS = [0xf97316, 0x34d399, 0x60a5fa, 0xfbbf24, 0xe879f9, 0x7dd3fc, 0xf87171]
+
+      function box(w, h, d, mat, x = 0, y = 0, z = 0, parent = scene) {
+        const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat)
+        m.position.set(x, y, z)
+        parent.add(m)
+        return m
+      }
+      function cyl(rt, rb, h, mat, seg = 10, x = 0, y = 0, z = 0, parent = scene) {
+        const m = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg), mat)
+        m.position.set(x, y, z)
+        parent.add(m)
+        return m
+      }
+      function sph(r, mat, seg = 10, x = 0, y = 0, z = 0, parent = scene) {
+        const m = new THREE.Mesh(new THREE.SphereGeometry(r, seg, seg), mat)
+        m.position.set(x, y, z)
+        parent.add(m)
+        return m
+      }
+      function tokenMat(i) {
+        return new THREE.MeshLambertMaterial({ color: TOKEN_COLORS[i % TOKEN_COLORS.length] })
+      }
+      /* 勾与叉标记 */
+      function makeMark(kind) {
+        const g = new THREE.Group()
+        const mat = kind === "check" ? M.good : M.bad
+        if (kind === "check") {
+          box(0.7, 0.18, 0.18, mat, 0.15, -0.15, 0, g)
+          box(0.18, 0.18, 0.5, mat, -0.15, -0.35, 0, g)
+        } else {
+          box(0.7, 0.18, 0.18, mat, 0, 0, 0, g)
+          box(0.7, 0.18, 0.18, mat, 0, 0, 0, g)
+          g.children[0].rotation.z = Math.PI / 4
+          g.children[1].rotation.z = -Math.PI / 4
+        }
+        return g
+      }
+
+      /* ---------- 地面 ---------- */
+      const ground = new THREE.Mesh(new THREE.PlaneGeometry(160, 70), M.ground)
+      ground.rotation.x = -Math.PI / 2
+      scene.add(ground)
+
+      /* ---------- 五个工作站 ---------- */
+      const stations = [
+        { x: -20, name: "进考场", y: 7.5 },
+        { x: -10, name: "竞技场投票", y: 8.5 },
+        { x: 0, name: "陷阱检查", y: 7.5 },
+        { x: 10, name: "智能体任务", y: 8.5 },
+        { x: 20, name: "排行榜", y: 9.5 },
+      ]
+
+      /* ---------- 主角：待测模型盒 ---------- */
+      const hero = new THREE.Group()
+      box(1.2, 1.2, 1.2, M.hero, 0, 0.7, 0, hero)
+      box(1.35, 0.2, 1.35, M.heroDark, 0, 0.08, 0, hero)
+      box(0.3, 0.5, 0.3, M.heroDark, 0, 1.55, 0, hero)
+      const heroRing = new THREE.Mesh(new THREE.TorusGeometry(0.75, 0.05, 6, 16), M.gold)
+      heroRing.position.y = 0.7
+      hero.add(heroRing)
+      scene.add(hero)
+
+      /* ---------- 站 0：考场 ---------- */
+      const desk = box(3.2, 0.25, 1.8, M.machine, -20, 0.85, 0)
+      const answerSheet = box(2.4, 0.06, 1.3, M.paper, -20, 1.05, 0)
+      const options = []
+      const OPT_NAMES = ["A", "B", "C", "D"]
+      for (let i = 0; i < 4; i++) {
+        const o = sph(0.2, tokenMat(i), 8, -20 - 0.75 + i * 0.5, 1.35, 0)
+        o.userData.baseY = 1.35
+        options.push(o)
+      }
+      /* 代码测试机 */
+      const testRig = box(1.4, 1.6, 0.5, M.tower, -20, 2.6, 2.2)
+      const testScreen = box(1.0, 0.8, 0.1, M.bar, -20, 2.7, 2.5)
+      const rigLights = []
+      for (let i = 0; i < 3; i++) {
+        rigLights.push(box(0.18, 0.5, 0.06, tokenMat(i + 2), -20 - 0.3 + i * 0.3, 1.95, 2.5))
+      }
+      const rigCheck = makeMark("check")
+      rigCheck.position.set(-20, 3.5, 2.5)
+      rigCheck.scale.setScalar(0.55)
+      rigCheck.visible = false
+      scene.add(rigCheck)
+
+      /* ---------- 站 1：竞技场 ---------- */
+      const pedestals = []
+      for (let i = 0; i < 2; i++) {
+        const px = -10 + (i === 0 ? -1.4 : 1.4)
+        cyl(0.55, 0.7, 0.4, M.towerDark, 10, px, 0.2, 0)
+        const p = new THREE.Group()
+        box(0.9, 0.9, 0.9, M.rival, 0, 0.65, 0, p)
+        sph(0.32, M.bar, 8, 0, 1.25, 0, p)
+        p.position.set(px, 0.4, 0)
+        pedestals.push(p)
+        scene.add(p)
+      }
+      const questionCard = box(1.2, 0.7, 0.1, M.paper, -10, 3.4, 0)
+      questionCard.visible = false
+      const voteBall = sph(0.18, M.gold, 8, -10, 6, 0)
+      voteBall.visible = false
+      /* Elo 分数柱 */
+      const eloBaseA = box(0.5, 0.15, 0.5, M.towerDark, -11.6, 0.08, -1.8)
+      const eloBarA = box(0.42, 1.6, 0.42, M.hero, -11.6, 0.9, -1.8)
+      const eloBaseB = box(0.5, 0.15, 0.5, M.towerDark, -8.4, 0.08, -1.8)
+      const eloBarB = box(0.42, 1.6, 0.42, M.rival, -8.4, 0.9, -1.8)
+      const arenaSign = box(1.9, 0.45, 0.1, M.bar, -10, 4.6, -1.8)
+
+      /* ---------- 站 2：陷阱检查 ---------- */
+      const archL = box(0.3, 4.2, 0.3, M.tower, -0.9, 2.1, 1.6)
+      const archR = box(0.3, 4.2, 0.3, M.tower, 0.9, 2.1, 1.6)
+      box(2.1, 0.3, 0.3, M.tower, 0, 4.2, 1.6)
+      const scanBeam = box(1.5, 0.12, 0.12, M.beam, 0, 3.6, 1.7)
+      const alarmBeacon = sph(0.28, M.alarm, 8, 0.9, 4.35, 1.6)
+      alarmBeacon.visible = false
+      const warnBoard = box(1.3, 1.6, 0.12, M.bar, 0, 1.6, -1.6)
+      const warnMark = box(0.14, 0.6, 0.06, M.bad, 0, 1.8, -1.5)
+      const warnDot = box(0.14, 0.14, 0.06, M.bad, 0, 1.2, -1.5)
+      /* 饱和进度条 */
+      const satBase = box(2.6, 0.22, 0.22, M.towerDark, 0, 4.6, -1.6)
+      const satFill = box(2.4, 0.14, 0.14, M.bad, 0, 4.6, -1.6)
+      satFill.scale.x = 0.5
+      satFill.position.x = -2.4 + 1.2
+      /* 污染标记 */
+      const contamTag = sph(0.22, M.bad, 8, 0, 1.1, 1.8)
+      contamTag.visible = false
+
+      /* ---------- 站 3：智能体任务 ---------- */
+      const repoBox = box(3, 2.2, 1.8, M.tower, 10, 1.1, -1.6)
+      box(3.4, 0.25, 2.2, M.towerDark, 10, 0.13, -1.6)
+      const issueCard = box(0.9, 0.6, 0.08, M.paper, 10, 3.2, 1.4)
+      issueCard.visible = false
+      const patchBlocks = []
+      for (let i = 0; i < 3; i++) {
+        const pb = box(0.32, 0.32, 0.32, M.good, 10, 2.2, 0)
+        pb.visible = false
+        patchBlocks.push(pb)
+      }
+      /* 测试机与裁判 */
+      const agentRig = box(1.3, 1.5, 0.5, M.tower, 10, 2.5, 2.2)
+      const agentScreen = box(0.9, 0.7, 0.1, M.bar, 10, 2.6, 2.5)
+      const agentCross = makeMark("cross")
+      agentCross.position.set(10, 3.3, 2.5)
+      agentCross.scale.setScalar(0.5)
+      scene.add(agentCross)
+      const agentCheck = makeMark("check")
+      agentCheck.position.set(10, 3.3, 2.5)
+      agentCheck.scale.setScalar(0.5)
+      agentCheck.visible = false
+      scene.add(agentCheck)
+      const judge = new THREE.Group()
+      sph(0.4, M.judge, 8, 0, 2.6, 0, judge)
+      box(0.85, 1.3, 0.55, M.judge, 0, 1.75, 0, judge)
+      box(0.85, 0.22, 0.55, M.judge, 0, 0.9, 0, judge)
+      judge.position.set(10, 0, 3.4)
+      scene.add(judge)
+      const judgeStars = []
+      for (let i = 0; i < 3; i++) {
+        const st = box(0.3, 0.12, 0.12, M.gold, 10 - 0.35 + i * 0.35, 3.6, 3.2)
+        st.visible = false
+        judgeStars.push(st)
+      }
+
+      /* ---------- 站 4：排行榜 ---------- */
+      for (let i = 0; i < 3; i++) {
+        const h = 0.5 + i * 0.45
+        box(2.4 - i * 0.5, h, 1.8, i === 1 ? M.tower : M.towerDark, 20 + (i - 1) * 1.9, h / 2, 0)
+      }
+      const rivalLeft = box(0.9, 0.9, 0.9, M.rival, 18.1, 1.85, 0)
+      const rivalRight = box(0.9, 0.9, 0.9, M.rival, 21.9, 2.3, 0)
+      /* 成绩面板 */
+      const scoreBoard = new THREE.Group()
+      box(2.6, 1.7, 0.12, M.bar, 0, 0, 0, scoreBoard)
+      /* 置信区间条 */
+      const ciLo = box(0.09, 0.55, 0.02, M.heroDark, 0, 0, 0.08, scoreBoard)
+      const ciHi = box(0.09, 0.55, 0.02, M.heroDark, 0, 0, 0.08, scoreBoard)
+      const ciMid = box(1.3, 0.09, 0.02, M.hero, 0, 0, 0.08, scoreBoard)
+      const eloChip = box(0.7, 0.4, 0.06, M.gold, 0, 0.42, 0.08, scoreBoard)
+      /* token 效率牌 */
+      const effBoard = box(1.3, 0.8, 0.1, M.bar, 0, 0, 0, scoreBoard)
+      effBoard.position.set(0, -0.1, 0)
+      const effBits = []
+      for (let i = 0; i < 3; i++) {
+        const eb = box(0.2, 0.2, 0.2, tokenMat(i), 0, 0, 0, scoreBoard)
+        eb.position.set(-0.3 + i * 0.3, -0.1, 0.07)
+        effBits.push(eb)
+      }
+      scoreBoard.position.set(20, 3.9, 1.4)
+      scoreBoard.scale.setScalar(0.01)
+      scene.add(scoreBoard)
+      /* 彩带 */
+      const confetti = []
+      for (let i = 0; i < 18; i++) {
+        const c = box(0.12, 0.12, 0.12, tokenMat(i), 20, 7, 0)
+        c.visible = false
+        c.userData = {
+          offset: Math.random() * 10,
+          speed: 2 + Math.random() * 2,
+          xr: Math.random() * 4 - 2,
+        }
+        confetti.push(c)
+      }
+
+      /* ---------- 阶段标签（CSS 投影） ---------- */
+      const labelEls = stations.map((s) => {
+        const el = document.createElement("div")
+        el.className = "stage-label"
+        el.textContent = s.name
+        container.appendChild(el)
+        return el
+      })
+
+      /* ---------- 状态机 ---------- */
+      const STAGES = [
+        {
+          x: -20,
+          title: "1 进考场：为什么需要评测",
+          text: "LLM 是几千亿参数的黑箱，拆不开，只能「考」它。答题卡上四选一（对应 MMLU 的 1.6 万道选择题），右侧代码测试机跑真实用例（HumanEval 的 pass@k 思路）——判分零成本、完全客观。查看笔记：",
+          link: "/learning/llm-benchmark/knowledge-benchmarks",
+        },
+        {
+          x: -10,
+          title: "2 竞技场：匿名对战与 Elo 投票",
+          text: "两个匿名模型并排答题，观众投票（金色小球）飞向赢家，Elo 分数柱随之涨落。投票汇总成排行榜，每个分数都带置信区间——分差小于区间宽度时，排名没有意义。查看笔记：",
+          link: "/learning/llm-benchmark/arena-and-preference",
+        },
+        {
+          x: 0,
+          title: "3 陷阱检查：污染、饱和与 Goodhart",
+          text: "扫描门检测数据污染（红色警报 = 模型背过题）；下方饱和条显示题库正被刷穿、分数失去区分度；警示牌提醒 Goodhart 定律——当度量变成目标，它就不再是好度量。查看笔记：",
+          link: "/learning/llm-benchmark/benchmark-traps",
+        },
+        {
+          x: 10,
+          title: "4 智能体任务：从答题到干活",
+          text: "issue 卡片飞来，模型在仓库里改代码、产出 patch（绿色块），测试机先红后绿。金色裁判（LLM-as-judge）亮起星级打分——开放式任务由裁判模型按标准评分，同时记录 token 消耗。查看笔记：",
+          link: "/learning/llm-benchmark/agentic-and-efficiency",
+        },
+        {
+          x: 20,
+          title: "5 放榜：读榜与自测",
+          text: "模型登上领奖台，成绩面板展开：Elo 分数（金色块）、置信区间（蓝色条带）、token 效率牌。彩带落下——但记住：排行榜是证据不是答案，还要用你自己的固定任务集亲手测一遍。查看笔记：",
+          link: "/learning/llm-benchmark/reading-leaderboards",
+        },
+      ]
+      const panelTitle = document.getElementById("panel-title")
+      const panelText = document.getElementById("panel-text")
+      let stage = 0
+      let playing = true
+      let simTime = 0
+
+      function showStage(i) {
+        stage = (i + STAGES.length) % STAGES.length
+        const s = STAGES[stage]
+        panelTitle.textContent = s.title
+        panelText.innerHTML = s.text + ` <a href="${s.link}">${s.link}</a>`
+        document.querySelectorAll(".stage-pill").forEach((el) => {
+          el.classList.toggle("active", Number(el.dataset.stage) === stage)
+        })
+        simTime = 0
+      }
+      document.querySelectorAll(".stage-pill").forEach((el) => {
+        el.addEventListener("click", () => showStage(Number(el.dataset.stage)))
+      })
+      document.getElementById("btn-prev").addEventListener("click", () => showStage(stage - 1))
+      document.getElementById("btn-next").addEventListener("click", () => showStage(stage + 1))
+      document.getElementById("btn-play").addEventListener("click", () => {
+        playing = !playing
+        document.getElementById("btn-play").textContent = playing ? "暂停" : "继续"
+      })
+      showStage(0)
+
+      /* ---------- 各阶段动画 ---------- */
+      function updateStage0(t) {
+        const cyc = t % 12
+        /* 主角悬浮在桌前 */
+        hero.position.set(-20, 0, 1.9)
+        hero.rotation.y = Math.sin(t * 1.5) * 0.2
+        heroRing.rotation.z = t * 1.2
+        hero.position.y = Math.sin(t * 2) * 0.08
+        /* 答题：思考脉冲后选 B */
+        options.forEach((o, i) => {
+          if (cyc < 4) {
+            const pulse = Math.max(0, Math.sin(t * 4 - i * 0.9))
+            o.position.y = o.userData.baseY + pulse * 0.35
+            o.material = tokenMat(i)
+          } else {
+            o.position.y = o.userData.baseY
+            o.material = i === 1 ? M.good : tokenMat(i)
+            if (i === 1) o.position.y = o.userData.baseY + 0.25 + Math.sin(t * 5) * 0.06
+          }
+        })
+        /* 代码测试机循环 */
+        rigLights.forEach((l, i) => {
+          l.material = cyc > 5 && cyc < 9 ? tokenMat(2 + i) : M.towerDark
+        })
+        rigCheck.visible = cyc > 8 && cyc < 11.5
+      }
+
+      function updateStage1(t) {
+        const cyc = t % 10
+        const winnerIsA = Math.floor(t / 10) % 2 === 0
+        /* 问题卡落下 */
+        questionCard.visible = cyc > 0.5 && cyc < 8.5
+        if (questionCard.visible) {
+          questionCard.position.y = 3.4 + Math.sin(t * 3) * 0.1
+        }
+        /* 投票球飞向赢家 */
+        voteBall.visible = cyc > 2 && cyc < 6.5
+        if (voteBall.visible) {
+          const k = (cyc - 2) / 4.5
+          const tx = winnerIsA ? -11.4 : -8.6
+          voteBall.position.x = -10 + (tx - -10) * (1 - Math.pow(1 - k, 3))
+          voteBall.position.y = 6 - k * 4.6
+          voteBall.position.z = k * 0.4
+        }
+        /* Elo 柱：每轮重置换算分 */
+        const base = 1.3
+        const gain = 0.5
+        eloBarA.scale.y = (winnerIsA ? base + gain : base) / 1.6
+        eloBarA.position.y = 0.9 + (winnerIsA ? gain : 0) / 2
+        eloBarB.scale.y = (winnerIsA ? base : base + gain) / 1.6
+        eloBarB.position.y = 0.9 + (winnerIsA ? 0 : gain) / 2
+        /* 模型轻微浮动 */
+        pedestals.forEach((p, i) => {
+          const isWinner = i === (winnerIsA ? 0 : 1)
+          p.position.y = 0.4 + (isWinner ? Math.sin(t * 5) * 0.06 : 0)
+        })
+        arenaSign.rotation.y = Math.sin(t * 0.6) * 0.1
+      }
+
+      function updateStage2(t) {
+        const cyc = t % 11
+        /* 主角走入扫描门 */
+        hero.position.x = -0.9 + Math.min(1, cyc / 1.2) * 1.8
+        hero.position.y = 0
+        hero.position.z = 1.9
+        hero.rotation.y = t * 0.5
+        heroRing.rotation.z = t * 1.2
+        /* 扫描光束 */
+        scanBeam.visible = cyc > 1 && cyc < 5
+        if (scanBeam.visible) {
+          scanBeam.position.y = 3.6 - ((cyc - 1) % 2) * 1.9
+          scanBeam.material.opacity = 0.4 + Math.sin(t * 10) * 0.2
+        }
+        /* 污染警报 */
+        const alarmOn = cyc > 4 && cyc < 8.5
+        alarmBeacon.visible = alarmOn
+        contamTag.visible = alarmOn
+        if (alarmOn) {
+          alarmBeacon.scale.setScalar(1 + Math.sin(t * 12) * 0.25)
+          contamTag.position.y = 1.1 + Math.sin(t * 8) * 0.08
+        }
+        /* Goodhart 警示牌 */
+        warnMark.position.y = 1.8 + Math.sin(t * 3) * 0.1
+        warnDot.position.y = 1.2 + Math.sin(t * 3 + 1) * 0.1
+        /* 饱和条逼近 100% */
+        const prog = cyc < 8.5 ? 0.5 + (cyc / 11) * 0.5 : 0.97
+        satFill.scale.x = Math.max(0.001, prog)
+        satFill.position.x = -2.4 + 1.2 * prog
+      }
+
+      function updateStage3(t) {
+        const cyc = t % 12
+        hero.position.set(10, 0, 0.4)
+        hero.rotation.y = Math.sin(t * 1.2) * 0.25
+        heroRing.rotation.z = t * 1.2
+        /* issue 卡片飞到模型前 */
+        issueCard.visible = cyc > 0.5 && cyc < 7
+        if (issueCard.visible) {
+          issueCard.position.y = 3.2 - Math.min(1, (cyc - 0.5) / 1.5) * 1.1
+          issueCard.position.z = 1.4 - Math.min(1, (cyc - 0.5) / 1.5) * 1.0
+          issueCard.rotation.y = Math.sin(t * 2) * 0.2
+        }
+        /* patch 块产出 */
+        patchBlocks.forEach((pb, i) => {
+          const appear = 2 + i * 1.1
+          pb.visible = cyc > appear && cyc < 8
+          if (pb.visible) {
+            const k = Math.min(1, (cyc - appear) / 1.4)
+            pb.position.x = 10 - (1 - k) * 1.5
+            pb.position.y = 2.2 - k * 1.15
+            pb.position.z = -k * 1.4
+            pb.rotation.y = k * 2
+          }
+        })
+        /* 测试机：先红后绿 */
+        agentCross.visible = cyc > 4.5 && cyc < 7.5
+        agentCheck.visible = cyc > 7.5 && cyc < 11.5
+        if (agentCross.visible) agentCross.position.y = 3.3 + Math.sin(t * 7) * 0.08
+        if (agentCheck.visible) agentCheck.position.y = 3.3 + Math.sin(t * 4) * 0.06
+        /* 裁判星级 */
+        judge.rotation.y = Math.sin(t * 0.7) * 0.25
+        judgeStars.forEach((st, i) => {
+          const on = cyc > 8 ? i < 3 : i < Math.max(0, Math.floor((cyc - 1) / 2.5))
+          st.visible = on
+          if (on) st.position.y = 3.6 + Math.sin(t * 3 + i) * 0.06
+        })
+        /* 测试机灯 */
+        agentScreen.material = cyc > 4.5 && cyc < 7.5 ? M.bad : cyc > 7.5 ? M.good : M.bar
+      }
+
+      function updateStage4(t) {
+        const cyc = t % 10
+        /* 主角登上领奖台 */
+        hero.position.x = 20
+        hero.position.y = Math.min(1, cyc / 1.6) * 1.9
+        hero.position.z = 0
+        hero.rotation.y = t * 0.4
+        heroRing.rotation.z = t * 1.2
+        /* 成绩面板展开 */
+        const open = Math.min(1, Math.max(0, (cyc - 1.5) / 1.5))
+        scoreBoard.scale.setScalar(0.01 + 0.99 * (1 - Math.pow(1 - open, 3)))
+        if (open > 0.3) {
+          /* 置信区间呼吸 */
+          const w = 0.5 + Math.sin(t * 2) * 0.12
+          ciLo.position.x = -w
+          ciHi.position.x = w
+          ciMid.scale.x = (w * 2) / 1.3
+          ciMid.position.x = 0
+          /* 效率牌 token 块滚动 */
+          effBits.forEach((eb, i) => {
+            eb.material = tokenMat((i + Math.floor(t * 1.5)) % 7)
+          })
+        }
+        /* 彩带 */
+        confetti.forEach((c) => {
+          const local = (t * c.userData.speed + c.userData.offset) % 8
+          if (cyc > 3 && local < 6) {
+            c.visible = true
+            c.position.y = 7 - local * 1.1
+            c.position.x = 20 + Math.sin(local * 2 + c.userData.offset) * c.userData.xr
+            c.position.z = Math.cos(local * 1.5 + c.userData.offset) * 1.4
+            c.rotation.x += 0.1
+            c.rotation.z += 0.12
+          } else {
+            c.visible = false
+          }
+        })
+      }
+
+      const updaters = [updateStage0, updateStage1, updateStage2, updateStage3, updateStage4]
+
+      /* ---------- 主循环 ---------- */
+      const clock = new THREE.Clock()
+      const targetV = new THREE.Vector3(0, 2, 0)
+
+      function animate() {
+        requestAnimationFrame(animate)
+        const dt = clock.getDelta()
+        if (playing) simTime += dt
+        updaters[stage](simTime)
+        /* 相机跟随当前站 */
+        targetV.x += (STAGES[stage].x - targetV.x) * 0.06
+        controls.target.copy(targetV)
+        controls.update()
+        /* 标签投影 */
+        labelEls.forEach((el, i) => {
+          const p = new THREE.Vector3(stations[i].x, stations[i].y, 0).project(camera)
+          const visible = p.z < 1
+          el.style.display = visible ? "block" : "none"
+          el.style.left = (0.5 + p.x * 0.5) * container.clientWidth + "px"
+          el.style.top = (0.5 - p.y * 0.5) * container.clientHeight + "px"
+        })
+        renderer.render(scene, camera)
+      }
+      animate()
+
+      /* ---------- 响应式 ---------- */
+      window.addEventListener("resize", () => {
+        camera.aspect = container.clientWidth / container.clientHeight
+        camera.updateProjectionMatrix()
+        renderer.setSize(container.clientWidth, container.clientHeight)
+      })
+    </script>
+  </body>
+</html>
