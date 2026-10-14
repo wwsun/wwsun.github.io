@@ -1,0 +1,77 @@
+content/notes/figma-mcp.md
+  8e8ee3871753a11e 1-182
+content/notes/jev-model.md
+  8e8ee3871753a11e 1-163
+content/clippings/gpt-6-astra.md
+  8e8ee3871753a11e 1-479
+content/clippings/ten-lines-of-code.md
+  8e8ee3871753a11e 1-249
+content/clippings/how-to-use-lovable-responsibly.md
+  8e8ee3871753a11e 1-1287
+content/blog/ai-agent-coding-practice.md
+  8e8ee3871753a11e 1-28
+content/clippings/agentic-engineering-patterns-prompts.md
+  8e8ee3871753a11e 1-264
+content/clippings/automatic-context-compaction.md
+  8e8ee3871753a11e 1-1258
+content/clippings/best-ai-tool-refactor-css.md
+  8e8ee3871753a11e 1-823
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "02b0cf7b8bdff43dd4e8d2e85d303d7b22ec037e",
+  "prompts": {
+    "8e8ee3871753a11e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a13a69-600d-7370-97ef-18adbe8469c4",
+        "model": "deepseek-flash"
+      },
+      "human_author": "wwsun",
+      "messages": [],
+      "total_additions": 4733,
+      "total_deletions": 0,
+      "accepted_lines": 4733,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "content/blog/ai-agent-coding-practice.md": {
+          "additions": 28,
+          "accepted_lines": 28
+        },
+        "content/clippings/automatic-context-compaction.md": {
+          "additions": 1258,
+          "accepted_lines": 1258
+        },
+        "content/clippings/ten-lines-of-code.md": {
+          "additions": 249,
+          "accepted_lines": 249
+        },
+        "content/clippings/how-to-use-lovable-responsibly.md": {
+          "additions": 1287,
+          "accepted_lines": 1287
+        },
+        "content/clippings/gpt-6-astra.md": {
+          "additions": 479,
+          "accepted_lines": 479
+        },
+        "content/clippings/agentic-engineering-patterns-prompts.md": {
+          "additions": 264,
+          "accepted_lines": 264
+        },
+        "content/notes/figma-mcp.md": {
+          "additions": 182,
+          "accepted_lines": 182
+        },
+        "content/notes/jev-model.md": {
+          "additions": 163,
+          "accepted_lines": 163
+        },
+        "content/clippings/best-ai-tool-refactor-css.md": {
+          "additions": 823,
+          "accepted_lines": 823
+        }
+      }
+    }
+  }
+}
