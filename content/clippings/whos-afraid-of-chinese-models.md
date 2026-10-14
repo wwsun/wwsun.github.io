@@ -4,7 +4,10 @@ description: Ben Thompson 深度分析中国开源模型（Kimi K3、Qwen3.8 Max
 tags:
   - clippings
   - ai
+  - ai-economics
   - open-source
+  - frontier-lab
+  - china-ai
   - geopolitical
   - economics
 source: https://stratechery.com/2026/whos-afraid-of-chinese-models/

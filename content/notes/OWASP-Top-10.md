@@ -33,7 +33,7 @@ OWASP Top 10 是 Web 应用安全领域最权威的参考标准。最新的 **20
   - **不要信任前端传参：** 在 Java 后端通过 `SecurityContextHolder` 获取当前登录用户的 ID，而不是从 Request Param 中读取。
     - **默认拒绝：** 除非明确允许，否则所有接口默认需要授权。
 
-[[A01 Broken Access Control]]
+[[owasp-a01-broken-access-control]]
 
 ### A02: 安全配置错误 (Security Misconfiguration)
 
@@ -45,7 +45,7 @@ OWASP Top 10 是 Web 应用安全领域最权威的参考标准。最新的 **20
   - 更改所有默认密码。
   - 使用 `Content-Security-Policy` (CSP) 等安全响应头。
 
-[[A02 Security Misconfiguratio]]
+[[owasp-a02-security-misconfiguration]]
 
 ### A03: 软件供应链失败 (Software Supply Chain Failures) **[2025 新增/扩充]**
 
@@ -92,7 +92,7 @@ OWASP Top 10 是 Web 应用安全领域最权威的参考标准。最新的 **20
   - **多因素认证 (MFA)：** 尽可能要求 MFA。
   - **会话管理：** 确保 Session ID 在登录后重新生成，并设置合理的 `Max-Age` 和 `HttpOnly` 标志。
 
-[[A07 Authentication Failures]]
+[[owasp-a07-authentication-failures]]
 
 ### A08: 软件和数据完整性失败
 

@@ -30,7 +30,7 @@ description: 主线之外的工程优化与模型变体：KV Cache 让推理快�
 
 ## MoE：全员大锅饭 vs 专家门诊
 
-传统稠密模型（dense model）每个 token 都要激活**全部**参数——越大越慢。**混合专家模型**（MoE，Mixture of Experts，[[MoE]]）把前馈网络拆成多个「专家」，每个 token 通过一个路由器（router）只激活其中一小部分（比如 2/8）：
+传统稠密模型（dense model）每个 token 都要激活**全部**参数——越大越慢。**混合专家模型**（MoE，Mixture of Experts，[[moe|MoE]]）把前馈网络拆成多个「专家」，每个 token 通过一个路由器（router）只激活其中一小部分（比如 2/8）：
 
 - 总参数巨大（DeepSeek-V3 有 6710 亿参数）；
 - 每 token 实际计算的只有约 370 亿——推理成本骤降，能力接近全量；
@@ -40,7 +40,7 @@ description: 主线之外的工程优化与模型变体：KV Cache 让推理快�
 
 ## 推理模型：让「想」成为显式步骤
 
-主线五章的模型都是「读完问题直接吐答案」。2024 年 OpenAI o1 开启的**推理模型**（Reasoning Model，[[Reasoning Model]]）改变了这一点：模型被训练成**先在内部（或可见地）生成一串「思维链」**（Chain-of-Thought，[[Chain-of-Thought]]），再给出最终答案。
+主线五章的模型都是「读完问题直接吐答案」。2024 年 OpenAI o1 开启的**推理模型**（Reasoning Model，[[reasoning-model|Reasoning Model]]）改变了这一点：模型被训练成**先在内部（或可见地）生成一串「思维链」**（Chain-of-Thought，[[chain-of-thought|Chain-of-Thought]]），再给出最终答案。
 
 做法：用强化学习奖励「得出正确答案的思考过程」，让模型学会在回答前自我拆解、试错、验证。代价是「想」的过程消耗大量 token（慢、贵），换来的是数学、代码、规划任务上的大幅跃升。这条「测试时计算扩展」（test-time compute scaling）路线是 2025–2026 年 LLM 演进的主轴之一。
 
@@ -57,7 +57,7 @@ KV Cache 用内存换时间，量化用精度换便携，MoE 用稀疏换规模�
 
 ## 相关笔记
 
-- [[MoE]] — 混合专家模型的稀疏激活原理
-- [[Reasoning Model]] — 推理模型的训练方法与能力
-- [[Chain-of-Thought]] — 思维链提示
-- [[Scaling Laws]] — 规模焦虑的来源
+- [[moe|MoE]] — 混合专家模型的稀疏激活原理
+- [[reasoning-model|Reasoning Model]] — 推理模型的训练方法与能力
+- [[chain-of-thought|Chain-of-Thought]] — 思维链提示
+- [[scaling-laws|Scaling Laws]] — 规模焦虑的来源

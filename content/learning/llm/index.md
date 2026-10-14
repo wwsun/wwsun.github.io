@@ -43,7 +43,7 @@ ChatGPT 为什么能对话？它和你手机输入法的「猜下一个词」有
 ## 相关剪报与笔记
 
 - [[我是如何用大语言模型学习复杂主题的]] — 本学习项目的方法论源头
-- [[LLM]] — wiki 总览：架构与生命周期全图
+- [[llm-overview|LLM]] — 知识库总览：架构与生命周期全图
 - [[llm-vs-nlp|LLM 与 NLP 的区别]] — LLM 在新范式中的位置
-- [[Attention Is All You Need]] — Transformer 原始论文精读
-- [[State of LLMs 2026 RLVR, GRPO, Inference Scaling]] — 2026 年 LLM 前沿动态
+- [[attention-is-all-you-need]] — Transformer 原始论文精读
+- [[state-of-llms-2026]] — 2026 年 LLM 前沿动态

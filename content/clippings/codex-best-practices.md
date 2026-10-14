@@ -1,13 +1,13 @@
 ---
 title: Codex 最佳实践
-description:
+description: OpenAI 官方 Codex 最佳实践指南，涵盖 CLI、IDE 扩展与桌面应用中的上下文提供、AGENTS.md 配置、MCP 集成、技能与自动化工作流
 tags:
   - codex
   - openai
   - best-practices
   - ai-coding
   - clippings
-source:
+source: https://developers.openai.com/codex/learn/best-practices
 ---
 
 # Codex 最佳实践

@@ -72,10 +72,10 @@ $$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)
 
 - GPT-3 共 96 层、嵌入维度 12288、96 个注意力头：已核实（GPT-3 论文 Table 2.1）
 - Llama 3 70B 共 80 层：已核实（Llama 3 技术报告）
-- 注意力公式、QKV 机制、采样策略（贪心/温度/top-k/top-p）：教科书级标准内容，与 [[LLM]]、[[Attention Is All You Need]] 笔记一致
+- 注意力公式、QKV 机制、采样策略（贪心/温度/top-k/top-p）：教科书级标准内容，与 [[llm-overview|LLM]]、[[attention-is-all-you-need]] 笔记一致
 
 ## 相关笔记
 
-- [[LLM]] — 核心架构部分，QKV 数学本质与 Decoder-Only 架构
-- [[Attention Is All You Need]] — Transformer 原始论文精读剪报
-- [[Reasoning Model]] — 推理模型如何在这个架构上长出思考过程
+- [[llm-overview|LLM]] — 核心架构部分，QKV 数学本质与 Decoder-Only 架构
+- [[attention-is-all-you-need]] — Transformer 原始论文精读剪报
+- [[reasoning-model|Reasoning Model]] — 推理模型如何在这个架构上长出思考过程

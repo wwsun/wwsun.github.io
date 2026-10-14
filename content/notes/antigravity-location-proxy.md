@@ -13,7 +13,7 @@ source:
 
 ## 现象与根因
 
-[[Google Antigravity]]（基于 VS Code 的 AI IDE）弹 API 错误，提示 location 不可用。原因是 Google AI 服务（`generativelanguage.googleapis.com` 等）按请求**出口 IP 所在地区**做可用性限制，本地直连是国内 IP 会被拒绝。
+[[google-antigravity|Google Antigravity]]（基于 VS Code 的 AI IDE）弹 API 错误，提示 location 不可用。原因是 Google AI 服务（`generativelanguage.googleapis.com` 等）按请求**出口 IP 所在地区**做可用性限制，本地直连是国内 IP 会被拒绝。
 
 > [!warning] 香港节点也会被拒
 > Google AI 对 HK 通常直接拒绝，代理节点要选美国、日本或新加坡等。

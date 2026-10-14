@@ -24,7 +24,7 @@ https://github.com/anthropics/skills/tree/main/skills/frontend-design
 
 ### 3. **figma-implement-design**
 
-来自 ==OpenAI==，设计稿到代码的核心 skill。凡是产品/设计/前端协作，这个都应该是常用项。结合 [[Spec-Driven-Development|规约驱动开发]] 效果更佳。
+来自 ==OpenAI==，设计稿到代码的核心 skill。凡是产品/设计/前端协作，这个都应该是常用项。结合 [[spec-driven-development|规约驱动开发]] 效果更佳。
 https://github.com/openai/skills/tree/main/skills/.curated/figma-implement-design
 
 ### 4. **web-design-guidelines**
@@ -44,7 +44,7 @@ https://github.com/openai/skills/tree/main/skills/.curated/playwright
 
 ### 7. **webapp-testing**
 
-来自 ==Anthropic==，比 playwright 更贴近日常本地应用验证，适合检查页面行为、截图、日志和交互回归。参考 [[Chrome DevTools MCP]] 进行深度调试。
+来自 ==Anthropic==，比 playwright 更贴近日常本地应用验证，适合检查页面行为、截图、日志和交互回归。参考 [[chrome-devtools-mcp|Chrome DevTools MCP]] 进行深度调试。
 https://github.com/anthropics/skills/tree/main/skills/webapp-testing
 
 ### 8. **canvas-design**
@@ -76,4 +76,4 @@ https://github.com/vercel-labs/agent-skills/tree/main/skills/vercel-deploy-claim
 **相关阅读**:
 
 - [[ai-coding-workflow]]
-- [[Vibe Coding]]
+- [[vibe-coding|Vibe Coding]]

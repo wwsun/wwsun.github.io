@@ -12,7 +12,7 @@ source: null
 
 ## 参考
 
-[[我是如何让我的团队转向规范驱动开发]]
+[[team-spec-driven-development]]
 
 ## 最佳实践
 

@@ -72,7 +72,7 @@ RLHF 解决了「偏好」问题：模型学会的不只是「正确的答案」
 
 ## 相关笔记
 
-- [[RLHF]] — wiki 版笔记：奖励模型与 PPO 的细节
-- [[DPO]] — wiki 版笔记：直接偏好优化的数学思路
-- [[Pre-training]] — 对齐之前的基础模型
-- [[LLM]] — 全生命周期概览
+- [[rlhf|RLHF]] — 知识库笔记：奖励模型与 PPO 的细节
+- [[dpo|DPO]] — 知识库笔记：直接偏好优化的数学思路
+- [[llm-pre-training|Pre-training]] — 对齐之前的基础模型
+- [[llm-overview|LLM]] — 全生命周期概览

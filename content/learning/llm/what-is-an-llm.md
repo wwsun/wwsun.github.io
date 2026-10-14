@@ -52,7 +52,7 @@ description: LLM 的本质是一个在巨量文本上训练出来的「下一个
 
 ## 为什么必须「大」：Scaling Laws
 
-直觉上你会问：参数更多，不就是背得更熟吗？**缩放定律**（Scaling Laws，[[Scaling Laws]]）的发现让「大」从一个工程选择变成了理论依据：在相当大的范围内，模型在测试集上的损失（loss）与参数量、数据量、算力之间呈现平滑的幂律关系——规模越大，预测越准，而且这种改善可以事先预测。
+直觉上你会问：参数更多，不就是背得更熟吗？**缩放定律**（Scaling Laws，[[scaling-laws|Scaling Laws]]）的发现让「大」从一个工程选择变成了理论依据：在相当大的范围内，模型在测试集上的损失（loss）与参数量、数据量、算力之间呈现平滑的幂律关系——规模越大，预测越准，而且这种改善可以事先预测。
 
 「大」带来的是质的区别：当参数和数据都足够大时，模型开始表现出**涌现能力**（emergent abilities）——一些在小模型上完全不存在、跨过某个规模阈值后突然出现的能力，比如多步推理、上下文学习（in-context learning，给几个例子就学会任务格式，无需重新训练）。
 
@@ -67,7 +67,7 @@ LLM 是一台在人类全部文本上训练出来的「下一个 token 预测器
 
 ## 相关笔记
 
-- [[LLM|Large Language Model]] — wiki 总览，覆盖架构与生命周期全图
+- [[llm-overview|Large Language Model]] — 知识库总览，覆盖架构与生命周期全图
 - [[llm-vs-nlp|LLM 与 NLP 的区别]] — 为什么说 LLM 是新范式而非 NLP 的延续
-- [[Scaling Laws]] — 规模与能力的幂律关系
-- [[Attention Is All You Need]] — Transformer 原始论文精读剪报
+- [[scaling-laws|Scaling Laws]] — 规模与能力的幂律关系
+- [[attention-is-all-you-need]] — Transformer 原始论文精读剪报

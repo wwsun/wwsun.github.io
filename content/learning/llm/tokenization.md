@@ -68,9 +68,9 @@ GPT 系列用的算法叫 **BPE**（Byte Pair Encoding，字节对编码）。�
 - BPE 起源于 1994 年的数据压缩算法，2016 年被引入机器翻译：已核实（维基百科 Byte pair encoding 条目）
 - byte-level BPE 自 GPT-2 起用于 GPT 系列：已核实（同上条目）
 - 英文约 1000 token ≈ 750 单词：OpenAI 官方文档的粗略口径（「100 tokens ≈ 75 words」），业界广泛引用；原帮助页面已迁移，无法直接访问复核
-- 中文约 1 字 1–2 token：与既有笔记 [[Tokenization]] 口径一致，系经验估计而非严格标准
+- 中文约 1 字 1–2 token：与既有笔记 [[llm-tokenization|Tokenization]] 口径一致，系经验估计而非严格标准
 
 ## 相关笔记
 
-- [[Tokenization]] — wiki 版笔记：三大子词算法（BPE / WordPiece / Unigram）对比与工程陷阱
-- [[LLM]] — 分词在 LLM 全图中的位置
+- [[llm-tokenization|Tokenization]] — 知识库笔记：三大子词算法（BPE / WordPiece / Unigram）对比与工程陷阱
+- [[llm-overview|LLM]] — 分词在 LLM 全图中的位置
