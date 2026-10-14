@@ -1,0 +1,117 @@
+AGENTS.md
+  8e8ee3871753a11e 3,5,7-13,15,17-21,23,25-26,36-46,48,54-55,57,60-63,74-76,79-81,83-84,86,91-92,94,101
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "cd3b97b0f40779fc7b07f7829e58aeeffe1862ea",
+  "prompts": {
+    "8e8ee3871753a11e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a13a69-600d-7370-97ef-18adbe8469c4",
+        "model": "deepseek-flash"
+      },
+      "human_author": "wwsun",
+      "messages": [],
+      "total_additions": 53,
+      "total_deletions": 129,
+      "accepted_lines": 366,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "content/prompts/COSTAR 提问框架.md": {
+          "accepted_lines": 3
+        },
+        "content/wiki/ssh.md": {
+          "accepted_lines": 1
+        },
+        "content/wiki/Scaling Laws.md": {
+          "accepted_lines": 1
+        },
+        "content/prompts/日常开发 Prompts.md": {
+          "accepted_lines": 2
+        },
+        "content/wiki/tailwindcss.md": {
+          "accepted_lines": 1
+        },
+        "content/prompts/写作工具 prompts.md": {
+          "accepted_lines": 2
+        },
+        "content/wiki/Deno.md": {
+          "accepted_lines": 1
+        },
+        "content/notes/zshrc-20260405.md": {
+          "accepted_lines": 257
+        },
+        "content/wiki/tsc.md": {
+          "accepted_lines": 1
+        },
+        "content/prompts/gpt-image2-prompt.md": {
+          "accepted_lines": 2
+        },
+        "content/prompts/Meta Prompt.md": {
+          "accepted_lines": 3
+        },
+        "content/prompts/Gemini Deep Research.md": {
+          "accepted_lines": 3
+        },
+        "content/wiki/ai-coding-learning-science-principles.md": {
+          "accepted_lines": 1
+        },
+        "content/blog/Building Skills for Claude.md": {
+          "accepted_lines": 5
+        },
+        "content/wiki/RLHF.md": {
+          "accepted_lines": 1
+        },
+        "content/wiki/deno sandbox.md": {
+          "accepted_lines": 1
+        },
+        "content/clippings/使用 Claude Agent SDK 构建智能体.md": {
+          "accepted_lines": 1
+        },
+        "content/wiki/learning-opportunities.md": {
+          "accepted_lines": 1
+        },
+        "content/prompts/Bolt.diy Prompt Engineering.md": {
+          "accepted_lines": 2
+        },
+        "content/wiki/bun-quick-start.md": {
+          "accepted_lines": 1
+        },
+        "CLAUDE.md": {
+          "deletions": 12
+        },
+        "content/prompts/Deep Research Prompt.md": {
+          "accepted_lines": 2
+        },
+        "content/wiki/LLM.md": {
+          "accepted_lines": 7
+        },
+        "content/prompts/Prompt Generator.md": {
+          "accepted_lines": 2
+        },
+        "content/prompts/Nano Banana Pro Prompt.md": {
+          "accepted_lines": 3
+        },
+        "AGENTS.md": {
+          "additions": 53,
+          "deletions": 117,
+          "accepted_lines": 53
+        },
+        "content/prompts/Blog Prompts.md": {
+          "accepted_lines": 3
+        },
+        "content/books/asking-the-right-question.md": {
+          "accepted_lines": 1
+        },
+        "content/prompts/claude-design-system-prompt.md": {
+          "accepted_lines": 2
+        },
+        "content/prompts/日常工作 Prompts.md": {
+          "accepted_lines": 3
+        }
+      }
+    }
+  }
+}
