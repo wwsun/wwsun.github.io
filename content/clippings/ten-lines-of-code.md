@@ -2,7 +2,7 @@
 title: 改变我世界的十行代码
 description: Roel Nieskens 回顾十行对他意义非凡的代码——从 BASIC 问候、JavaScript 怪癖、6502 自修改汇编，到 POKE 无限命、CSS 动画诗，每一行都承载着一段故事。
 tags:
-  - translation
+  - clippings
   - programming
   - retro-computing
   - css

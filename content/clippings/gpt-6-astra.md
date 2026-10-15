@@ -2,7 +2,7 @@
 title: GPT-6 Astra：新一代智能
 description: OpenAI 发布 GPT-6 Astra，在电脑操作、专业工作、编程、科学发现与网络安全等维度刷新 SOTA，并同步披露其对齐表现与分级安全部署策略
 tags:
-  - translation
+  - clippings
   - llm
   - openai
   - model-release

@@ -6,6 +6,8 @@ author:
 created: 2026-01-20
 tags:
   - clippings
+  - productivity
+  - thinking
 ---
 
 You haven't experienced anything near what you're capable of.  

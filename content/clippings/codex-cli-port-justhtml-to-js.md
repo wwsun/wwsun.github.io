@@ -6,6 +6,10 @@ author:
 created: 2026-01-21
 tags:
   - clippings
+  - codex
+  - ai-coding
+  - javascript
+  - python
 ---
 
 15th December 2025 2025 年 12 月 15 日

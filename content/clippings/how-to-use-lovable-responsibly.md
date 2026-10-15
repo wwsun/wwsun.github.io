@@ -2,7 +2,7 @@
 title: 如何负责任地使用 Lovable
 description: freeCodeCamp 指南：用 AI 应用构建器 Lovable 时，如何兼顾安全、隐私、无障碍与用户安全——从写清楚提示词到上线前检查清单
 tags:
-  - translation
+  - clippings
   - ai-coding
   - security
   - lovable

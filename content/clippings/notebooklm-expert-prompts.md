@@ -2,8 +2,6 @@
 title: 10 个 NotebookLM 专家级高质量提示词
 description: 来自 @Ihtesham 分享的高质量提示词，青小蛙觉得写的非常赞啊，值得仔细学习一下。
 source: https://www.appinn.com/notebooklm-prompts-10/
-author:
-  - "[[青小蛙]]"
 tags:
   - clippings
   - google

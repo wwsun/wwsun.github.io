@@ -2,8 +2,11 @@
 title: 我是如何用大语言模型学习复杂主题的
 description: 作者分享了一套独特的学习方法：用 LLM 先构建知识库，再验证准确性，最后生成低多边形动画模拟来辅助记忆。以芯片制造为例展示了完整工作流和成果。
 tags:
-  - llms learning ai-assisted-learning knowledge-base chip-manufacturing simulation
   - clippings
+  - llm
+  - learning
+  - chip-manufacturing
+  - visualization
 source: https://laurentiugabriel.github.io/blog/articles/how-i-use-llms-to-learn/
 ---
 

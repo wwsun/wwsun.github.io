@@ -1,9 +1,12 @@
 ---
-title: bat 但带有 git 集成和语法高亮.
+title: bat -- 支持 git 集成和语法高亮的 cat
 tags:
+  - github
 description: 未命名
 source: https://github.com/sharkdp/bat/blob/master/doc/README-zh.md
 ---
+
+## 特性
 
 ### 语法高亮
 

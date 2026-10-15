@@ -5,6 +5,9 @@ source: https://1zcjbg.wordpress.com/2026/02/24/%e3%80%90%e4%b8%80%e5%91%a8%e8%b
 author:
 tags:
   - clippings
+  - ai
+  - economics
+  - market-crash
 ---
 
 这是一个很小众的研究公司出品的一篇跟AI有关的文章，周日发表的，引起了很大的轰动。

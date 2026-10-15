@@ -1,7 +1,10 @@
 ---
 title: State of LLMs 2026 RLVR, GRPO, Inference Scaling
 tags:
+  - clippings
   - llm
+  - rlvr
+  - inference-scaling
 draft: false
 description: State of LLMs 2026 RLVR, GRPO, Inference Scaling
 source: https://www.youtube.com/watch?v=K5WPr5dtne0

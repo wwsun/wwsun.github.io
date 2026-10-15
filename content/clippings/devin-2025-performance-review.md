@@ -6,6 +6,9 @@ author:
 created: 2026-01-08
 tags:
   - clippings
+  - coding-agent
+  - ai-coding
+  - software-engineering
 ---
 
 在发布十八个月后，Devin 已经从处理小型项目，成长为在包括高盛、桑坦德银行和 Nubank 在内的数千家公司工程团队中工作。
@@ -46,7 +49,7 @@ Devin 非常擅长解决静态分析工具（如 SonarQube、Veracode）标记�
 - A large bank was migrating hundreds of thousands of proprietary ETL framework files. Devin completed each file's migration in **3-4 hours vs 30-40 for human engineers (10x improvement).**  
   一家大型银行正在迁移数十万份专有 ETL 框架文件。Devin 完成每个文件的迁移只需 3-4 小时，而人类工程师则需要 30-40 小时（提升了 10 倍）。
 - When Oracle sunsetted legacy support for one Java version, Devin was able to migrate each repo in **14x less time than a human engineer.**  
-   当 Oracle 停止对某个 Java 旧版本的支持时，Devin 迁移每个代码库所需的时间比人类工程师少了 14 倍。
+  当 Oracle 停止对某个 Java 旧版本的支持时，Devin 迁移每个代码库所需的时间比人类工程师少了 14 倍。
   [![](https://cdn.sanity.io/images/2mc9cv2v/production/56ebf7834fbe08c1dc79491f200b71307ef9da0d-1712x656.png)](https://cdn.sanity.io/images/2mc9cv2v/production/56ebf7834fbe08c1dc79491f200b71307ef9da0d-1712x656.png)
 
 使用智能代理可以降低现代化改造的成本，因此组织能够将更多时间用于开发新功能，而不是维护遗留代码。

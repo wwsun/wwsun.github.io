@@ -6,6 +6,10 @@ author:
   - jason
 tags:
   - clippings
+  - codex
+  - openai
+  - ai-coding
+  - best-practices
 ---
 
 作者：jason (@jxnlco)  

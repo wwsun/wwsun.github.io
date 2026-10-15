@@ -6,6 +6,9 @@ author:
   - "[[Simon Willison]]"
 tags:
   - clippings
+  - ai-coding
+  - software-engineering
+  - best-practices
 ---
 
 许多开发者担心将代码外包给 AI 工具会导致质量下降，产生糟糕的代码，但由于产出速度够快，决策者愿意忽视其缺陷。

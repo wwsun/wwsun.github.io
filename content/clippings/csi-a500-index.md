@@ -5,6 +5,9 @@ created: 2025-02-24
 description: "中国版“标普500”上线：解读中证A500指数"
 tags:
   - clippings
+  - investing
+  - financial
+  - economic-indicators
 ---
 
 _广发证券 陈达 蔡昆 吴乔_ _中国证券报·中证网_ 2024-09-26 08:50

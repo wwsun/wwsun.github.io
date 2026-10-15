@@ -2,7 +2,7 @@
 title: 最佳 CSS 重构 AI 工具：我实测了 5 款
 description: LogRocket 实测 ChatGPT、Claude、Copilot、Cursor、Gemini 五款 AI 工具的 CSS 重构能力，用 7 个精心设计的陷阱揭示 AI 在层叠、层叠上下文与选择器作用域上的系统性盲区。
 tags:
-  - translation
+  - clippings
   - css
   - ai-coding
   - frontend

@@ -2,10 +2,10 @@
 title: 我常用的提示词
 description: Simon Willison《Agentic Engineering Patterns》附录：我在用的四组提示词——Artifact 构建规范、博客校对、图片替代文本、播客金句提取
 tags:
-  - translation
+  - clippings
   - prompt-engineering
   - claude
-  - agent
+  - ai-agent
   - accessibility
 source: https://simonwillison.net/guides/agentic-engineering-patterns/prompts/
 date: 2026-09-18

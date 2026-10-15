@@ -7,7 +7,9 @@ created: 2026-02-01
 tags:
   - clippings
   - google
-  - nodebooklm
+  - notebooklm
+  - learning
+  - workflow
 ---
 
 很多人第一次用 NotebookLM，会出现一种“两极分化”的体验：

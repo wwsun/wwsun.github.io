@@ -4,8 +4,8 @@ description: 一段关于 POPO Doc 集成应直连沙盒还是走主机代理的
 tags:
   - clippings
   - sandbox
-  - popo
   - architecture
+  - security
 source: 内部技术讨论（无 URL）
 created: 2026-08-24
 ---

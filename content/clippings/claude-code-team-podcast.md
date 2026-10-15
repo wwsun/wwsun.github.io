@@ -6,6 +6,9 @@ author:
 created: 2026-01-26
 tags:
   - clippings
+  - claude-code
+  - ai-agent
+  - agent-architecture
 ---
 
 原创 loonggg _2025年12月8日 11:30_

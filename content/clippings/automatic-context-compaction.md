@@ -2,10 +2,10 @@
 title: 自动上下文压缩
 description: Anthropic 官方 Cookbook：用 compaction_control 参数在长时运行的智能体工作流中自动压缩对话历史，实测 Token 消耗降低 58.6%
 tags:
-  - translation
+  - clippings
   - claude
   - context-engineering
-  - agent
+  - ai-agent
   - tool-use
 source: https://platform.claude.com/cookbook/tool-use-automatic-context-compaction
 date: 2026-09-18

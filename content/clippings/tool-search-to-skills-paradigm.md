@@ -2,8 +2,10 @@
 title: "从 “Tool search” 到 “Skills”：AI Agent 架构的范式重构"
 date: 2025-12-19 19:39:00
 tags:
-  - agent
+  - clippings
+  - ai-agent
   - skills
+  - agent-architecture
 draft: false
 description: "分析 AI Agent 架构从工具搜索到技能模式的转变，强调企业级应用的模块化和可靠性。"
 source: https://nicolaygerold.com/posts/tool-search-is-dead-long-live-skills

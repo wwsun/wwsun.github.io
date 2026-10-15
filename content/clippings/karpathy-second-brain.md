@@ -5,7 +5,11 @@ source: "https://x.com/godofprompt/status/2041265656893489419"
 author:
   - "[[@godofprompt]]"
 tags:
-  - "clippings"
+  - clippings
+  - llm
+  - obsidian
+  - wiki
+  - learning
 ---
 
 ## 10 万人收藏了 @karpathy 的这条帖子：

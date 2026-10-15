@@ -6,6 +6,9 @@ author:
 created: 2026-01-14
 tags:
   - clippings
+  - claude-code
+  - ai-coding
+  - tutorial
 ---
 
 这是官方 Claude Code 教程的第二部分，我将在这里讲解更多进阶概念，帮助你更好地利用 Claude Code。如果你还没有阅读第一部分，强烈建议你先看那篇文章。

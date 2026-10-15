@@ -5,7 +5,11 @@ source: "https://mp.weixin.qq.com/s/rpA9kAnqtNyimDBbbX6OKA"
 author:
   - "[[Noisy]]"
 tags:
-  - "clippings"
+  - clippings
+  - claude-code
+  - ai-coding
+  - automation
+  - productivity
 ---
 
 Noisy _2026年4月14日 07:17_
