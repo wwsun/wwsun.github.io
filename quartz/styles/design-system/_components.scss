@@ -2,158 +2,600 @@
 
 /**
  * Design System - Components
- * UI 组件与模式体系：列表项、标签、首页 Hero & 网格卡片、引用块等。
+ * 极简博客布局与组件体系（参考 baoyu.io）：
+ * 1. 全站顶部导航栏（品牌、主导航、搜索与深浅色切换）
+ * 2. 单栏居中主容器与宽屏右侧浮动大纲（TOC）
+ * 3. 首页与目录页文章流（所属目录徽章、粗体标题、多行摘要、日期）
+ * 4. 文章详情页头部与引用块
  */
 
-// 1) 首页布局组件 (content/index.md 通过 frontmatter cssclasses: [home] 启用)
-article.home {
-  // Hero 区域：站点标题 + 一句话简介
-  & > h1:first-child {
-    margin-top: 0;
-    margin-bottom: var(--ds-space-2);
-    font-size: var(--ds-text-4xl);
-    line-height: var(--ds-leading-tight);
+/* ==========================================================================
+   1. 全站画布与单栏居中框架 (覆盖默认三栏 Wiki 布局与灰色侧栏底色)
+   ========================================================================== */
+body[data-slug],
+body[data-slug] div#quartz-root.page,
+body[data-slug] .page > div#quartz-body,
+body[data-slug] .page > div#quartz-body div.center,
+body[data-slug] .page > div#quartz-body footer {
+  background-color: var(--ds-color-bg-canvas) !important;
+  color: var(--ds-color-text-primary);
+}
+
+body[data-slug] div#quartz-root.page {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body[data-slug] .page > div#quartz-body {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 100vh;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  row-gap: 0 !important;
+  column-gap: 0 !important;
+
+  // 移除旧版左侧栏
+  & > div.sidebar.left {
+    display: none !important;
   }
 
-  & > h1:first-child + p {
-    font-size: var(--ds-text-lg);
-    line-height: 1.7;
-    color: var(--ds-color-text-secondary);
+  // 居中主内容区 (参考 baoyu.io max-w-4xl / max-w-3xl)
+  & > div.center {
+    flex: 1 0 auto;
+    width: 100% !important;
+    max-width: var(--ds-reading-max-width) !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: 1.5rem 1.5rem 4rem !important;
+    box-sizing: border-box;
+
+    & > .page-header {
+      margin-top: 0 !important;
+    }
   }
 
-  // 内容导航：响应式卡片网格 (窄屏自动降为单列)
-  & > ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: var(--ds-space-3);
-    padding-left: 0;
-    margin-top: var(--ds-space-4);
+  // 右侧栏 (仅在超宽屏文章页作为轻量浮动 TOC 展示，不挤压居中主栏)
+  & > div.sidebar.right {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    display: none !important;
 
-    & > li {
-      list-style: none;
-      padding: var(--ds-space-3) var(--ds-space-4);
-      border: var(--ds-border-width) solid var(--ds-color-border-default);
-      border-radius: var(--ds-radius-lg);
-      background-color: var(--ds-color-bg-surface);
-      box-shadow: var(--ds-shadow-sm);
-      transition:
-        border-color var(--ds-transition-normal),
-        background-color var(--ds-transition-normal),
-        box-shadow var(--ds-transition-normal),
-        transform var(--ds-transition-normal);
-
-      &::marker {
-        content: none;
-      }
-
-      &:hover {
-        background-color: var(--ds-color-bg-hover);
-        border-color: var(--ds-color-border-hover);
-        box-shadow: var(--ds-shadow-card);
+    @media all and (min-width: 1360px) {
+      &:has(.toc) {
+        display: flex !important;
+        position: fixed !important;
+        top: 6rem;
+        left: calc(50% + (var(--ds-reading-max-width) / 2) + 2.5rem);
+        width: 14.5rem;
+        max-height: calc(100vh - 8rem);
+        height: auto !important;
+        overflow-y: auto;
+        z-index: 10;
       }
     }
+  }
+
+  // 页脚居中对齐
+  & > footer {
+    width: 100% !important;
+    max-width: var(--ds-reading-max-width) !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: 2rem 1.5rem 3rem !important;
+    box-sizing: border-box;
+    border-top: 1px solid var(--ds-color-border-muted);
+    opacity: 0.85;
   }
 }
 
-// 2) 列表页 (/blog/、/notes/、/clippings/ 等) 文章列表项排版：日期防折行，tags 紧随标题下方
-li.section-li > .section {
-  display: grid;
-  grid-template-columns: max-content 1fr !important;
-  grid-template-rows: auto auto;
-  align-items: baseline;
-  column-gap: var(--ds-space-5);
-
-  & .meta {
-    grid-column: 1;
-    grid-row: 1;
-    white-space: nowrap !important;
-    margin: 0;
-    color: var(--ds-color-text-muted);
-    font-size: var(--ds-text-sm);
-    font-variant-numeric: tabular-nums;
+// 首页隐藏空的文章头部与空正文节点
+body[data-slug="index"] {
+  .page-header {
+    display: none !important;
   }
+  .center > article:empty,
+  .center > article > .markdown-rendered:empty {
+    display: none !important;
+  }
+  .center > article {
+    margin: 0 !important;
+  }
+  .center > .page-footer {
+    margin-top: 0 !important;
+  }
+}
 
-  & .desc {
-    grid-column: 2;
-    grid-row: 1;
-    margin: 0;
+/* ==========================================================================
+   2. 顶部导航栏 (Top Navigation Bar - 参考 baoyu.io)
+   ========================================================================== */
+header.site-header {
+  width: 100%;
+  background-color: var(--ds-color-bg-canvas);
+  z-index: 40;
 
-    & > h3 {
-      margin: 0 !important;
-      line-height: 1.35;
-      font-size: var(--ds-text-base);
+  .site-header-inner {
+    max-width: 1120px;
+    height: 5rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    @media all and ($mobile) {
+      height: auto;
+      min-height: 4rem;
+      padding: 0.75rem 1.25rem;
+      flex-wrap: wrap;
     }
   }
 
-  & > .tags {
-    grid-column: 2;
-    grid-row: 2;
+  .top-nav-left {
+    display: flex;
+    align-items: center;
+    gap: 2.25rem;
+    flex-wrap: wrap;
+
+    @media all and ($mobile) {
+      gap: 1rem;
+    }
+  }
+
+  a.site-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--ds-color-text-primary) !important;
+    background-color: transparent !important;
+    text-decoration: none !important;
+    padding: 0 !important;
+    line-height: 1.2;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    .site-logo {
+      width: 28px;
+      height: 28px;
+      margin: 0 !important;
+      border-radius: 6px;
+      display: block;
+    }
+  }
+
+  nav.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    @media all and ($mobile) {
+      gap: 1rem;
+    }
+
+    a.site-nav-link {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ds-color-text-secondary) !important;
+      background-color: transparent !important;
+      text-decoration: none !important;
+      padding: 0.25rem 0 !important;
+      transition: color var(--ds-transition-fast);
+
+      &:hover {
+        color: var(--ds-color-text-primary) !important;
+      }
+
+      &.active {
+        color: var(--ds-color-text-primary) !important;
+        font-weight: 600;
+      }
+    }
+  }
+
+  // 右侧工具区 (搜索 + 主题切换)
+  .flex-component {
     display: flex !important;
-    justify-content: flex-start !important;
-    margin: var(--ds-space-1) 0 0 0 !important;
-    padding: 0;
-    gap: var(--ds-space-1);
+    align-items: center;
+    gap: 0.75rem !important;
+    flex-grow: 0 !important;
 
-    & > li {
-      margin: 0;
-      line-height: 1;
+    .search {
+      max-width: none;
+      min-width: auto;
+      flex-grow: 0;
 
-      & > a.tag-link {
-        font-size: var(--ds-text-xs);
-        padding: 0.12rem 0.4rem;
-        line-height: 1.2;
-        border-radius: var(--ds-radius-full);
-        background-color: var(--ds-color-tag-bg);
-        color: var(--ds-color-tag-text);
-        text-decoration: none;
+      & > .search-button {
+        height: 2.125rem;
+        padding: 0 0.75rem;
+        border-radius: var(--ds-radius-md);
+        border: 1px solid var(--ds-color-border-default);
+        background-color: var(--ds-color-bg-muted);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        width: auto;
+        cursor: pointer;
         transition:
-          background-color var(--ds-transition-fast),
-          color var(--ds-transition-fast);
+          border-color var(--ds-transition-fast),
+          background-color var(--ds-transition-fast);
 
         &:hover {
-          background-color: var(--ds-color-tag-bg-hover);
+          border-color: var(--ds-color-text-muted);
+        }
+
+        & > svg {
+          width: 15px;
+          height: 15px;
+          margin: 0;
+        }
+
+        & > p {
+          margin: 0;
+          padding: 0;
+          font-size: 0.85rem;
+          color: var(--ds-color-text-secondary);
+          line-height: 1;
         }
       }
     }
+
+    button.darkmode {
+      margin: 0;
+      padding: 0;
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+      opacity: 0.75;
+      transition: opacity var(--ds-transition-fast);
+
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 }
 
-// 3) 引用块与装饰标尺
-body .center article blockquote {
-  border-left: 3px solid var(--ds-color-accent-default);
+// 搜索弹窗与输入框尺寸优化
+body .search > .search-container > .search-space {
+  width: min(48rem, 92vw) !important;
+  margin: 10vh auto !important;
+  border-radius: 12px !important;
+
+  & > input.search-bar {
+    width: 100% !important;
+    height: 3.5rem !important;
+    padding: 0.875rem 1.25rem !important;
+    font-size: 1.15rem !important;
+    line-height: 1.5 !important;
+    box-sizing: border-box !important;
+    background-color: var(--ds-color-bg-surface) !important;
+    color: var(--ds-color-text-primary) !important;
+  }
+}
+
+/* ==========================================================================
+   3. 首页与目录页文章列表流 (参考 baoyu.io + 每篇文章前显示所属目录)
+   ========================================================================== */
+.feed-page-header {
+  margin-top: 1.25rem;
+  margin-bottom: 1.5rem;
+
+  .feed-page-title {
+    margin: 0 !important;
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em;
+    color: var(--ds-color-text-primary);
+
+    @media all and ($mobile) {
+      font-size: 2rem !important;
+    }
+  }
+}
+
+.folder-page-subtitle {
+  margin: 0.5rem 0 1.25rem 0 !important;
+  font-size: 1.125rem;
+  line-height: 1.6 !important;
+  color: var(--ds-color-text-secondary) !important;
+}
+
+hr.feed-page-divider {
+  width: 100%;
+  height: 1px;
+  border: none;
+  background-color: var(--ds-color-border-muted);
+  margin: 1.5rem 0 2.5rem 0 !important;
+}
+
+.post-feed-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+article.post-feed-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin: 0;
+
+  h2.post-feed-title {
+    margin: 0 !important;
+    font-size: 1.375rem !important;
+    font-weight: 700 !important;
+    line-height: 1.45 !important;
+    color: var(--ds-color-text-primary);
+
+    @media all and ($mobile) {
+      font-size: 1.2rem !important;
+    }
+
+    // 首页文章前的所属目录标签
+    a.post-category-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      line-height: 1.3;
+      padding: 0.16rem 0.55rem;
+      margin-right: 0.6rem;
+      border-radius: 6px;
+      background-color: var(--ds-color-bg-muted) !important;
+      color: var(--ds-color-text-secondary) !important;
+      border: 1px solid var(--ds-color-border-default);
+      text-decoration: none !important;
+      vertical-align: middle;
+      transform: translateY(-2px);
+      transition:
+        background-color var(--ds-transition-fast),
+        color var(--ds-transition-fast),
+        border-color var(--ds-transition-fast);
+
+      &:hover {
+        background-color: var(--ds-color-bg-hover) !important;
+        color: var(--ds-color-text-primary) !important;
+        border-color: var(--ds-color-text-muted);
+      }
+    }
+
+    a.post-title-link {
+      color: var(--ds-color-text-primary) !important;
+      background-color: transparent !important;
+      text-decoration: none !important;
+      padding: 0 !important;
+      font-weight: 700;
+      transition: color var(--ds-transition-fast);
+
+      &:hover {
+        color: var(--ds-color-accent-default) !important;
+      }
+    }
+  }
+
+  p.post-feed-desc {
+    margin: 0 !important;
+    font-size: 1rem;
+    line-height: 1.65 !important;
+    color: var(--ds-color-text-secondary) !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  p.post-feed-date {
+    margin: 0.1rem 0 0 0 !important;
+    font-size: 0.875rem;
+    line-height: 1.4 !important;
+    color: var(--ds-color-text-muted) !important;
+
+    time {
+      color: inherit;
+    }
+  }
+}
+
+/* ==========================================================================
+   4. 文章详情页与目录页头部排版优化
+   ========================================================================== */
+body:not([data-slug="index"]) {
+  .page-header {
+    margin-bottom: 2rem;
+
+    .breadcrumb-container {
+      margin: 0 0 0.5rem 0;
+      padding: 0;
+      font-size: var(--ds-text-xs);
+      color: var(--ds-color-text-muted);
+
+      .breadcrumb-element > a {
+        color: var(--ds-color-text-muted);
+        background-color: transparent !important;
+        text-decoration: none;
+
+        &:hover {
+          color: var(--ds-color-text-primary);
+        }
+      }
+    }
+
+    h1.article-title {
+      margin: 0.25rem 0 0.85rem 0 !important;
+      font-size: 2.25rem !important;
+      font-weight: 800 !important;
+      line-height: 1.25 !important;
+      letter-spacing: -0.02em;
+      color: var(--ds-color-text-primary);
+
+      @media all and ($mobile) {
+        font-size: 1.75rem !important;
+      }
+    }
+
+    .content-meta {
+      margin: 0 0 0.65rem 0;
+      font-size: 0.8125rem;
+      color: var(--ds-color-text-muted);
+    }
+
+    ul.tags {
+      margin: 0.5rem 0 0 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+
+      li {
+        margin: 0;
+      }
+
+      a.internal.tag-link {
+        font-size: 0.75rem;
+        font-weight: 500;
+        padding: 0.15rem 0.5rem;
+        border-radius: var(--ds-radius-full);
+        background-color: var(--ds-color-bg-muted);
+        color: var(--ds-color-text-secondary);
+        border: 1px solid var(--ds-color-border-default);
+        text-decoration: none;
+
+        &:hover {
+          color: var(--ds-color-text-primary);
+          border-color: var(--ds-color-text-muted);
+        }
+      }
+    }
+
+    // 次级引用元信息：去容器化、静音文本展示、避免打断正文视线
+    .article-source {
+      margin: 0.5rem 0 0 0;
+      padding: 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+      color: var(--ds-color-text-muted);
+
+      .article-source-label {
+        color: var(--ds-color-text-muted);
+        font-weight: 400;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .article-source-items {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 0.35rem;
+        flex-wrap: wrap;
+        min-width: 0;
+      }
+
+      .article-source-item {
+        display: inline-flex;
+        align-items: baseline;
+      }
+
+      a.article-source-link {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 0.2rem;
+        color: var(--ds-color-text-secondary);
+        font-weight: 400;
+        text-decoration: underline;
+        text-decoration-color: var(--ds-color-border-default);
+        text-underline-offset: 0.2em;
+        transition:
+          color var(--ds-transition-fast),
+          text-decoration-color var(--ds-transition-fast);
+
+        &:hover {
+          color: var(--ds-color-text-link);
+          text-decoration-color: var(--ds-color-text-link);
+
+          .article-source-icon {
+            transform: translate(1px, -1px);
+            opacity: 1;
+          }
+        }
+
+        .article-source-name {
+          max-width: 28rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+
+          @media all and ($mobile) {
+            max-width: 16rem;
+          }
+        }
+
+        .article-source-icon {
+          font-size: 0.75em;
+          opacity: 0.65;
+          display: inline-block;
+          transition:
+            transform var(--ds-transition-fast),
+            opacity var(--ds-transition-fast);
+        }
+      }
+
+      .article-source-text {
+        color: var(--ds-color-text-secondary);
+      }
+
+      .article-source-sep {
+        color: var(--ds-color-text-muted);
+        margin-right: 0.2rem;
+      }
+    }
+  }
+}
+
+// 目录页隐藏冗余的阅读时间元信息
+body[data-slug$="/index"] {
+  .page-header {
+    margin-bottom: 0.5rem;
+
+    .breadcrumb-container,
+    .content-meta,
+    ul.tags {
+      display: none !important;
+    }
+
+    h1.article-title {
+      font-size: 2.5rem !important;
+      margin-top: 1.25rem !important;
+      margin-bottom: 0.5rem !important;
+    }
+  }
+}
+
+// 引用块与装饰标尺
+body .center article blockquote:not(.callout) {
+  border-left: 3px solid var(--ds-color-border-default);
   padding: var(--ds-space-2) var(--ds-space-4);
   margin: var(--ds-space-4) 0;
   color: var(--ds-color-text-secondary);
-  background-color: var(--ds-color-bg-subtle);
-  border-radius: 0 var(--ds-radius-md) var(--ds-radius-md) 0;
-}
-
-// 4) 侧边栏 Explorer（探索）组件：桌面端锁定常驻展开，防止点击标题误触折叠消失
-.explorer {
-  @media all and not ($mobile) {
-    &.collapsed {
-      flex: 0 1 auto !important;
-
-      & > .explorer-content {
-        display: block !important;
-        visibility: visible !important;
-        height: auto !important;
-        max-height: none !important;
-      }
-    }
-
-    button.desktop-explorer {
-      cursor: default !important;
-      pointer-events: none; // 禁用标题点击折叠整棵树
-
-      & .fold {
-        display: none !important; // 隐藏多余的顶级折叠箭头
-      }
-
-      & h2 {
-        cursor: default !important;
-        user-select: none;
-      }
-    }
-  }
+  background-color: transparent;
 }

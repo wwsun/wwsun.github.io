@@ -7,6 +7,9 @@ import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 import RecentPosts from "./RecentPosts"
 import RecentTags from "./RecentTags"
+import TopNav from "./TopNav"
+import FolderContent from "./FolderContent"
+import ArticleSource from "./ArticleSource"
 
 export { componentRegistry, defineComponent } from "./registry"
 export { External } from "./external"
@@ -23,4 +26,7 @@ export {
   ConditionalRender,
   RecentPosts,
   RecentTags,
+  TopNav,
+  FolderContent,
+  ArticleSource,
 }

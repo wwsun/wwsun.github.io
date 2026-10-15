@@ -68,10 +68,11 @@ body .center article h6 {
   }
 }
 
-// 6) 内部链接与面包屑导航：符合 WCAG AA 对比度要求，降低视觉噪音
-body a.internal,
-body .breadcrumb-container .breadcrumb-element > a {
+// 6) 正文内部链接：去除默认背景块，使用干净的下划线链接
+body .center article a.internal {
   color: var(--ds-color-text-link);
+  background-color: transparent;
+  padding: 0;
   text-decoration: underline;
   text-decoration-color: color-mix(in srgb, var(--ds-color-text-link) 35%, transparent);
   text-underline-offset: 0.2em;
@@ -94,4 +95,36 @@ body .center article :not(pre) > code {
   background-color: var(--ds-color-bg-hover);
   border: 1px solid var(--ds-color-border-muted);
   font-variant-ligatures: none;
+}
+
+// 8) 正文章节标题垂直韵律 (Vertical Rhythm) 与分割线
+body .center article {
+  h2 {
+    font-size: var(--ds-text-2xl);
+    font-weight: 700;
+    line-height: 1.35;
+    margin-top: 2.75rem;
+    margin-bottom: 0.85rem;
+  }
+
+  h3 {
+    font-size: var(--ds-text-xl);
+    font-weight: 600;
+    line-height: 1.4;
+    margin-top: 2rem;
+    margin-bottom: 0.65rem;
+  }
+
+  h4 {
+    font-size: var(--ds-text-lg);
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+body .center hr {
+  border: none;
+  border-top: 1px solid var(--ds-color-border-muted);
+  margin: 2.5rem 0;
 }

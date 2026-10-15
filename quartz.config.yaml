@@ -21,24 +21,24 @@ configuration:
       code: JetBrains Mono
     colors:
       lightMode:
-        light: "#faf8f8"
-        lightgray: "#e5e5e5"
-        gray: "#b8b8b8"
-        darkgray: "#4e4e4e"
-        dark: "#2b2b2b"
-        secondary: "#0055ff"
-        tertiary: "#00aaff"
-        highlight: rgba(0, 85, 255, 0.15)
+        light: "#ffffff"
+        lightgray: "#e5e7eb"
+        gray: "#9ca3af"
+        darkgray: "#374151"
+        dark: "#111827"
+        secondary: "#111827"
+        tertiary: "#0969da"
+        highlight: rgba(9, 105, 218, 0.08)
         textHighlight: "#fff23688"
       darkMode:
-        light: "#161618"
-        lightgray: "#393639"
-        gray: "#646464"
-        darkgray: "#d4d4d4"
-        dark: "#ebebec"
-        secondary: "#4da6ff"
-        tertiary: "#80bfff"
-        highlight: rgba(77, 166, 255, 0.15)
+        light: "#0d1117"
+        lightgray: "#21262d"
+        gray: "#768390"
+        darkgray: "#c9d1d9"
+        dark: "#f0f6fc"
+        secondary: "#f0f6fc"
+        tertiary: "#58a6ff"
+        highlight: rgba(88, 166, 255, 0.12)
         textHighlight: "#b3aa0288"
 plugins:
   - source: "@quartz-community/note-properties"
@@ -143,12 +143,12 @@ plugins:
   - source: "@quartz-community/tag-page"
     enabled: true
   - source: "@quartz-community/explorer"
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 50
   - source: "@quartz-community/graph"
-    enabled: true
+    enabled: false
     layout:
       position: right
       priority: 10
@@ -156,19 +156,17 @@ plugins:
   - source: "@quartz-community/search"
     enabled: true
     layout:
-      position: left
+      position: header
       priority: 20
       group: toolbar
-      groupOptions:
-        grow: true
   - source: "@quartz-community/backlinks"
     enabled: true
     layout:
-      position: right
+      position: afterBody
       priority: 50
       condition: not-index
   - source: "@quartz-community/recent-notes"
-    enabled: true
+    enabled: false
     options:
       title: "最近更新"
       limit: 5
@@ -197,18 +195,18 @@ plugins:
       priority: 30
       condition: not-index
   - source: "@quartz-community/page-title"
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 10
   - source: "@quartz-community/darkmode"
     enabled: true
     layout:
-      position: left
+      position: header
       priority: 30
       group: toolbar
   - source: "@quartz-community/reader-mode"
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 35

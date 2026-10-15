@@ -23,13 +23,13 @@ export const FullWidthFrame: PageFrame = {
   }: PageFrameProps) {
     return (
       <>
+        <Header {...componentData}>
+          {header.map((HeaderComponent) => (
+            <HeaderComponent {...componentData} />
+          ))}
+        </Header>
         <div class="center full-width">
           <div class="page-header">
-            <Header {...componentData}>
-              {header.map((HeaderComponent) => (
-                <HeaderComponent {...componentData} />
-              ))}
-            </Header>
             <div class="popover-hint">
               {beforeBody.map((BodyComponent) => (
                 <BodyComponent {...componentData} />
@@ -37,7 +37,7 @@ export const FullWidthFrame: PageFrame = {
             </div>
           </div>
           <Content {...componentData} />
-          <hr />
+          {afterBody.length > 0 && <hr />}
           <div class="page-footer">
             {afterBody.map((BodyComponent) => (
               <BodyComponent {...componentData} />
