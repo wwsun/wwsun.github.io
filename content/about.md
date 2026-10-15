@@ -4,9 +4,9 @@ title: About Me
 
 ## Current Focus
 
-我是 Weiwei Sun，目前主要工作的领域是：
+我是 Weiwei Sun，目前主要工作领域是：
 
-- **AI Agent**: 端到端智能体、多智能体编排、Agent 工具链开发、AI Code Review、企业级知识工程
+- **AI Agent**: 端到端创作智能体、多智能体编排、Agent 工具链开发、AI Code Review、企业级知识工程
 - **Low-code**: [Tango](https://github.com/NetEase/tango) (包括中后台低码，RN跨端低码)
 - **iPaaS**: [TangoFlow](https://juejin.cn/post/7325337414444433448)
 
@@ -30,9 +30,8 @@ title: About Me
 
 ## Tech Stack
 
-- **Coding Agents:** Claude-Code, Gemini-CLI, Github Copilot, Antigravity
-- **Languages**: JavaScript, TypeScript, Node.js
-- **Frameworks**: React, Next.js
-- **Tools**: pnpm, yarn, figma, obsidian
+- **Coding Agents:** Claude-Code, Codex, Github Copilot, Antigravity
+- **Languages**: JavaScript, TypeScript, Node.js, Java
+- **Frameworks**: React, Next.js, Spring Boot
 
 [GitHub Profile](https://github.com/wwsun) | [Twitter](https://twitter.com/wwsun)
