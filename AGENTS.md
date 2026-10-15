@@ -1,6 +1,6 @@
 # AGENTS.md
 
-本仓库是 **Weiwei Sun 的网络日志与个人知识库**，基于 **Quartz v5** 构建，通过 **Obsidian** 管理。
+本仓库是 **Weiwei Sun 的网络日志**，基于 **Quartz v5** 构建，通过 **Obsidian** 管理。
 
 ## 该做
 
