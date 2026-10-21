@@ -1,0 +1,59 @@
+{
+  "skill_name": "read-and-learn",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "帮我把这篇文章翻译整理一下，存到剪藏里：https://www.anthropic.com/engineering/writing-tools-for-agents",
+      "expected_output": "意图明确为剪藏（clippings），直接产出一篇归档到 content/clippings/ 的双语对照笔记：完整 frontmatter、中文摘要、5-20 条术语表、英文原段与中文译段逐段交替且无前缀标记，所有原文链接在译文中保留",
+      "files": [],
+      "expectations": [
+        "输出为单个 Markdown 文件，写入 content/clippings/ 目录，frontmatter 包含 title、description、tags、source 四个字段",
+        "frontmatter 的 source 字段与任务给定的 URL 完全一致",
+        "正文采用中英段落交替排列（英文原段与中文译段成对出现，段间空行分隔）",
+        "段落不以「EN:」「译:」「中文:」等前缀标记开头",
+        "存在术语表章节，为三列表格（英文|中文|说明），术语数量在 5-20 之间",
+        "输出中的超链接 URL 均能在原文中找到且地址未改变",
+        "译文完整覆盖全文，包含文章末尾段落的中文翻译（未截断）"
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "@[/Users/weiwei/Downloads/plan_mode.md] 帮我整理一下这份资料，存进知识库",
+      "expected_output": "意图模糊（未指明是整理成 notes 学习笔记还是 clippings 全文双语翻译），先读取文件了解内容，然后向用户提问确认归档模式（提供 notes 结构化学习笔记与 clippings 全文双语对照两个选项）",
+      "files": ["/Users/weiwei/Downloads/plan_mode.md"],
+      "expectations": [
+        "先读取给定的本地文件了解内容",
+        "在直接生成最终笔记文件前，主动向用户提问确认归档模式（是归档到 content/notes/ 整理为结构化学习笔记，还是归档到 content/clippings/ 做全文双语翻译）",
+        "提问选项中包含结合该文档特征的推荐说明"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "把 @[/Users/weiwei/Downloads/plan_mode.md] 沉淀到 Obsidian 知识库的 notes 里",
+      "expected_output": "意图明确为学习笔记（notes），直接产出一篇归档到 content/notes/ 的结构化学习笔记：包含完整 frontmatter、与现有笔记的 [[Wiki-link]] 关联、Mermaid 流程图或对比表格、核心机制拆解以及原文关键片段与 Callout 批注，且不使用 emoji，最后执行 prettier 格式化与 sync-tags",
+      "files": ["/Users/weiwei/Downloads/plan_mode.md"],
+      "expectations": [
+        "输出文件位于 content/notes/ 目录下，文件名为英文 kebab-case 格式",
+        "frontmatter 包含 title、tags、description 字段",
+        "正文中包含指向知识库已有相关笔记的 [[Wiki-link]] 内部链接",
+        "包含结构化拆解（如 Mermaid 流程图、对比表格或分点核心机制解析）",
+        "标题和正文中不包含任何 emoji",
+        "执行了单文件 prettier 格式化与 npm run sync-tags"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "帮我把这篇文章剪藏成双语对照笔记，剪完顺便陪我英语复盘一下：https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/",
+      "expected_output": "先产出标准双语对照笔记并归档至 content/clippings/，然后进入轻量费曼式英语学习复盘：以英文短语和文章关键要点为单位做回忆式练习（关键短语热身、要点回顾），最后询问是否把复盘要点追加进笔记",
+      "files": [],
+      "expectations": [
+        "输出为单个 Markdown 文件，frontmatter 包含 title、description、tags、source 四个字段",
+        "正文采用中英段落交替排列，存在 5-20 条的术语表",
+        "归档完成后，执行过程向用户发起了英语学习复盘的引导（包含关键短语练习与要点回顾两个环节）",
+        "复盘以英文短语和文章关键要点为单位，不要求用户写完整句子复述",
+        "复盘环节中先请用户输出（回忆短语含义或列出要点），而不是直接给出参考答案",
+        "复盘结束后询问用户是否将复盘要点追加进笔记"
+      ]
+    }
+  ]
+}
