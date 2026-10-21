@@ -1,8 +1,9 @@
 ---
 title: MBP 迁移方案：Intel i9 16" → M5 14"
 tags:
-  - 配置/macOS
-  - 清单
+  - macos
+  - configuration
+  - checklist
 description: 从 2019 款 Intel MacBook Pro 16 迁移到 2025 款 M5 MacBook Pro 14 的完整方案，含环境盘点、迁移策略、操作清单与架构差异风险点
 source:
 ---

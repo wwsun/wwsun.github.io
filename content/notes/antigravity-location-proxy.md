@@ -6,7 +6,7 @@ tags:
   - faq
   - antigravity
   - clash
-  - 代理
+  - proxy
   - google-ai
 source:
 ---

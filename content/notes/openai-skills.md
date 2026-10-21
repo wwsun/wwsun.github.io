@@ -2,9 +2,10 @@
 title: "OpenAI Agent Skills 架构速览"
 date: 2026-04-17
 tags:
-  - AI/Agent
-  - 开源项目/工程分析
-  - 架构设计
+  - ai-agent
+  - open-source
+  - engineering
+  - architecture
 description: "OpenAI 开源的 Agent Skills 标准与目录深度分析：揭秘 AI 代理如何通过标准化文件夹获取指令、脚本与资源。"
 source: "https://github.com/openai/skills"
 ---

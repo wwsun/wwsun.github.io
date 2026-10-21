@@ -1,8 +1,9 @@
 ---
 title: "TailwindCSS 引入与实战指南"
 tags:
-  - wiki/frontend
-  - css/tailwindcss
+  - frontend
+  - css
+  - tailwindcss
 description: "为前端项目引入 TailwindCSS 的核心概念、最佳实践以及避坑指南，帮助开发者快速构建现代化响应式界面。"
 date: 2026-05-21
 ---

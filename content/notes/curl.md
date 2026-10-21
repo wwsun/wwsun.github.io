@@ -2,7 +2,8 @@
 title: "curl 指南：接口调试必备"
 date: 2026-04-04 23:18:00
 tags:
-  - devtools/curl
+  - devtools
+  - curl
   - network
   - cli
 description: "面向开发者的 curl 实战指南，涵盖接口验证、JSON 发送、身份认证及调试调试技巧。"

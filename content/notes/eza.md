@@ -1,9 +1,9 @@
 ---
 title: "eza: 现代化的 ls 替代品"
 tags:
-  - CLI
-  - Rust
-  - 工具
+  - cli
+  - rust
+  - tools
 description: eza 是一款现代化的 ls 替代品，内置图标、Git 状态集成和树状视图，显著提升开发者的终端体验。
 source: https://github.com/eza-community/eza
 ---

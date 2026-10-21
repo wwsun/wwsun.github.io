@@ -3,8 +3,10 @@ title: "提升 AI 提示词效果：设计师必知的 50 种设计风格"
 description: "一份针对生成式 AI 的设计风格备忘录，盘点了 50 种核心视觉风格及其在 AI 制图中的 Prompt 提效指南。"
 date: 2026-04-01
 tags:
-  - ai/prompt
-  - design/style
+  - ai
+  - prompt
+  - design
+  - style
   - note
 ---
 
