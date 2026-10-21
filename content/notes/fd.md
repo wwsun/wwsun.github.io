@@ -1,53 +1,212 @@
 ---
 title: fd 快速上手指南
-created: 2025-12-15 21:15
-source: https://github.com/sharkdp/fd
+date: 2026-10-21
+description: 快速、友好的文件搜索工具，find 的现代化替代品
 tags:
-  - linux
-  - find
-description: 在 macOS 或 Linux 下，fd 是一个非常高效且现代化的文件查找工具，可以快速查找特定名字的文件或目录。
+  - cli
+  - dev-tools
+  - rust
+source: https://github.com/sharkdp/fd
 ---
 
-`fd` 是一款现代、快速的 `find` 替代品，语法简单，默认高亮输出，且**自动忽略隐藏文件和 `.gitignore` 中列出的文件**。
+## 概述
 
-## 常用场景速查
+`fd` 是一个用 Rust 编写的命令行文件搜索工具，是 `find` 的现代化替代品。它更快、更直观，默认行为更符合日常使用习惯。
 
-### 1. 基础查找
+- **官方仓库**: [sharkdp/fd](https://github.com/sharkdp/fd)
+- **中文文档**: [cha0ran/fd-zh](https://github.com/cha0ran/fd-zh)
+- **安装**: `brew install fd` / `apt install fd-find` / `cargo install fd-find`
 
-- `fd report`：查找名称包含 "report" 的**文件或目录**
-- `fd -t d report`: 查找名称包含 "report" 的**目录**
-- `fd -t f report`: 查找名称包含 "report" 的**文件**
-- `fd -g "README.md"`：精确匹配完整文件名
-- `fd src /path/to/search`：在指定目录下查找
+## 核心设计理念
 
-### 2. 按条件过滤
+- **直觉优先**：`fd PATTERN` 相当于 `find -iname '*PATTERN*'`，更符合人的思考方式
+- **智能大小写**：默认不区分大小写，模式中含大写字母时自动切换为大小写敏感
+- **安全默认**：默认忽略隐藏文件、遵守 `.gitignore`
+- **高性能**：并行遍历目录，Rust 正则引擎，比 `find` 快 5-9 倍
 
-- `fd -t f` / `fd -t d`：仅查找**文件(file)** / **目录(directory)**
-- `fd -e pdf`：查找所有 **PDF** 文件（按扩展名筛选，无需写通配符）
-- `fd -e xlsx budget`：查找名称包含 "budget" 的 Excel 文件
-- `fd report -d 1`：限制搜索层级深度（仅在当前层级查找，不进入子目录）
+## 基本用法
 
-### 3. 显示隐藏与忽略文件
+### 简单搜索
 
-- `fd -H config`：搜索结果**包含隐藏文件**（如 `.config`）
-- `fd -I node_modules`：搜索结果**包含被 `.gitignore` 忽略的文件**
-- `fd -HI secret`：关闭所有过滤（包含隐藏与被忽略的文件）
+```bash
+fd PATTERN              # 递归搜索当前目录
+fd PATTERN /path        # 在指定目录搜索
+fd                      # 无参数列出所有文件（类似 ls -R）
+```
 
-### 4. 批量操作 (`-x`)
+### 搜索模式
 
-使用 `-x` (或 `--exec`) 可以对找到的每个文件执行命令，其中 `{}` 为文件路径占位符：
+```bash
+fd '正则表达式'          # 默认正则（最强大）
+fd -g 'glob_pattern'    # Glob 通配符模式
+fd -g libc.so           # 精确匹配文件名
+fd -e md                # 按扩展名过滤
+fd -e rs mod            # 扩展名 + 搜索词组合
+fd -t f                 # 按类型过滤: f=文件 d=目录 l=符号链接 x=可执行 e=空
+```
 
-- `fd -e tmp -x rm {}`：批量删除所有的 `.tmp` 文件
-- `fd -e jpg -x mv {} /path/to/backup/`：将所有 `.jpg` 图片移动到备份目录
+### 高级过滤
 
-## 核心参数一览
+```bash
+fd -H                   # 包含隐藏文件
+fd -I                   # 不遵守 .gitignore
+fd -HI                  # 什么都不过滤
+fd -p                   # 匹配完整路径
+fd -d 3                 # 限制最大深度
+fd -E '.git'            # 排除指定目录/文件
+fd -L                   # 跟踪符号链接
+```
 
-| 参数 | 完整形式      | 作用说明                                           |
-| ---- | ------------- | -------------------------------------------------- |
-| `-t` | `--type`      | 指定过滤类型（`f` 文件，`d` 目录，`x` 可执行文件） |
-| `-e` | `--extension` | 指定文件扩展名（如 `md`, `png`）                   |
-| `-d` | `--max-depth` | 限制向下搜索的目录层级深度                         |
-| `-H` | `--hidden`    | 搜索范围包含隐藏文件                               |
-| `-I` | `--no-ignore` | 搜索范围包含被 `.gitignore` 忽略的文件             |
-| `-g` | `--glob`      | 启用通配符/精确匹配（关闭默认的正则匹配）          |
-| `-x` | `--exec`      | 对每一个搜索结果批量执行命令                       |
+## ⭐ 命令执行（-x / -X）
+
+这是 fd 区别于 find 的核心特性。
+
+### 并行执行 `-x`
+
+每个搜索结果启动一个独立进程，并行运行：
+
+```bash
+fd -e zip -x unzip                     # 找到所有 zip 并行解压
+fd -e h -e cpp -x clang-format -i     # 格式化所有 C/C++ 源文件
+fd -tf -x md5sum > checksums.txt       # 并行计算所有文件校验和
+fd -e jpg -x convert {} {.}.png        # 批量转换 jpg 到 png
+```
+
+### 批量执行 `-X`
+
+所有结果作为一次命令的参数：
+
+```bash
+fd -g '*.py' -X vim                    # 用 vim 一次性打开所有匹配文件
+fd -e cpp -e h -X rg 'TODO'           # 在所有 C++ 源文件中 grep TODO
+fd -X ls -lhd --color=always          # 等同于 fd -l
+fd -H '^\.DS_Store$' -tf -X rm        # 一次性删除所有 .DS_Store
+```
+
+### 占位符语法
+
+| 占位符 | 含义           | 示例                         |
+| ------ | -------------- | ---------------------------- |
+| `{}`   | 完整路径       | `documents/images/party.jpg` |
+| `{.}`  | 无扩展名路径   | `documents/images/party`     |
+| `{/}`  | 仅文件名       | `party.jpg`                  |
+| `{//}` | 父目录         | `documents/images`           |
+| `{/.}` | 无扩展名文件名 | `party`                      |
+
+### 并行度控制
+
+```bash
+fd -x command -j 4     # 最多 4 个并行任务
+fd -x command -j 1     # 串行执行
+```
+
+## 与 find 的对比
+
+| 操作            | `find`                   | `fd`             |
+| --------------- | ------------------------ | ---------------- |
+| 搜索模式        | `find -iname '*foo*'`    | `fd foo`         |
+| 区分大小写      | `find -name 'Foo'`       | `fd Foo`（自动） |
+| 忽略隐藏文件    | 需要 `-not -path '*/.*'` | 默认行为         |
+| 忽略 .gitignore | 不支持                   | 默认行为         |
+| 扩展名过滤      | `find -name '*.md'`      | `fd -e md`       |
+| 并行执行        | 需配合 `xargs -P`        | `fd -x` 内置     |
+| 正则搜索        | `find -regex`            | 默认行为         |
+
+## 工具组合
+
+### 配合 fzf（模糊查找器）
+
+```bash
+export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+```
+
+### 配合 ripgrep（内容搜索）
+
+```bash
+fd -e cpp -e h -X rg 'std::cout'    # 在 C++ 文件中搜索内容
+```
+
+### 配合 xargs
+
+```bash
+fd -0 -e rs | xargs -0 wc -l        # NULL 分隔，安全处理含空格文件名
+```
+
+### 输出为树状结构
+
+```bash
+fd | as-tree                        # 需要安装 as-tree
+```
+
+## 排除与忽略
+
+### 临时排除
+
+```bash
+fd -E '.git' -E 'node_modules' -E '*.bak'
+```
+
+### 永久排除（.fdignore）
+
+在项目或 `~/.config/fd/ignore` 中创建 `.fdignore` 文件，语法同 `.gitignore`：
+
+```
+.git/
+node_modules/
+*.bak
+```
+
+## 常见场景速查
+
+```bash
+# 找到项目中所有 Markdown 文件
+fd -e md
+
+# 列出 src 目录下所有 TypeScript 文件
+fd -e ts src/
+
+# 查找最近修改的日志文件
+fd -e log --changed-within 1day
+
+# 查找大文件（>100MB）
+fd -S +100m
+
+# 精确匹配文件名
+fd -g package.json
+
+# 搜索完整路径（而不只是文件名）
+fd -p 'src/components/.*\.tsx$'
+
+# 批量重命名（需配合其他工具）
+fd -e jpg -x mv {} {.}.webp
+```
+
+## 安装方式
+
+```bash
+# macOS
+brew install fd
+
+# Ubuntu/Debian
+sudo apt install fd-find
+# 注意：二进制名为 fdfind，建议创建别名
+ln -s $(which fdfind) ~/.local/bin/fd
+
+# Arch Linux
+pacman -S fd
+
+# 通过 Rust
+cargo install fd-find
+
+# 通过 npm
+npm install -g fd-find
+```
+
+## 注意事项
+
+- fd 默认不搜索隐藏目录/文件，搜不到时先用 `-H` 试试
+- 正则表达式特殊字符（`[]`、`^`、`$` 等）在 shell 中也会被转义，建议用**单引号**包裹：`fd '^[A-Z].*$'`
+- 模式以 `-` 开头时需加 `--`：`fd -- '-pattern'`
+- Shell alias 和函数不能直接通过 `fd -x` 执行，需通过 `bash -c` 包装
+- Ubuntu/Debian 的包名是 `fd-find`，二进制名为 `fdfind`
