@@ -4,13 +4,16 @@
     "experimentalDecorators": true,
     "module": "esnext",
     "target": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "strict": true,
     "incremental": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "micromorph": ["./node_modules/micromorph"]
+    },
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "esModuleInterop": true,
