@@ -19,24 +19,25 @@
     {
       "id": 1,
       "prompt": "@[/Users/weiwei/Downloads/plan_mode.md] 帮我整理一下这份资料，存进知识库",
-      "expected_output": "意图模糊（未指明是整理成 notes 学习笔记还是 clippings 全文双语翻译），先读取文件了解内容，然后向用户提问确认归档模式（提供 notes 结构化学习笔记与 clippings 全文双语对照两个选项）",
+      "expected_output": "意图模糊（未指明是整理成 notes 精炼学习笔记还是 clippings 全文双语翻译），先读取文件了解内容，然后向用户提问确认归档模式（提供 notes 精炼学习笔记与 clippings 全文双语对照两个选项）",
       "files": ["/Users/weiwei/Downloads/plan_mode.md"],
       "expectations": [
         "先读取给定的本地文件了解内容",
-        "在直接生成最终笔记文件前，主动向用户提问确认归档模式（是归档到 content/notes/ 整理为结构化学习笔记，还是归档到 content/clippings/ 做全文双语翻译）",
+        "在直接生成最终笔记文件前，主动向用户提问确认归档模式（是归档到 content/notes/ 提炼为精炼学习笔记，还是归档到 content/clippings/ 做全文双语翻译）",
         "提问选项中包含结合该文档特征的推荐说明"
       ]
     },
     {
       "id": 2,
       "prompt": "把 @[/Users/weiwei/Downloads/plan_mode.md] 沉淀到 Obsidian 知识库的 notes 里",
-      "expected_output": "意图明确为学习笔记（notes），直接产出一篇归档到 content/notes/ 的结构化学习笔记：包含完整 frontmatter、与现有笔记的 [[Wiki-link]] 关联、Mermaid 流程图或对比表格、核心机制拆解以及原文关键片段与 Callout 批注，且不使用 emoji，最后执行 prettier 格式化与 sync-tags",
+      "expected_output": "意图明确为学习笔记（notes），直接产出一篇归档到 content/notes/ 的 3-5 分钟精炼学习笔记（控制在 800-1500 字）：包含完整 frontmatter、开门见山的核心结论 Callout、与现有笔记的 [[Wiki-link]] 关联、高密度核心要点与实践启示，无冗长背景套话或大段原文摘抄，且不使用 emoji，最后执行 prettier 格式化与 sync-tags",
       "files": ["/Users/weiwei/Downloads/plan_mode.md"],
       "expectations": [
         "输出文件位于 content/notes/ 目录下，文件名为英文 kebab-case 格式",
         "frontmatter 包含 title、tags、description 字段",
+        "首段直接进入核心结论 Callout，无空泛背景寒暄，且全文篇幅精炼（控制在 800-1500 字左右）",
         "正文中包含指向知识库已有相关笔记的 [[Wiki-link]] 内部链接",
-        "包含结构化拆解（如 Mermaid 流程图、对比表格或分点核心机制解析）",
+        "包含高密度的核心要点拆解（对比表格或紧凑列表），无大段原文机械摘抄",
         "标题和正文中不包含任何 emoji",
         "执行了单文件 prettier 格式化与 npm run sync-tags"
       ]
