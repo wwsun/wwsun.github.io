@@ -31,6 +31,7 @@
 | blast radius | 爆炸半径 | 安全事故可能影响的范围 |
 | Block | Block/代码块 | CodePen 中可插入的预配置代码模块 |
 | brand damage | 品牌信任损耗 | 因决策失误导致用户对品牌的信任和好感度下降 |
+| break glass | 砸玻璃紧急越权 | 生产故障紧急抢修时供人类工程师强制跳过所有自动化卡点合入代码的特权机制 |
 | business rule | 业务规则 | 决定业务行为合法性与逻辑的规则，与基础设施代码相对 |
 | C2PA | C2PA | 内容来源与真实性联盟的开放标准，记录文件来源 |
 | Canonicality / Canon | 权威性 / 权威上下文 | 代码库中描述系统当前实际运转状态的单一真实源（如当前代码、AGENTS.md、Skills 等），智能体必须视其为事实 |
@@ -39,6 +40,7 @@
 | capital expenses (CapEx) | 资本支出 | 用于购置或升级长期资产的投入 |
 | Caveman | Caveman | 压缩 AI 输出、只留精炼符号的技能 |
 | checkpoint | 检查点 | 会话上下文被压缩时生成的摘要快照 |
+| CI-native | CI 原生 | 直接内嵌在持续集成流水线生命周期内部作为原生步骤运行的系统形态 |
 | circuit breaker | 熔断机制 | 当异常或事故率超过阈值时自动切断操作或提高审查门槛的自适应保护机制 |
 | circular revenues | 循环收入 | 少数公司之间相互投资和采购形成的封闭收入链条 |
 | classification | 安全分类器 | 检测并阻止模型执行不安全请求的防护机制 |
@@ -48,17 +50,22 @@
 | CLEC | 竞争性本地交换运营商 | 2000 年电信泡沫中大量涌现又迅速消失的电信公司 |
 | Code of Practice | 行为准则 | 欧盟《AI 生成内容透明度行为准则》，约 190 个签署方 |
 | code review | 代码审查 | 对源代码进行人工或自动化检查以发现缺陷并增进代码理解的过程 |
+| code review hierarchy of needs | 代码审查需求层次 | 仿照马斯洛需求层次构建的代码审查价值金字塔：底座为心智模型对齐与正确性，塔尖为代码风格 |
 | codebase archaeology | 代码库考古 | 在改动之前系统性地理解既有代码结构、行为与约束的过程 |
+| codebase indexer | 代码库索引器 | 自动化扫描、分析并维护全代码库架构语义与跨仓库知识 Wiki 的索引系统 |
 | CODEOWNERS | CODEOWNERS | 代码仓库中用于定义特定文件或目录责任人并在 PR 时自动请求审查的配置文件 |
 | CodePen | CodePen | 在线前端代码编辑器和社区平台 |
 | Codex | Codex | OpenAI 推出的编程智能体产品，与 Claude Code 存在直接竞争关系 |
 | commandFor / commandfor | commandFor 属性 | 将按钮变为「命令调用器」，值为被控制元素的 ID |
 | compaction | 压缩 | 自动汇总对话历史、保留关键信息的上下文管理机制 |
+| computer use | 计算机操作 | 大模型通过视觉识别直接驱动屏幕、鼠标点击与键盘输入以模拟真实用户操作的能力 |
+| constructive feedback | 建设性反馈 | 针对具体问题以提问方式引导开发者思考、提供清晰改进方向而非空洞批判的审查意见 |
 | Container Queries | 容器查询 | 基于父容器尺寸而非视口宽度进行响应式布局的 CSS 特性 |
 | content credential | 内容凭证 | 文件元数据中加密签名的来源说明 |
 | context engineering | 上下文工程 | 系统化地设计和组装智能体所见上下文（系统提示词、Skills、记忆等）的工程实践 |
 | context window | 上下文窗口 | 模型一次能处理的输入 Token 上限 |
 | Context7 | Context7 | 按需拉取特定版本库文档的技能 |
+| coordinator agent | 协调智能体 | 负责整体任务编排调度、并发控制并对多个子智能体产出进行去重仲裁的主控智能体 |
 | CSS Anchor Positioning | CSS 锚点定位 | 允许一个元素基于另一个元素定位的 CSS 新特性 |
 | custom instructions | 自定义指令 | 用户或仓库提供的指令文件，用于约束 Copilot 的行为与规范 |
 | Cyber Verification Program (CVP) | 网络安全验证计划 | Anthropic 为企业和研究人员提供的受限网络安全测试通道 |
@@ -74,6 +81,7 @@
 | Desktop extension (DXT) | 桌面扩展 | Claude Desktop 应用中用于一键安装本地 MCP 服务器的打包格式 |
 | Deslop | Deslop | 清除 AI 生成痕迹（slop）的技能 |
 | dialog | 对话框 | 浏览器原生模态对话框元素 |
+| DiffNote | DiffNote（行内代码批注） | GitLab 代码审查中针对特定代码差异行创建的讨论线程对象 |
 | diseconomies of scale | 规模不经济 | 规模扩大反而导致单位成本上升的反常现象 |
 | distillation | 蒸馏 | 用小模型学习大模型输出的技术，可大幅降低训练计算成本 |
 | domain model | 领域模型 | 描述业务实体及其关系的定义，回答「有什么」；只被查询，从不被执行 |
@@ -88,7 +96,9 @@
 | EU AI Act | 欧盟《人工智能法案》 | 要求 AI 系统提供商标记 AI 生成内容 |
 | evals | 评估 | 用带标注的测试集量化模型或系统质量的机制 |
 | exponential backoff | 指数退避 | 重试失败请求时逐次成倍延长等待时间的策略 |
+| failback chain | 故障降级链 | 当首选大模型遇到限流或宕机时，系统按预设拓扑逐级回退至同代或上一代备用模型的路由链 |
 | fan-in / fan-out | 扇入 / 扇出 | 一个模块被依赖的广度 / 一个模块依赖他人的广度 |
+| FDE (Forward Deployed Engineer) | 前线部署工程师 | 深入客户现场协助定制化部署、基础设施调优与环境接入的专业工程师 |
 | feature flag | 特性标记 | 在运行时动态开启或关闭特定功能的技术，支持解耦代码部署与业务发布 |
 | fine-tuning | 微调 | 在预训练模型上针对特定任务或风格继续训练 |
 | forensic accountant | 法务会计师 | 运用会计与调查技能专门排查财务隐患与舞弊的专业审计人员 |
@@ -105,6 +115,7 @@
 | held-out test set | 留存测试集 | 迭代优化工具时不参与调优、专门用来检验是否过拟合的独立测试集 |
 | Hermes | Hermes | 一种 Agent 运行时框架 |
 | high-impact workflows | 高影响力工作流 | 频繁执行且对业务结果影响大的关键任务场景，是工具设计应优先覆盖的对象 |
+| hillclimbing | 爬山评测 / 爬山法 | 借助带缺陷标签的历史 PR 基准集，通过微调 Prompt 与配置使检出率逐步提升的闭环评测方法 |
 | host proxy | 主机代理 | 沙盒工具通过薄封装转发请求到主机侧路由，由主机持有凭证完成外部调用 |
 | host-threaded | 主机注入/主机透传 | 机密从主机环境按次注入容器，而非固化在容器内 |
 | idempotent | 幂等 | 重复执行多次与执行一次产生相同效果的性质 |
@@ -115,6 +126,7 @@
 | interleaved thinking | 交织式思考 | 允许模型在多次工具调用之间穿插推理过程的扩展思考功能 |
 | Internet Archive | 互联网档案馆 | 长期保存网页历史快照的非营利数字图书馆 |
 | Invoker Commands API | 调用器命令 API | 声明式地把行为赋给按钮、进而控制交互元素的新 Web API |
+| JSONL | JSON Lines | 一种流式数据格式，文本中每一行均为一个独立自包含的合法 JSON 对象 |
 | judgement | 判断力 | 模型在无显式规则的情况下，根据上下文做出合理决策的能力 |
 | just-in-time credentials | 即时凭证 | 为单个具体任务签发、短时有效的临时凭证，任务完成即失效 |
 | JWT | JWT（JSON Web Token） | 一种结构化、自包含、加密签名的令牌格式 |
@@ -127,16 +139,19 @@
 | Linear | Linear | 项目管理/工单跟踪工具 |
 | Live View | 实时视图 | CodePen 提供的可分享的实时预览页面 |
 | magic value | 魔法值 | 代码中含义不明的硬编码数值或常量 |
+| materiality | 实质重要性 / 架构变更度 | 评估某项改动是否涉及测试框架、包管理器或目录结构等重大架构契约的标准 |
 | MCP | MCP（模型上下文协议） | 连接智能体与外部工具的开放协议 |
 | MCP server | MCP 服务器 | 模型上下文协议服务器，为智能体提供工具能力 |
 | me-in-the-loop | 人在环内 | 关键决策仍需人工参与的工作模式 |
 | medallion architecture | 奖章架构 | 按 Bronze/Silver/Gold 分层组织数据的分析型数据设计模式，智能体只读 Gold 及以上 |
 | memory layer | 记忆层 | 为跨会话或跨用户保存上下文的系统 |
+| mental model | 心智模型 | 工程师在脑海中对系统工作原理、状态流转与模块交互构建的认知表象 |
 | merge queue | 合并队列 | 在主干分支按序对排队代码执行集成测试，避免因并发合入导致主干损坏的 CI 机制 |
 | middle-mile fiber | 中程光纤 | 连接数据中心与主干网络的中间传输层光纤 |
 | mirrored client | 镜像客户端 | 在沙盒内复制一份与主机侧保持同步的客户端逻辑 |
 | MJML | MJML | 一种专门用于编写响应式邮件模板的标记语言 |
 | Mnemosyne | Mnemosyne | 一个记忆库系统，为智能体提供持久记忆 |
+| model inversion | 模型反转 / 异构模型审查 | 识别代码作者所用的大模型（如 Claude），并刻意选用异构竞争模型（如 GPT/Codex）进行审查以打破同一模型盲区的策略 |
 | Modern Web Guidance | 现代 Web 指南 | Chrome 团队推出的智能体技能集，嵌入现代 Web 平台指南到 AI 编码工作流 |
 | modular training strategies | 模块化训练策略 | Anthropic 提出的提高开源权重模型安全性的训练方法 |
 | monorepo | 单仓库 | 将多个项目集中在单一代码仓库中的管理模式 |
@@ -194,8 +209,10 @@
 | rug-pulled | 过河拆桥 | 服务或承诺被提供方突然撤销，使依赖它的用户措手不及 |
 | sandbox execution model | 沙盒执行模型 | 工具在沙盒内直连外部服务，还是经由主机代理转发的两种模式 |
 | scaling laws | 缩放定律 | 描述模型规模、数据量和计算量对性能影响的经验规律 |
+| scalpel-driven development | 柳叶刀驱动开发 | 主张用精准细微的小粒度改动逐步演进代码，避免巨型变更引发理解与验证灾难的开发实践 |
 | scheduler.yield() | scheduler.yield() | 将主线程控制权交还给浏览器的调度 API |
 | Scope | 权限范围 | 令牌所授权访问的资源范围 |
+| second order effects | 二阶效应 / 间接连锁影响 | 局部代码变更对当前文件以外的外部系统、契约或下游依赖所引发的非显式副作用 |
 | self-efficacy | 自我效能感 | 心理学概念，指个体对自己是否有能力完成某一任务或达成目标的信念 |
 | semantic HTML | 语义化 HTML | 使用有意义的标签和属性来表达文档结构 |
 | semantic layer | 语义层 | 对指标与业务实体含义的声明式定义层，把分析师脑中的上下文搬进数据本身 |
